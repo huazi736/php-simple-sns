@@ -1,0 +1,279 @@
+<div class="streamComposer mediaBox" id="postBox">
+    <div class="pointUp"></div>
+    <ul class="mediaNav">
+        <li class="mediaNavItem mediaNavStatus mediaCurrent"><a href=""><i class="uiIconP icons3 bp_currentState"></i>状态</a></li>
+        <li class="mediaNavItem mediaNavPhoto"><a href=""><i class="uiIconP icons1 bp_photo"></i>照片</a></li>
+        <li class="mediaNavItem mediaNavVideo"><a href=""><i class="uiIconP icons1 bp_video"></i>视频</a></li>
+    </ul>
+    <div class="mediaWrap">
+        <div class="mediaContent">
+            <div class="mediaSection mediaStatus">
+                <div class="mediaItems">
+                    <div class="mediaItem">
+                        <div class="mediaItemBox textArea">
+                            <div class="textWrap">
+                                <textarea class="shareInfoCont">写点什么吧</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mediaSection mediaPhoto js-tabs">
+                <ul class="mediaItemNav clearfix">
+                    <li><a href=""><b>上传照片</b>从硬盘</a></li>
+                    <li><a href=""><b>拍照</b>用网络摄像头</a></li>
+                </ul>
+                <div class="mediaItems">
+                    <div class="mediaItem photo">
+                        <div class="mediaItemBox uploadBox">
+                            <div class="flashUpload">
+                                <input type="file" id="photoUpload-0" data-upload-type="flashuploaduid" data-upload-uid="<!--{$login_info['uid']}-->">
+                                从你的电脑中选择一个图像文件
+                            </div>
+                            <div class="fileQueue" id="filePhotoQueue-0"></div>
+                            <div class="msg">上传成功！</div>
+                            <div class="controls">
+                                <a class="cancel" href="">重新上传</a>
+                            </div>
+                        </div>
+                        <div class="mediaItemBox textArea">
+                            <div class="textWrap">
+                                <textarea class="shareInfoCont">给这张照片做些说明吧！</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mediaItem camera">
+                        <div class="mediaItemBox mediaFlash"></div>
+                        <div class="mediaItemBox textArea">
+                            <div class="textWrap">
+                                <textarea class="shareInfoCont">给这张照片做些说明吧！</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mediaSection mediaVideo js-tabs">
+                <ul class="mediaItemNav w3 clearfix">
+                    <li><a href=""><b>分享视频</b>从网络</a></li>
+                    <li><a href=""><b>上传视频</b>从硬盘</a></li>
+                    <li><a href=""><b>录制影片</b>用网络摄像头</a></li>
+                </ul>
+                <div class="mediaItems">
+                    <div class="mediaItem shareVideo">
+                        <div class="mediaItemBox">
+                            <div class="form-field clearfix">
+                                <label class="label">粘贴视频播放页地址(腾讯视频、优酷网、土豆网、酷6)</label>
+                                <input class="text" type="text" value="请将连接复制到此处">
+                                <input class="submit" type="submit" value="确定">
+                            </div>
+                            <div class="shareData" style="display:none;">
+                                <div class="media_prev"></div>
+                                <div class=" textArea">
+                                    <div class="textWrap">
+                                        <textarea class="shareInfoCont"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mediaItem uploadVideo">
+                        <div class="mediaItemBox uploadBox" data-upload-appkeys="<!--{$authcode_url}-->" data-upload-url="<!--{$video_upload_url}-->"></div>
+                        <div class="mediaItemBox textArea">
+                            <div class="textWrap">
+                                <textarea class="shareInfoCont">给这张照片做些说明吧！</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mediaItem makeVideo">
+                        <div class="mediaItemBox mediaFlash" data-record-name="<!--{$videoname}-->" data-record-url="<!--{$recordurl}-->"></div>
+                        <div class="mediaItemBox textArea">
+                            <div class="textWrap">
+                                <textarea class="shareInfoCont">给这张照片做些说明吧！</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mediaFooter">
+            <div class="uiItems">
+                <div class="timelineDate">
+                    <div class="selectDate">
+                        <input class="fieldText fieldDate" name="datetime" type="text" now="<!--{date('Y-n-j')}-->" value="<!--{date('Y-n-j')}-->" end_year="<!--{date('Y-n-j')}-->" begin_year="<!--{if (!empty($user.birthday))}--> <!--{date('Y-n-j', $user['birthday'])}--><!--{else}-->1912-1-1<!--{/if}-->"/>
+                    </div>
+                </div>
+                <div class="face">
+                    <a title="表情" href=""><i class="face-icon face0"></i>表情</a>
+                </div>
+            </div>
+            <div class="mediaButtons">
+                <div class="shareRights dropWrap dropMenu tip_up_right_black" oid="123" s="1" uid="" tip="公开">
+                    <input type="hidden" name="permission" value="1" />
+                </div>
+                <div class="sendPost">
+                    <label class="uiButton uiButtonConfirm uiMediaButton"><input type="button" id="distributeButton" value="发表" autocomplete="off"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- start: streamComposer 信息发布框开始-->
+<!--<div class="streamComposer" id="postBox">-->
+    <!--<div id="distributeInfoBody" data-id="distributeInfoBody">-->
+        <!--<input type="hidden" id="currentComposerAttachment" data-id="currentComposerAttachment" value="0" />-->
+        <!--<div class="showWhenLoading"></div>-->
+        <!--<ul class="composerAttachments clearfix">-->
+            <!--<li class="s_msg act "  ref="0" ><span><i class="uiIconP icons3 bp_currentState"></i>状态</span></li>-->
+            <!--<li class="s_photo" ref="1" ><span><i class="uiIconP icons1 bp_photo"></i>照片</span></li>-->
+            <!--<li class="s_video" ref="2" ><span><i class="uiIconP icons1 bp_video"></i>视频</span></li>-->
+            <!--<li class="s_upload" ref="3" ><span><i class="uiIconP icons1 bp_video"></i>网盘</span></li>-->
+            <!--<li class="s_life hide" ref="4" ><span><i class="uiIconP icons1 bp_life"></i>人生记事</span></li>-->
+        <!--</ul>-->
+        <!--<div class="pointUp"></div>-->
+        <!--<div class="distributeInfoBox">-->
+            <!--&lt;!&ndash; start: distributeMsg 发表状态开始&ndash;&gt;-->
+            <!--<div id="distributeMsg" data-id="distributeMsg" class="distributeInfo txtArea Js_textArea distributeMsg" style="display:block">-->
+                <!--<textarea id="myStatusTextArea" data-id="myStatusTextArea" class="shareInfoCont  msg" msg="写点什么吧" tmaxLength="140" isNull = 0></textarea>-->
+                <!--&lt;!&ndash; start: distributeLinked 发表链接开始&ndash;&gt;-->
+
+                <!--&lt;!&ndash; end: distributeLinked 发表链接结束&ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash; end: distributeMsg 状态结束&ndash;&gt;-->
+            <!--&lt;!&ndash; start: distributePhoto 发表照片开始&ndash;&gt;-->
+            <!--<div class="distributeInfo distributePhoto hide" id="distributePhoto" data-id="distributePhoto">-->
+                <!--<div class="distributeBox">-->
+                    <!--<div id="photoUploadWay" data-id="photoUploadWay">-->
+                        <!--<div class="clearfix">-->
+                            <!--<div class="partChoice">-->
+                                <!--<a href="javascript:void(0)" class="choiceButton" id="upoadPhotoFromLocal" data-id="upoadPhotoFromLocal">-->
+                                    <!--<span class="choiceButtonText">上传照片</span>-->
+                                    <!--<span class="detailIntro">从硬盘</span>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="partChoice">-->
+                                <!--<a class="choiceButton" href="javascript:void(0)" id="snapshotPhoto" data-id="snapshotPhoto">-->
+                                    <!--<span class="choiceButtonText">拍照</span>-->
+                                    <!--<span class="detailIntro">用网络摄像头</span>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="fileOption" id="photoFileOption" data-id="photoFileOption" style="display: none;">-->
+                        <!--<input type="hidden" name="type" value="3" />-->
+                        <!--<input type="hidden" name="photo" />-->
+                        <!--<div id="uploadPhotoPanel" data-id="uploadPhotoPanel" style="display: none;">-->
+                            <!--<div class="uploadButtonCont" id="flashuploaduid" data-id="flashuploaduid" flashuploaduid="&lt;!&ndash;{$login_info['uid']}&ndash;&gt;">-->
+                                <!--<p style="float:left;"><input type="file" name="uploadPhotoFile" id="uploadPhotoButton" data-id="uploadPhotoButton"></p>-->
+                                <!--<p>  <div style="margin:10px 0 0 5px;">从你的电脑中选择一个图像文件 </div></p>-->
+                            <!--</div>-->
+                            <!--<p class="hide" id="up_photo_success" data-id="up_photo_success"><span>上传成功！</span>-->
+                            <!--</p>-->
+                            <!--<div id="photo_queueID" data-id="photo_queueID"></div>-->
+                        <!--</div>-->
+                        <!--<div style="postion:relative;" class="Js_mediaArea txtArea">-->
+                            <!--<textarea msg="给这张照片做些说明吧" name="message" class="distributeAttachIntro fieldWithText msg" id="attachPhotoIntroduce" data-id="attachPhotoIntroduce" tmaxLength="140"></textarea>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="fileOption" id="snapshotPhotoFileOption" data-id="snapshotPhotoFileOption" style="position: relative;">-->
+                        <!--<div style="postion:relative;" class="Js_mediaArea txtArea">-->
+                            <!--<textarea msg="给这张照片做些说明吧" name="message" class="distributeAttachIntro fieldWithText msg" id="attachCameraPhotoIntroduce" data-id="attachCameraPhotoIntroduce" tmaxLength="140" style="color: rgb(153, 153, 153);"></textarea>-->
+                        <!--</div>-->
+                        <!--<div id="campz" data-id="campz"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; end: distributePhoto 发表照片结束&ndash;&gt;-->
+            <!--&lt;!&ndash; start: distributeVideo 发表视频开始&ndash;&gt;-->
+            <!--<div id="distributeVideo" data-id="distributeVideo" class="distributeInfo hide distributeVideo">-->
+                <!--<div class="distributeBox">-->
+                    <!--<div id="videoUploadWay" data-id="videoUploadWay">-->
+                        <!--<div class="w3 clearfix">-->
+                            <!--<div class="partChoice"> <a id="shareVideo" data-id="shareVideo" href="javascript:void(0)" class="choiceButton"> <span class="choiceButtonText">分享视频</span> <span class="detailIntro">从网络</span> </a> </div>-->
+                            <!--<div class="partChoice"> <a id="upoadVideoFromLocal" data-id="upoadVideoFromLocal" href="javascript:void(0)" class="choiceButton"> <span class="choiceButtonText">上传视频</span> <span class="detailIntro">从硬盘</span> </a> </div>-->
+                            <!--<div class="partChoice"> <a id="recordVideo" data-id="recordVideo" href="javascript:void(0)" class="choiceButton"> <span class="choiceButtonText">录制影片</span> <span class="detailIntro">用网路摄像头</span> </a> </div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div id="videoFileOption" data-id="videoFileOption" class="fileOption">-->
+                        <!--&lt;!&ndash;上传地址和密钥&ndash;&gt;-->
+                        <!--<input id="videoId" data-id="videoId" type="hidden" name="vid" value="">-->
+                        <!--<input type="hidden" id="hd_video_upload_url" data-id="hd_video_upload_url" value="&lt;!&ndash;{$video_upload_url}&ndash;&gt;"  />-->
+                        <!--<input type="hidden" id="hd_url" data-id="hd_url" value="&lt;!&ndash;{$authcode_url}&ndash;&gt;"  />-->
+                        <!--&lt;!&ndash;录制地址和视频名&ndash;&gt;-->
+                        <!--<input id="videoname" data-id="videoname" type="hidden" name="videoname" value="&lt;!&ndash;{$videoname}&ndash;&gt;"/>-->
+                        <!--<input id="recordurl" data-id="recordurl" type="hidden" name="recordurl" value="&lt;!&ndash;{$recordurl}&ndash;&gt;"/>-->
+                        <!--<div id="uploadVideoFlashWrap" data-id="uploadVideoFlashWrap">-->
+                            <!--<div id="uploadVideoFlash" data-id="uploadVideoFlash">-->
+                                <!--<div id="uploadify" data-id="uploadify"></div>-->
+                                <!--<p class="hide" id="up_success" data-id="up_success"><span>上传成功！</span><a href="javascript:void(0)">重新上传</a>-->
+                                <!--</p>-->
+                                <!--<div id="videoQueueID" data-id="videoQueueID"></div>-->
+                            <!--</div>-->
+                            <!--<div class="Js_mediaArea txtArea">-->
+                                <!--<textarea id="attachVIntroduce" data-id="attachVIntroduce" class="distributeAttachIntro fieldWithText msg" name="attachVideoIntroduce" msg="给这段视频做些描述吧" tmaxLength="140"></textarea>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div id="recordVideoPanel" data-id="recordVideoPanel" style="display:none;">-->
+                            <!--<input type="hidden" name="hd_v_w" id="hd_v_w" data-id="hd_v_w"/>-->
+                            <!--<input type="hidden" name="hd_v_h" id="hd_v_h" data-id="hd_v_h"/>-->
+                            <!--<input type="hidden" name="hd_v_name" id="hd_v_name" data-id="hd_v_name"/>-->
+                            <!--<div class="Js_mediaArea txtArea">-->
+                                <!--<textarea id="attachMakeVideoIntroduce" data-id="attachMakeVideoIntroduce" class="distributeAttachIntro fieldWithText msg" name="attachVideoIntroduce" msg="给这段视频做些描述吧" tmaxLength="140"></textarea>-->
+                                <!--<div class="hide" id="noCam" data-id="noCam">-->
+                                    <!--<h3>没有发现摄像头</h3>-->
+                                    <!--<p>没有在系统中检测到可用的摄像头，请连接摄像头后再试一次。</p>-->
+                                    <!--<p> <input type="button" class="blackBtn" value="刷新页面" id="btn_Refresh" data-id="btn_Refresh"/> </p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div id="camRecord" data-id="camRecord"></div>-->
+                        <!--</div>-->
+                        <!--<div id="shareVideoPanel" data-id="shareVideoPanel" class="shareVideo">-->
+                            <!--<div class="form-field clearfix">-->
+                                <!--<label for="inputLinks" class="label">粘贴视频播放页地址(腾讯视频、优酷网、土豆网、酷6)</label>-->
+                                <!--<input id="inputLinks" class="text" type="text" value="请将连接复制到此处">-->
+                                <!--<input class="submit" type="submit" value="确定">-->
+                            <!--</div>-->
+                            <!--<div class="shareData" style="display:none;">-->
+                                <!--<div class="media_prev"></div>-->
+                                <!--<div class="Js_mediaArea txtArea">-->
+                                    <!--<textarea id="shareVideoText" class="distributeAttachIntro fieldWithText msg" name="attachVideoIntroduce" msg="描述：（抓去连接描述，点击可修改）" tmaxLength="140"></textarea>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; end: distributeVideo 发表视频结束&ndash;&gt;-->
+            <!--&lt;!&ndash; start: distributeVideo 人生记事&ndash;&gt;-->
+            <!--&lt;!&ndash;<div id="distributeLife" class="distributeInfo hide distributeLife">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="distributeBox">&ndash;&gt;-->
+            <!--&lt;!&ndash;<p style="padding:5px; color:#999;">人生记事开发中。。。</p>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash; end: distributeVideo 人生记事&ndash;&gt;-->
+            <!--&lt;!&ndash; start: footer &ndash;&gt;-->
+            <!--<div class="footer">-->
+
+                <!--<div class="timelineDate"><input id="date_a" data-id="date_a" type="text" class="html_date" name="datetime" now="&lt;!&ndash;{date('Y-n-j')}&ndash;&gt;" value="&lt;!&ndash;{date('Y-n-j')}&ndash;&gt;" end_year="&lt;!&ndash;{date('Y-n-j')}&ndash;&gt;"-->
+                                                 <!--begin_year="&lt;!&ndash;{if (!empty($user.birthday))}&ndash;&gt; &lt;!&ndash;{date('Y-n-j', $user['birthday'])}&ndash;&gt;&lt;!&ndash;{else}&ndash;&gt;1912-1-1&lt;!&ndash;{/if}&ndash;&gt;" /></div>-->
+                <!--&lt;!&ndash; start: shareDestination 选择分享对象 &ndash;&gt;-->
+                <!--<div id="face" class="face" data-id="face">-->
+                    <!--<a data-id="myStatusTextArea" title="表情" href=""><i class="face-icon face0"></i>表情</a>-->
+                <!--</div>-->
+                <!--<div class="shareIt">-->
+                    <!--<div id="shareDestinationObjects" data-id="shareDestinationObjects" class="uiComboxHeaderGray">-->
+                        <!--<div id="shareRights" data-id="shareRights" oid="123" s="1" uid="" class="dropWrap dropMenu tip_up_right_black"  tip="公开">-->
+                            <!--<input type="hidden" name="permission" value="1" />-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; end: shareDestination 选择分享对象 &ndash;&gt;-->
+                    <!--<input type="hidden" value="//album.duankou.com/api/camera" id="camUrl" data-id="camUrl" />-->
+                    <!--<label class="uiButton uiButtonConfirm"><input type="button" id="distributeButton" data-id="distributeButton" value="发表" autocomplete="off" /></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; end: footer &ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!-- end: streamComposer 信息发布框结束-->

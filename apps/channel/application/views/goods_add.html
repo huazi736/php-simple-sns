@@ -1,0 +1,86 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+<!--{if $type=='add_goods'}-->添加商品<!--{else}-->修改商品<!--{/if}-->-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wgoods/wgoods.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/popUp/popUp.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" />
+
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/timeline/info.css" rel="stylesheet" type="text/css" />
+
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/calendar/dk_calendar.css" rel="stylesheet" type="text/css" />
+
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<script type="text/javascript">
+	var init__goods_img	= "";
+	<!--{if is_array($goods_info)}-->
+	init__goods_img	= '<!--{$goods_info.pics}-->';
+	<!--{/if}-->
+</script>
+<!--  数据调用  用  -->
+<div id="goodsDK" style="display:none;" ></div>  <!--  使选择品牌可以用   -->
+<div id="channel_goods_add" style="display:none;" type="<!--{$type}-->" gid='<!--{$gid}-->' ></div>	<!--  使添加品牌后可以刷新   -->
+<div id="ppweb_id" style="display:none;"><!--{$web_info['category_group']}--></div>
+<input type="hidden" class="web_id" value="<!--{$web_id}-->" />
+<input type="hidden" class="web_uid" value="<!--{$web_info['uid']}-->" />
+
+
+
+
+<div class="body clearfix">
+	<div class="modlueHeader clearfix">
+		<span class="userImg"><a href="<!--{mk_url('webmain/index/main',['web_id'=>$web_id])}-->"><img src="<!--{get_webavatar($web_id,'s')}-->" alt="头像" /></a></span>
+		<div class="userName">
+			<span class="nameTxt"><a href="<!--{mk_url('channel/goods/alist',['web_id'=>$web_id])}-->">商品</a></span>
+			<span class="nameTxt"><span class="fl"><!--{if $type=='add_goods'}-->添加商品<!--{else}-->修改商品<!--{/if}--></span></span>
+			
+		</div>
+	</div>
+	<div class="shopping shoppingEdit clearfix" style="background-color:#FFF;">
+    
+    <div class="rightPhoto">
+		
+			
+	</div>
+	<div class="webpost mediaWeb mediaBox" >
+		<div id="data-page" class="tabContent" style="display: block;width:511px;">
+			
+			<div class="tabList">
+				<div class="mediaSection goods postcont" style="">
+					<!--{include file="publish_templates/goods.html"}-->
+				</div>
+			</div>
+			
+			
+			<div class="tabFooter clearfix">
+				<label class="uiButton uiButtonConfirm sendData" style="margin-right:100px"><a href="javascript:void(0);" id="distributeButton" name="btn_sendInfo"><!--{if $type=='add_goods'}-->发布<!--{else}-->修改<!--{/if}--></a></label>
+				 <!--{if $type!='add_goods'}-->
+				<label class="uiButton uiButtonConfirm sendData disable"><a href="<!--{mk_url('/channel/goods_publish/goods_delete',['web_id'=>$web_id,'gid'=>$gid])}-->" id="distributeButton" name="btn_sendInfo">删除</a></label>
+				 <!--{/if}-->
+			</div>  
+		</div>
+	</div>
+
+
+    <br><br><br><br><br>
+	</div>
+    
+    
+</div>
+
+
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.uploader.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/uploader/uploader.js" type="text/javascript"></script>
+<!--[if IE 6]><script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/ie6png/DD_belatedPNG.js?v=<!--{$js_css_v}-->" type="text/javascript"></script><![endif]-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/timeline/postBox.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/layer/layer.js" type="text/javascript"></script>
+
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wgoods/wgoods.js" type="text/javascript"></script>
+
+<!--{/block}-->

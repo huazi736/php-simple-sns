@@ -1,0 +1,31 @@
+<!--{if isset($page_data)}-->
+<!--{foreach $dishes as $dish}-->
+<li id="<!--{$dish['id']}-->">
+	<div class="localDish_img">
+	<!--{if isset($dish['img'][0]['s'])}-->
+		<img src="<!--{$dish['img'][0]['s']['url']}-->" alt="<!--{$dish['dishname']}-->" />
+	<!--{/if}-->	
+	</div>
+	<div class="localDish_msg">
+		<p class="local_Dtitle">
+			<strong>
+				<!--{$dish['dishname']}-->
+			</strong>
+		</p>
+		<p class="local_Dprice">
+			￥
+			<!--{$dish['price']}-->
+		</p>
+		<p class="local_Ddec">
+			<!--{$dish['dishname']}-->
+		</p>
+	</div> <!-- start if admin -->
+	<div class="local_Dadmin">
+		<span class="local_Dedit">编辑菜品</span> <span class="local_Ddel">删除菜品</span>
+	</div> <!-- end if admin -->
+</li>
+<!--{/foreach}-->
+<!--{/if}-->
+<!--{if $continue_load && dishes}-->
+		<div class="box_min_continue_load" request_url="<!--{mk_url('channel/catering_dish/get_dish_page',[web_id=>$web_id])}-->" participle_id='123' page='<!--{$page++}-->'>点击更多</div>
+<!--{/if}-->

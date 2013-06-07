@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>端口网</title>
+<link href="http://dev.duankou.com/misc/css/common/base.css" rel="stylesheet" type="text/css" />
+<link href="http://dev.duankou.com/misc/css/plug-css/popUp/popUp.css" rel="stylesheet" type="text/css" />
+<link href="http://dev.duankou.com/misc/css/mainArea/mainArea_top.css" rel="stylesheet" type="text/css" />
+<link href="http://dev.duankou.com/misc/css/plug-css/comment-easy/comment_easy.css" type="text/css" rel="stylesheet" />
+<link href="http://dev.duankou.com/misc/css/timeline/info.css" type="text/css" rel="stylesheet" />
+<link href="http://dev.duankou.com/misc/css/follow/follow.css" type="text/css" rel="stylesheet" />
+<link href="http://dev.duankou.com/misc/css/plug-css/tip/jquery.tip.css" type="text/css" rel="stylesheet" />
+<link href="http://dev.duankou.com/misc/css/plug-css/calendar/dk_calendar.css" type="text/css" rel="stylesheet" />
+<link href="http://dev.duankou.com/misc/css/plug-css/JQuery-uploadify/JQuery_uploadify.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+<div id="header">
+	<div class="header">
+		<div class="topBar clearfix">
+			<!-- start LOGO 通知 、站内信、请求、导航、搜索  -->
+			<div class="nav_box clearfix">
+				<h1 id="logo"><a href="http://dev.duankou.com/" title="首页">duankou</a></h1>
+				<!-- Start 通知 、站内信、请求 -->
+				<div id="jewelContainer" class="msg_box">
+					<div id="requestsJewel" class="jewel dropMenu" dataContent="requestsFlyout">
+						<a class="jewelButton triggerBtn" href="javascript:void(0)">
+							<span id="requestsCountWrapper" class="jewelCount"><span id="requestsCountValue">0</span></span>
+						</a>
+						<div id="requestsFlyout" class="jewelFlyout dropList">
+							<div class="clearfix uiHeaderBottomBorder jewelHeader">
+								<a style="display:none;" class="fr" href="javascript:void(0);">搜索朋友</a>
+								<div>
+									<h3 class="uiHeaderTitle">请求</h3>
+								</div>
+							</div>
+							<div class="invite">
+								 <ul class="invite_list">
+								 </ul>
+							</div>
+							<div class="jewelFooter">
+								<a class="seeMore" href="javascript:void(0);"><span>查看所有朋友请求</span></a>
+							</div>
+						</div>
+					</div>
+					<div id="messagesJewel" class="jewel dropMenu" dataContent="messagesFlyout">
+						<a class="jewelButton triggerBtn" href="javascript:void(0)">
+							<span id="messagesCountWrapper" class="jewelCount" ><span id="messagesCountValue">0</span></span>
+						</a>
+						<div id="messagesFlyout" class="jewelFlyout dropList">
+							<div class="clearfix uiHeaderBottomBorder jewelHeader">
+								<a class="fr" id="jewelSendNewMessage" href="javascript:void(0);">发送新信息</a>
+								<div>
+									<h3 class="uiHeaderTitle">站内信</h3>
+								</div>
+							</div>
+							<ul class="jewelItemList">
+							</ul>
+							<div class="jewelFooter">
+								<a class="seeMore" href="javascript:void(0);"><span>查看所有信息</span></a>
+							</div>
+						</div>
+					</div>
+					<div id="notificationsJewel" class="jewel dropMenu" dataContent="notificationsFlyout">
+						<a class="jewelButton triggerBtn" href="javascript:void(0)">
+							<span id="notificationsCountWrapper" class="jewelCount"><span id="notificationsCountValue">0</span></span>
+						</a>
+						<div id="notificationsFlyout" class="jewelFlyout dropList">
+							<div class="clearfix uiHeaderBottomBorder jewelHeader">
+								<div>
+									<h3 class="uiHeaderTitle">通知</h3>
+								</div>
+							</div>
+							<ul class="noticeItemList">
+							
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- End 通知 、站内信、请求 -->
+				<div id="headNav" class="fl unvisible">
+					<ul id="circleNav"></ul>
+				</div>
+
+				<div class="fr">
+					<form action="/main/?" method="get" id="navSearch">
+						<input name="c" type="hidden" value="search">
+						<input name="m" type="hidden" value="main">
+						<input name="type" type="hidden" value="globals"/>
+						<div class="uiTypeahead">
+							<input type="text" class="searchInput fl" name="term" id="globalSearch" maxlength="50" />
+							<button type="submit" title="search">
+								<span class="hide">搜索</span>
+							</button>
+							<span class="initVal" id="initval">搜索</span>
+						</div>
+					<input type="hidden" name="__hash__" value="983bfe9270ca50c5bb63a2f849c608e1" /></form>
+					<!-- Start 右侧箭头下拉-->
+					<div id="pageNav" class="fl">
+						<ul>
+							<li>
+								<a id="topUserLink" class="topNavLink tinyman" href="" title="home" rel="uid_1234">
+									<img id="topUserAvatar" width="23" height="23" alt="头像" src="http://dev.duankou.com/misc/img/default/avatar_30.gif" >
+									<span id="topUserInfo" class="headerTinyName"><strong></strong></span>
+								</a>
+							</li>
+							<li id="navAccount" class="dropMenu">
+								<a class="triggerBtn" id="navAccountTogger" href="javascript:void(0)"></a>
+								<ul id="subNavAccount" class="dropList">
+									<li><a href="http://dev.duankou.com/main/index.php?c=invitecode">邀请码</a></li>
+									<li class="menuDivider"></li>
+									<li><a href="http://dev.duankou.com/main/index.php?c=setting">系统设置</a></li>
+									<li><a target="_blank" href="http://dev.duankou.com/single/help/">帮助中心</a></li>
+
+									<li><a href="#logout" onclick="logout();">退出</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!--end 右侧箭头下拉 -->
+				</div>
+			</div>
+			<!-- end LOGO、通知 、站内信、请求、导航、搜索  -->	
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	function logout() {
+		//$.get(webpath + 'dksns-im-web/logout', function() {});
+		window.location.href = "http://dev.duankou.com/front/index.php?c=index&m=dologout";
+	}
+</script>
+
+
+
+<div class="body clearfix" id="timelienIndex">
+	<input type="hidden" id="action_dkcode" value="1000002497" />
+	<input type="hidden" id="action_avatar" value="http://192.168.12.242/group2/M00/05/E4/wKgM8k_Ji5T5-BhGAABBOutJEVQ245_s.jpg?v=1339579154" />
+	<input type="hidden" id="userid" value="1000002497" />
+	<input type="hidden" id="ac_dkcode" value="100844" />
+    
+    <div class="mainArea">
+    	<div class="modlueHeader clearfix" style="display:block;">
+			<span class="userImg"><a href="http://dev.duankou.com/main/index.php?c=index&amp;m=index&amp;action_dkcode=100844"><img src="http://192.168.12.242/group2/M00/05/E4/wKgM8k_Ji5T5-BhGAABBOutJEVQ245_ss.jpg?v=1339578787" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="http://dev.duankou.com/main/index.php?c=index&amp;m=index&amp;action_dkcode=100844">陈海云</a></span>
+				<span class="nameTxt"><a>网页发表框模板中心</a></span>
+			</div>
+        </div>
+        
+        <div class="modlueBody">
+			<div class="listSearch clearfix">
+				<h4>网页发表框模板 (20)</h4>
+			</div>                        
+			
+			<ul class="listWrap clearfix" id="listWrap">
+				<li>
+					<div class="avatarBox">
+						<a href="#"><img src="http://dev.duankou.com/misc/img/default/web_mm.gif" hegiht="75" width="75" alt=""></a>
+					</div>
+					<p class="templateInfo"><a href="#" class="templateName">模板1</a></p>
+					<p class="templateInfo templateIntro">这是一款符合业务服务发布信息的模板。</p>
+					<p class="templateInfo templateUseNum">345,445,34 个人在使用。</p>
+				</li>
+				<li>
+					<div class="avatarBox">
+						<a href="#"><img src="http://dev.duankou.com/misc/img/default/web_mm.gif" hegiht="75" width="75" alt=""></a>
+					</div>
+					<p class="templateInfo"><a href="#" class="templateName">模板1</a></p>
+					<p class="templateInfo templateIntro">这是一款符合业务服务发布信息的模板。</p>
+					<p class="templateInfo templateUseNum">345,445,34 个人在使用。</p>
+				</li>
+				<li>
+					<div class="avatarBox">
+						<a href="#"><img src="http://dev.duankou.com/misc/img/default/web_mm.gif" hegiht="75" width="75" alt=""></a>
+					</div>
+					<p class="templateInfo"><a href="#" class="templateName">模板1</a></p>
+					<p class="templateInfo templateIntro">这是一款符合业务服务发布信息的模板。</p>
+					<p class="templateInfo templateUseNum">345,445,34 个人在使用。</p>
+				</li>
+			</ul>
+			
+			<div class="blankWrap hide" id="noresult"><span>未检索到任何结果，请重新输入关键字</span></div>
+		</div>
+    </div>
+</div>
+
+<input type='hidden' id='hd_UID' value="1000002497" />
+<input type='hidden' id='hd_userName' value="陈海云" />
+<input type='hidden' id='hd_avatar' value="http://192.168.12.242/group2/M00/05/E4/wKgM8k_Ji5T5-BhGAABBOutJEVQ245_s.jpg?v=1339579154" />
+<input type='hidden' id='hd_userPageUrl' value="http://dev.duankou.com/main/index.php?c=index&m=index&action_dkcode=100844" />
+
+<div id="footer" class="clearfix">
+
+	<span class="copyRight">Duankou &copy; 2011 · <a href="#">中文(简体)</a></span>
+
+	<span class="footerLinks"><a href="#">关于</a>·<a href="#">开放平台</a>·<a href="#">手机</a>·<a href="#">广告</a>·<a href="#">招聘</a>·<a href="#">隐私政策</a>·<a href="#">帮助中心</a></span>
+
+</div>
+
+<script src="http://dev.duankou.com/misc/js/jquery.min.js?v=1339604719" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/init.js?v=1339604719" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/autocomplete/autocomplete.js?v=1339604719" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/common/utils.js?v=1339604719" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/popUp/popUp.js?v=1339604719" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/message/messages.js?v=1339604719" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/dk-ui/dk.uploader.js?v=1339604719" type="text/javascript" ></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/jQuery-searcher/ViolenceSearch.js?v=1339604719" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/jQuery-searcher/jQuery.searcher.js?v=1339604719" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/message/request_notice.js?v=1339604719"  type="text/javascript"></script>
+
+<script type="text/javascript">
+
+	var fdfsHost = "http://192.168.12.242";
+
+	var fdfsGroup = "group2";
+
+</script>
+
+<script src="http://dev.duankou.com/misc/js/plug/dk-tip/dk.tip.js" type="text/javascript"></script>
+
+
+
+<script src="http://dev.duankou.com/misc/js/plug/drag/drag.js" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/dk-ui/dk.uploader.js" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/timeline/timeline.js" type="text/javascript" ></script>
+
+<script src="http://dev.duankou.com/misc/js/mainArea/mainArea_top.js" type="text/javascript"></script>
+
+
+
+<!--start: 时间线头部模块排序 by李世君 2012-3-24-->
+
+<script src="http://dev.duankou.com/misc/js/plug/jQuery-dragsort/jquery.dragsort.min.js"></script>
+
+<script src="http://dev.duankou.com/misc/js/mainArea/mainArea_top_move.js" type="text/javascript"></script>
+
+<!--End: 时间线头部模块排序-->
+
+<script src="http://dev.duankou.com/misc/js/album/picViewer.js"></script>
+
+<script src="http://dev.duankou.com/misc/js/timeline/postBox.js" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/timeline/info.js" type="text/javascript"></script>
+
+
+
+<script src="http://dev.duankou.com/misc/js/plug/player/AC_RunActiveContent.js" type="text/javascript" ></script>
+
+<script type="text/javascript">
+
+//视频,视频图片url地址 by wangying 2012.6.1
+
+function mk_videoUrl(vpath){
+
+	var host = "rtmp://192.168.12.242/";
+
+	if (vpath.indexOf(":/")<0){
+
+		return host+vpath;
+
+	}else{
+
+		return vpath;
+
+	}
+
+}
+
+function mk_videoImgUrl(vpath){
+
+	var host = "http://192.168.12.242/";
+
+	if (vpath.indexOf(":/")<0){
+
+		return host+vpath;
+
+	}else{
+
+		return vpath;
+
+	}
+
+}
+
+</script>
+
+<script src="http://dev.duankou.com/misc/js/plug/embed-for-flash/swfobject.js" type="text/javascript" ></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/dk-ui/dk.UICombox.js" type="text/javascript"></script> 
+
+<!--<script src="&lt;!&ndash;{$smarty.const.MISC_ROOT}&ndash;&gt;js/plug/jQuery-textArea/jquery.textarea.js" type="text/javascript"></script>-->
+
+<script src="http://dev.duankou.com/misc/js/plug/jQuery-textarea-msgtip/jQuery-textarea-msgtip.js" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/comment-easy/commentEasy.js" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/calendar/dk_calendar.js" type="text/javascript" ></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/jQuery-uploadify/jquery.uploadify.v2.1.4.min.js" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/jQuery-searcher/ViolenceSearch.js" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/friends_list/friends_list.js" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/mousewheel/jquery.mousewheel.js" type="text/javascript"></script>
+
+
+
+<script src="http://dev.duankou.com/misc/js/plug/friends_list/friends_list.js" type="text/javascript"></script>
+
+<script src="http://dev.duankou.com/misc/js/plug/relation/relation.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+$(function(){
+
+	//添加关注好友关系
+
+	var relationWrap = $('#relationWrap');
+
+	if(relationWrap[0]) {
+
+		relationWrap.find('div.statusBox').relation({index:true});
+
+	}
+
+});
+
+</script>
+
+
+
+<!--Flash swf文件先是处理-->
+
+<script src="http://dev.duankou.com/misc/js/plug/swfobject/swfobject.js" type="text/javascript"></script>
+
+</body>
+
+</html>

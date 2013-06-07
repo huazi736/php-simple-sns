@@ -1,0 +1,69 @@
+<div id="TrainExperFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>培训课程：</th>
+				<td class="data"><input type="text" name="name" class="vinput limL" maxlength="30" /></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>培训机构：</th>
+				<td class="data"><input type="text" name="org" class="vinput limL" maxlength ="30" /></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>培训时间：</th>
+				<td class="data"><select class="set_year" name="time_y_s"><option value="-1">请选择</option></select><select class="set_month" name="time_m_s"><option value="-1">请选择</option></select>至<select name="time_y_e" class="set_year"><option value="-1">请选择</option></select><select class="set_month" name="time_m_e"><option value="-1">请选择</option></select></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">培训地点：</th>
+				<td class="data"><input type="text" name="address" class="vinput limL" maxlength="135" /></td>				
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">获得证书：</th>
+				<td class="data"><input type="text" name="certi" class="vinput limL" maxlength="30" /></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob">培训描述：</th>
+				<td class="data nob">
+					<div><textarea name="desc" maxlength="500"></textarea></div>
+					<div class="clearfix">
+						<div id="eg" class="fl"><a>使用范例一</a> <a>使用范例二</a></div>
+						<div class ="tip fr"></div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr>
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0);">取消</a></div><div class="btnBlue fr mrs"><a id="TrainExperInfoAdd" href="javascript:void(0);" class="bnt_add TrainExperInfoAdd" style="display: none">确定</a><a href="javascript:void(0);" class="bnt_edit TrainExperInfoEdit">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div id="eg0" class="hideEle">通过这个培训，我更好地掌握了photoshop的软件知识，并得到了多次实际操作经验，更重要的是学会了如何从设计师的角度去观察世界。</div>
+<div id="eg1" class="hideEle">由浅入深地学习了以java为核心的企业级软件开发技术，包括：java基础、J2EE、UML数据库、项目管理、软件测试等。课程的核心教学方法是基于实际的项目的学习。通过几个月的培训，我熟练掌握了J2EE程序开发语言，并获得了多次实际项目的操作经验。另外，外域水平也得到了提高。</div>
+<script>
+	$(function(){
+		var $div=$('#eg');
+		$('a',$div).click(function(){
+			var index=$(this).index();
+			var textarea=$(this).closest('.clearfix').prev().children();
+			var content=$('#eg'+index+'').text();
+			textarea.val(content).trigger('keyup');
+		});
+	});
+</script>

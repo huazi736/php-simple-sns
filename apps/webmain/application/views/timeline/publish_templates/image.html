@@ -1,0 +1,52 @@
+<!--<div  class="postImage twoTab postcont" id="distributePhoto">-->
+    <ul class="PostselectTab">
+        <li><a href="javascript:void(0);" ref="0"><h4>上传照片</h4>
+
+                <div>从硬盘</div>
+            </a></li>
+        <li class="noborder"><a href="javascript:void(0);" ref="1"><h4>拍照</h4>
+
+                <div>用网络摄像头</div>
+            </a></li>
+    </ul>
+    <div class="imgContent">
+        <div class="postImgUpload postImg">
+            <input type="hidden" name="type" value="3"/>
+            <input type="hidden" name="photo"/>
+
+            <div id="postuploadPhotoPanel">
+                <div class="uploadButtonCont" id="flashuploaduid" flashuploaduid="<!--{$user['uid']}-->">
+                    <p style="float:left;"><input type="file" name="uploadPhotoFile" id="uploadPhotoButton">
+                    </p>
+                    <p>
+                    <div style="margin:10px 0 0 5px;">从你的电脑中选择一个图像文件</div>
+                    </p>
+                </div>
+                <p class="hide" id="up_photo_success"><span>上传成功！</span>
+                </p>
+
+                <div id="photo_queueID"></div>
+            </div>
+            <div>
+                <div id="picArea">
+                    <div class="imgText txtArea Js_mediaArea">
+                        <div class="textArea">
+                            <textarea msg="给这张照片做些说明吧" name="txt_photoText" tmaxlength="140"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="postImgUpload postImgCam">
+            <div>
+                <div style="postion:relative;" class="txtArea Js_mediaArea">
+                    <div class="textArea">
+                        <textarea msg="给这张照片做些说明吧" name="txt_photoText" tmaxlength="140"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div name="postCmaPZ" id="postCmaPZ"></div>
+            <input type="hidden" value="//walbum.duankou.com/api/camera" id="camUrl" />
+        </div>
+    </div>
+<!--</div>-->

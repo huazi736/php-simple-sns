@@ -1,0 +1,97 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+游戏 -
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/interest/game.css" type="text/css" rel="stylesheet" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg">
+				<a href="#"><img src="http://avatar.duankou.dev/webavatar_1000002888_s.jpg?v=1343808975" alt=""></a>
+			</span>
+			<div class="userName">
+				<span class="nameTxt">
+					<a href="#">真三国无双</a>
+				</span>
+				<span class="nameTxt">
+					<a href="#">游戏</a>
+				</span>
+			</div>
+			<div class="userActions">
+				<span class="btnGray"><i class="uiButtonIcon plus"></i><a href="<!--{mk_url('channel/games/add',['web_id'=>$web_info['aid']])}-->">添加游戏 </a></span>
+			</div>
+		</div>
+		<div class="modlueBody localBody">
+			<div class="flashGame">
+				<!-- start: 页面标题 -->
+				<div class="title">游戏列表（3）</div>
+				<!-- end: 页面标题 -->
+				<!-- start: 上传的游戏列表 -->
+				<div class="lists">
+					<ul id="flashGameList">
+						<li class="game">
+							<div class="img">
+								<a href="#"><img width="152" height="112" src="http://192.168.12.242/group2/M00/0D/D8/wKgM8lAV2t30fni2AABggCozgy8147_1.jpg" /></a>
+							</div>
+							<div class="info">
+								<div class="name">
+									<a href="#">Fuck U now</a>
+								</div>
+								<div class="desc">暗夜骑士 iPhone幽灵灭亡版</div>
+								<div class="comment">
+									<a href="#">赞</a><span>521</span><a href="#">评论</a><span>12</span>
+								</div>
+								<div class="action">
+									<input type="hidden" class="idInput" value="" />
+									<a class="editLink" href="#">编辑</a>
+									<a class="delLink" href="#">删除</a>
+								</div>
+							</div>
+						</li>
+						<li class="game">
+							<div class="img">
+								<a href="#"><img width="152" height="112" src="http://192.168.12.242/group2/M00/0D/D8/wKgM8lAV2t30fni2AABggCozgy8147_1.jpg" /></a>
+							</div>
+							<div class="info">
+								<div class="name">
+									<a href="#">Fuck U now</a>
+								</div>
+								<div class="desc">暗夜骑士 iPhone幽灵灭亡版</div>
+								<div class="comment">
+									<a href="#">赞</a><span>521</span><a href="#">评论</a><span>12</span>
+								</div>
+								<div class="action">
+									<input type="hidden" class="idInput" value="" />
+									<a class="editLink" href="#">编辑</a>
+									<a class="delLink" href="#">删除</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="clickMore" id="clickMore">
+						<a href="#">点击查看更多</a>
+					</div>
+				</div>
+				<!-- end: 上传的游戏列表 -->
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="sideArea">
+		<!--sideArea广告区域-->
+	</div>
+</div>
+
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/embed-for-flash/swfobject.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-uploadify/jquery.uploadify.v2.1.4.min.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/interest/games/flashgame.js" type="text/javascript"></script>
+<script type="text/javascript">
+	gamelist.init();
+</script>
+<!--{/block}-->

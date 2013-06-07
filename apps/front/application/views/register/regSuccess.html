@@ -1,0 +1,42 @@
+<!--{extends file='nologin_base_layout.html'}-->
+<!--{block name='title' prepend}-->
+激活成功-
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<!-- start: headerWrap 头部开始 -->
+<div class="headerWrap">
+	<div class="regHeader">
+		<h1><a href="<!--{$smarty.const.WEB_ROOT}-->" title="Duankou">Duankou</a></h1>
+	</div>
+</div>
+<!-- end: headerWrap 头部结束 -->
+<div class="body clearfix regSuccess">
+<!-- start:主体内容 -->
+	<div class="mainArea">
+		<!--start: 设置新密码头部-->
+
+		<!--end: 设置新密码头部-->
+		<!--start: 设置新密码主体-->
+		<div class="modlueBody">
+			<div class="forgetPw">
+				<div class="regContent clearfix">
+					<h3>邮箱验证成功</h3>
+	                <div class="tip"></div>
+					<h4>您的注册信息已验证成功。</h4>
+					<p>点击确定，继续完善个人信息或直接进入首页。</p>
+					<div class="backAction clearfix">
+					    <a href="<!--{$regstep}-->"class="saveBtn" id="subnewpswbtn">确定</a>
+					    <a href="<!--{$main}-->" class="saveBtn" id="subnewpswbtn">进入首页</a>
+					</div>
+				</div>
+			</div>
+        </div>
+        <!--end: 设置新密码主体-->
+    </div>
+<!-- end:主体内容 -->
+</div>
+<!--{/block}-->

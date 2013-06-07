@@ -1,0 +1,221 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+发布广告-
+<!--{/block}-->
+
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/calendar/dk_calendar.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/pro/pro.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- - - - - modlueHeader开始 - - - - -->
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$user_info['url']}-->"><img src="<!--{$user_info['avatar_img']}-->" alt="" /></a></span>
+			<div class="userName">
+			    <span class="nameTxt"><a href="<!--{$user_info['url']}-->"><!--{$user_info['username']}--></a></span>
+				<span class="nameTxt">设计广告</span>
+			</div>
+					</div>
+		<!-- - - - - modlueHeader结束 - - - - -->
+		<!-- - - - - modlueBody开始 - - - - -->
+		<div class="modlueBody">
+			<div class="clearfix hasRightCol home" id="contentCol">
+	          <!-- start:广告申请 -->
+	          <div id="createAds">
+	            <div class="codeBlock clearfix">
+	              <h2 class="bigAdsTitle">在Duankou上做广告</h2>
+
+					<div class="caList">
+						<h4>选择广告分类</h4>
+						<ul class="caList-ul">
+	             			<li class="clearfix"><label class="th">分类：</label>
+								<select name="classify" id="classify">
+									<option value="1" selected="true">Web专页</option>
+									<option value="2">个人网页</option>
+								</select>
+							</li>
+						</ul>
+					</div>	
+					<div class="caList">
+						<h4>创建广告</h4>
+						<ul class="caList-ul">
+							<li class="clearfix">
+								<label class="th">标题：</label>
+								<div class="fl">
+									<div><input type="text" name="title" id="title" placeholder="输入标题" class="txt w360 J-notNone placeholder" maxlength="26" rel="not-none" value="<!--{$adinfo.title}-->" /><span class="error-tip"></span></div>
+									<p class="color6 tar w370">13个字可填</p>
+								</div>
+
+							</li>
+							<li class="clearfix">
+								<label class="th">URL：</label>
+								<div class="fl">
+									<input type="text" name="url" id="url" placeholder="输入链接" class="txt w360 placeholder" maxlength="150" value="<!--{if $adinfo.url}--><!--{$adinfo.url}--><!--{else}-->http://<!--{/if}-->" />
+									<p class="color6 tar">150个字符可填</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="th">内容：</label>
+								<div class="fl">
+									<div>
+										<textarea name="introduce" id="introduce" cols="30" rows="10" placeholder="输入广告描述" class="txt w360 h40 placeholder" maxlength="72"><!--{$adinfo.introduce}--></textarea><span class="error-tip"></span>
+									</div>
+									<p class="color6 tar w370">36个字可填</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="th">图片：</label>
+								<div class="uploadAdsImg clearfix">
+									<input type="text" class="txt w260 fl mr10 placeholder" placeholder="点击浏览上传图片" id="img_url" name="img_url" value="<!--{$adinfo.media_uri}-->" disabled="disabled" >
+									<a class="uploadAdsImgBtn fl" id="attachFileButton" href="javascript:void(0);"><span class="upText">浏览</span></a>
+									<input type="hidden" id="Mf_img" value="<!--{$adinfo.Mf_img}-->">
+									
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="th">预览：</label>
+								<div id="adsPreview" class="preview-box fl">
+									<dl><dt style="width: 220px;"><a href="###">
+										<!--{if $adinfo.title}--><!--{$adinfo.title}--><!--{else}-->这里是广告标题<!--{/if}--></a></dt>
+										<!-- <dd class="extAdsUrl" style="width: 220px;">URL地址</dd> -->
+										<dd class="extAdsIntro clearfix" style="width: 220px;"><a href="###"><img alt="<!--{$adinfo.title}-->" id="prevAdsImg" 
+										<!--{if $adinfo.media_uri}-->
+										src="<!--{$adinfo.media_uri}-->"<!--{else}-->src="<!--{$smarty.const.MISC_ROOT}-->img/default/preview_ads.png"<!--{/if}-->><span style="width: 100px; float: right;" class="wdb" id="ads_introduce"><!--{if $adinfo.introduce}--><!--{$adinfo.introduce}--><!--{else}-->这里是广告描述<!--{/if}--></span></a></dd></dl>
+								</div>
+							</li>							
+						</ul>
+
+					</div>
+					<div class="caList posr ads-target">
+						<h4>选择投放</h4>
+
+ 							<div class="people-count-tip fr">
+								<dl>
+									<dt>预计目标人数</dt>
+									<dd>按地区人数： <strong class="fz14" id="areaNum">0</strong>&nbsp;人</dd>
+									<dd id="inscount">按频道人数： <strong class="fz14" id="insNum">0</strong>&nbsp;人</dd>
+								</dl>
+							</div>
+							<ul>
+								<li class="clearfix"><label class="th">地区：</label>
+									<div id="areaBlock" class="fl">
+										<ul class="areatype clearfix">
+											<li><a href="###" title="只投放到国家，比如中国" id="areaCountry" class="on"><strong>+</strong>只国家级投放</a></li>
+											<li><a href="###" title="只投放到省级，比如浙江省" id="areaProvince" class="on"><strong>+</strong>只省级投放</a></li>
+											<li><a href="###" title="只投放到市级，比如杭州市" id="areaCity" class="on"><strong>+</strong>只市级投放</a></li>
+										</ul>	
+										<div id="areaRs" class="areaRs clearfix">暂未选择广告投放地区</div>
+										<div id="areaId"></div>
+									</div>
+																					 
+								</li>
+								<li class="clearfix">
+									<label class="th">年龄：</label>
+									<!--{html_options id="age_range" name="age_range" output=$age_output values=$age_val selected=$adinfo.age_range }-->																
+								</li>
+								<li class="clearfix">
+									<label class="th">性别：</label>
+									<input type="radio" name="gender" id="sex-all" checked="checked" value="3" <!--{if $adinfo.gender==3 || $adinfo.gender==''}-->checked="checked"<!--{/if}-->  /><label for="sex-all">全部</label>&nbsp;&nbsp;
+									<input type="radio" name="gender" id="sex-male" value="1" <!--{if $adinfo.gender==1}-->checked="checked"<!--{/if}-->/><label for="sex-male">男性</label>&nbsp;&nbsp;
+									<input type="radio" name="gender" id="sex-famale" value="2" <!--{if $adinfo.gender==2}-->checked="checked"<!--{/if}--> /><label for="sex-famale">女性</label>
+								</li>
+								<li class="clearfix" id="ins-block">
+									<label class="th">频道：</label>
+									<div class="interest-list fl" id="interest_array">
+										<ul id="getCate" class="cateUl" >								
+										
+											<li class="cateLi">
+												<label for="interest-type"><input type="checkbox" name="interest" id="interest-type" class="cb insCheck J_hasSub" data-id="<!--{$data_id}-->" data-name="<!--{foreach from=$categories item=cat name=catname}--><!--{$cat['name']}--><!--{if !$smarty.foreach.catname.last}-->,<!--{/if}--><!--{/foreach}-->"/>&nbsp;全选<input type="hidden" id="interest-cates" value=""></label>
+												<strong title="显示下级分类" data-extend="on" data-loaded="on" data-id="1" class="sub-cate" style="display:none;">+</strong>
+										
+												<ul class="clearfix cateUl mt8" id="finalIns">									
+													<!--{foreach from=$categories item=cat}-->
+													<li class="cateLi">
+														<label><input type="checkbox" data-id="<!--{$cat['id']}-->" id="cate-<!--{$cat['id']}-->" class="cb subcate insCheck J_hasSub" data-level="1" data-name="<!--{$cat['name']}-->">&nbsp;<!--{$cat['name']}--></label>
+														<strong class="sub-cate J_subbtn" data-id="<!--{$cat['id']}-->" data-fid="<!--{$cat['id']}-->" data-loaded="off" data-extend="on" title="显示下级分类" data-level="1">+</strong>		
+													</li>
+													<!--{/foreach}-->	
+												</ul>
+											</li>
+										
+										
+										</ul>
+										<input type="hidden" name="" id="insCate" >
+										<input type="hidden" name="payToken" id="payToken" value="<!--{$payToken}-->" />
+
+									</div>
+								</li>										
+							</ul>
+					</div>	
+					<div class="caList">
+						<h4>广告设置</h4>
+						<ul>
+							<li class="clearfix">
+								<label class="th">广告名称：</label>
+								<input type="text" name="name" id="name" placeholder="我的广告" class="txt w260 placeholder J-notNone" value="<!--{$adinfo.name}-->" />
+							</li>
+							<li class="clearfix">
+								<label class="th">预算：</label>
+								<input type="text" name="budget" id="budget" class="txt w100 J-num-only dis-ime price" value="<!--{$adinfo.budget}-->"  data-lowest-price-day="<!--{$sys_budget_day}-->" data-lowest-price-all="<!--{$sys_budget_all}-->"/>
+								<select name="budget_type" id="budget_type">
+									<option value="0"<!--{if $adinfo.budget_sort==0}-->selected="selected"<!--{/if}-->>每日</option>
+									<option value="1"<!--{if $adinfo.budget_sort==1}-->selected="selected"<!--{/if}-->>总预算</option>
+								</select>
+							</li>
+							<li class="clearfix for-web">
+								<label class="th">计费方式：</label>
+								<dl class="fl pay-type">
+									<dt class="mb5"><input type="radio" name="pay_type" id="cpm" <!--{if $adinfo.charge_mode=='CPM' || $adinfo.charge_mode == null}-->checked="checked"<!--{/if}--> value="CPM" /> <label for="cpm">按展示付费 （CPM）</label></dt>
+									<dd class="mb8"><input type="text" name="cpm_price" id="cpm_price" placeholder="输入您的竞价" class="txt w100 dis-ime J-num-only recommend-price-input price placeholder" value="<!--{$adinfo.bid}-->"/> 元（人民币）<span class="recommend-price" id="cpm-recommend-price" style="display:none;"></span></dd>
+									<dt class="mb5"><input type="radio" name="pay_type" id="cpc" <!--{if $adinfo.charge_mode=='CPC'}-->checked="checked"<!--{/if}--> value="CPC" /> <label for="cpc">按点击数付费 （CPC）</label></dt>
+									<dd class="mb8" style="display:none;"><input type="text" name="cpc_price" id="cpc_price" placeholder="输入您的竞价" class="txt w100 dis-ime J-num-only recommend-price-input price placeholder" value="<!--{$adinfo.bid}-->" /> 元（人民币）<span class="recommend-price" id="cpc-recommend-price" style="display:none;"></span></dd>
+								</dl>
+							</li>
+							<li class="clearfix for-person" style="display:none;">
+								<label class="th">单次点击价格：</label>
+								<dl class="fl pay-type">									
+									<dd class="mb8"><input type="text" name="p_cpc_price" id="p_cpc_price" placeholder="输入您的竞价" class="txt w100 dis-ime J-num-only recommend-price-input price placeholder" value="<!--{$adinfo.bid}-->" /> 元（人民币）<span class="recommend-price" id="p_cpc-recommend-price" style="display:none;"></span></dd>
+								</dl>
+							</li>
+							<li class="clearfix">
+								<label class="th">投放时间：</label>
+								<dl class="fl">
+									<dd class="mb5"><input type="radio" name="put_in_time" id="put_in_now" <!--{if $adinfo.is_display==1 || $adinfo.is_display==''}-->checked="checked"<!--{/if}--> value='1' /> <label for="put_in_now">立即投放广告</label></dd>
+									<dd><input type="radio" name="put_in_time" id="throw_time"<!--{if $adinfo.is_display!=1 && $adinfo.is_display!=''}-->checked="checked"<!--{/if}--> value='-1' /> <label for="throw_time">选定时间</label>
+										<span rel="0" class="sp_selectDate">
+											<input type="text" id="date_a_start" class="selectDate html_date" name="start_time"
+											 begin_year="<!--{$begin_date}-->" end_year="<!--{$end_date}-->" 
+											 value="<!--{if $adinfo.is_display!=1 && $adinfo.is_display!=''}--><!--{$adinfo.start_time}--><!--{else}--><!--{$begin_date}--><!--{/if}-->" 
+											 now="<!--{$end_date}-->" data-first-time="<!--{$begin_date}-->"/>
+										</span>
+									</dd>
+								</dl>
+							</li>										
+						</ul>
+					</div>	
+					<div class="caList clearfix">
+						<h4></h4>
+						<label class="th">&nbsp;</label>
+						<p class="fl"><span id="save_ads" class="btnBlue">确认提交</span></p>
+					</div>
+											
+				  </div>
+	          
+	          <!-- end:广告申请 --> 
+       		 </div>
+		</div>
+		<!-- - - - - modlueBody结束 - - - - -->
+	</div>
+</div>
+
+<!-- end: content -->
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/calendar/dk_calendar.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/area-utils/area_utils.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pro/createPro.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

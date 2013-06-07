@@ -1,0 +1,111 @@
+/*
+ * Created on 2012-03-05
+ * @author： duxianwei
+ * @version： 1.0
+ * @desc：关注、粉丝、好友
+ */
+
+/*发现兴趣添加下一步按钮*/
+.step2_next{float:right;border:1px solid #48629F; cursor:pointer; display: none;}
+.step2_next_disabled{ border:1px solid #a8b2cb;}
+.step2_next_disabled .nameTxt{border-right:0;}
+.step2_next .sub{ cursor:pointer;}
+.step2_next_disabled .nameTxt .sub{ color:#999;}
+.sub{border:0px;line-height:22px;background:none;font-weight:bold;}
+.web-box{ border:1px solid #fff; cursor: pointer;}
+.hover,.click{ border:1px solid #a8b2cb; background-color: #eee;}
+#follow_list_form .uName{ margin-left:10px;}
+#follow_list_form .listWrap li{ width:100%; padding-left:0; padding-right:0;}
+
+
+#start input{display:inline-block;font-size: 14px;font-weight:600;cursor: pointer;background-color: #6379ab;color:#fff;border:1px solid #29437e; width:68px; height:23px; line-height:20px;padding-bottom:3px; overflow: hidden;}
+#start .dis{ color: #eee; background-color: #999; border:1px solid #666;}
+.check{float:left;width: 50px;text-align: center;margin-top: 28px;}
+.check input{ display: none;}
+.check span{ cursor:pointer;display:inline-block; width:16px; height:16px;background:url("../../img/system/group_index_icon.png") no-repeat 0 -68px;}
+.check .checked{height:16px;background-position: 0 -52px;}
+.listWrap{padding-bottom:40px;}
+.listWrap h2{ font-size:14px; margin:5px 0 15px 0; width:100%; float: left;}
+.listWrap li{ padding:10px 20px; width:823px;}
+.listWrap .box{ margin-bottom:10px;}
+#group_classmate li{ padding-bottom:0;}
+.listWrap_left{ width:700px; float: left; overflow: hidden;}
+.listWrap .listWrap_left .uName{ width:550px; white-space:nowrap; font-weight:400;}
+.listWrap .listWrap_left .uName a{  font-weight:600;}
+.listWrap .listWrap_left .uName a:hover{ text-decoration:underline;}
+.student_account{ font-size:12px; color:#555;margin-top:70px; display: block;}
+.student_account b{ font-weight:400; color:#999;}
+.avatarBox{ border:1px solid #97a5c2; border-radius:3px; padding:2px;}
+.listWrap_left .avatarBox a{ display: block;width:100px; height:100px;}
+.listWrap_left .avatarBox img{ float: left;}
+.group_img_wrap{width:100px; height:100px;}
+.listWrap_right{ width:123px; float: left; overflow: hidden;padding:5px 0 0 0;}
+.listWrap_right .plus{ margin-top:4px;}
+.group_create .student_account{ display:none;}
+ /*未添加应用列表*/
+.group_app_list_unadd .group_img_wrap,.group_app_list_add .group_img_wrap{ width:50px; height:50px;}
+.group_app_list_unadd .avatarBox .group_img_wrap,.group_app_list_add .avatarBox .group_img_wrap{ background-color: #d8deea;}
+.group_app_list_unadd .avatarBox a,.group_app_list_add .avatarBox a{ width:50px; height:50px;}
+.group_app_list_unadd .listWrap .box,.group_app_list_add .listWrap .box{margin:10px 0 5px 0; _margin-top:20px;}
+.group_app_list_unadd .uName,.group_app_list_add .uName{ margin-bottom:3px;}
+.group_app_intro{ width:550px; height:40px; overflow: hidden; font-weight:400; float: left; margin-left:10px; line-height:20px; color:#777;}
+/*群资料以及成员管理*/
+.group_app_list_add,.group_app_list_unadd{ padding:0;}
+.group_app_list_add .btnGray {margin-left:30px;}
+.group_app_list_add .uName,.group_app_list_unadd .uName{ float: left; margin-left:10px;}
+.group_app_list_add .listSearch,.group_app_list_unadd .listSearch{ padding-left:20px;}
+.group_set_head{ border-bottom:1px solid #C4CCDF; margin-top:10px; padding-left:20px;}
+.group_set_head li{ float: left;  padding:5px 10px 3px 10px; cursor: pointer; border-bottom:1px solid #fff; position: relative;}
+.group_set_head li.on{border:1px solid #C4CCDF;border-bottom:1px solid #fff;border-top-right-radius:3px;border-top-left-radius:3px; font-weight:600; margin-bottom:-1px;}
+.group_set_head li a{ color: #333;}
+.group_data{ text-align: left; margin-left:20px;}
+.group_data td{ padding:10px;}
+.group_data_head{ margin:10px 0 10px 0;}
+.group_data_label_wrap{ margin:0 0 5px 0;}
+.group_data_label_wrap label,.group_data_label_wrap input{ vertical-align: middle;}
+.group_data_label_wrap label span{ margin:0 0 0 5px;}
+.group_set_logo_ul{}
+.group_set_logo_ul li{ float: left; margin:0 20px 0 0;border:1px solid #fff; border-radius:3px;}
+.group_set_logo_ul li.on{ border:1px solid #b9c0da;}
+.group_set_logo_ul li a{border:1px solid #fff; display: block; padding:2px;}
+.group_set_logo_ul li a:hover{border:1px solid #b9c0da;}
+.group_set_logo_ul li.on a:hover{border:1px solid #fff;}
+.group_set_save .popBtns{ padding:1px 15px; font-size:12px;}
+.group_member_manage{ padding:20px;}
+.group_member_manage ul{ width:790; overflow: hidden;}
+.group_member_manage li { padding:10px 0; float: left; width:260px;}
+.group_member_list{ clear: both;}
+.group_member_list_l{ display: block; width:50px; height:50px; float: left; margin:0 10px 0 0;}
+.group_member_list_r{ float: left; height:50px;}
+.group_member_list_r p{ margin-bottom:8px;}
+.group_username{ font-size:14px; font-weight:600;}
+.group_member_list_r
+.group_kickout{ color:#333; border-radius:3px; border:1px solid #9daccd; padding:1px 18px 1px 3px; background: url("../../img/system/IconClose.gif") no-repeat 55px center #e1e5f0;}
+.group_kickout:hover{ border:1px solid #2a4e9d;}
+/*新版群列表*/
+.group_list_new_sub{ width:100%; float:left;}
+.group_list_new{ padding: 20px;}
+.group_list_new h1{ font-size:14px; color: #3a5a97; position: relative; height:30px; zoom:1;}
+.group_list_new h4{ font-size:12px; font-weight:400; color: #3b5998;}
+.group_list_new .group_title{ margin-bottom:20px;}
+.group_list_new_sub_tab{ margin:15px 0 15px 0; background-color: #f1f2f6; padding:12px 15px;}
+.group_list_new_sub_tab span{ margin-right:5px;}
+.group_list_new_sub_tab a{ border:1px solid #F1F2F6; display:inline-block; padding:3px 5px; margin-right:10px; border-radius:3px;}
+.group_list_new_sub_tab a:hover{ border:1px solid #46639f;}
+.group_list_new .group_mine_ul li{ border-color:#d8deea; width:220px;}
+.group_list_new .group_logo_a{ padding:2px; border:1px solid #bac1d4;width:60px; height:60px; margin-right:8px;}
+.group_list_new .group_mine_li_right h5{margin:2px 0 5px 0;}
+.group_list_new .group_mine_ul{ width:780px; overflow: hidden;}
+.group_list_new .group_mine{ width:760px; overflow: hidden;}
+/*子群首页*/
+.group_son h1{ font-size:14px; color: #3a5a97;}
+.group_son_head{ padding:20px 20px 0 20px; position: relative;}
+#group_create_btn{ position: absolute; right:20px; top:0px;}
+#dissolve_group,#dissolve_group_son{ position: absolute; right:20px; top:20px; padding:2px 6px;}
+.group_son_head_list{ border-bottom:1px solid #c5ccdf; padding: 10px 0 20px 0;}
+.group_son_head .btnBlue{ margin:5px 10px 0 0;}
+.group_son_head span,.group_son_head p,#subgroup_add{ display: inline-block; line-height:22px; float: left;}
+.group_son_head p{ margin:5px 0 0 5px; height:25px; padding:0 20px 0 0;}
+.group_son_head p span{ padding:0 3px; }
+.dividing_line{color: #bac0da;}
+#subgroup_add{ background: url("../../img/group/add.png") no-repeat 0 5px; padding:0 5px 0 18px;}

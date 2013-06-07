@@ -1,0 +1,1 @@
+<script>parent.updataHead("http://localhost/new_duankou/misc/temp/0T15441P-11.jpg");</script>

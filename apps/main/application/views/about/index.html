@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><!--{$list[$aid]['title']}--></title>
+<link type="text/css" rel="stylesheet" href="<!--{$smarty.const.MISC_ROOT}-->css/about/agreement.css">
+</head>
+
+<body>
+<div class="toper">
+	<div class="t_contain">
+    	<p class="top_logo"><a href="<!--{mk_url('front/index/index')}-->"><img src="<!--{$smarty.const.MISC_ROOT}-->img/logo.png" width="102" height="19" alt="端口网"/></a></p>
+    	
+    	<!--{if isset($userinfo['uid'])&&$userinfo['uid']}-->
+    			 <p class="top_link"><a href="<!--{mk_url('front/index/index')}-->"><!--{$userinfo['username']}--></a>你好！欢迎回来！
+    	<!--{else}-->
+    	        <p class="top_link"><a href="<!--{mk_url('front/login/index')}-->">登录</a> <a href="<!--{mk_url('front/login/index')}-->">注册</a></p>
+    	<!--{/if}-->
+        <br class="clear"/>
+  </div>
+</div>
+<div class="agreement_main">
+
+  <div class="left_nav">
+    <ul>
+     <!--{foreach $list as $key=>$first}-->
+      <li><a href="?aid=<!--{$key}-->">&gt;&nbsp;&nbsp;<!--{$first['title']}--></a></li>
+     <!--{/foreach}-->	  
+    </ul>
+  </div>
+  <div class="right_contain">
+    <h1><!--{$list[$aid]['title']}--></h1>
+    <!--{$list[$aid]['content']}-->
+  <br class="clear"/>
+</div>
+<div class="bottom"><a href="<!--{mk_url('main/service/agreement_main')}-->">用户使用协议</a>&nbsp;-&nbsp;<a href="<!--{mk_url('main/service/terms')}-->">专页条款</a>&nbsp;-&nbsp;<a href="<!--{mk_url('main/service/principle')}-->">平台使用原则</a>&nbsp;-&nbsp;<a href="<!--{mk_url('main/service/privacy_statement')}-->">隐私声明</a></div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!--{extends file='main_layout.html'}-->
+<!--{block name='title' prepend}-->
+景点目录-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/interest/interest.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix">
+  <div class="mainArea" id="interest_box">
+    <div class="modlueHeader clearfix"> <span class="userImg"><a href="<!--{mk_url('main/index/main')}-->"><img  src="<!--{get_avatar($uid,'ss')}-->" alt="<!--{$user.username}-->" /></a></span>
+      <div class="userName"> <span class="nameTxt"><a href="<!--{mk_url('main/index/main')}-->">
+        <!--{$user.username}-->
+        </a></span> <span class="nameTxt"><span class="fl">
+        <!--{if $target=='group'}-->
+        群名称导入页：请选择下面的群名称
+        <!--{else}-->
+        频道
+        <!--{/if}-->
+        </span></span> </div>
+    </div>
+    <!--{include file="interest_area.html"}-->
+    <!-- start 发现兴趣主体 -->
+    <!--start: 二级分类 -->
+    <div class="sort-top clearfix">
+      <div class="classfix clearfix"> <span><a href="">分类：&nbsp</a></span>
+        <ul class="threeClassTitle">
+          <!--{foreach from=$category_sort item=item}-->
+          <li
+          <!--{if $iid==$item.iid}-->
+          class="current"
+          <!--{/if}-->
+          > <a href="<!--{mk_url('interest/trip_sort/index',[imid=>$imid,iname=>$item.iname])}-->">
+          <!--{$item['iname']}-->
+          </a>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+      <!--
+				<div class="buiness clearfix">
+					<span><a href="">商圈：&nbsp</a></span>
+					<ul class="threeClassTitle">
+
+						<li class="current">
+							<a href="#">
+							血迹
+							</a>
+						</li>
+						<li class="">
+							<a href="#">
+							阿斗三
+							</a>
+						</li>
+						<li class="">
+							<a href="#">
+							所单鹄寡凫
+							</a>
+						</li>
+					</ul>
+				</div>
+-->
+    </div>
+    <!--end: 二级分类 -->
+    <div class="main-list">
+      <div class="letter-Box"> <a href="<!--{mk_url('interest/index/web_list',['iid'=>$now_current.iid,'target'=>$target])}-->" title="">
+        <h5 class="leftter-h5">&nbsp;&nbsp;
+          <!--{$now_current['iname']}-->
+        </h5>
+        </a>
+        <ul>
+          <!--{assign var="idx" value=0}-->
+          <!--{foreach from=$child_word key=key item=pitem}-->
+          <!--{if $idx%2==0}-->
+          <li class="letterItem clearfix">
+            <!--{/if}-->
+            <div class="letterContent"> <a href="<!--{mk_url('interest/index/web_list',['web_id'=>$pitem.eid,'target'=>$target])}-->" title="<!--{$pitem.name}-->">
+              <h6>
+                <!--{$pitem['name']}-->
+              </h6>
+              </a>
+              <div class="letterThreeContent clearfix">
+                <!--{foreach from=$pitem["result_data"] item=pitem2}-->
+                <a href="<!--{mk_url('interest/index/web_list',['web_id'=>$pitem2.eid,'target'=>$target])}-->" title="<!--{$pitem2.name}-->">
+                <!--{$pitem2.name}-->
+                </a>
+                <!--{/foreach}-->
+              </div>
+            </div>
+            <!--{if $idx%2!=0}-->
+          </li>
+          <!--{/if}-->
+          <!--{assign var="idx" value=$idx+1}-->
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+    <!--.main-list end -->
+    <!-- end 发现兴趣主体-->
+  </div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/interest/interest.js?v=<!--{$js_css_v}-->" type="text/javascript"></script>
+<!--{/block}-->

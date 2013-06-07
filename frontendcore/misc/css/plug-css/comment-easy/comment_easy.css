@@ -1,0 +1,137 @@
+@charset "utf-8";
+/*
+ *@author:    李海棠
+ *@created:   2011/9/6
+ *@desc:      评论 灰色简洁样式 
+ *@version:   v1.0
+ *@explain:   具体的宽度等其它样式请根据具体情况在自己的样式表中再次定义。
+ */
+.comment_easy {_width:99%;height:auto; margin:15px 0px; _position: relative;}
+.comment_easy ul, .comment_easy ul li { display:block; padding:0px; margin:0px; list-style:none;*zoom:1; }
+.comment_easy ul.comment_title li {display:inline; float: left; margin-right:2px;}
+.comment_easy ul.comment_title li.time{margin-right: 6px;}
+.comment_easy ul.comment_title li strong{display:block;width:10px;text-align:center;}
+.comment_easy ul.comment_content {clear: both; _position: relative;}
+.comment_easy ul.comment_content font { font-size:12px; }
+.comment_easy ul.comment_content li.comment_corner {width:11px; height:5px;*height:0px;padding:0; background:url(../../../img/system/icon_chatCorner.gif) no-repeat; overflow:hidden;margin-left:10px; margin-bottom: -1px;}
+@media screen and (-webkit-min-device-pixel-ratio:0){ /*FIX chrome*/
+	li.comment_corner { 
+		top:-10px !important;
+	}
+}
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) { /*FIX opare*/
+	li.comment_corner { 
+		top:-10px !important;
+	}
+}
+.comment_easy ul.comment_content li.comment_corner {} /*FIX IE6 IE7*/
+.comment_easy ul.comment_content li img { vertical-align:middle; margin-right:5px;}
+.comment_easy ul.comment_content li img.extend{position:absolute;}
+.comment_easy ul.comment_content li.comment_form img { float:left; width:30px; height:30px; border:none; margin-right:8px; display:none; }
+.comment_easy ul.comment_content li.comment_form input { width:100%;/*默认为432px*/ height:20px; line-height:20px; border:1px solid #bdc7d8; color:#777; overflow-x:hidden; }
+.comment_easy ul.comment_content li.comment_form .comment_form_input{width:10000px;padding:0;margin:0;display:table-cell;*width:auto;zoom:1;}
+.comment_easy .comment_form_tip{color:#999}
+.comment_easy li.comment_list { margin-bottom:0px !important; padding:0px !important;/*奇怪的IE6*/}
+.comment_easy li.comment_list li { border-bottom:1px solid #D2D9E7;margin-top:1px;background-color:#EDEFF4;padding:5px 5px 4px; overflow:hidden; position:relative}
+.comment_easy li.comment_list li img { float:left; width:30px; height:30px; border:none; margin-right:8px; }
+.comment_easy li.comment_list li span.comment_text { display:block; margin-left:38px; margin-right:15px; line-height:140%;zoom: 1; word-wrap:break-word; overflow: hidden;}
+.comment_easy li.comment_list li span.ui_closeBtn_box { display:inline; width:15px; height:15px; float:right; margin-right: 5px;}
+.comment_easy li.comment_list li span.repeatBtn{position:absolute; right:10px; bottom:3px; color:#3B5998; cursor:pointer; font-weight:700; display:none;}
+
+.comment_easy .ui_closeBtn { display:block; width:15px; height:15px; cursor:pointer; background:url(../../../img/system/icon_close.png) 0px 0px no-repeat; position:inherit !important; }
+.comment_easy .comment_form{background-color:#EDEFF4;border-bottom:1px solid #D2D9E7;padding:5px 5px 4px;margin-top:1px;}
+.comment_easy .comment_view,.comment_easy .comment_praise_father { display:none;padding:5px 5px 4px;background-color:#EDEFF4; border-bottom: 1px solid #D2D9E7;margin-top:1px; }
+.comment_easy .comment_view a.commentAll{background: url(../../../img/system/icon_chat_02.png) no-repeat 0 4px; padding-left:16px; display: inline-block;}
+.comment_easy .comment_praise_son { display:inline-block; _display:inline; _zoom:1; background:url(../../../img/system/icon_good.png) no-repeat 10px center; display:none; }
+.comment_easy .comment_praise_son a { padding-left:20px; }
+.comment_userList { width:445px; height:353px; overflow:auto; }
+.comment_userList ul { display:block; padding:0px; margin:0px; list-style:none; }
+.comment_userList ul li { display:block; height:58px; border-bottom:1px solid #e9e9e9; }
+.comment_userList ul li img.comment_userList_avatar { float:left; width:50px; height:50px; border:none; margin:4px; }
+.comment_userList ul li a.comment_userList_userName { display:block; width:auto; height:auto; font-size:14px; font-weight:bold; margin-top:22px; margin-left:6px; float:left; }
+
+.comment_userList ul li span.btnGray { display:block; float:right; margin-top:18px; }
+.comment_userList ul li span.btnGray span {display:block; width:auto; height:23px; padding:0px 5px; _padding-top:3px; _height:20px; line-height:23px; border:1px solid #999; font-weight:bold; overflow-y:hidden; color:#999; background:url(../../../img/system/ui2.png) no-repeat 0px -49px;}
+.comment_userList div.more a { display:block; line-height:35px; text-align:center; border:1px solid #d8dfea; background:#edeff4; margin:10px; }
+.comment_userList div.more a:hover { background:#d8dfea; }
+.comment_easy .error{background:url(../../../img/system/ui1.png) no-repeat -155px -118px;display:block;width:16px;height:16px;float:left;}
+.comment_easy .enable,.comment_easy .enable a{color:gray;}
+.comment_easy .enable .tc_6{color:#000;}
+.comment_easy .enable .tc_6 a{color:#3B5998;}
+
+.comment_easy .comment_more{float:right;color:gray;display:none;}
+.comment_easy em{font-style:normal;}
+.comment_praise_father em{display: inline-block; background: url(../../../img/system/icon_good.png) no-repeat 0 3px; padding-left: 18px;}
+/*
+*********************************
+  朋友页面添加删除按钮
+*********************************
+*/
+
+.friendBtns { float:right;right:40px;margin-right: 50px;top: 22px;margin-top: 22px;}
+.friendBtns a.btn {float:left; padding:0 6px; margin-left:4px; line-height:20px; font-weight:bold; color:#333; border:1px solid; border-color:#999 #999 #888; box-shadow:0 1px 0 rgba(0,0,0,.1);background:#eee url(../../../img/system/ui2.png) 0 -49px no-repeat;}
+.friendBtns a.btn:hover {text-decoration:none; background-position:0 -60px;}
+.friendBtns i {float:left; width:9px; height:8px; overflow:hidden; margin:6px 3px 0 0; background:url(../../../img/system/ui7.png) no-repeat -8px -459px; _background-image:url(../../../img/system/ui7.gif);}
+.friendBtns i.followed {background-position:-10px -306px; margin-top:8px;}
+.friendBtns .tipCont {position:absolute; left:6px; top:32px; border:1px solid #666; width:80px; padding:5px 0 8px; background-color:#fff;}
+.tipCont s {float:left; _position:relative; margin:-16px 0 0 10px; width:16px; height:11px; overflow:hidden; background:url(../../../img/plug-img/tip/layer_arrow.png) 0 -1px no-repeat;}
+.tipCont a {display:block; line-height:20px; padding:0 10px; font-weight:bold;}
+.tipCont a:hover {background-color:#6D84B4; color:#fff; text-decoration:none;}
+.tipParent{position:relative;}
+.comment_userList .dropMenu ul.dropListul li{height:auto;border:0 none;}
+.comment_userList .webrelation{float:right;}
+.comment_userList .statusBox,.comment_userList .webrelation {margin-right:10px;margin-top:15px;}
+/*****转发列表*****/
+.comment_likeList{height:350px;overflow-y:auto;overflow-x:hidden;padding:5px; *position: relative;}/*fixed ie7 bug*/
+.comment_likeList .likeInfo{overflow: hidden; word-wrap: break-word; margin-right: 5px;}
+.comment_likeList .likeInfo .comment_easy{margin: 5px 0 15px;}
+.comment_likeList .shareComment{width:380;clear:both;}
+.comment_likeList ul li .comment_likelist_userName{float:left;font-weight:bold; margin-right: 5px;}
+.comment_likeList .comment_userList_avatar{float:left;margin:5px;}
+.comment_likeList .comment_corner{display:none;}
+.comment_likeList .comment_title{height:24px;line-height:24px;background-color:#EDEFF4; padding:0 5px;}
+.comment_likeList .more{text-align:center; padding-bottom: 20px;}
+.webrelation .hide{display:none;}
+.webrelation .triggerBtn .friend {background: url("../../../img/system/ui4-gif.gif") no-repeat scroll 0 -143px transparent;float: left;height: 13px;margin: 4px 5px 0 0;overflow: hidden;width: 13px;}
+
+.showColl a{display:inline-block; background:url(../../../img/system/coll.gif) no-repeat 0 -21px; padding-left:20px; color:#999999;}
+.showColl a.hasColl{background-position:0 6px; cursor:default;}
+.showColl a span{color:#3B5998}
+.showColl a.hasColl span{color:#999999}
+.comment_easy .comment_title{overflow: hidden;_display:inline-block;line-height: 24px; height: 24px;}
+.comment_easy .comment_title li.showColl{float: right}
+.comment_easy .comment_title li.showColl a{background-position:0 -30px;}
+.comment_easy .comment_title li.showColl a.hasColl{background-position:0 5px;}
+
+/*
+ reply share css  by Marshane
+*/
+.laymoveText {
+    color: #555555;
+    line-height: 22px;
+    padding: 15px; font-size:12px;
+}
+.laymoveText textarea {
+    display: block;
+    font-size: 12px;
+    height: 70px;
+    margin: 8px 0;
+    width: 425px;
+}
+.replyFor{ border-top:1px  solid #ccc; padding-top:10px; margin-top:20px; position:relative; clear:both;}
+.shareBox .replyFor{border:none; padding:0; margin:0; margin-bottom: 20px; overflow: hidden;}
+.shareBox .countTxt{float:right;}
+.shareBox .shareTo{float:left; vertical-align:middle;}
+.shareBox .shareTo label{float:left;}
+.shareBox .shareTo .replyCheck{margin-right:10px;}
+.shareBox .shareTo input{vertical-align: middle;}
+.laymoveText .content{clear: both; overflow: hidden;;_display:inline-block;}
+.laymoveText .content p{ position: relative; overflow: hidden; word-wrap:break-word; white-space:normal;}
+.laymoveText .left{ float: left; margin-right:20px;}
+.laymoveText .right{ float: left; width:320px;}
+.laymoveText .shareBox textarea{margin:0 0 3px 0;}
+.laymoveText .content .avatar{float: left; margin:3px 8px 0 0;}
+.laymoveText .content .avatar_info{overflow: hidden; word-wrap: break-word;}
+.laymoveText .content .avatar_info p{line-height: 18px;}
+.cursorPointer{cursor: pointer;}
+.cursorPointer:hover{text-decoration: underline;}

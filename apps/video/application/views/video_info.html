@@ -1,0 +1,106 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+	视频：<!--{$videoinfo['title']}-->
+<!--{/block}-->
+
+<!--{block name='header_js'}-->
+
+<!--{/block}-->
+
+<!--{block name='header_css'}-->
+	<link href="<!--{$smarty.const.MISC_ROOT}-->css/message/request_notice.css" type="text/css" rel="stylesheet" />
+	<link href="<!--{$smarty.const.MISC_ROOT}-->css/message/messages.css" type="text/css" rel="stylesheet" />
+	<link href="<!--{$smarty.const.MISC_ROOT}-->css/video/videos.css" type="text/css" rel="stylesheet" />
+	<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" type="text/css" rel="stylesheet"/>
+<!--{/block}-->
+
+<!--{block name='body'}-->
+<div class="body clearfix videoBody">
+	<div class="mainArea">		
+		<div class="modlueHeader clearfix">                                 
+                    <span class="userImg"><a href="<!--{$main_url}-->"><img src="<!--{$avatar_url}-->" alt="头像" /></a></span>
+                    <div class="userName">
+                        <span class="nameTxt"><a href="<!--{$main_url}-->"><!--{$username}--></a></span>
+                        <span class="modlueName nameTxt"><span class="fl"><a href="<!--{$video_url}-->">视频</a></span><s></s></span>
+                    </div> 
+					<div class="userActions">
+					<span class="btnGray"><i class="uiButtonIcon rightArrow"></i><a  href="<!--{$video_url}-->">返回列表 </a> </span>
+					</div> 
+        </div>
+		<div class="modlueBody">
+    		<!-- start: contentCol-->
+            <div id="contentCol" class="clearfix home video">              
+					<div id="contentArea">
+						<div class="videosOfMe">
+							<div class="uiheader videoSectionHeader">
+								<!--
+								<span class="uiheaderActions fr">
+									查看全部
+									<a href="javascript:void(0)">照片与视频</a>
+								</span>
+								-->
+								<div class="videoInfoTitle"><h3><!--{$videoinfo['title']}--></h3></div>
+							</div>
+							<!-- start: videoGrid 视频列表开始 -->
+							<div class="uiGrid">                            	
+                                <!-- start: 视频播放器开始 -->
+                                <div class="videoShow">
+                                    <input type="hidden" id="videoURL" value="<!--{$videoinfo['video_player']}-->" />
+                                    <div id="videoShow"></div>
+									<div class="media_prev"></div>
+                                </div>
+                                <!-- start: 视频播放器结束 -->
+							</div>
+						</div>
+                        <!--评论-->
+						<input type='hidden' id='hd_UID' value="<!--{$uid}-->" />
+						<input type='hidden' id='hd_userName' value='<!--{$login_username}-->' />
+						<input type='hidden' id='hd_avatar' value='<!--{$login_avatar}-->' />
+						<input type="hidden" value="<!--{$hd_userPageUrl}-->" id="hd_userPageUrl">
+						<input type="hidden" value="<!--{$friendlydate}-->" id="hd_friendTime"/>                      <div class="videoCommentEasy comment_easy"  commentObjId="<!--{$vid}-->" pageType='video'  action_uid='<!--{$action_uid}-->' msgname='<!--{$videoinfo['title']}-->' msgurl='<!--{mk_url('video/video/player_video', ['vid'=> $vid])}-->'>
+                            <div class="UIImageBlock clearfix">
+                                <a class="UIImageBlockImage UIImageBlockSmallImage" href="<!--{$main_url}-->"> <img width="30" height="30" alt="头像" src="<!--{$avatar_url}-->" class="uiProfilePhoto"> </a>
+                                <div class="UIImageBlockContent">
+                                    <a href="<!--{$main_url}-->"><!--{$username}--></a>
+                                    <div><!--{$videoinfo['discription']}--></div>
+                                </div>
+                            </div>
+                        </div>
+						<!--{if $is_author}-->
+                        <div class="videoInfoAct">
+                        	<div><span class="t">播放：</span> <p class="playTimes"><strong title="<!--{$volume}-->"><!--{$volume}--></strong></p></div>
+                        	<div><span class="t">标题：</span> <p class="videoName"><span title="<!--{$videoinfo['title']}-->"><!--{$videoinfo['title']}--></span></p></div>
+							<div><span class="t">创建时间：</span> <p class="videoDate><span title="<!--{$friendlydate}-->"><!--{$friendlydate}--></span></p></div>
+                        	<div class="clearfix"><span class="t">权限：</span>
+								<span class="videoPrivateController"> 
+									<div class="dropWrap dropMenu" id="privacySetting" oid="<!--{$videoinfo.id}-->" s="<!--{$videoinfo['object_type']}-->" uid="<!--{$videoinfo['object_uid']}-->"  r="<!--{$sys_purview}-->">
+										<input type="hidden" name="permission" value="<!--{$videoinfo['object_permission']}-->">
+									</div>
+								</span>
+							</div>
+                            <hr />
+                            <div><a href="<!--{$edit_video}-->">编辑此视频</a></div>
+                            <div><input type="hidden" id="video_pic"  value="<!--{$videoinfo['video_pic']}-->" /><a href="<!--{$del_video}-->"id="deleteVideo" rel="<!--{$videoinfo.id}-->">删除视频</a></div>
+                        </div>
+						<!--{/if}-->
+						<div id="friends_detail"></div>
+					</div>
+            </div>
+            <!-- end: contentCol --> 
+        </div>
+	</div>
+</div>
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.UICombox.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/video/video_commentEasy.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/player/AC_RunActiveContent.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/message/request_notice.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.uploader.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-searcher/ViolenceSearch.js" type="text/javascript"></script> 
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/friends_list/friends_list.js" type="text/javascript"></script>
+<!--video js-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/video/videoModules.js" type="text/javascript"></script>
+<!--{/block}-->

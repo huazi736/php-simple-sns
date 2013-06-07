@@ -1,0 +1,57 @@
+<!--<div class="postVideo twoTab postcont" id="distributeVideo">-->
+    <ul class="PostselectTab">
+        <li><a href="javascript:void(0);" ref="0"><h4>录像</h4>
+
+                <div>用网络摄像头</div>
+            </a></li>
+        <li class="noborder"><a href="javascript:void(0);" ref="1"><h4>上传视频</h4>
+
+                <div>从硬盘</div>
+            </a></li>
+    </ul>
+    <div class="videoContent">
+        <div class="postVideoCam">
+            <input type="hidden" name="hd_v_name"/>
+            <input type="hidden" name="hd_v_w"/>
+            <input type="hidden" name="hd_v_h"/>
+
+            <div name="postCmaRecord"></div>
+            <div id="videoCam">
+                <div class="imgText txt_videoText Js_mediaArea">
+                    <div class="textArea">
+                        <textarea msg="给这部录像做些说明吧" name="txt_videoText" tmaxlength="140"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="hide" name="noCam">
+                <h3>没有发现摄像头</h3>
+
+                <p>没有在系统中检测到可用的摄像头，请连接摄像头后再试一次。</p>
+
+                <p><input type="button" class="blackBtn" value="刷新页面" id="btn_Refresh"/></p>
+            </div>
+        </div>
+        <div class="postVideoUpload">
+            <input id="videoId" type="hidden" name="vid" value="">
+            <input type="hidden" id="hd_url" value="<!--{$authcode_url}-->"/>
+            <input type="hidden" id="hd_video_upload_url" value="<!--{$video_upload_url}-->"/>
+            <input id="videoname" type="hidden" value="<!--{$videoname}-->" name="videoname">
+            <input id="recordurl" type="hidden" name="recordurl" value="<!--{$recordurl}-->"/>
+            <div id="uploadVideoFlashWrap">
+                <div id="uploadVideoFlash" data-id="uploadVideoFlash">
+                    <div id="uploadify" data-id="uploadify"></div>
+                    <p class="hide" id="up_success" data-id="up_success"><span>上传成功！</span><a href="javascript:void(0)">重新上传</a>
+                    </p>
+                    <div id="videoQueueID" data-id="videoQueueID"></div>
+                </div>
+            </div>
+            <div id="videoArea">
+                <div class="imgText txtArea Js_mediaArea">
+                    <div class="textArea">
+                        <textarea msg="给这部视频做些说明吧" name="txt_videoText" tmaxlength="140"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--</div>-->

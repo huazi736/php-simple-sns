@@ -1,0 +1,48 @@
+<!--{extends file='default.html'}-->
+
+<!--{block name='header_css' append}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/groupall.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='group_title'}-->&gt;&gt; 群组应用列表<!--{/block}-->
+
+<!--{block name='right'}-->
+<!--{include file='navigation.html'}-->
+<div class=" group_app_list_add">
+	<ul id="listWrap" class="listWrap clearfix">
+		<!--{foreach from=$apps item=app}-->  
+		<li>
+			<div class="box  clearfix">
+				<div class="listWrap_left">
+					<div class="avatarBox clearfix">
+						<div class="group_img_wrap">
+							<img src="<!--{$app.thumb}-->"/>
+						</div>
+					</div>
+					<div class="uName">
+						<div class="className">
+							<a><!--{$app.name}--></a>
+						</div>
+					</div>
+					<div class="group_app_intro"><!--{$app.description}--></div>
+				</div>
+				<div class="listWrap_right">
+						<span class="btnGray "><i class="uiButtonIcon sub"></i><a href="<!--{mk_url('group/app/delete', ['gid' => $group.gid, 'appid' => $app.id])}-->">删除 </a> </span>
+				</div>
+			</div>
+		</li>
+		<!--{foreachelse}-->
+		<li>
+			<div id="nodata">
+			<center>暂无应用可选，<a href="<!--{mk_url('group/index/detail', ['gid' => $group.gid])}-->">返回群首页</a></center>
+			</div>
+		</li>
+		<!--{/foreach}-->
+	</ul>
+</div>
+<!--{/block}-->
+
+
+
+<!--{block name='footer_js' append}-->
+<!--{/block}-->

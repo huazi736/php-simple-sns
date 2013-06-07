@@ -1,0 +1,388 @@
+<div id="basicInfoFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<div>（姓名、性别、生日用户一个月只能修改一次，请谨慎修改）</div>
+	<table class="uiInfoTableForm">
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>姓名：</th>
+				<td class="data" id="ableD"><input type="text" name="name" class="vinput"/></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>性别：</th>
+				<td class="data" id="ableD"><select name="sex"><option value="-1">请选择</option><option value="1">男</option><option value="2">女</option><option value="3">保密</option></select></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob"><em>*</em>生日：</th>
+				<td class="data" id="ableD">
+					<select name="y" id="sltYear"><option value="-1">请选择</option></select><select name="m" id="sltMonth"><option value="-1">请选择</option></select><select name="d" id="sltDay"><option value="-1">请选择</option></select>
+				   <!-- <hr>
+					<select name="show">
+						<option value="1">显示我的生日在我的首页</option>
+						<option value="2">只显示月和日在我的首页</option>
+						<option value="3">不显示我的生日在我的首页</option>
+					</select>-->
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">婚恋状况：</th>
+				<td class="data">
+					<select name="love">
+						<option value="-1">请选择</option>
+						<option value="1">单身</option>
+						<option value="2">正在恋爱中</option>
+						<option value="3">已订婚</option>
+						<option value="4">已婚</option>
+						<option value="5">关系复杂</option>
+						<option value="6">开放式的交往关系</option>
+						<option value="7">丧偶</option>
+						<option value="8">分居</option>
+						<option value="9">离婚</option>
+					</select>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">有无儿女：</th>
+				<td class="data">
+					<select name="children">
+						<option value="-1">请选择</option>
+						<option value="1">有</option>
+						<option value="2">无</option>
+					</select>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">家乡：</th>
+				<td class="data"><span id="country0"></span><span id="province0"></span><span id="city0"></span><span id="area0"></span></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob">现居住地：</th>
+				<td class="data nob"><span id="country1"></span><span id="province1"></span><span id="city1"></span><span id="area1"></span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr tipmodel="dkUserwikiBacicInfo base 450">
+				<td class="uiOverlayFooterMessage" width="77%"><span class="line_err_msg" style="margin-left:30px;"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0)">取消</a></div><div class="btnBlue fr mrs"><a href="javascript:void(0)" id="basicInfoStore">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<input id="timeArr" type="hidden" value="1988-08,1990-09,1996-09,1999-09,2000-09" />
+<!--TIME-->
+<!--ABLE-->
+
+<script>
+	$(function(){
+		/***初始化出生年月日,依赖setyear.js***/
+		var setyear= new SetYear ("sltYear","sltMonth","sltDay");
+	    setyear.init();
+
+	    /*
+	     * 数据处理
+	     */
+	    var $fEdit=$("#basicInfoFormEdit");
+	    var $dTable=$("#basicInfoForm").children();
+	    var newData={};
+	    var $obj = {};	    
+	    $("#basicInfoForm").children().each(function(){
+	    	var obj = $(this).find('.data');
+	    	$obj[obj.attr('name')] = obj;
+	    }); 	
+	    	
+	    /*
+		* 家乡,居住地初始化*，依赖插件area_utils.js
+	    */
+		var hometownArea = new initAreaComponent('country0,province0,city0,area0','1-country,1-province,1-city,1-area',$obj.hometown.text());
+		hometownArea.initalize();
+		var residence = new initAreaComponent('country1,province1,city1,area1','1-country,1-province,1-city,1-area',$obj.residence.text());
+		residence.initalize();	
+
+	    var oldData={};//页面里旧值
+	    function getOldDate($obj){
+	    	oldData={
+	    		name:$obj.name.text(),
+	    		sex:{
+	    			t:$obj.sex.text(),
+	    			v:$obj.sex.attr('val')
+	    		},
+	    		birth:{
+	    			y:$obj.birth.text().split('-')[0],
+	    			m:$obj.birth.text().split('-')[1],
+	    			d:$obj.birth.text().split('-')[2]
+	    		},
+	    		love:{
+	    			t:$obj.love.text(),
+	    			v:$obj.love.attr('val')
+	    		},
+	    		children:{
+	    			t:$obj.children.text(),
+	    			v:$obj.children.attr('val')
+	    		}
+	    	};
+	    	getAddress($obj,oldData,['hometown','residence']);
+	    }
+	    function getAddress(obj,store,keys){
+	    	for(var i= 0,len = keys.length;i<len;i++){
+	    		var cut = obj[keys[i]].text().split(' ');
+	    		store[keys[i]] = {};
+	    		store[keys[i]]['country'] = cut[0];
+	    		store[keys[i]]['p'] = cut[1];
+	    		store[keys[i]]['c'] = cut[2];
+	    		store[keys[i]]['a'] = cut[3];
+	    		store[keys[i]]['v'] = obj[keys[i]].attr('val');
+	    	}
+	    }		
+	    var $form={
+	    		name:$("input[name=name]",$fEdit),
+	    		sex:$("select[name=sex]",$fEdit),
+	    		birth:{
+	    			y:$("select[name=y]",$fEdit),
+	    			m:$("select[name=m]",$fEdit),
+	    			d:$("select[name=d]",$fEdit)
+	    		},
+	    		love:$('select[name=love]',$fEdit),
+	    		children:$("select[name=children]",$fEdit),
+	    		hometown:{
+	    			country:$('#country0').children('select'),
+	    			p:$('#province0').children('select'),
+	    			c:$('#city0').children('select'),
+	    			a:$('#area0').children('select')
+	    		},
+	    		residence:{
+	    			country:$('#country1').children('select'),
+	    			p:$('#province1').children('select'),
+	    			c:$('#city1').children('select'),
+	    			a:$('#area1').children('select')
+	    		}
+	    		
+	    	};//加载进来的表单模版对象
+	    
+		getOldDate($obj);
+		function fillData($form,oldData){
+			$form.name.val(oldData.name);//填"姓名"
+			$form.sex.val(oldData.sex.v);
+			var birth = $form.birth;
+			birth.y.val(oldData.birth.y).change();
+			birth.m.val(oldData.birth.m).change();
+			birth.d.val(oldData.birth.d);
+			($.trim(oldData.love.t)!='')? $form.love.val(oldData.love.v): $form.love.children(':first').attr('selected','selected');
+			($.trim(oldData.children.t)!='')? $form.children.val(oldData.children.v): $form.children.children(':first').attr('selcted','selected');
+		}
+		fillData($form,oldData);
+		
+		function errorMsg (msg,obj) {
+			obj.parentsUntil('tr').parent().find('.line_err_msg').text(msg);
+		}
+		
+	    function getNewData($form){//获取新值
+	    	newData={
+					name:$form.name.val(),
+					birth:{//生日 
+						y:$form.birth.y.val(),//年
+						m:$form.birth.m.val(),//月
+						d:$form.birth.d.val()//日
+					}
+			};
+			f($form,newData,['sex','love','children'],selectFormat);
+			f($form,newData,['hometown','residence'],addressformat);
+	    }
+	    function f(f,n,arr,fn){
+	    	for(var i = 0,len = arr.length; i<len; i++ ){
+	    		n[arr[i]] = fn(f[arr[i]]);
+	    	}
+	    }
+     	function selectFormat(obj){
+	    	var temp = {};
+	    	temp.v = obj.val();
+	    	temp.t = obj.find("option:selected").text();
+	    	return temp;
+	    }
+	    function addressformat(obj){
+	    	var temp = {};
+	    	for(i in obj){
+	    		temp[i] = obj[i].find("option:selected").text();
+	    	}
+	    	return temp;
+	    }
+
+	    function compareData (oldD,newD) {
+	    	var flag=0;//用于标识值是否改变
+	    	var data={};
+	    	var updata={};
+	    	var hometown='';//例子：中国 浙江 台州 路桥区
+	    	var residence='';//例子：中国 浙江 杭州 西湖区
+
+			if(oldD.name!=newD.name){//判断姓是否改变
+				data['name']=newD.name;
+				updata['name']=newD.name;
+				flag=1;
+			}
+			
+			if(oldD.sex.t!=newD.sex.t){//判断性别是否改变
+				data['sex']=newD.sex.v;
+				updata['sex']=newD.sex.t;
+				flag=1;
+			}
+			if(oldD.birth.y!=newD.birth.y||oldD.birth.m!=newD.birth.m||oldD.birth.d!=newD.birth.d){//判断出生日期是否改变
+				data['year']=newD.birth.y;
+				data['month']=newD.birth.m;
+				data['day']=newD.birth.d;
+				updata['birth']=newD.birth.y+'-'+newD.birth.m+'-'+newD.birth.d;
+				flag=1;
+			}
+
+			if(oldD.love.t!=newD.love.t){//判断婚恋状况是否改变
+				data['ismarry']=newD.love.v;
+				updata['ismarry'] = newD.love.t;
+				flag=1;
+			}
+			if(oldD.children.t!=newD.children.t){//判断有无儿女是否改变
+				data['haschildren']=newD.children.v;
+				updata['haschildren'] = newD.children.t;
+				flag=1;
+			}
+
+			//判断家乡
+			if(oldD.hometown.a != newD.hometown.a){
+				flag = 1;
+				hometown = ' ';
+				if(newD.hometown.c != '请选择' && newD.hometown.a != '请选择'){
+					hometown = newD.hometown.country + ' ' + newD.hometown.p + ' ' + newD.hometown.c + ' ' + newD.hometown.a;
+				}
+				data['home_nation']=hometown;
+				updata['hometown']=hometown;
+			}
+	
+			//判断现居地
+			if(oldD.residence.a != newD.residence.a){
+				flag = 1;
+				residence = ' ';
+				if (newD.residence.c !='请选择' && newD.residence.a != '请选择'){
+					residence = newD.residence.country + ' ' + newD.residence.p + ' ' + newD.residence.c + ' ' + newD.residence.a;
+				}
+				data['now_nation']=residence;
+				updata['residence']=residence;
+			}
+
+		    return {data:data,falg:flag,updata:updata};   
+		}
+		
+		function upData(obj,data){//更新HTML,表格
+			if(data.name){
+				obj.name.text(data.name);
+			}
+			if(data.sex){				
+				obj.sex.text(newData.sex.t);				
+			}
+			if(data.birth=='-1--1--1'){
+				obj.birth.text('');	
+			}else{
+				obj.birth.text(data.birth);
+			}
+			if(data.ismarry){
+				if (newData.love.t=='请选择') {newData.love.t='';}
+				obj.love.text(newData.love.t);
+			}
+			if(data.haschildren){
+				if (newData.children.t=='请选择') {newData.children.t='';}		
+				obj.children.text(newData.children.t);				
+			}
+			if(data.hometown != ''){
+				obj.hometown.text(data.hometown);
+			}
+			if(data.residence != ''){
+				obj.residence.text(data.residence);
+			}		
+		}
+	    if ($('#able').text()==0){
+	    	$('#basicInfoFormEdit').find('input[name="name"],select[name="sex"],select[name="y"],select[name="m"],select[name="d"]').attr('disabled','disabled');
+	    }
+		$('#basicInfoStore').click(function(){
+				var _this=$(this);
+				var time = $('#time').text();
+				var _t = time.split('-');
+				var time_y = Number(_t[0]);
+				var time_m = Number(_t[1]);
+				var time_d = Number(_t[2]);
+
+				getOldDate($obj);	
+				getNewData($form);//获取最新表单数据
+
+				//验证		
+				if(!validator.codeName.test(newData.name) || newData.name.length<2||newData.name.length>10){
+					errorMsg('姓名仅限输入中文、英文(长度2-10)',_this);
+					return;
+				}
+				if(newData.sex.v==-1){
+					errorMsg('请选择性别情况',_this);
+					return;
+				}
+				if(newData.birth.y==-1||newData.birth.m==-1||newData.birth.d==-1){
+					errorMsg('请选择完整出生日期',_this);
+					return;	
+				}else if((time!='1912-01-01')&&
+					((Number(newData.birth.y)*10000+Number(newData.birth.m)*100+Number(newData.birth.d))
+						>(time_y*10000+time_m*100+time_d))){
+					errorMsg('出生日期需早于其他社会活动时间（教育、工作等）',_this);
+					return;	
+				}
+				var S = '请选择';
+				var objh = newData.hometown;
+				var objs = newData.residence;  
+				if((objh.country!=S)&&(objh.p==S||objh.c==S||objh.a==S)||
+				   (objs.country!=S)&&(objs.p==S||objs.c==S||objs.a==S)||
+				   (objh.country ==S)&&(objh.p!=S||objh.c!=S||objh.a!=S)||
+				   (objs.country ==S)&&(objs.p!=S||objs.c!=S||objs.a!=S)
+					){
+					errorMsg('请选择完整的地址',_this);
+					return;
+				}
+
+				newData.residence.cv = $('#city1').val();
+			  var changedData=	compareData(oldData,newData);//比较有无更新值，返回改变的值
+			  changedData.data.now_nationV = $('#area1').find('select').val();
+			  if(changedData.falg==1){
+			  	$.ajax({//提交数据
+					type:"POST",
+					url:mk_url('user/jobandschooldataedit/baseEdit'),
+					dataType:'json',
+					data:changedData.data,
+					success:function(data){
+						if(data.status==1){
+							upData($obj,changedData.updata);		
+						}else{
+							$(this).popUp({
+								width:350,
+					            title:'友情提示',
+					            content:'<div style="padding:16px">'+data.msg+'</div>',
+					            buttons:'<span class="popBtns blueBtn closeBtn">确定</span>',
+					            mask:true,
+					            maskMode:true
+							});
+						}
+					},
+					error:function(){			
+					}				
+				});
+			  }
+			  
+			  _this.closest('.tip_win').hide();
+
+			});
+	});
+</script>

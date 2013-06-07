@@ -1,0 +1,37 @@
+<div class="tripBox trip">
+	<div class="trip_pic">
+		<form  class="form_upload" action="" method="post" enctype="multipart/form-data" id="tirp">
+			<span class="upload_wrap">
+				<input type="file" class="file_upload" name="Filedata" accept="images/jpg,images/png,images/gif">
+			</span>
+		</form>
+		<span class="addtripic">点击添加图片</span><span class="addsuccess">图片添加成功</span><span class="restort">重新上传</span>
+	</div>
+	<form>
+		<div class="form_border">
+			<label id="discription"></label>
+			<p>
+				<input name="disc" type="text" class="input_txt require" value="请输入行程描述">
+			</p>
+		</div>
+		<div>
+		<div style='width:39%; float: left;'>
+			<div class="form_border">
+				<label id="price"></label>
+				<p>
+					<input name="price" type="text" class="input_txt require isfloat" value="请输入价格">
+					<em>RMB</em>
+				</p>
+			</div>
+		</div>
+		<div style='width:60%; float: right;'>
+			<div class="form_border">
+				<label id="link"></label>
+				<p>
+					<input name="link" type="text" class="input_txt require url" value="http://">
+				</p>
+			</div>
+		</div>
+		</div>
+	</form>
+</div>

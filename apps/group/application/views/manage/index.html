@@ -1,0 +1,100 @@
+<!--{extends file='default.html'}-->
+
+<!--{block name='header_css' append}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/groupall.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='group_title'}-->&gt;&gt; 基本资料<!--{/block}-->
+
+<!--{block name='right'}-->
+<!--{if $group.source_type eq CUSTOM}-->
+<div class="group_son_head">
+	<span class="uiButton" id="dissolve_group" gid="<!--{$group.gid}-->">解散群组</span>
+</div>
+<!--{/if}-->
+<!--{include file='navigation.html'}-->
+<div id="mainContant">
+	<div class="group_app_list_add">
+		<div class="group_set">
+			<ul class="group_set_head clearfix">
+				<li class="on"><a href="javascript:void(0)">基本资料</a></li>
+				<li><a href="<!--{mk_url('group/manage/members', ['gid' => $group.gid])}-->">成员管理</a></li>
+			</ul>
+		</div>
+		<div class="group_set_contant">
+			<div class="group_data group_tab_contant" style="display:block;">
+				<table>
+					<tr>
+						<td>
+						<input type="hidden" value="<!--{$group.icon}-->" />
+							<div class="group_data_head"><strong>群图标：</strong></div>
+							<ul class="group_set_logo_ul clearfix">
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/1.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/1.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/2.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/2.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/3.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/3.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/4.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/4.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/5.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/5.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/6.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/6.png"></a></li>
+								
+								
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/7.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/7.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/8.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/8.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/9.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/9.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/10.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/10.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/11.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/11.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/12.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/12.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/13.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/13.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/14.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/14.png"></a></li>
+								<li><a href="javascript:void(0)"><img alt="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/15.png" src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon/subgroup/15.png"></a></li>
+							</ul>
+						</td>
+					</tr>
+					<!--{if $group.source_type eq 'CUSTOM'}-->
+					<tr>
+						<td>
+							<div class="group_data_head"><strong>成员加入方式：</strong></div>
+							<p class="group_data_label_wrap">
+								<label for="invite_host">
+									<!--{if $group.invitation eq '1'}-->
+									<input type="radio" id="invite_host" name="checkbox" checked ><span>仅限群主邀请成员加入</span>
+									<!--{else}-->
+									<input type="radio" id="invite_host" name="checkbox" ><span>仅限群主邀请成员加入</span>
+									<!--{/if}-->
+								</label>
+							</p>
+							<p class="group_data_label_wrap">
+								<label for="invite_allmember">
+									<!--{if $group.invitation eq '3'}-->
+									<input type="radio" id="invite_allmember" name="checkbox" checked><span>群内所有成员均可进行邀请</span>
+									<!--{else}-->
+									<input type="radio" id="invite_allmember" name="checkbox"><span>群内所有成员均可进行邀请</span>
+									<!--{/if}-->
+								</label>
+							</p>
+						</td>
+					</tr>
+					<!--{/if}-->
+					<tr>
+						<td>
+						
+							<form action="<!--{mk_url('group/manage/update')}-->" method="POST">
+								<input id="hide_gid" type="hidden" name="gid" value="<!--{$group.gid}-->" />
+								<input id="hide_icon" type="hidden" name="icon" value="<!--{$group.icon}-->" />
+								<input id="hide_invitation" type="hidden" name="invitation" value="<!--{$group.invitation}-->" />
+								<div class="group_set_save"><span class="popBtns blueBtn">保存</span></div>
+							</form>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!--{/block}-->
+
+
+<!--{block name='footer_js' append}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/detail.js" type="text/javascript"></script>
+<!--{/block}-->

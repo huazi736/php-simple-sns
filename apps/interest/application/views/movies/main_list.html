@@ -1,0 +1,140 @@
+<div class="bodyer_theatre_nopadding">
+<!--start:city_select -->
+<div class="city_select clearfix">
+      <a href="javascript:void(0);" class="fl">当前城市：&nbsp;</a>
+      <dl class="fl" id="city_fn">
+            <dt class="clearfix"><strong class="fl cur_city">杭州站</strong><a class="shift_city fl" href="javascript:void(0);">其他城市<em class="arr"></em></a></dt>
+            <dd class="city_drop">
+                  <p class="city_hot"><strong>热门城市：</strong><a href="">北京</a><a href="">天津</a><a href="">上海</a><a href="">广州</a><a href="">深圳</a><a href="">重庆</a><a href="">南京</a><a href="">武汉</a><a href="">广州</a></p>
+                  <div class="city_list clearfix">
+                        <dl><dt>A</dt><dd><a href="">鞍山</a></dd></dl>
+                        <dl><dt>B</dt><dd><a href="">宝鸡</a></dd></dl>
+                        <dl><dt>C</dt><dd><a href="">成都</a><a href="">慈溪</a></dd></dl>
+                        <dl><dt>D</dt><dd><a href="">东莞</a><a href="">大连</a></dd></dl>
+                        <dl><dt>F</dt><dd><a href="">佛山</a><a href="">福州</a><a href="">富阳</a><a href="">抚顺</a></dd></dl>
+                        <dl><dt>H</dt><dd><a href="">杭州</a><a href="">惠州</a><a href="">呼和浩特</a></dd></dl>
+                        <dl><dt>K</dt><dd><a href="">昆明</a><a href="">昆山</a></dd></dl>
+                         <dl><dt>J</dt><dd><a href="">金华</a><a href="">建德</a><a href="">靖江</a><a href="">嘉兴</a><a href="">济宁</a><a href="">九江</a></dd></dl>
+                        <dl><dt>Q</dt><dd><a href="">青岛</a><a href="">清远</a><a href="">衢州</a></dd></dl>
+                        <dl><dt>N</dt><dd><a href="">南京</a><a href="">宁波</a><a href="">南通</a></dd></dl>
+                        <dl><dt>T</dt><dd><a href="">太原</a><a href="">唐山</a><a href="">台州</a></dd></dl>
+                        <dl><dt>S</dt><dd><a href="">十堰</a><a href="">绍兴</a><a href="">沈阳</a><a href="">苏州</a><a href="">石家庄</a></dd></dl>
+                        <dl><dt>X</dt><dd><a href="">西安</a><a href="">厦门</a><a href="">徐州</a></dd></dl>
+                        <dl><dt>W</dt><dd><a href="">武汉</a><a href="">梧州</a></dd></dl>
+                        <dl><dt>Z</dt><dd><a href="">周口</a><a href="">湛江</a></dd></dl>
+                        <dl><dt>Y</dt><dd><a href="">仪征</a><a href="">烟台</a></dd></dl>
+                  </div>
+            </dd>
+      </dl>
+</div>  
+<!--over:city_select -->
+<!--start: sort_top -->
+<div class="theatre_class">
+      <h6 class="head"><a href="">&nbsp;电影院分类：</a></h6>
+      <dl class="theatre_top_list">
+			<!--{if isset($cinema)}-->
+            <dd><a class="hover" href="<!--{mk_url('interest/movies/index')}-->">全部</a>
+				<!--{foreach from=$cinema item=item}-->
+					<a href="<!--{mk_url('interest/movies/cinema')}-->?cinema=<!--{$item['id']}-->"><!--{$item['name']}--></a>
+                <!--{/foreach}-->
+			<!--{else}-->
+				没有在该地区找到影院
+			<!--{/if}-->
+      </dl>
+</div>   
+<!--over:sort_top-->
+</div>
+<!--start:movies_classify -->
+<div class="bodyer_theatre_nopadding">
+	<div class="theatre_class">
+  <h6 class="head"><a href="">&nbsp;电影分类：</a></h6>
+  <dl class="theatre_top_list">
+            <dt><a href="#">按产地：</a></dt>
+            <dd><a class="hover" href="#">全部</a>
+            <a href="#">华语</a>
+            <a href="#">好莱坞</a>
+            <a href="#">欧洲</a>
+            <a href="#">韩国</a>
+            <a href="#">其他</a></dd>
+      </dl>
+      <dl class="theatre_top_list">
+            <dt><a href="#">按类型：</a></dt>
+            <dd><a class="hover" href="#">全部</a>
+            <a href="#">爱情片</a>
+            <a href="#">动作片</a>
+            <a href="#">喜剧片</a>
+            <a href="#">科幻片</a>
+            <a href="#">恐怖片</a>
+            <a href="#">风月片</a>
+            <a href="#">剧情片</a>
+            <a href="#">歌舞片</a>
+            <a href="#">战争片</a>
+            <a href="#">其他</a></dd>
+      </dl>
+      <dl class="theatre_top_list">
+            <dt><a href="#">按年份：</a></dt>
+            <dd><a class="hover" href="#">全部</a>
+            <a href="#">2012</a>
+            <a href="#">2011</a>
+            <a href="#">2010</a>
+            <a href="#">2009</a>
+            <a href="#">2008</a>
+            <a href="#">2007</a>
+            <a href="#">2006</a>
+            <a href="#">2005</a>
+            <a href="#">2004</a>
+            <a href="#">2003</a>
+            <a href="#">2002</a>
+            <a href="#">2001</a>
+            <a href="#">2000</a>
+            <a href="#">更早</a></dd>
+      </dl>
+  </div>   
+</div>
+<div class="bodyer_theatre_nopadding">
+  <div class="theatre_class">
+  <h6 class="head"><a href="">&nbsp;演员分类：</a></h6>
+  <dl class="theatre_top_list">
+            <dt><a href="#">按明星：</a></dt>
+            <dd><a class="hover" href="#">全部</a>
+            <a href="#">杨幂</a>
+            <a href="#">舒淇</a>
+            <a href="#">刘德华</a>
+            <a href="#">章子怡</a>
+            <a href="#">郭富城</a>
+            <a href="#">舒淇</a>
+            <a href="#">刘德华</a>
+            <a href="#">章子怡</a>
+            <a href="#">郭富城</a>
+            <a href="#">舒淇</a>
+            <a href="#">刘德华</a>
+            <a href="#">章子怡</a>
+            <a href="#">郭富城</a>
+            <a href="#">舒淇</a>
+            <a href="#">刘德华</a>
+            <a href="#">章子怡</a>
+            <a href="#">郭富城</a>
+            <a href="#">舒淇</a>
+            <a href="#">刘德华</a>
+            <a href="#">章子怡</a>
+            <a href="#">郭富城</a></dd>
+      </dl>
+      <dl class="theatre_top_list">
+            <dt><a href="#">按导演：</a></dt>
+            <dd><a class="hover" href="#">全部</a>
+            <a href="#">张艺谋</a>
+            <a href="#">陈凯歌</a>
+            <a href="#">黄健中</a>
+            <a href="#">冯小宁</a>
+            <a href="#">冯小刚</a>
+            <a href="#">陈国星</a>
+            <a href="#">赛夫</a>
+            <a href="#">麦丽斯</a>
+            <a href="#">张元</a>
+            <a href="#">陈家林</a>
+            <a href="#">徐克</a>
+            </dd>
+      </dl>
+  </div>   
+</div>
+<!--over:movies_classify -->

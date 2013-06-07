@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/popUp/popUp.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/album/picViewer.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+var CONFIG = {};
+//CONFIG['uid'] = "";
+//CONFIG['dkcode'] = "";
+//CONFIG['username'] = "";
+//CONFIG['action_uid'] = "";
+//CONFIG['action_dkcode'] = "";
+//CONFIG['action_username'] = "";
+//路由用的域名
+CONFIG['domain'] = "<!--{$smarty.const.DOMAIN}-->";
+CONFIG['time'] = "<!--{$smarty.const.SYS_TIME}-->";
+//远程或本地运行
+CONFIG['local_run'] = <!--{intval($smarty.const.LOCAL_RUN)}-->;
+CONFIG['misc_path'] =  "<!--{$smarty.const.MISC_ROOT}-->";
+//网页ID
+CONFIG['web_id'] = "<!--{$js_config['web_id']}-->";
+//用户UID
+CONFIG['u_id'] = "<!--{$js_config['uid']}-->";
+//用户头像
+CONFIG['u_head'] = "<!--{$js_config['avatar']}-->";
+//用户姓名
+CONFIG['u_name'] = "<!--{$js_config['username']}-->";
+//用户端口号
+CONFIG['dkcode'] = "<!--{$js_config['dkcode']}-->";
+//被访问者的端口号
+CONFIG['action_dkcode'] = "<!--{$js_config['action_dkcode']}-->";
+//
+CONFIG['fdfshost'] = '';
+//
+CONFIG['fdfsGroup'] = '';
+//
+CONFIG['fdfsdomain'] = "<!--{$js_config['fastdfs_domain']}-->";
+//路由中的子域名
+CONFIG['subdomain'] = <!--{$js_config['subdomain']}-->;
+
+</script>
+
+</head>
+
+<body class="setbg">
+<div class="picViewer_box">
+  <div class="picViewer">
+    <div class="picViewer_picBox">
+      <div class="picViewer_pic">
+        <!--{if $ptlists['thumperSize']}-->
+        <img src="<!--{$ptlists['img_b']}-->" ysrc="<!--{$ptlists['img']}-->" imgW="<!--{$ptlists['thumperSize']['w']}-->" imgH="<!--{$ptlists['thumperSize']['h']}-->" alt="<!--{$ptlists['name']}-->" id="pic" />
+        <div class="picZoom"></div>
+        <!--{else}-->
+        <img src="<!--{$ptlists['img_b']}-->" alt="<!--{$ptlists['name']}-->" id="pic" />
+        <!--{/if}-->
+        <!--{if $prev_next_list['prev_id']}--><div class="prevArea" title="上一张" href="<!--{$prev_url}-->"></div><!--{/if}-->
+        <!--{if $prev_next_list['next_id']}--><div class="nextArea" title="下一张" href="<!--{$next_url}-->"></div><!--{/if}-->
+
+        <!--Start: 旋转按钮-->
+        <a href="javascript:;" title="左旋" id="rotateToLeft"><span></span></a>
+        <a href="javascript:;" title="右旋" id="rotateToRight"><span></span></a>
+         <!--End: 旋转按钮-->
+        
+      </div>
+      <div class="pic_name">
+      	<!--{if $is_author}-->
+        	<p class="clearfix"><em></em><span class="picNameText"><!--{$ptlists['name']}--></span></p>
+        <!--{else}-->
+        	<div class="staticDis picNameText"><span alt="<!--{$ptlists['name']}-->" title="<!--{$ptlists['name']}-->"><!--{$ptlists['name']}--></span></div>
+        <!--{/if}-->
+      </div>
+    </div>
+    <div class="picViewer_info clearfix">
+      <div class="info_addInfo_addComment">
+  		  	<div class="pic_name">
+  		  	<!--{if !$ptlists['description']}-->
+	  		  	<!--{if $is_author}-->
+              <p class="clearfix"><em></em><span class="picDescText">添加照片描述</span></p>
+	       		<!--{/if}-->
+	       	<!--{else}-->
+	       		<!--{if $is_author}-->
+                <p class="clearfix"><em></em><span class="picDescText"><!--{$ptlists['description']}--></span></p>
+	       		<!--{else}-->
+	       			<div class="staticDis"><span><!--{$ptlists['description']}--></span></div>
+	       		<!--{/if}-->
+	       	<!--{/if}-->	
+       		 </div>
+
+        <div class="comment_easy picViewerCommentEasy" commentObjId="<!--{$ptlists['id']}-->" pageType="web_photo" action_uid="<!--{$action_uid}-->"  msgname='<!--{$album_info['name']}-->' msgurl='<!--{$view_photo_url}-->' ctime='<!--{$ptlists["timestamp"]}-->' web_id = '<!--{$album_info['web_id']}-->'></div>
+      </div>
+
+      <div class="picViewer_control">
+        <ul <!--{if !$is_author && !$ptlists['description']}-->style="padding-top:35px;"<!--{/if}-->>
+          <li><span class="tc_9">相册：</span><a target="_top" href="<!--{$ptlistsurl}-->"><!--{$ptlists['album_name']}--></a><strong class="tc_9"> · </strong><span class="tc_9"><!--{$ptlists['photo_count']}--> 张中的第 <!--{$prev_next_list['num']}--> 张</span></li>
+          <li><span class="tc_9">发布于：</span><!--{$ptlists['dateline']}--></li>
+        </ul>
+        <!--{if $is_author}-->
+        <ul class="setarea">
+          <li><a href="javascript:;" id="picViewer_del">删除此照片<form action="<!--{$ptdelete_url}-->" method="post"><input type="hidden" name="pic_id" value="<!--{$ptlists['id']}-->" /></form></a></li>
+
+          <!--{if count($all_album_list)!=1 && $album_info['a_type']==0}-->
+          <li id="movePhoto2">
+            <a href="javascript:;" class="downIcon">移动到</a>
+            <div class="albumUl">
+              <ul>
+              
+                <!--{foreach from=$all_album_list item = strdata name=foo}-->
+             		<!--{if $strdata.id <> $ptlists['aid']}-->
+      					<li><a herf="javascript:;" albumId="<!--{$strdata.id}-->" title="<!--{$strdata.name}-->"><!--{$strdata.name}--></a></li>
+      					<!--{/if}-->
+        				<!--{/foreach}-->
+              
+              </ul>
+            </div>
+          </li>
+          <!--{/if}-->
+
+           <li><a href="<!--{$uploadurl}-->">下载</a></li>
+
+    		  <li><a href="<!--{mk_url('webmain/avatar/set_avatar',['web_id'=>$album_info['web_id'],p=>$ptlists['img']])}-->" target='_blank' id="picToAvatar2">制作个人头像</a><form id="picToAvatar_form" action="<!--{$smarty.const.WEB_ROOT}-->uc/avatar" method="post" target='_top'><input type='hidden' name='pid' value="<!--{$ptlists['id']}-->"><input type='hidden' name='pic' value="<!--{$ptlists['img_b']}-->"><input type="hidden" name="pic_id" value="<!--{$ptlists['id']}-->" /></form></li>
+
+          <li><a href="javascript:void(0);" id="picToCover">设置为相册封面</a><form id="picToCover_form" action="<!--{mk_url('walbum/photo/setCover')}-->" method="post"><input type='hidden' name='aid' value="<!--{$ptlists['aid']}-->"><input type="hidden" name="pid" value="<!--{$ptlists['id']}-->" /><input type="hidden" name="web_id" value="<!--{$web_id}-->" /></form></li>
+
+    		  <li><a href="javascript:void(0);" id="picToMainCover">设置为网页应用区相册封面</a><form id="picToMainCover_form" action="<!--{mk_url('walbum/photo/setMainCover',['web_id'=>$album_info['web_id']])}-->" method="post"><input type='hidden' name='aid' value="<!--{$ptlists['id']}-->"><input type="hidden" name="pid" value="<!--{$ptlists['id']}-->" /><input type="hidden" name="web_id" value="<!--{$web_id}-->" /></form></li>
+        </ul>
+        <!--{else}-->
+        <ul class="setarea clearfix">
+          <li><a href="<!--{$uploadurl}-->">下载</a></li>
+        </ul>
+        <!--{/if}-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<input type='hidden' id='hd_UID' value="<!--{$uid}-->" />
+<input type='hidden' id='hd_userName' value='<!--{$login_username}-->' />
+<input type='hidden' id='hd_avatar' value='<!--{$login_avatar}-->' />
+<input type='hidden' id='hd_userPageUrl' value='<!--{$login_userpageurl}-->' />
+<!--{if $is_author}-->
+<input type="hidden" id="remoteFlag" value="1" />
+<!--{/if}-->
+
+<input type="hidden" id="hd_imUID" value="<!--{$uid}-->" />
+<input type="hidden" id="hd_imUserName" value="<!--{$username}-->" />
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/init.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/common/utils.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/popUp/popUp.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/rorate/jquery.rotate.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/picViewerOpt.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/editText.js"></script>
+
+<!--[if IE 6]>
+  <script language="javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/ie6png/DD_belatedPNG.js"></script>
+  <script type="text/javascript"></script>
+    DD_belatedPNG.fix('.png');
+  </script>
+<![endif]-->
+
+</body>
+</html>

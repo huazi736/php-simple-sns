@@ -1,0 +1,136 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+端口充值
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<!--这里是本页面需要的头部js-->
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<!--这里是本页面需要的CSS-->
+<link rel="stylesheet" type="text/css" href="<!--{$smarty.const.MISC_ROOT}-->css/pay/pay.css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix PAY">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{mk_url('main/index/main')}-->"><img src="<!--{$js_config.avatar}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{mk_url('main/index/main')}-->"><!--{$js_config.username}--></a></span>
+				<span class="nameTxt"><span class="fl"><a href="#">广告支付</a></span></span>
+			</div>
+		</div>
+		<div class="modlueBody">
+			<h2 class="PAY_ways">
+				<span class="tip"><strong>支付方式：</strong></span>
+				<a class="banks way cur" href="#">银行卡</a>
+				<a class="alipay way" href="#">支付宝</a>
+				<a class="tenpay way" href="#">财付通</a>
+			</h2>
+			<ul class="PAY_panels">
+				<li class="panel panel-banks panel-cur">
+					<form class="form form-banks" method="post" action="<!--{mk_url('pay/pay/paytobank')}-->">
+						<div class="form_item  form_item-way banks-form_item banks-form_item-which-bank">
+							<label class="label label-which-bank">选择支付方式：</label>
+							<ol class="content content-which-bank bank-list">
+								<li class="bank list-item ICBCB2C radio-logo">
+									<span class="radio-wrap">
+										<input type="radio" name="pay_bank" value="ICBCB2C" checked="checked" class="radio-which-bank" />
+									</span><span class="logo-bank logo-ICBCB2C"></span>
+								</li>
+								<li class="bank list-item ABC radio-logo">
+									<span class="radio-wrap">
+										<input type="radio" name="pay_bank" value="ABC" class="radio-which-bank" />
+									</span><span class="logo-bank logo-ABC"></span>
+								</li>
+								<li class="bank list-item COMM radio-logo">
+									<span class="radio-wrap">
+										<input type="radio" name="pay_bank" value="COMM" class="radio-which-bank" />
+									</span><span class="logo-bank logo-COMM"></span>
+								</li>
+								<li class="bank list-item CCB radio-logo">
+									<span class="radio-wrap">
+										<input type="radio" name="pay_bank" value="CCB" class="radio-which-bank" />
+									</span><span class="logo-bank logo-CCB"></span>
+								</li>
+								<li class="list-item other-banks">
+									<a class="link-to-other-banks" href="#">选择其它</a>
+								</li>
+							</ol>
+						</div>
+						<div class="form_item  form_item-fee banks-form_item banks-form_item-fee">
+							<label class="label">充值金额：</label>
+							<div class="content">
+								<input type="text"  value="<!--{$fee}-->"  class="fee" name="fee" />&nbsp;元
+							</div>
+						</div>
+						<div class="form_item form_item-identity banks-form_item banks-form_item-identity">
+							<label class="label">充值账户：</label>
+							<div class="content">
+								<span class="uname" ><!--{$js_config.username}--></span>
+							</div>
+						</div>
+						<div class="form_item form_item-action banks-form_item banks-form_item-actions">
+							<label class="label"></label>
+							<div class="content">
+								<input type="submit" class="button submit" name="alipay_submit" value="下一步" />
+							</div>
+						</div>
+					</form>
+				</li>
+				<li class="panel panel-alipay">
+					<form id="banks-form" class="form banks-form" method="post" action="<!--{mk_url('pay/pay/paytoalipay')}-->">
+						<div class="form_item form_item-fee alipay-form_item alipay-form_item-fee">
+							<label class="label">充值金额：</label>
+							<div class="content">
+								<input type="text"  value="<!--{$fee}-->"   class="fee" name="fee" />&nbsp;元
+							</div>
+						</div>
+						<div class="form_item form_item-identity alipay-form_item alipay-form_item-identity">
+							<label class="label">充值账户：</label>
+							<div class="content">
+								<span class=""><strong><!--{$js_config.username}--></strong></span>
+							</div>
+						</div>
+						<div class="form_item form_item-action alipay-form_item alipay-form_item-actions">
+							<label class="label"></label>
+							<div class="content">
+								<input type="submit" class="button submit" name="alipay_submit" value="下一步" />
+							</div>
+						</div>
+					</form>
+				</li>
+				<li class="panel panel-tenpay">
+					<form class="form banks-form" method="post" action="<!--{mk_url('pay/pay/paytotenpay')}-->">
+						<div class="form_item form_item-fee tenpay-form_item tenpay-form_item-fee">
+							<label class="label">充值金额：</label>
+							<div class="content">
+								<input type="text"  value="<!--{$fee}-->"   class="fee" name="fee" />&nbsp;元
+							</div>
+						</div>
+						<div class="form_item form_item-identity tenpay-form_item tenpay-form_item-identity">
+							<label class="label">充值账户：</label>
+							<div class="content">
+								<span class=""><span class="uname" ><!--{$js_config.username}--></span></span>
+							</div>
+						</div>
+						<div class="form_item form_item-action tenpay-form_item tenpay-form_item-actions">
+							<label class="label"></label>
+							<div class="content">
+								<input type="submit" class="button submit" name="alipay_submit" value="下一步" />
+							</div>
+						</div>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="sideBar">
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<!--这里是本页面的JS-->
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/popUp/popUp.js" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pay/pay.js" ></script>
+<!--{/block}-->

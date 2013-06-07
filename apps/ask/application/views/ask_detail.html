@@ -1,0 +1,60 @@
+<!--{extends file="base_layout.html"}-->
+
+<!--{block name=header_css}-->
+<!--问答CSS 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/ask/plug_ask.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/tip/jquery.tip.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name=body}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix"><span class="userImg"><a href="<!--{$userInfo['author_url']}-->"><img src="<!--{$userInfo['author_avatar']}-->" alt="" /></a></span>
+			<div class="userName"><span class="nameTxt"><a href="<!--{$userInfo['author_url']}-->"><!--{$userInfo['author_username']}--></a></span><span class="modlueName nameTxt"><span class="fl"><a href="#">问答详情</a></span></span></div>
+			
+		</div>
+		<div class="modlueBody">
+			<div id="contentArea">
+				<div id="askDetail" style="border:none; height:auto; overflow:hidden; width: 540px;">
+					<div id="askDetail_title"></div>
+					<div id="askDetail_item"></div>
+					<div id="askDetail_note"></div>
+				</div>
+
+
+				<div id="friends_detail" style="display:none;"></div>
+				<div style="height:40px;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<input type='hidden' id='hd_UID' value="<!--{$visitorInfo['visitor_uid']}-->" />
+<input type='hidden' id='hd_userName' value="<!--{$visitorInfo['visitor_uid']}-->" />
+<input type='hidden' id='hd_avatar' value="<!--{$visitorInfo['visitor_avatar']}-->" />
+<input type='hidden' id='dkou' value="<!--{$visitorInfo['visitor_dkcode']}-->" />
+<input type='hidden' id='askuid' value="<!--{$visitorInfo['ask_uid']}-->" />
+<input type='hidden' id='sessionuid' value="<!--{$visitorInfo['visitor_uid']}-->" />
+<input type="hidden" id="from_ask_notices" value="<!--{$poll_id}-->" />
+
+<!--{/block}-->
+
+<!--{block name=footer_js}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-tip/dk.tip.js" type="text/javascript"></script>
+<!--以下为相册相关JS-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.UICombox.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-searcher/ViolenceSearch.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/friends_list/friends_list.js" type="text/javascript"></script>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/relation/relation.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/scrollLoad.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/ask/plug_ask.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function(){
+        $('body').showAsk();
+    })
+</script>
+<!--{/block}-->

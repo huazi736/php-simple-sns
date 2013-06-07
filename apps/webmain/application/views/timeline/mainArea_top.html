@@ -1,0 +1,189 @@
+<div class="mainAreaTop clearfix dkTimelineSection">
+	<div>
+		<div id="dkProfileCover">
+			<div class="cover">
+				<div id="containImg" class="coverImage <!--{if !$iscover}--> hide <!--{/if}-->">
+					<a id="dkCoverImageContainer" class="coverWrap <!--{if $is_self}--> cursor <!--{/if}-->">
+						<img class="photo img" style="top: 0px;" src="<!--{$cover}-->">
+						<div class="instructionWrap">
+							<div class="instruction"></div>
+							<span>拖动以调整封面照片</span>
+						</div>
+						<div id="coverBorder" class="coverBorder"></div>
+						<div class="profilePicNotch"><div class="notchInner"></div></div>
+					</a>
+					<!--{if $is_self}-->
+					<div id="editCover">
+						
+						<span id="editCoverbnt" class="editButton" arg="" ><s></s><font>更改封面</font><b></b></span>
+						
+					</div>
+					<!--{/if}-->
+				</div>	
+				<div id="noImg" class="coverImage coverNoImage <!--{if $iscover}--> hide <!--{/if}--> ">
+					<div class="coverEmptyWrap">
+						<img class="hide" src="<!--{$smarty.const.MISC_ROOT}-->img/system/more_loading.gif"/>
+					</div>
+					<!--{if $is_self}-->
+					<div id="addCover">
+						
+						<span id="addCoverbnt" class="addButton" arg="" ><s></s><font>添加一张封面</font><b></b></span>
+						
+					</div>
+					<!--{/if}-->
+				</div>
+				<!-- ---------个人小头像----------- -->
+				<div class="personalSmallImgBorder" id="editPersonImg">
+					<div id="personalSmallImg" class="personalSmallImg">
+						<img src="<!--{get_webavatar($webId,'b')}-->" />
+					</div>
+					<div class="editHead  hide">
+                        <!--{if $is_self}-->
+						<span id="editPerson" class="editButton" <!--{if exist_avatar($webId,'b')}--> nohead="0" <!--{else}-->nohead="1"<!--{/if}-->><s></s><font>编辑网页头像</font><b></b></span>
+						<!--{/if}-->
+					</div>
+				</div>
+				<!-- ---------/个人小头像----------- -->
+			</div>
+			<div id="dkTimelineHeadline" class="clearfix">
+				
+				<!-- ---------个人名字和更新信息----------- -->
+				<div class="nameAndSendMsg">
+					<div class="nameAndRelation">
+						<!-- ---------个人名字----------- -->
+						<div class="personalName">
+							<span id="name" href="javascript:void(0);"><!--{$web_info[0]['name']}--></span>
+						</div>
+						<!-- --------/个人名字----------- -->
+						<!-- start: 关系入口 by卜海亮 2012-07-10 -->
+						<div class="relationEntri">
+							<ul>
+								<li><span>粉丝：</span><a href="<!--{$web_fans['fanslisturl']}-->" title="粉丝"><span><!--{$web_fans['num']}--></span></a></li>
+							</ul>
+						</div>
+						<!-- end: 关系入口 -->
+					</div>
+					
+					<!--更新信息和活动记录-->
+					<!--{if !$is_self}-->
+                    <div class="actions">
+
+						<!-- 关系按钮 -->
+						<!-- rel: 2(加关注),4(关注(x天)),6(永久关注),8(激活关注)-->
+						<div class="userName relation relationWraps">
+							<div webid="<!--{$webId}-->" uid="<!--{$f_uid}-->" days="<!--{$ftime['lastday']}-->" dtype="<!--{$ftime['dtype']}-->" rel="<!--{$ftime['follow']}-->" class="statusBox"></div>
+		                </div>
+
+					</div>
+                    <!--{/if}-->
+					<!-- ---------/更新信息和活动记录----------- -->
+					
+					<!-- start: 粉丝群入口  hexin 2012-07025 -->
+					<div class="statusBox" style="padding: 17px 7px 0 10px;">
+						<div class="userName">
+							<span class="btnBlue" style="background: none;border: none;"><a class="addFollow" href="<!--{mk_url('group/group/fans', ['webid' => $web_info['aid']])}-->" style="color:#333;">进入粉丝总群</a></span>
+						</div>
+					</div>
+					<!-- end: 粉丝群入口 -->
+				</div>
+				<!-- ---------/个人名字和更新信息----------- -->
+			</div>
+                    <div id="coverEditCancelArea" class="coverEditor hide">
+				<div class="saveAndCancel">
+					<span href="javascript:void(0);" class="btnGray png cancelBnt" style="width: auto;"><a class="uiButtonText">取消</a></span>
+					<span href="javascript:void(0);" class="btnBlue png uiBntConfirm" style="width: auto;"><a class="uiButtonText">保存更改</a></span>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- ---------/如没有设封面出现的空白层----------- -->
+	<!-- ---------内容区头部导航----------- -->
+	<div class="timelineNavgationPagelet">
+		
+		<!-- ---------时间线按钮----------- -->
+		<div class="timelineMenu dkTimelineNavigationWrapper">
+			<div class="timelineNavContent dkTimelineNavigation clearfix">
+				<div class="menuLeft">
+					<ul class="timelineNavigation clearfix menuLeftUl" id="menuLeftUl">
+						<ul class="fl">
+						<li class="textLinkLi webtextLinkLi" id="textLinkLi">
+							<div class="timelineSummarySectionWrapper">
+								<div class="textLinkLiBorder detail" onclick="location.href='<!--{$wiki_url}-->'">
+									<div class="timelineSummarySection">
+										<span class="profileFragment webIfo"><i></i><span><!--{$category_name}--></span></span>
+										<span class="profileFragment webIfo"><i></i><span>创建于<!--{$create_time}--></span></span>
+										<span class="profileFragment webIfo"><i></i>创建者：
+                                        <!--{if $is_display}-->
+                                        	<a href="<!--{$create_url}-->" class="blue"><!--{$create_name}--></a>
+                                            <!--{else}-->保密
+                                            <!--{/if}-->
+                                         </span>
+									</div>
+								</div>
+								<a class="textLinkLiText" href="<!--{$wiki_url}-->">资料</a>
+							</div>
+						</li>
+					</ul>
+						<ul class="fr">
+							<input type="hidden" class="web_id" value="<!--{$webId}-->" />
+							<input type="hidden" class="web_uid" value="<!--{$f_uid}-->" />
+							<ul class="noMoveRange">
+							</ul>
+							<ul class="moveRange">
+								<!--{if (isset($user_app_list) && count($user_app_list))}-->
+								<!--{foreach from=$user_app_list key=key item=val}-->
+                                <!--{if $key > 12}--><!--{break}--><!--{/if}-->
+								<span style="display:none"><!--{$key}--><!--{$val['menu_title']}--></span>
+								<li class="photo <!--{if (($key > 5))}-->hide<!--{/if}-->">
+									<input type="hidden" name="objInfo" value="" />
+									<input type="hidden" name="objId" value="<!--{$val['menu_id']}-->" />
+									<span class="tab">
+										<div class="imgLinkLiImg tip <!--{if $is_self}-->canmove<!--{/if}-->"  url="<!--{$val['menu_url']}-->">
+											<div class="whiteborder">
+												<div class="contentwrapper">
+													<!--{if isset($val['cover'])  && count($val['cover']) > 0}-->
+														<!--{if (is_array($val['cover']))}-->
+														<!--{foreach from=$val['cover'] key=k item=v}-->
+														<a href="<!--{if $val['menu_url'] == '#'}-->#<!--{else}--><!--{$val['menu_url']}--><!--{/if}-->"><img class="fans img" src="<!--{if isset($v['ico'])}--><!--{$v['ico']}--><!--{/if}-->" alt="<!--{if isset($v['name'])}--><!--{$v['name']}--><!--{/if}-->" onerror="this.src='<!--{$smarty.const.MISC_ROOT}-->img/default/avatar_ss.gif'"></a>
+														<!--{/foreach}-->
+														<!--{/if}-->
+													<!--{else}-->
+														<div class="tip" hovercard="001" href="javascript:void(0);" url="<!--{if $val['menu_url'] == '#'}-->#<!--{else}--><!--{$val['menu_url']}--><!--{/if}-->"><img class="" src="<!--{if $val['menu_id'] != 4}--><!--{$val['menu_ico']}--><!--{/if}-->" alt="<!--{$val['menu_title']}-->"></div>
+													<!--{/if}-->
+												</div>
+											</div>
+										</div>
+										<span class="imgLinkLiText"> <a href="<!--{if $val['menu_url'] == '#'}-->#<!--{else}--><!--{$val['menu_url']}--><!--{/if}--><!--{if ($val['menu_id'] == 5 && !$is_self)}-->&m=friendlist<!--{/if}-->"><!--{$val['menu_title']}--></a>
+											<span class="gray <!--{if $val['menu_title'] == '视频'}-->video<!--{/if}--><!--{if $val['menu_title'] == '相册'}-->album<!--{/if}--><!--{if $val['menu_title'] == '活动'}-->event<!--{/if}-->">
+												<!--{if $val['menu_id'] != 4}--><!--{if isset($val['nums'])}--><!--{$val['nums']}--><!--{/if}--><!--{/if}-->
+											</span>
+										</span>
+									</span>
+								</li>
+								<!--{/foreach}-->
+								<!--{/if}-->
+							</ul>
+						</ul>
+					</ul>
+				</div>
+				<!--{if count($user_app_list) > 6 }-->
+				<div class="menuRight">
+					<div class="hideImgLinkBtn">
+						<a id="seemore" href="javascript:void(0);" > <span class="linkClickSpan"><span class="text"><!--{if (intval((count($user_app_list)) - 6) > 0)}--><!--{intval((count($user_app_list)) - 6)}--><!--{else}-->0<!--{/if}--></span></span> </a>
+					</div>
+					<!--{if count($user_app_list) > 12 }-->
+                    <div class="uiArrow">
+                        <a href="<!--{$smarty.const.WEB_ROOT}-->main/index.php?c=app&m=index&web_id=<!--{$webId}-->"><span class="ico"></span></a>
+                    </div>
+                    <!--{/if}-->
+				</div>
+				<!--{/if}-->
+			</div>
+		</div>
+		<!-- ---------/时间线按钮----------- -->
+	</div>
+	<!-- ---------/内容区头部导航----------- -->
+</div>
+<!-- -----------/时间线首页内容区头部------------------ -->

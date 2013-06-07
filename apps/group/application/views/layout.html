@@ -1,0 +1,39 @@
+<!--{extends file='base_layout.html'}-->
+
+<!--{block name='title' prepend}-->群组 - <!--{/block}-->
+
+<!--{block name='body'}-->
+<div class="body clearfix" id="followerFramework">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix" id="group_nav">
+			<span class="userImg">
+				<!--{if isset($group)}-->
+				<a href="<!--{mk_url('group/index/detail', ['gid' => $group.gid])}-->">
+					<img src="<!--{$group.icon}-->" />
+				</a>
+				<!--{else}-->
+				<a href="<!--{mk_url('main/index/main', ['dkcode' => $user.dkcode])}-->">
+					<img src="<!--{$user.avatar}-->" />
+				</a>
+				<!--{/if}-->
+			</span>
+			<div class="userName">
+				<span class="nameTxt">
+					<!--{if isset($group)}-->
+					<a href="<!--{mk_url('group/index/detail', ['gid' => $group.gid])}-->">
+						<!--{$group.name}-->
+					</a>
+					<!--{else}-->
+					<a href="<!--{mk_url('main/index/main', ['dkcode' => $user.dkcode])}-->">
+						<!--{$user.username}-->
+					</a>
+					<!--{/if}-->
+				</span>
+				<span class="nameTxt"><!--{block name='group_title'}-->群首页<!--{/block}--></span>
+			</div>
+		</div>
+		
+		<!--{$smarty.block.child}-->
+	</div>
+</div>
+<!--{/block}-->

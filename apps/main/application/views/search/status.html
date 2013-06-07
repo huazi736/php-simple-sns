@@ -1,0 +1,92 @@
+<!--{extends file='main_layout.html'}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/search/search.css?1343118517153" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$user_url}-->"><img  src="<!--{$user_avatar}-->" alt="<!--{$user_name}-->" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$user_url}-->"><!--{$user_name}--></a></span>
+				<span class="nameTxt"><a href="<!--{$app_url_list.status.url}-->">搜索</a></span>
+				<span class="nameTxt"><span class="fl"><a href="<!--{$app_url_list.status.url}-->"><!--{$app_settings.status.name}--></a></span></span>
+			</div>
+		</div>
+		<div class="modlueBodySearch clearfix" id="globalSearchs">
+			<div class="modlueNav dropMenu clearfix">
+				<div class="">
+					<span>
+					</span>
+				</div>
+				<ul class="dropListul clearfix">
+					<span class="droplistulspan">搜索分类</span>
+					<!-- 
+					<li><a href="#" class="itemAnchor"><i class="i_friend"></i><span>所有结果</span><b></b></a></li>
+					-->
+					<li><a href="<!--{$app_url_list.people.url}-->" class="itemAnchor"><i class="i_friend"></i><span><!--{$app_settings.people.name}--></span><b><!--{$left_navigator.people}--></b></a></li>
+					<li><a href="<!--{$app_url_list.website.url}-->" class="itemAnchor"><i class="i_page"></i><span><!--{$app_settings.website.name}--></span><b><!--{$left_navigator.website}--></b></a></li>
+					<li><a href="<!--{$app_url_list.status.url}-->" class="itemAnchor"><i class="i_status"></i><span><!--{$app_settings.status.name}--></span><b><!--{$left_navigator.status}--></b></a></li>
+					<li><a href="<!--{$app_url_list.photo.url}-->" class="itemAnchor"><i class="i_photo"></i><span><!--{$app_settings.photo.name}--></span><b><!--{$left_navigator.photo}--></b></a></li>
+					<li><a href="<!--{$app_url_list.album.url}-->" class="itemAnchor"><i class="i_album"></i><span><!--{$app_settings.album.name}--></span><b><!--{$left_navigator.album}--></b></a></li>
+					<li><a href="<!--{$app_url_list.video.url}-->" class="itemAnchor"><i class="i_video"></i><span><!--{$app_settings.video.name}--></span><b><!--{$left_navigator.video}--></b></a></li>
+					<li><a href="<!--{$app_url_list.blog.url}-->" class="itemAnchor"><i class="i_blog"></i><span><!--{$app_settings.blog.name}--></span><b><!--{$left_navigator.blog}--></b></a></li>
+					<li><a href="<!--{$app_url_list.event.url}-->" class="itemAnchor"><i class="i_activity"></i><span><!--{$app_settings.event.name}--></span><b><!--{$left_navigator.event}--></b></a></li>
+				</ul>				
+			</div>
+			<div class="modlueContainer clearfix">
+				
+				<h3 class="modlueBodyTitle categoryTitle" id="term" name="<!--{$keyword}-->"><i class="modlueImgS state"></i><!--{$app_settings.status.name}--><!--{$center_count_border.prefix}--><!--{$left_navigator.status}--><!--{$center_count_border.subfix}--></h3>
+				<!--{if $isEmpty eq true}-->
+				<div class="noResult"><h3>未搜索到相应结果，请重新输入关键字</h3></div>
+				<!--{else}-->
+				
+				<div class="searchResult" >
+					<ul class="clearfix">
+					<!--{foreach from=$status item=vo}-->
+                                        <li class="searchLi clearfix" id="<!--{$vo.comment_id}-->" type="<!--{$vo.share_type}-->" fid="<!--{$vo.self_id}-->" uid="<!--{$vo.user_id}-->">
+							<a href="<!--{$vo.url}-->" class="headerImg" target="_blank"><img src="<!--{$vo.img}-->" alt="" /></a>
+							<div class="searchDetail clearfix">
+								<p class="searchCont">
+									<a href="<!--{$vo.url}-->" title="<!--{$vo.name}-->" target="_blank"><!--{$vo.name}--></a>
+								</p>
+								<p class="statusfont">
+									<!--{$vo.text}-->
+									<br />
+									<!--{if trim($vo.text_img) neq '' }-->
+                                                                        <img src="<!--{$vo.text_img}-->" rel="<!--{$vo.text_big_img}-->" type="<!--{$vo.share_type}-->"/>
+									<!--{/if}-->
+                                                                       
+                                                                </p>
+								<p class="setTime">
+									发布时间：<!--{$vo.time}-->
+								</p>
+							</div>
+                                                       <div class="clearfix"></div>
+							<div rel="" uid="" class="statusBox clearfix"></div>
+                                                         <div class="comment_easy clearfix" time="<!--{$vo.time}-->" commentObjId="<!--{$vo.comment_id}-->" pageType="<!--{$vo.page_type}-->" action_uid="<!--{$vo.user_id}-->" web_id="<!--{$vo.web_id}-->" msgurl="123" msgname="123"></div>
+						</li>
+					<!--{/foreach}-->
+					</ul>
+					<!--{if !$is_end}-->
+					<div class="moreResult hide">
+						<a name="3" href="<!--{$ajax_path}-->" rel="1" class="hide"><!--{$app_settings.status.html_more_result}--><i></i></a>
+						<span ><img width="16" height="7" alt="loading" src="<!--{$smarty.const.MISC_ROOT}-->img/system/more_loading.gif"></span>
+					</div>
+					<!--{/if}-->
+				</div>
+				<!--{/if}-->
+			</div>
+		</div>
+		
+	</div>
+	<div class="sideArea">
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/searchResult/searchResult.js?1343118517153"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk_play/videoPlayer.js"></script>
+<!--{/block}-->

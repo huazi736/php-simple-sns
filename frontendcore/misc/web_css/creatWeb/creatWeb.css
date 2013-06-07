@@ -1,0 +1,120 @@
+/**
+ * @author:    wangwb
+ * @created:   2012/04/18
+ * @version:   v1.0
+ * @desc:      创建网页
+ */
+/*----------------------------------创建网页----------------------------------*/
+
+/* 布局模块 */
+.creatWebHead {margin:0 -20px; border-bottom: 1px solid #C4CDE0; padding-left:20px;}
+.creatWebHead .creatWebTitle { padding: 4px 8px 2px; padding-bottom: 4px\0; *padding:5px 8px 1px; position:relative; font-size:12px; line-height: 15px; background-color:#FFF; border-radius:2px 2px 0 0; border:1px solid #C4CDE0; border-bottom: 0 none;}
+.creatWebBody {margin-top: 18px;}
+.creatWebBody li {float:left; position: relative; margin:8px 17px 6px 1px; padding:3px; border:5px solid #e9e9e9; width:242px; height:242px; overflow: hidden;}
+.creatWebBody .webType { position: absolute; top:3px; font-size:14px; text-align:center; vertical-align:middle; line-height:242px; width:242px; height:242px; background-color:#f2f2f2; cursor:pointer; }
+.creatWebBody .enterBox {background-color:#e9e9e9;}
+.creatWebBody .creatBlock {position: absolute; top:242px; width:218px; height:218px; padding:12px;}
+.creatWebBody .lastBox{ margin-right:-17px;}
+.webTypeImg{width:24px;height:24px;top:44%;left:44%;display:block;position:relative;}
+.createBlockfont{display:block;height:242px;line-height:242px;font-size:14px;text-align:center;}
+/*编辑模块*/
+.modlueBody{min-height:460px;}
+.modlueBody .modlueContent{margin:22px 100px 0 100px;}
+.modlueBody .modlueContent .modlueBodyHeader{width:606px;height:50px;border:1px solid #d3d9e8;border-right:0px;}
+.modlueBody .modlueContent .modlueBodyHeader li{float:left;_display:inline;border-right:1px solid #d3d9e8;height:50px;width:201px;color:#999;text-align:center;line-height:50px;font-weight:bold;}
+.modlueBody .modlueContent .modlueBodyContent{margin:50px 0 0 100px;}
+.modlueBody .modlueContent .modlueBodyContent label,.modlueBody .modlueContent .modlueBodyContent h5{font-weight:bold;font-size:14px;margin-right:20px;}
+.modlueBody .modlueContent .modlueBodyContent li,.modlueBody .modlueContent .modlueBodyContent h5{margin-top:20px;}
+.modlueBody .modlueContent .modlueBodyContent input{width:225px;height:23px;border:1px solid #bdc7d8;line-height:23px;}
+.modlueBody .modlueContent .modlueBodyContent select{width:225px;height:25px;border:1px solid #bdc7d8}
+.modlueBody .modlueContent .modlueBodyContent select{padding:3px;}
+.modlueBody .modlueContent .modlueBodyContent span{color:#999;}
+.modlueBodyContent .nextMark{margin-top:55px;margin-left:465px;display:block;text-decoration:underline;}
+.mainArea .modlueBody .modlueContent .modlueBodyHeader  .current{background-color:#e7ecf2;color:#3b5998;}
+/* 第三页 */
+.modlueContent .checkpage{width:605px;height:265px;}
+.modlueContent .pagefoot{margin:25px auto;height:50;width:170px;}
+.modlueContent .agreebutton,.modlueContent .allcheck{vertical-align:middle;}
+.modlueContent .blueBtn{border-color: #41588C;margin-top: 10px;line-height: 20px;display:block;}
+.modlueContent .blueBtn input{padding: 5px 25px;font-size: 14px;height: 28px;line-height: 18px;color: white;font-weight: bold;border: none;background: none;cursor: pointer;}
+.modlueBody .modlueContent .checkpage{border:1px solid #d6dbe9;margin-top:12px;}
+.modlueContent .allcheck{margin-left:48px;}
+.modlueContent .allcheckC{color:#999;border-bottom:1px solid #d6dbe9;height:30px;line-height:30px;}
+.modlueContent .checkfriend{width:605px;height:235px;overflow-y:scroll;}
+.modlueContent .checkfriend ul{margin-left:45px;}
+.modlueContent .checkfriend li{float:left;_display:inline;width:178px;height:60px;margin-top:12px;}
+.modlueContent .checkfriend li img{width:60px;height:60px;float:left;border:0px;}
+.modlueContent .checkfriend .friendDetial{float:left;width:110px;margin-left:6px;}
+.modlueContent .checkfriend .friendDetial h5{color:#586289;font-size:12px;overflow:hidden;}
+.modlueContent .checkfriend .friendDetial p{height:29px;width:105px;	}
+.pagefoot .agree{margin-top:3px;}
+/* 第二页 */
+.mainArea .modlueBody .pageTwo{margin-top:80px;} 
+.mainArea .modlueBody .pageTwo li{float:left;}
+.mainArea .modlueBody .pageTwo .photoShow{width:210px;height:170px;padding:5px;border:1px solid #c6c6c6;box-shadow:0px 1px 2px #c6c6c6;}
+.mainArea .modlueBody .pageTwo .photoShowC{width:210px;height:170px;display: table-cell;vertical-align: middle;text-align:center;}
+.mainArea .modlueBody .pageTwo .loadUp{margin-left:105px;margin-top:-10px;}
+.mainArea .modlueBody .pageTwo .loadUp .loadUpimg{width:200px;height:90px;cursor:pointer;}
+.mainArea .modlueBody .pageTwo .clickline{width:200px;height:0px;border-top:1px solid #c6c6c6;position:relative;margin:15px 0;}
+.mainArea .modlueBody .pageTwo .clickFont{position:absolute;color:#999;top:-10px;left:90px;display:block;width:20px;background-color:#ffffff;text-align:center;}
+.mainArea .modlueBody .pageTwo .loadUp .loadUpimg{background:url(../../img/system/fxxq-01.png) no-repeat;}
+/* 协议*/
+ .pageAgreement{width:445px;height:135px;overflow-y:scroll;margin:20px auto;display:none;}
+ 
+/*
+*********************************
+  注册 - 个人头像设定
+*********************************
+*/
+.uploadHeader{margin:0px 0 0 100px;}
+
+.uploadHeaderLeft{float:left; padding-left:100px;}
+.uploadHeaderLeft img{padding:5px; border:1px solid #c6c6c6;}
+.uploadHeaderRight{float:left; padding:0 0 0 85px;}
+.uploadHeaderRight .uploadPh,.uploadHeaderRight .photograph{border-radius:3px; height:55px; margin:0 0 30px 45px; *margin-left:54px; _margin-left:45px; position:relative; width:100px; background-color:#3b5999;}
+.uploadHeaderRight span{display:block; text-align:center;}
+.uploadHeaderRight a .t{color:#fff; font-size:14px; font-weight:900; padding-top:3px;}
+.uploadHeaderRight a .b{color:#a1baf0;}
+.uploadHeaderRight i{height:44px; position:absolute; left:25px; width:46px; background:url("../../img/system/ui_uploadheader.gif");}
+.uploadHeaderRight .photograph i{background-position:0 -56px;}
+.uploadHeaderRight .hr{color:#7b7b7b; margin-bottom:5px;}
+
+.uploadHeader .uploadBtn{border:1px solid #9c9c9c; color:#333; float:left; font-weight:900; margin-right:5px; padding:2px 15px; background:url("../../img/system/ui2.gif") repeat-x scroll 0 -49px transparent;}
+#vessel{float:left; height:24px; overflow:hidden; position:relative; width:305px;z-index:0;}
+#vessel .hidden{cursor:pointer; float:left; font-size:20px; height:22px; position:absolute; z-index:999;opacity: 0; z-index:2; -moz-opacity: 0; filter:alpha(opacity=0); }
+#vessel .browse{border:1px solid #bcbcbc; height:20px; line-height:20px; padding-left:3px; position:absolute; left:0; top:2px; width:215px; z-index:1;}
+#vessel .uploadBtn{position:absolute; left:225px; top:0px;}
+.uploadHeader .byPhoto,#loading_gif{float:left; margin:5px 5px 0;}
+.uploadHeader .byPhoto{text-decoration:underline;}
+.uploadHeader .backBtn{float:right; margin-bottom:10px;}
+#avatar_editor{padding:10px 50px;}
+
+   
+
+/*
+*********************************
+  单独登录页面
+*********************************
+*/
+.forgetPw .newpsw input.rememberMe{height:13px; float:left; margin:3px 5px 0 0; width:13px;}
+.forgetPw .newpsw label.rememberMe{float:left; padding-top:0; text-align:left;}
+.forgetPw .newpsw .loginBtn .submit {margin-right:5px; width:50px;}
+.forgetPw .newpsw .loginBtn .submit input{height:22px; line-height:24px; width:50px;}
+.forgetPw .newpsw .loginBtn .reg{display:inline; float:left; text-align:left;}
+.forgetPw .newpsw .inputTxt,.forgetPw .newpsw .error{*float:none;}
+.regCont{margin-top:50px;}
+.regCont h3{margin-left:100px;margin-bottom:20px;}
+.regCont .regAction a{text-align:right;display:block;width:150px;float:right}
+.regCont .backLocal{margin-top:-40px;}
+.regContVido{margin-top:95px;}
+/*
+*********************************
+  协议页面
+*********************************
+*/
+.deal{padding-top:20px;}
+.deal h2{font-size:24px; padding-bottom:20px;}
+.deal p{text-indent:2em; padding-bottom:20px;}
+.deal p span{display:block; text-indent:2em; padding:3px 0;}
+.deal p .text3{text-indent:4em;}
+.deal h3{font-size:12px; padding-bottom:3px;}

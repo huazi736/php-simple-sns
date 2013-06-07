@@ -1,0 +1,186 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+安全-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/setting-userinfo/setting_userinfo.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{mk_url('main/index/profile')}-->"><img src="<!--{get_avatar($user['uid'],'s')}-->" alt="" /></a></span>
+			<div class="userName" id="userName">
+				<span class="nameTxt"><a href="<!--{mk_url('main/index/profile')}-->"><!--{$login_name}--></a></span>
+				<span class="nameTxt">
+					<span class="fl"><a href="<!--{mk_url('main/setting/index')}-->">系统设置</a></span>
+				</span>
+			</div>
+		</div>
+		<div class="modlueBody">
+			<div class="settingMenu">
+				<a href="<!--{mk_url('main/setting/settingAccount')}-->"><i class="icon icon_account"></i>一般</a>
+				<a class="selected" href="<!--{mk_url('main/setting/settingSecurity')}-->"><i class="icon icon_security"></i>安全</a>
+				<a href="<!--{mk_url('main/notice/settingnotice')}-->"><i class="icon icon_notification"></i>通知</a>
+				<a href="<!--{mk_url('main/setting/settingAds')}-->"><i class="icon icon_ad"></i>广告</a>
+			</div>
+			<div class="settingContent">
+				<!--star: headerArea 账户设置标题开始-->
+	            <h2 class="accountTitle">安全设置</h2>
+	      		<!--end: headerArea 账户设置标题结束--> 
+	      		<!--start: contentArea 账户设置具体内容开始-->
+	      		<ul class="accountEdit" id="accountEdit">
+					<li class="accountEditList">
+						<div class="clearfix editItem" id="sectItem">
+							<span class="settingLabel"><strong>密保问题</strong></span>
+			            	<span class="settingInfo">设置密保问题，将帮助我们识别你的身份</span>
+			            	<span class="settingEdit  blue"><i class="icon icon_edit"></i>编辑</span>
+						</div>
+						<div class="clearfix editContent hide" id="securityForm">
+		            		<div class="settingLabel"><strong>密保问题</strong></div>
+		            		<div class="settingEditPanel hide">
+								<p>修改密保问题前请通过Duankou密码或密保问题进行身份验证</p>
+		            			<ul class="borderBottom">
+		            				<li class="confirQuestion clearfix">
+		            					<div>
+			            					<strong class="leftLabel">问题一：</strong>
+			            					<span class="questionC"></span>
+			            				</div>
+			            				<div>
+			            					<strong class="leftLabel">答案：</strong>
+			            					<input class="inputText" maxlength="50" type="text">
+			            					<span class="errors">答案不能为空</span>
+			            				</div>
+		            				</li>
+		            				<li class="confirQuestion clearfix">
+		            					<div>
+			            					<strong class="leftLabel">问题二：</strong>
+			            					<span class="questionC"></span>
+			            				</div>
+			            				<div>
+			            					<strong class="leftLabel">答案：</strong>
+			            					<input class="inputText" maxlength="50" type="text">
+			            					<span class="errors">答案不能为空</span>
+			            				</div>
+		            				</li>
+		            				<li class="confirQuestion clearfix">
+		            					<div>
+			            					<strong class="leftLabel">问题三：</strong>
+			            					<span class="questionC"></span>
+			            				</div>
+			            				<div>
+			            					<strong class="leftLabel">答案：</strong>
+			            					<input class="inputText" maxlength="50" type="text">
+			            					<span class="errors">答案不能为空</span>
+			            				</div>
+		            				</li>
+		            			</ul>
+		            			<div class="but clearfix">
+		            				<span id="confirAnswer" class="save">确定</span>
+		            				<span class="cancel">取消</span>
+		            			</div>
+		            		</div>
+		            		<div class="settingEditPanel hide">
+								<p>请至少设置三个密保问题</p>
+		            			<ul class="borderBottom">
+		            				<li class="question">
+		            					<div class="clearfix">
+			            					<strong class="leftLabel">问题一：</strong>
+			            					<select>
+			            						<option value="-1">请选择问题</option>
+			            						<!--{$select}-->
+			            					</select>
+			            					<span style="display: none;" class="errors">请选择密保问题</span>
+			            				</div>
+		            					<div class="clearfix">
+		            						<strong class="leftLabel">答案：</strong>
+			            					<input class="inputText" maxlength="40" type="text">
+			            					<span style="display: none;" class="errors">不能少于两个字符</span>
+		            					</div>
+		            				</li>
+		            				<li class="question">
+		            					<div class="clearfix">
+			            					<strong class="leftLabel">问题二：</strong>
+			            					<select>
+			            						<option value="-1">请选择问题</option>
+			            						<!--{$select}-->
+			            					</select>
+			            					<span style="display: none;" class="errors">请选择密保问题</span>
+			            				</div>
+			            				<div class="clearfix">
+			            					<strong class="leftLabel">答案：</strong>
+			            					<input class="inputText" maxlength="40" type="text">
+			            					<span style="display: none;" class="errors">不能少于两个字符</span>
+			            				</div>
+		            				</li>
+		            				<li class="question">
+		            					<div class="clearfix">
+			            					<strong class="leftLabel">问题三：</strong>
+			            					<select>
+			            						<option value="-1">请选择问题</option>
+			            						<!--{$select}-->
+			            					</select>
+			            					<span style="display: none;" class="errors">请选择密保问题</span>
+			            				</div>
+			            				<div class="clearfix">
+			            					<strong class="leftLabel">答案：</strong>
+			            					<input class="inputText" maxlength="40" type="text">
+			            					<span style="display: none;" class="errors">不能少于两个字符</span>
+			            				</div>
+		            				</li>
+		            			</ul>
+		            			<div class="but">
+		            				<span class="save" id="setSecurity">确定</span>
+		            				<span class="cancel">取消</span>
+		            			</div>
+		            		</div>
+		            	</div>
+		           	</li>
+		           	<li class="accountEditList">
+						<div class="clearfix editItem">
+							<span class="settingLabel"><strong>密码</strong></span>
+			            	<span class="settingInfo"><!--{if $login_lastupdatepwdtime}--><!--{friendlyDate($login_lastupdatepwdtime)}-->更新<!--{else}-->从未修改过密码<!--{/if}--></span>
+			            	<span class="settingEdit  blue"><i class="icon icon_edit"></i>编辑</span>
+						</div>
+						<div class="clearfix editContent hide" id="passwdWrap">
+		            		<div class="settingLabel"><strong>密码</strong></div>
+		            		<div class="settingEditPanel" id="pwdForm">
+		            			<ul class="borderBottom">
+		            				<li class="clearfix">
+		            					<strong class="leftLabel">目前有效：</strong>
+		            					<input class="inputText" name="pwd_old" value="" maxlength="20" onpaste="return false" type="password">
+		            					<span class="errors" id="pwd_old">密码错误</span>
+		            				</li>
+		            				<li class="clearfix">
+		            					<strong class="leftLabel">新密码：</strong>
+		            					<input class="inputText" name="pwd_new" maxlength="20" onpaste="return false" type="password">
+		            					<span class="errors" id="pwd_new"></span>
+		            				</li>
+		            				<li class="clearfix">
+		            					<strong class="leftLabel">确认新密码：</strong>
+		            					<input class="inputText" name="pwd_confirm" maxlength="20" onpaste="return false" type="password">
+		            					<span class="errors" id="pwd_confirm"></span>
+		            				</li>
+		            			</ul>
+		            			<div class="but clearfix">
+		            				<span class="save" id="save_pwd">保存更改</span>
+		            				<span class="cancel">取消</span>
+		            			</div>
+		            		</div>
+		            	</div>
+		            	<!--End 修改密码-->
+		            </li>
+	      		</ul>
+	      	</div>
+		</div>
+	</div>
+	<div class="sideArea">
+	</div>
+</div>
+
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/md5/md5.js?v=<!--{$smarty.const.JS_VER}-->"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/setting_userinfo/setting_userinfo1.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

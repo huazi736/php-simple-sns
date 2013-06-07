@@ -1,0 +1,38 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+端口充值
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<!--这里是本页面需要的头部js-->
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<!--这里是本页面需要的CSS-->
+<link rel="stylesheet" type="text/css" href="<!--{$smarty.const.MISC_ROOT}-->css/pay/pay.css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix SUCCESS">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{mk_url('main/index/main')}-->"><img src="<!--{$js_config.avatar}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{mk_url('main/index/main')}-->"><!--{$js_config.username}--></a></span>
+				<span class="nameTxt"><span class="fl"><a href="#">广告支付</a></span></span>
+			</div>
+		</div>
+		<div class="modlueBody">
+			<div class="inform">
+				<p class="msg" ><span class="pict"></span><!--{$msg}--><span class="fee" ></p>
+				<p class="links"><a class="account-remain" href="<!--{mk_url('ads/adadmin/billad')}-->">查看我的账单</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="sideBar">
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<!--这里是本页面的JS-->
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/popUp/popUp.js" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pay/pay.js" ></script>
+<!--{/block}-->

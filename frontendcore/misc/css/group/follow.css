@@ -1,0 +1,163 @@
+/*
+ * Created on 2012-03-05
+ * @author： yewang
+ * @version： 1.0
+ * @desc：关注、粉丝、好友
+ */
+
+ 
+/*
+*********************************
+  关注、粉丝、好友列表样式
+*********************************
+*/
+
+/*
+*********************************
+重写common.css中的 .modlueBody样式（chenhy）
+*********************************
+*/
+.modlueBody{ padding:3px;}
+
+.listSearch { padding:10px; border-bottom:#ccd3e5 solid 1px; background:#eeeff4; }
+.listSearch h4 { float:left; font-size:14px; }
+.listSearch .btnGray { padding:3px 10px; float:right; }
+.listSearch s { float:left; width:15px; height:15px; overflow:hidden; background:url(../../img/system/ui1.gif) -54px -185px no-repeat; }
+.listSearch input { width:300px; height:21px; padding:0 3px; line-height:21px; float:right; border:1px solid #bdc7d8; border-left:0; }
+.listWrap li { float:left; width:100%; padding:3px 0 3px 0px; border-bottom:#d9dfeb 1px solid; }
+.listWrap .uInfo{ height:125px; width:400px; padding-left:10px; float:left;}
+.avatarBox { float:left; height:auto; width:auto;  }
+.avatarBox s { display:none; cursor:pointer; width:16px; height:16px; background:url(../../img/system/icon_timeline_bar.gif) no-repeat #eeeff4; position:absolute; right:0; top:0; }
+.hoverIn s { display:block; }
+.invisible s { background-position:-16px 0; }
+.listWrap .uName { float:left; width:140px; font-weight:bold; font-size:14px; margin-left:10px; }
+.loadmore, .blankWrap { height:40px; position:relative; }
+.blankWrap { margin-top:100px; }
+.loadmore a { background:url(../../img/system/more_loading.gif) center center no-repeat; }
+.loadmore a, .blankWrap span { display:block; width:849px; height:30px; line-height:30px; position:absolute; left:-20px; top:10px; background-color:#E7EBF2; text-align:center; font-size:13px; }
+.clickGet a { background-image:none; }
+
+/*
+*********************************
+  app 应用模块
+*********************************
+*/
+.appBody .avatarBox { padding-left:12px; }
+.appBody .listWrap li { padding:10px 0; }
+
+.appBody .avatarBox a { display:block; border:1px solid #E5E7EB; border-radius:2px; background:#F1F3F8; }
+.appBody .avatarBox img { border:2px solid #F1F3F8; }
+.appBody .avatarBox a:hover { border-color:#97A4C2; }
+.appBody .avatarBox a:hover img { border-color:#FFF; }
+
+/*
+*********************************
+  关注、粉丝、好友首页样式
+*********************************
+*/
+.modlueMainBody { margin-top:10px; }
+.timeLineGrayBar,.timeLineTopAvatar{background-color:#fff;border:1px solid #C5CDE0;border-radius:3px;box-shadow:0 1px 0 #D8DEEA;overflow:hidden;position:relative;}
+.timeLineGrayBar{padding:0px 35px 5px 5px; margin-bottom:10px;}
+/*Start：右边数值未展开样式*/
+.timeLineGrayBar.grayBarClose{height:34px;padding-bottom:10px;}
+.timeLineGrayBar .grayBarNum{border:1px solid #A5A59C;border-radius:2px;color:#3B5998;float:right;font-weight:900;height:14px;padding:0 0 0 3px;position:absolute;right:-10px;top:3px;width:32px;zoom:1;}
+.timeLineGrayBar .grayBarNum i{background:url("../../img/system/icon_timeline_bar.gif") no-repeat scroll -32px 0px transparent;float:right;font-size:0;height:10px;margin:4px 0 0 0;width:14px;}
+/*列表打开样式*/
+.timeLineGrayBar .grayBarNum .open{background-position:-48px 0;margin-right:9px;}
+.timeLineGrayBar .grayBarNum span{float:right;line-height:14px;margin-right:2px;}
+/*End：右边数值未展开样式*/
+/*End：右边数值展开样式*/
+.timeLineGrayBar li{border:1px solid #fff;border-radius:2px;color:#3B5998;cursor:pointer;display:inline-block;*display:inline;height:22px;line-height:22px;margin:10px 8px 0px 0;padding:0 5px;position:relative;vertical-align:middle;text-align:center;white-space:nowrap;_width:1px;zoom:1;}
+.timeLineGrayBar li s{background:url("../../img/system/icon_timeline_bar.gif") no-repeat scroll 0 -16px transparent;float:left;_float:none;display:inline-block;height:16px;margin-top:3px;width:16px;}
+/*当前选中样式*/
+.timeLineGrayBar .on,.timeLineGrayBar .cur{background-color:#eeeff4;border-color:#c5cde0;}
+/*鼠标样式*/
+.timeLineGrayBar .hov b{background:url("../../img/system/icon_timeline_bar.gif") no-repeat scroll 0 0 #eeeff4;border:1px solid #c5cde0;border-radius:2px;display:block;height:16px;position:absolute;top:-10px;right:-8px;width:16px;}
+.timeLineGrayBar .hid{color:#c4cde0;}
+.timeLineGrayBar .hid b{background-position:-16px 0;}
+.timeLineGrayBar .hid s{background-position:0 -32px;}
+.timeLineTopAvatar{margin-top:10px;}
+.timeLineTopAvatar .topAvatarNum{background:url("../../img/system/icon_timeline_bar.gif") no-repeat scroll -80px 0 transparent;height:50px;position:absolute;top:3px;_top:5px; right:-5px;width:24px;_width:25px;}
+.timeLineTopAvatar .topAvatarNum a{display:none;}
+.timeLineTopAvatar li{cursor:pointer;display:inline;float:left;margin:0 0;}
+
+/*Start：列表内容在一行内状态
+.timeLineTopAvatar.topAvatarClose{height:60px;padding-bottom:0;}*/
+
+.timeLineTopAvatar.topAvatarClose li{margin-bottom:10px;}
+/*End：列表内容在一行内状态*/
+/*Start: 列表超过一行时状态*/
+.timeLineTopAvatar .outnumber{background:none;border:1px solid #ccc;}
+.timeLineTopAvatar .outnumber a{background-color:#fff;border:1px solid #a4a699;border-radius:2px;color:#3a5999;font-size:0;font-weight:900;height:14px;_height:12px;padding-left:2px;position:absolute;top:17px;right:-1px;min-width:32px;_width:expression(this.width<32? this.width:'32px');}
+.timeLineTopAvatar .outnumber i{background:url("../../img/system/icon_timeline_bar.gif") no-repeat scroll -32px 4px transparent; display:block; height:12px; position:absolute; right:0px; top:0; width:14px; zoom:1;}
+.timeLineTopAvatar .outnumber span{display:block; height:14px;font-size:12px;margin:-2px 15px 0 0;}
+/*End: 列表超过一行时状态*/
+/*Start: 列表展开时状态*/
+.timeLineTopAvatar .unfold i{background-position:-48px 4px;margin-right:9px;}
+.timeLineTopAvatar .unfold span{display:none;}
+/*End: 列表超过一行时状态*/
+.timeLineTopAvatar .topAvatarHov{background-position:-80px -50px;}
+.timeLineTopAvatar .enterList{background-color:#eeeff4;border-top:1px solid #d7e0e9;border-bottom:1px solid #d7e0e9;clear:both;height:35px;line-height:35px;margin:17px 0 0;overflow:hidden;text-align:center;width:100%; margin-bottom:10px;}
+/*图标样式列表*/
+.timeLineGrayBar li .fri_icon1{background-position:-16px -16px;}
+.timeLineGrayBar li .fri_icon2{background-position:-32px -16px;}
+/*点击查看更多*/
+#timeline_recent_more{ text-align: center;  border: 1px solid #d7e0e9; padding: 12px; background-color:#FFFFFF; cursor: pointer;}
+#moredata{
+ height:30px;
+ line-height: 30px;   
+ background-color:#eee;
+ text-align:center;
+ margin:10px auto;
+ display:none;
+}
+/*commentEasy样式重置*/
+
+.timeLineTopAvatar h3{ font-size:12px; color: #3b5997; border-bottom:1px solid #C5CDE0; padding-left:6px;}
+/*可能认识的人、感兴趣的网页*/
+#mayknowAvatar,#maynowWeb{padding-top: 4px;}
+.timeLineTopAvatar #mayknowAvatar .topAvatarNum,.timeLineTopAvatar #mayknowWeb .topAvatarNum{ top:22px;}
+#topAvatar,#mayknowAvatar,#mayknowWeb{ padding: 2px;}
+
+#followerFramework #timelineContent .nextPage{ padding-top:0px;}
+
+
+#friendFramwork #timelineContent .nextPage{ padding-top:0px;}
+
+/*关注，相互关注，好友，网页等*/
+#grayBar li{ font-size:14px;}
+
+/*无信息*/
+.noInfo{margin-top:10px;background:#fff; border:1px solid #cbd2e3; text-align:center; padding-top:98px; padding-bottom:92px; zoom:1;}
+.noInfo div{line-height:30px; height:30px; font-size:14px; background:#eeeff4; border-top:1px solid #cbd2e3; border-bottom:1px solid #cbd2e3; zoom:1;}
+/*测试*/
+
+/*Start:选择分类的按钮*/
+/*作者：陈海云 2012-06-13*/
+.selectClassBtn{ padding-right:13px; background:url(../../img/system/arrow_down.png) right center no-repeat;}
+/*End:网页发表框模板中心*/
+
+
+/*Start:网页发表框模板中心*/
+/*作者：陈海云 2012-06-13*/
+.templateInfo{ line-height:22px; margin-left:85px;}
+.templateName{ font-size:14px; font-weight:bold;}
+.templateIntro{ color: #555;}
+.templateUseNum{ color: #999;}
+/*End:网页发表框模板中心*/
+
+/*Start:关注页面分类列表*/
+/*作者：陈海云 2012-06-15*/
+.classLstPanel{ height:auto !important; height:10px; min-height:10px; width:300px; border:solid #ccc 1px; border-top:0px; box-shadow:0 5px 15px rgba(0,0,0,0.3); background:#fff; position:absolute; z-index:1000; display: none;}
+.classLstPanel ul{ height:auto !important; height:10px; min-height:10px; margin: 0px; padding: 5px 0px; font-size:13px;}
+.classLstPanel li{ width:100px; height:23px; float: left; position: relative;}
+.classLstPanel li a{ display: block; height:13px; padding:5px 0px 5px 10px; line-height:13px; margin: 0px; color: #666;}
+.classLstPanel li.line{ height:13px; width:300px; margin: 0px auto; background:url(../../img/system/h-line.png) center center no-repeat;}
+.classLstPanel li.hov a,
+.classLstPanel li.on a,
+.classLstPanel li a:hover,
+.classLstPanel li a.selected{ background:#eeeff4; color: #666;}
+.classLstPanel li.hov b{ display:block; width:16px; height:16px; border:1px solid #c5cde0; border-radius:2px; background:#eeeff4 url("../../img/system/icon_timeline_bar.gif") 0 0 no-repeat; position:absolute; top:-5px; right:-5px; z-index:1000; cursor:pointer;}
+.classLstPanel li.hid a{ color: #ccc;}
+.classLstPanel li.hid b{ background:#eeeff4 url("../../img/system/icon_timeline_bar.gif") -16px 0px no-repeat;}
+/*End:关注页面分类列表*/

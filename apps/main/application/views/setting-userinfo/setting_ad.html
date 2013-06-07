@@ -1,0 +1,118 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+广告设置-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/setting-userinfo/setting_userinfo.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/pro/pro.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!--start: 账户设置头部-->
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{mk_url('main/index/profile')}-->"><img src="<!--{get_avatar($user['uid'],'s')}-->" alt="" /></a></span>
+			<div class="userName" id="userName">
+				<span class="nameTxt"><a href="<!--{mk_url('main/index/profile')}-->"><!--{$login_name}--></a></span>
+				<span class="nameTxt">
+					<span class="fl"><a href="<!--{mk_url('main/setting/index')}-->">系统设置</a></span>
+				</span>
+			</div>
+		</div>
+		<!--end: 账户设置头部-->
+		<div class="modlueBody">
+			<div class="settingMenu">
+				<a href="<!--{mk_url('main/setting/settingAccount')}-->"><i class="icon icon_account"></i>一般</a>
+				<a href="<!--{mk_url('main/setting/settingSecurity')}-->"><i class="icon icon_security"></i>安全</a>
+				<a href="<!--{mk_url('main/notice/settingnotice')}-->"><i class="icon icon_notification"></i>通知</a>
+				<a class="selected" href="<!--{mk_url('main/setting/settingAds')}-->"><i class="icon icon_ad"></i>广告</a>
+				<!--{if isset($customRs) && $customRs}-->
+				<a href="<!--{mk_url('main/setting/adsaccount')}-->"><i></i>&nbsp;　广告管理</a>
+				<!--{/if}-->
+			</div>
+			<div class="settingContent">
+				<!--star: headerArea 账户设置标题开始-->
+		        <h2 class="accountTitle">广告设置</h2>
+		  		<!--end: headerArea 账户设置标题结束--> 
+		  		<!--start: contentArea 账户设置具体内容开始-->
+		  		<ul class="accountContent" id="accountEdit">
+		  			<li class="accountEditList">
+						<div class="clearfix initview">
+							<span class="settingLabel"><strong>我的广告开关</strong></span>
+			            	<span class="settingInfo"><strong>开启广告显示功能，您将通过广告获取额外收入</strong></span>
+			            	<span class="settingEdit blue" id="settingAds">
+			            		<i class="icon icon_edit"></i>编辑
+			            	</span>
+						</div>
+						<div class="settingAds" style="display:none;">
+							<ul>
+							<!--{if $adTop}-->
+								<li class="mb8 clearfix">
+									<span class="settingLabel" style="float:none;"><strong>在我的首页上显示广告？</strong></span>
+
+									<input type="radio" name="adsSwitch" id="show_ads" <!--{if isset($customRs) && $customRs[0]['status']==0}--> checked="checked"<!--{/if}-->>&nbsp;<label for="show_ads">是</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" name="adsSwitch" id="off_ads" <!--{if !isset($customRs) || $customRs[0]['status']==1}--> checked="checked"<!--{/if}-->>&nbsp;<label for="off_ads">否</label>
+								</li>
+								<li class="tac pt25 pb25 clearfix prot" <!--{if !isset($customRs) || $customRs[0]['status']==1}-->style="display:none;"<!--{/if}-->><input type="checkbox" name="toShowAds" <!--{if isset($customRs) && $customRs[0]['status']==0}--> checked="checked"<!--{/if}-->>&nbsp;同意<a href="<!--{mk_url('main/service/agreement_ad')}-->" target="_blank">《端口广告协议》</a></li>
+								<li>
+									<div class="selected-ads mb30 bg-blue step1 clearfix" <!--{if !isset($customRs) || $customRs[0]['status']==1}--> style="display:none;"<!--{/if}-->>
+										<div class="subAdshd bdb clearfix">
+											<span id="cus_select" class="fr color-blue tdu crp">我要自选</span><span class="f14 fwb">您首页的广告有：</span><span class="color9">您可自选，或者由系统自动为您推荐广告（最多可以选8条）</span></div>
+										<ul class="clearfix" id="selectedAds">
+										<!--{if $adTop}-->
+										<!--{foreach from=$adTop item=adl_item  key=key}-->						
+											<li class="clearfix posr" data-ad-id="<!--{$adl_item.ad_id}-->"><a href="javascript:;" class="close-pro" title="移除"></a>
+												<dl><dt><a href="" target="_blank"><!--{$adl_item.title}--></a></dt>
+												<dd class="extAdsIntro clearfix wdb"><a href="<!--{$adl_item.url}-->" target="_blank"><img src="<!--{$adl_item.media_uri}-->" alt=""><span><!--{$adl_item.introduce}--></span></a></dd></dl>
+											</li>
+										<!--{/foreach}-->	
+										<!--{/if}-->
+										</ul>
+									</div>
+					<div class="selected-ads mb30 step2 clearfix" style="display:none;">
+						<div class="subAdshd bdb clearfix"><!--{if isset($ad_nums) && $ad_nums > 8}--><span id="nextAds" class="fr color-blue tdu crp">换一批</span><!--{/if}--><span class="f14 fwb">选择您喜欢的广告吧：</span></div>
+						<ul class="clearfix" id="difAds">
+						<!--{if isset($adList) && $adList}-->
+						<!--{foreach from=$adList item=adl_item  key=key}-->						
+						<li class="clearfix posr" data-ad-id="<!--{$adl_item.ad_id}-->">
+						<span class="check-ads">
+						<input type="checkbox" name="check_ads[]">
+						</span>
+						<dl><dt><a href="http://www.taiyang.com" target="_blank" class="ads_title"><!--{$adl_item.title}--></a></dt>
+						<dd class="extAdsIntro clearfix wdb"><a href="<!--{$adl_item.url}-->" target="_blank">
+						<img src="<!--{$adl_item.media_uri}-->" alt="<!--{$adl_item.title}-->" class="ads_media_url">
+						<span class="ads_intro"><!--{$adl_item.introduce}--></span>
+						</a>
+						</dd>
+						</dl>
+						</li>
+						<!--{/foreach}-->
+						<!--{/if}-->						
+						</ul>
+						
+					</div>
+					<p class="pb25 tac"><span class="btnBlue" id="save_ad_setting">保存设置</span>&nbsp;&nbsp;<span class="btnGray" id="no_save_ad_setting">取消</span></p>
+						</li>
+						<!--{else}-->
+						<li>
+						<div class="color9" style="margin-top:15px;border:1px solid #eee;text-align:center;">对不起，暂无可选广告数据</div>
+						</li>
+						<!--{/if}-->
+							</ul>
+						</div>
+					</li>
+				</ul>	
+
+		     	<!--end: contentArea 账户设置具体内容结束--> 
+		     </div>
+		</div>
+	</div>
+	
+	<div class="sideArea">
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/pro/settingPro.js"></script>
+<!--{/block}-->

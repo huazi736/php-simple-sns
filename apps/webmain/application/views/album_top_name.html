@@ -1,0 +1,7 @@
+<span class="userImg"><a href="<!--{getWebUrl($web_id)}-->"><img src="<!--{get_webavatar($action_uid, 's', $web_id)}-->" alt="" /></a></span>
+<div class="userName">
+	<span class="nameTxt"><a href="<!--{getWebUrl($web_id)}-->"><!--{$web_info['name']}--></a></span>
+	<span class="modlueName nameTxt"><i></i><span class="fl"><a href='<!--{$album_baseurl}-->'>照片</a></span><s></s></span>
+	<input type="hidden" id= 'upload_url' value = "<!--{$upload_url}-->" />
+	<input type="hidden" id="flashuploaduid" value="<!--{sysAuthCode($uid)}-->" />
+</div>

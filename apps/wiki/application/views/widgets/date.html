@@ -1,0 +1,29 @@
+<!--{if $action eq 'edit'}-->
+<p>
+<span class="plugin_label"><!--{$label}-->:</span>&nbsp;
+<input type="text" now="<!--{$now}-->" value="<!--{$value}-->" end_year="<!--{$end_year}-->" begin_year="<!--{$begin_year}-->"  class="selectDate html_date" id="<!--{$_id}-->" autocomplete="off" />
+</p>
+<!--{elseif $action eq 'edit_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/calendar/dk_calendar.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<script src="<!--{$smarty.const.MISC_ROOT}-->/js/plug/calendar/dk_calendar.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" >
+$("#<!--{$_id}-->").calendar({button:false,time:false});
+//提交验证
+function validate_<!--{$_id}-->(){
+	return true;
+}
+//提交之前收集数据
+function ajax_submit_data_<!--{$_id}-->(){
+	plugin_info['<!--{$_id}-->'] = $("#<!--{$_id}-->").val();
+}
+</script>
+<!--{elseif $action eq 'normal'}-->
+<p>
+<span class="plugin_label"><!--{$label}-->:</span>&nbsp;
+<!--{if $value}-->
+<span><!--{$value}--></span>
+<!--{else}-->
+未填写
+<!--{/if}-->
+</p>
+<!--{/if}-->

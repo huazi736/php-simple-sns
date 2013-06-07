@@ -1,0 +1,191 @@
+@charset "utf-8";
+/* CSS Document */
+/**
+*@For 用户资料编辑模块
+*@Author Liangshanshan(ssinsky@hotmail.com)
+*@Data 2011/12/13
+**/
+ul,ul li{list-style: none;}
+.wikicontentWrap select{ border:1px solid #96A6C5; padding:2px; margin-right: 1px; width: auto;}
+.wikicontentWrap hr{ border-width: 0; color: #999; height: 1px; line-height:1px; background: none repeat scroll 0 0 #E9E9E9;}
+.wikicontentWrap h4{ font-size: 17px; color: #333333;}
+.wikicontentWrap h5{ font-size: 12px; color: #333333;}
+.wikicontentWrap table,.uiOverlayFooter table{ width: 100%}
+.wikicontentWrap textarea{ border: 1px solid #96A6C5; height: 8em; overflow-y: auto; padding: 2px; white-space: normal; width: 98%; font-size: 12px;}
+.wikicontentWrap em{ color: #FF0000; margin-right: 2px;}
+.inline{ display: inline;}
+.mvl{ margin-bottom: 20px; margin-top: 20px;}
+.vinput,.vinputl{ border: 1px solid #96A6C5; color: #000; padding: 3px;}
+.vinputl{ width: 300px;}
+.mtm{margin-top: 10px;}
+.mrs{ margin-right: 3px;}
+.mr8{ margin-right: 8px;}
+.pb10{ padding-bottom: 10px;}
+.pl20{ padding-left: 20px;}
+.pds{ padding: 5px;}
+.mls,.ml5{ margin-left:5px;}
+.ml10{ margin-left: 10px;}
+.short_text{ width: 33px;}
+.hideEle{ display: none;}
+.fwb{ font-weight: bold;}
+.wikicontentWrap td.data,.wikicontentWrap th.label{ padding: 3px 0 1px;}
+.wikicontentWrap th.label{ color: #999999; font-weight: bold; line-height: 15px; padding-right:8px; width:80px; text-align: right; vertical-align: top;}
+.dkUserwikiSection{ border-color:#c4cde0; border-radius: 3px; border-style: solid; border-width: 1px 1px 2px;}
+.dkUserwikiSectionHeader,.dkUserwikiSectionBody{ margin: 15px 15px 15px 22px;}
+.dkUserwikiSectionContentTable{ margin: 10px 22px 30px; width: 440px;}
+#timelinewikiR .dkUserwikiSectionContentTable{ margin: 15px 15px 15px 22px; width: 243px;}
+.dkUserwikiEditIcon{ background:url(../../img/system/edit_icon.gif) no-repeat; width:11px; height:11px; display:inline-block; cursor:pointer; zoom:1;}
+.uiBoxGray{border: 1px solid #CCCCCC;}
+.topborder{ border-bottom: medium none; border-left: medium none; border-right: medium none; }
+.uiContextuaDialogFooter{ padding: 6px 7px 6px 8px;}
+.uiOverlayFooter{text-align: left;}
+
+.uiContextualDialogDefaultPadding{ padding: 10px;}
+.uiInfoTableForm{ border: 0 none; border-collapse: collapse; border-spacing: 0; width: 100%;}
+.uiInfoTableForm .label{ width: 100px;color: #666666; text-align: right; padding-right: 10px; font-weight: bold; padding-right: 10px;}
+.uiInfoTableForm .dataRow .label{ padding-top: 8px;}
+#basicInfoForm{ width: 400px;}
+#PrivateInfoForm{ width: 500px;}
+.tagPickerArea{ display: none;}
+.overflow{ overflow: hidden;}
+.dkContentBlock{ float: left; width: 370px;}
+p.dkContentBlock{ width: 350px;}
+#timelinewikiL .dkContentBlock{ float: left; width: 300px;}
+#timelinewikiL p.dkContentBlock{ width: 330px;}
+.dkContentListBlock{ width: 250px;}
+.custom{ border:1px solid #BDC7D8; color: #777777; padding: 3px;  width: 350px; height: 22px; line-height:22px; margin-bottom: 10px;}
+span.ui_closeBtn_box { width:15px; height:15px; position: absolute; right:10px; }
+.ui_closeBtn { display:block; width:15px; height:15px; cursor:pointer; background:url(../../img/system/icon_close.png) 0px 0px no-repeat;}
+/*验证提示*/
+.input_msg{ height: 22px;margin-top: 3px;margin-top: 4px\9;position:absolute; color:#666;}
+.nomalTipsState,.line_err_msg{ color: #DD4B39; margin-left:100px; float: right;}
+/*同学同事添加删除*/
+span.addTr,span.delTr{ vertical-align:bottom;margin-left:4px; cursor:pointer;}
+
+/*布局*/
+.timelinewiki{ padding:15px 15px 15px 22px;}
+#timelinewikiL{ width: 460px; margin-right:30px;}
+#timelinewikiR{ width: 280px;}
+#timelinewikiR h3,#timelinewikiL h3{font-size: 14px; color:#353535; padding-top: 10px;}
+.uiList{ padding: 0 20px; margin-bottom: 15px; }
+.uiListItem .itemHead{ color: #333; font-weight:bold; position: relative;}
+.uiListItem .weak_txt{ color: gray; display: block;}
+.dkSchImageBlock{ float: left; margin-right: 8px; cursor:default;}
+a:hover.dkSchImageBlock{cursor:default;}
+.uiListItem{ border-bottom: 1px solid #E9E9E9; padding-bottom: 5px; margin-bottom: 2px;}
+li.uiListItem:last-child{ border-bottom: none 0px;}
+.dkIitemT{width: 60px; font-weight: bold; color: #333333; float: left;}	
+.dkUserwikiNice{ background: none repeat scroll 0 0 #ECECEC;}
+/*权限设置*/
+.uiComboxHeaderGray .uiComboxSelector .uiButtonText{color:#999;}
+.uiComboxHeaderGray a:hover.uiComboxSelector .uiButtonText{color:#333;}
+.uiComboxHeaderGray .uiSelectorButton.hightLight .uiButtonText{color:#fff; *color:#333;}
+.uiComboxHeaderGray a:hover.uiSelectorButton.hightLight .uiButtonText{color:#fff; *color:#333;}
+.uiComboxHeaderGray .uiButtonConfirm{float:right;}
+.uiComboxHeaderGray .uiButton {border:1px solid #f2f2f2; background-image:url(../../img/system/ui3.png); _background-image:url(../../img/system/ui3.gif); background-position:top right; background-color:#f2f2f2; box-shadow:none; }
+.uiComboxHeaderGray .uiButton .uiIcon{opacity:.5;}
+.uiComboxHeaderGray a.uiButton:hover .uiIcon{opacity:1;}
+.uiComboxHeaderGray a.uiButton:hover{border:1px solid #999; background-image: url("../../img/system/ui3.png"); _background-image: url("../../img/system/ui3.gif"); background-position: right -196px;}
+.uiComboxHeaderGray a.uiButton.hightLight{ background-color:#6d84b4; *background-color:#fff; border:1px solid #3b5998; *border:1px solid #999;}
+.uiComboxHeaderGray a.uiButton.hightLight:hover{background-image:url(../../img/system/ui3.png); _background-image:url(../../img/system/ui3.gif); background-position:top right}
+.uiComboxHeaderGray a.uiButton.hightLight:hover .uiIcon{opacity:.5;}
+.uiComboxTit .uiComboxSelector,.shareSetting .uiComboxHeaderGray .uiComboxSelector span{height: 22px; width: 15px; line-height: 22px;overflow:hidden; font-size:0px;}
+.shareSetting .uiComboxHeaderGray .uiButton{ background-color: #FFFFFF; border: 0 none;}
+.popCont  .uiComboxSelector{overflow:hidden;font-size:12px;}
+/*名字样式*/
+.dkContentBlock .name{
+	color: gray;
+}
+/*tag选择*/
+.tagrabs{ float:left;padding-left:0;width:340px;margin-top:5px;}
+.tag_cloud a{background:#799dda;color:#fff;float:left;width:auto;display:block;height:24px;white-space:nowrap;line-height: 24px; margin: 0 1px 1px 0; padding: 0 3px 0 6px;}
+.tag_cloud a:hover,.tag_cloud a.cur{background:#D8DFEA;text-decoration:none;color:#626871}
+.tagPicker{clear:both;float:left}
+.tagList{ margin-top:10px;}
+.person .tagList {    
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #96A6C5;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 2px;
+    min-height: 24px;
+    margin-bottom:10px;
+    _height:24px;
+
+}
+.tagList span,.tagListB span{background:#D8DFEA;line-height:24px;height:24px;display:inline-block;padding:0 6px 0 6px;color:#626871;margin:0 1px 1px 0;}
+.tagList span .tagDel,.tagListB span .tagDel{display:inline-block;width:20px;height:20px;font-size:0px;overflow:hidden;vertical-align:middle;line-height:100px;}
+.tagBasket{ clear:both;padding-top: 8px;margin-bottom:8px;}
+
+.tagList span a.tagDel{background: url("../../img/system/deleteTag.gif") no-repeat scroll left top transparent;cursor: pointer;display: inline-block;height: 9px;margin-left: 5px;overflow: hidden;width: 9px;padding:0;margin:0;float:none;margin-left:5px;}
+
+/*教育情况*/
+.uiHeaderImage{ background:url("../../img/system/V4nubVDBvv4.png") no-repeat; display:inline-block; height:16px; _height:10px; width:16px; margin-right:8px;}
+.sx_0{ background-position:0 -17px;}
+.sx_1{ background-position:0 0;}
+.schoolBox{ border-bottom:1px solid #ccc; padding:10px;}
+#bigTitle li{ float: left; font-size: 15px; color:#373737; font-weight: bold; cursor: pointer; margin-right: 10px; padding: 4px; border:1px solid #9b999a;background: #ededed;}
+#bigTitle .cur{ background: #fff;}
+.classmate a,.colleague a{ margin-right:5px;}
+/*边框修改*/
+#timelinewikiR .dkUserwikiSectionContentTable{
+	margin:9px 15px 0 22px;
+}
+.dkUserwikiSectionContentTable tr th.label,.dkUserwikiSectionContentTable tr td.data,.wikicontentWrap tr th.label,.wikicontentWrap tr td.data{
+	border-bottom:1px solid #E9E9E9;
+	height:33px;
+	text-align:left;
+	padding-left:3px;
+	vertical-align:middle;
+}
+.dkUserwikiSectionContentTable tr th.nob,.dkUserwikiSectionContentTable tr td.nob,.wikicontentWrap tr th.nob,.wikicontentWrap tr td.nob{
+	border-bottom:none;
+}
+.dkUserwikiSectionContentTable tr th.noneb,.dkUserwikiSectionContentTable tr td.noneb{
+	border-bottom:none;
+}
+.dkUserwikiSectionContentTable .last th.label,.dkUserwikiSectionContentTable .last td.data{
+	border:none;
+}
+.dkUserwikiSection{
+	padding-bottom:15px;
+}
+/*模版样式*/
+.tip_win  .uiInfoTableForm th.label{ color: #666666; text-align: right;}
+.tip_win .wikicontentWrap tr th.label,.wikicontentWrap tr td.data{ height: 40px;}
+
+.tip_win .wikicontentWrap tr th.label.noneb,.wikicontentWrap tr td.data.noneb{ border: none;}
+.dkUserwikiNice tr th.label{ text-align: right; color: #666666;}
+.dkUserwikiNice tr th.label,.dkUserwikiNice tr td.data{ border: none;}
+/*设置权限不可见，或没有添加资料*/
+.nodata{ background-color: #eeeff4; font-size:14px; height:38px; line-height:38px; border:1px solid #d8e1ea; border-left:none; border-right:none; text-align:center; margin: 26px 0px 30px;}
+.dropMenu .dropList{z-index: 1001;}
+/**/
+.breakWord{ display: block;}
+.weak_txt{ position: relative;}
+.weak_txt label{ position: absolute; top:0px; left:0px;}
+.weak_txt span.intr,span.desc,span.duty,span.desc,span.society{ padding-left:60px;}
+#certificateList li.uiListItem{ min-height:90px;}
+#schoolList li.uiListItem{ min-height:75px;}
+/*家庭关系*/
+.addRelationships{color:#3b5998;float:left;font-weight:bold;font-size:14px;padding-top:13px;}
+.wikicontentWrap tr td.img img{width:20px; height:20px;}
+#addRelativeFrames .fname{position:relative;}
+.wikicontentWrap tr td .fname input{border: 1px solid #96A6C5; height:16px; margin-right: 1px; padding: 3px; width:150px; _height:1%;}
+.wikicontentWrap .familyMemeber{ margin-bottom:10px;}
+.wikicontentWrap .familyMemeber img {float:left;margin-right:10px;}
+.wikicontentWrap .familyMemeber .info{float:left; margin-top:5px;}
+.wikicontentWrap .familyMemeber a{font-size:14px; font-weight:900;}
+.wikicontentWrap .familyMemeber a,.wikicontentWrap .familyMemeber span{display:block;}
+#people { position: absolute; top:24px; left:0; background-color: #FFFFFF; border: 1px solid #233B7B;width: 320px; z-index: 999; max-height:260px; overflow: auto;}
+.compactpeople li { clear: both; overflow: hidden;}
+.compactpeople li.selected{ background-color: #6D84B4; color: #FFFFFF; cursor:pointer;}
+.compactpeople li .uiProfilePhoto {
+    float: left;
+    height: 32px;
+    margin-right: 10px;
+    width: 32px;
+}
+#relationshipEdit .dataRow th{font-size:14px;}
+/*说说*/
+#introInfoFormEdit textarea{ width:480px;}

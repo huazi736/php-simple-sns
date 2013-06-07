@@ -1,0 +1,36 @@
+<!--{if isset($category_main_select_id) and ($category_main_select_id eq 11) and $iid > 0 and $eid > 0}-->
+<!-- 对摄影做特殊处理 -->
+		<li class="select_category_li" level="2" >
+	        <label for="oneClass">一级分类</label>
+	        <select class="select_category_option" type="select" name="select_categorys[2]" level="2" disabled="disabled">
+	            <option value="<!--{$iid}-->" ><!--{$iidName}--></option>
+	        </select>
+	        <input type="hidden" name="select_category[2]" value="<!--{$iid}-->"/>
+	    </li>
+	    
+	    <li class="select_category_li" level="3" >
+	        <label for="oneClass">作者名称</label>
+	        <select class="select_category_option" type="select" name="select_categorys[3]" level="3" disabled="disabled">
+	            <option value="<!--{$entry_info['id']}-->" ><!--{$entry_info['name']}--></option>
+	        </select>
+	        <input type="hidden" name="select_category[3]" value="<!--{$entry_info['id']}-->"/>
+	    </li>
+	    
+<!--{else}-->
+	<!--{if is_array($category)}-->
+	<!--{foreach $category as $key=>$val}-->
+	    <li class="select_category_li" level="<!--{$key}-->" >
+	        <label for="oneClass"><!--{$number_escape[$key-1]}-->级分类</label>
+	        <select class="select_category_option" type="select" name="select_category[<!--{$key}-->]" level="<!--{$key}-->" >
+	            <option value="0" >请选择</option>
+	            <!--{if is_array($val['data'])}-->
+	                <!--{foreach $val['data'] as $val_two}-->
+	                    <option value="<!--{$val_two.id}-->" lang="" ><!--{$val_two.name}--></option>
+	                <!--{/foreach}-->
+	            <!--{/if}-->
+	        </select>
+	        <span>可按需求选择</span>
+	    </li>
+	<!--{/foreach}-->
+	<!--{/if}-->
+<!--{/if}-->

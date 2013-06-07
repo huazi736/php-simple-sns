@@ -1,0 +1,129 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name="title" prepend}-->查看词条-<!--{/block}-->
+<!--{block name="header_css"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wiki/wiki_view.css?v=<!--{$smarty.const.CSS_VER}-->" type="text/css" rel="stylesheet" />
+<!--{/block}-->
+<!--{block name="body"}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!--{include file="wiki_common_nav.html"}--><!--wiki公共面包屑-->
+		<div class="modlueBody">
+			<!-- 百科头部 -->
+			<div class="wikiHeader mb40">
+				<div class="wikiInfo mb20">
+					<div class="wikiLeft fl"><h1 class="fs32" title="<!--{$items[0]['web_name']}-->"><!--{$items[0]['web_name']|msubstr:0:20}--></h1></div>
+					<div class="wikiRight fr">
+						<p class="tar">
+
+							<span class="btnGray"><a href="<!--{$edit_url}-->">编辑词条</a></span>
+						<!--{if $is_match eq 1}-->	<span class="ml5 btnGray"><a href="javascript:;" id="btn_match" version="<!--{$current_version_info['version']}-->" item_id="<!--{$current_version_info['item_id']}-->">引用词条</a></span><input type="hidden" id="webId" value="<!--{$webid}-->"><!--{/if}-->
+							<span class="ml5 btnGray"><a href="<!--{$histroy_url}-->">历史版本</a></span>
+						</p>
+						<p class="tar">最近发布时间：<!--{date("Y年m月d日 H:m",$current_version_info['edit_datetime'])}--></p>
+						<p class="tar">义项已被编辑<span class="fwb"><!--{$current_version_info['version']}--></span>次</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!-- 单义项 -->
+				
+			<!--{if $item_num eq 1 }-->
+				<h1 class="wikiSense br3"><!--{$items[0]['web_name']|msubstr:0:15}--> （<span title="<!--{$items[0]['item_desc']}-->"><!--{$items[0]['item_desc']|msubstr:0:15}--><span>）</h1>
+				<!-- 多义项 -->
+			<!--{else  $item_num gt 1}-->
+				<div class="wikiMoreSense bd br3 clearfix">
+					<div class="senseInfo"><!--{$items[0]['web_name']}-->词条（共<!--{$item_num}-->个义项)</div>
+					<div class="senseWrap">
+						
+						<div class="senseLeft">
+							<ul>
+								<!--{foreach from = $items item = item}-->
+									<li class="<!--{if $iid eq $item['_id']}-->current<!--{else}--> <!--{/if}-->"><a href="<!--{$item_url}-->?citiaoid=<!--{$item['citiao_id']}-->&mtmeas=<!--{$item['_id']}-->&web_id=<!--{$webid}-->" title="<!--{$item['item_desc']}-->"><!--{$item@iteration}-->、<!--{$item['item_desc']|msubstr:0:15}--></a></li>
+								<!--{/foreach}-->
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="senseRight">
+							<div class="hideImgLinkBtn">
+								<!--{if $item_num gt 4}-->
+		                        <a href="javascript:void(0);" id="seemore">
+		                            <span class="linkClickSpan"><span class="text"></span><!--{$item_num -4}--></span>
+		                        </a>
+		                         <!--{/if}-->
+		                    </div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			<!--{/if}-->
+			</div>
+           
+			<!-- 百科主体 -->
+			<div class="wikiBody">
+				<!-- 百科摘要 -->
+				<div class="wikiAbs bd br3 pd20 mb15 clearfix">
+					<h2 class="absTitle mb10"><span class="fl">摘要</span><a href="<!--{$edit_url}-->#zy" class="fr"><i class="wikiEditIcon" title="编辑摘要"></i></a></h2>
+                     <div class="wikiImgBgWrap fl">
+						<div class="wikiImgBg">
+							<img class="absImg" src="<!--{if $current_version_info['image_file']}--><!--{$current_version_info['image_file']}--><!--{else}--><!--{$smarty.const.MISC_ROOT}-->img/system/wiki_default.gif<!--{/if}-->">
+						</div>
+						<p class="tac fs12"><!--{$current_version_info['imgDesc']}--></p>
+                    </div>
+					<div class="absContent fl ml15"><!--{$current_version_info['description']}--></div>
+				</div>
+		
+				<!-- 百科目录 -->
+				<div class="wikiDir wikiDirControl mb15">
+					<div id="wikiDirWrap" class="wikiWrap wikiUnwrap bd br3 bd">
+						<h2 class="mb10">目录</h2>
+						<div class="wikiDirList item fc">
+							
+						</div>
+						<a href="javascript:;" class="s">展开</a>
+						<div class="clearfix"></div>
+					</div>
+					<div class="wikiWrap"></div>
+				</div>
+
+				<!-- 百科内容 -->
+				<div class="wikiViewContent bd br3 pd20">
+					<h2>&nbsp;<a href="<!--{$edit_url}-->"><i class="fr wikiEditIcon" title="编辑正文"></i></a></h2>
+					<div id="wikiText" class="wikiText clearfix">
+							<!--{$current_version_info['content']}-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+			<!-- 百科右侧目录 -->
+			<div class="wikiSide wikiDirControl">
+				<div class="wikiBtnWrap fl">
+				<a href="#" class="wikiTop">回到顶部</a><a href="javascript:void(0);" class="wikiDirBtn">词条目录</a>
+				</div>
+				<div class="wikiDirWrap vb fl">
+					<a href="javascript:;" class="wikiPrev"></a>
+					<div class="wikiDirBox">
+						<h2 class="mb10"><!--{$web_info['name']|msubstr:0:8}--></h2>
+						<div class="wikiDirPanel">
+							<div class="wikiDirList wikiDirItem fc">
+								
+							</div>
+						</div>
+					</div>
+					<a href="javascript:;" class="wikiNext"></a>
+				</div>
+				<div class="clearfix"></div>
+</div>
+
+
+<!--{/block}-->
+
+<!--{block name="footer_js"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wiki/wiki.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wiki/wiki_view.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+
+
+
+<!--{/block}-->

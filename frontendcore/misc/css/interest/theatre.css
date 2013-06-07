@@ -1,0 +1,83 @@
+/**
+ * @author:    liying
+ * @created:   2012/7/26
+ * @version:   v1.0
+ * @desc:      电影频道 
+ */
+/***城市选择**/
+.city_select{position:relative;line-height:43px;background:#eeeff4;margin:3px;height:auto !important;padding:0 20px;border-bottom:solid 1px #ccd3e5;}
+.city_select .cur_city{color:#3B5998;padding:0 10px 0 0;}
+.city_select .shift_city{display:block;color:#333;width:70px;height:21px;line-height:21px;background:#fff;border:1px solid #bec7d8;padding:0 0 0 7px;position:relative;margin:10px 0 0;}
+.city_select .shift_city .arr{ display:block;width:15px; height:21px;position:absolute;right:5px;top:-5px;background:url(../../img/system/ui0.png) no-repeat -177px -304px;}
+.city_select .city_fn{position:relative;_zoom:1;}
+.city_select .city_drop{display:none;position:absolute;width:476px;border:1px solid #bec7d8;background:#fff;box-shadow:1px 1px 3px #bec7d8;padding:0 0 10px 0;top:32px;}
+.city_select .city_hot{line-height:30px;background:#e7ecf2;}
+.city_select .city_hot strong{color:#dd4b39;font-weight:normal;padding:0 2px 0 8px;}
+.city_select .city_hot a{padding:0 19px 0 0;}
+.city_list{padding:8px 10px 0 20px;}
+.city_list dl{float:left;width:222px;line-height:22px;overflow:hidden;_zoom:1;}
+.city_list dt{display:block;width:18px;color:#333;float:left;}
+.city_list dd{float:left;width:200px;overflow:hidden;_zoom:1;}
+.city_list dd a{display:block;float:left;padding:0 25px 0 0;}
+.city_list dd a:hover{ text-decoration:underline;}
+/****/
+
+.theatre_class{padding:0 0 10px 0;}
+.theatre_class .head{display:block;margin:0 20px 13px 20px; border-bottom: 1px solid #C4CCDF;font-size:14px;font-weight:bold;line-height:35px;}
+.theatre_top_list{padding:0 20px;margin:0 0 4px 0;overflow:hidden;_zoom:1;}
+.theatre_top_list dt{float:left;}
+.theatre_top_list dd{overflow:hidden;_zoom:1;line-height:22px; }
+.theatre_top_list dd a{display:inline;float:left;padding:0 5px;margin:0 5px 0 0;border-radius:3px;border:solid 1px #fff;white-space:nowrap;}
+.theatre_top_list dd a:hover{background:#EEEFF4; border: 1px solid #48629F;}
+.theatre_top_list dd a.hover,.theatre_top_list dd a.hover :hover{color:#fff;background:#8ca0c1;}
+
+#theatre_sift_list{width:740px;}
+#theatre_sift_list li{padding:0 15px 0 0;position:relative;_zoom:1;}
+#theatre_sift_list li em.remove{display:block;position:absolute;top:10px;right:0;width:13px;height:13px;background:url(../../img/system/btn_theatre_list.gif) no-repeat 0 -35px;cursor:pointer;}
+
+/**电影频道分类列表补丁样式*/
+.letterContent-theatre{margin-left:25px;margin-right: 35px;}
+.letterContent-theatre h6{font-size:14px;line-height: 32px;}
+.letterContent-theatre .letterThreeContent a{display:block;float:left;line-height: 20px;padding-right: 15px;white-space: nowrap;word-wrap: break-word;}
+
+/**频道电影详细页模板*/
+#bodyer_theatre{background-color:#fff;border:1px solid #C4CCDF;border-radius:3px 3px 3px 3px;height:auto!important;line-height:23px;margin-top:15px;padding:20px;}
+.bodyer_theatre_nopadding{background:#fff;border:1px solid #C4CCDF;border-radius:3px 3px 3px 3px;height:auto!important;line-height:23px;margin-top:10px;}
+.headStyle_theatre{height:36px;line-height:40px;padding:0 20px;}
+
+.recom_theatre {margin:0 0 35px 0;}
+.recom_theatre .summary{padding:0 0 0 230px;}
+.recom_theatre .summary h1{font-size:14px;padding:0 0 10px 0;border-bottom:1px solid #d8deea;}
+.recom_theatre .summary .city{color:#3c5a9a;}
+.recom_theatre .introduce{line-height:25px;padding:10px 0;}
+.recom_theatre .introduce span{width:38px;color:#666;margin-left:-4em;}
+.recom_theatre .introduce p{padding-left:4em;}
+
+.inforModelBox h6.head{line-height:48px;font-size:14px;color:#575757;border-bottom:1px solid #d8deea;}
+.inforModelBox .cont{overflow:hidden;_zoom:1;padding:13px 0;}
+
+.pageList_theatre{margin:0 20px;padding:0 0 30px 0;}
+.pageList_theatre .element_list{padding:15px 10px 5px;margin:0 0 1px 0;border-top:1px solid #cccccc;position:relative;overflow:hidden;_zoom:1;}
+.pageList_theatre .element_list .img{float:left;}
+.pageList_theatre .element_list .summary{padding:0 0 0 110px;}
+.pageList_theatre .element_list p{line-height:20px;}
+.pageList_theatre .element_list .po{color:#999;}
+.pageList_theatre .btnAttention{position:absolute;right:0px;top:30px;}
+/**电影时刻表样式**/
+.inforModelBox .schedules{width:835px;}
+.inforModelBox .schedules li{font-size:14px;width:112px; height:22px;border:1px solid #c5cde0;border-radius:3px;float:left;display:inline;margin:0 25px 10px 0;overflow:hidden;_zoom:1;}
+.inforModelBox .schedules li .time{font-weight:bold;color:#3a5999;float:left;padding:0 0 0 14px;}
+.inforModelBox .schedules li .price{font-style:normal;color:#b6c1de;float:right;padding:0 14px 0 0;}
+.inforModelBox .mixedList{width:862px;}
+.inforModelBox .mixedList li{width:172px;height:110px;float:left;margin:0 40px 15px 0;overflow:hidden;_zoom:1;}
+.inforModelBox .mixedList .img{float:left;padding:3px;border:1px solid #c5cde0;}
+.inforModelBox .mixedList .summary{width:80px;height:100%;float:right;position:relative;}
+.inforModelBox .mixedList .summary .t{font-size:14px;font-weight:bold;}
+.inforModelBox .mixedList .summary .para{display: block;height:50px;overflow: hidden;}
+.inforModelBox .mixedList .summary .uiButton{position: absolute;color:#333;bottom:2px;}
+.inforModelBox .textr{text-align:right;}
+
+/**购票按钮样式补丁*/
+.btnTickets{padding:0 23px!important;font-size:14px;color:#333;margin:25px 0 0;}
+/**分类列表显隐控制按钮*/
+#btn_theatre_list{display:block;width:10px;height:35px;background:url(../../img/system/btn_theatre_list.gif) no-repeat;}

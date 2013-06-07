@@ -1,0 +1,74 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name="title" prepend}-->网页资料-<!--{/block}-->
+<!--{block name="header_css"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wiki/wiki_view.css?v=<!--{$smarty.const.CSS_VER}-->" type="text/css" rel="stylesheet" />
+<!--{/block}-->
+
+<!--{block name="body"}-->
+
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!--{include file="wiki_common_nav.html"}--><!--wiki公共面包屑-->
+		<div class="modlueBody">
+			<!-- 百科头部 -->
+			<div class="wikiHeader mb40">
+				<div class="wikiInfo mb20">
+					<div class="wikiLeft fl">
+						<h1 class="fs32 mb5"><!--{$web_info['name']}--></h1>
+						<p>系统已为网页搜索到<!--{$data['item_num']}-->个有关 <a href="#"><!--{$web_info['name']}--></a> 的百科词条</p>
+						<p>你可以引用已有词条或重新创建词条。</p>
+					</div>
+					<div class="wikiRight fr">
+						<p class="tar">&nbsp;</p>
+						<p class="tar"><span class="btnGray"><a href="<!--{$create_url}-->">创建词条</a></span><span class="ml5 btnGray"><a href="<!--{$wiki_index}-->">百科首页</a></span></p>
+						<input type="hidden" id="webId" value="<!--{$web_info['aid']}-->">
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+
+			<div class="wikiMatch">
+            
+            <!--{if $data['data']}-->   <!--if  语句开始，判断有无数据-->
+				<h2 class="pb10">词条名称</h2>
+				<div class="wikiMatchWrap">
+                <!--{foreach from=$data['data'] item=val}-->
+					<div class="wikiMatchItem">
+						<p class="mb15 clearfix">
+							<span class="fl">
+								<span class="c3 mr20">
+									<a href="<!--{$display_url}-->&citiaoid=<!--{$val.citiao_id}-->&mtmeas=<!--{$val.item_id}-->"><span><!--{$val.web_name}--></span><span>（<!--{$val.item_desc}-->）</span></a>
+								</span>
+								
+								<span>端口百科词条</span>
+							</span> 
+
+							
+
+							<span class="fr"><a href="<!--{$display_url}-->&citiaoid=<!--{$val.citiao_id}-->&mtmeas=<!--{$val.item_id}-->" class="mr20">查看词条</a><a href="javascript:;" item_id="<!--{$val.item_id}-->" version="<!--{$val.version}-->" class="reference mr20">引用词条</a></span>
+
+						</p>
+						<p class="wikiMatchText"><!--{$val.description}--></p>
+					</div>
+                    <!--{/foreach}-->
+				</div>
+				<div class="bh"></div>
+			</div>
+			<!--{if $data['is_end']==0}-->
+			<div class="wikiMatchMore wikiContent"><a href="javascript:;" id="matchMore" page="2">查看更多</a></div>
+			<!--{/if}-->
+		
+        <!--{else}-->
+        	<div class="wikiMatchMore wikiContent">暂无匹配到相关义项,你可以进入百科首页进行匹配</div>
+        <!--{/if}-->
+        </div>   <!--End div.class moduleBody-->
+	</div>		<!--End div.class mainArea-->
+</div>		<!--End div.class body clearfix-->
+
+
+<!--{/block}-->
+<!--{block name="footer_js"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wiki/wiki.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wiki/wiki_match.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

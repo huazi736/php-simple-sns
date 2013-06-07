@@ -1,0 +1,194 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+自助广告商管理中心-设置-
+<!--{/block}-->
+
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/pro/pro.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- - - - - modlueHeader开始 - - - - -->
+		<div class="modlueHeader clearfix">
+			<a href="<!--{mk_url('ads/ad/index')}-->" class="fr btnGray color3 mt3">+ 创建广告</a>
+			<span class="userImg"><a href="<!--{$user_info['url']}-->"><img src="<!--{$user_info['avatar_img']}-->" alt="" /></a></span>
+			<div class="userName">
+			    <span class="nameTxt"><a href="<!--{$user_info['url']}-->"><!--{$user_info['username']}--></a></span>
+				<span class="nameTxt">设置</span>
+			</div>
+					</div>
+		<!-- - - - - modlueHeader结束 - - - - -->
+		<!-- - - - - modlueBody开始 - - - - -->
+		<div class="modlueBody plrn">
+			<div class="clearfix hasRightCol home" id="contentCol">
+	          <!-- start:广告列表 -->
+	          <div id="createAds">
+	            <div class="codeBlock clearfix">
+	            	<div class="manage-nav clearfix">
+						<ul class="clearfix">
+							<li><a href="<!--{mk_url('ads/adadmin/index')}-->">首页</a></li>
+							<li><a href="<!--{mk_url('ads/adadmin/listad')}-->">广告列表</a></li>
+							<li><a href="<!--{mk_url('ads/adadmin/reportad')}-->">报告</a></li>
+							<li class="on"><a href="<!--{mk_url('ads/adadmin/setad')}-->">设置</a></li>
+							<li><a href="<!--{mk_url('ads/adadmin/billad')}-->">账单</a></li>
+						</ul>
+					</div>
+					<h2 class="manage-subhd">设置</h2>
+					<div class="codeBlock clearfix">
+					<div class="caList setad">
+						<h4>账户与广告商信息</h4>
+						<ul class="caList-ul">
+							<li class="clearfix">
+								<label class="th">帐户号码(ID)：</label>
+								<div class="fl"><!--{$adCompanyInfo.id}--></div>
+							</li>
+							<li class="clearfix">
+								<label class="th">帐户名称：</label>
+								<div class="fl">
+									<input type="text" id="name" class="txt J_name_only J_acount" value="<!--{$adCompanyInfo.name}-->" maxlength="10" />
+								</div>
+							</li>		
+							<li class="clearfix">
+								<label class="th">货币：</label>
+								<div class="fl">
+									人民币(CNY)	
+								</div>
+							</li>	
+							<li class="clearfix">
+								<label class="th">时区：</label>
+								<div class="fl">
+									北京时间
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="th">行业：</label>
+								<div class="fl">
+									<select name="industry" id="industry" class="on"></select>
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="th">广告联系人：</label>
+								<div class="fl">
+									<input type="text" id="contact" class="txt J_name_only J_contact" value="<!--{$adCompanyInfo.contact}-->"  maxlength="10">
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="th">联系号码：</label>
+								<div class="fl">
+									<input type="text" id="mobile" class="txt" value="<!--{$adCompanyInfo.tel}-->">
+								</div>
+							</li>	
+							<li class="clearfix">
+								<label class="th">联系邮箱：</label>
+								<div class="fl">
+									<input type="text" id="email" class="txt J_mail" value="<!--{$adCompanyInfo.email}-->">
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="th">备注：</label>
+								<div class="fl">
+									<textarea id="remarks" class="acount-remark w260"><!--{$adCompanyInfo.remarks}--></textarea>
+								</div>
+							</li>	
+							<li class="clearfix">
+								<label class="th">&nbsp;</label>
+								<div class="fl">
+									<span class="btnBlue" id="save_contact">保存设置</span>
+								</div>
+							</li>							
+						</ul>
+					</div>
+											
+				  </div>
+	          
+					<div class="codeBlock clearfix">
+					<div class="caList setad">
+						<h4>许可帐户</h4>
+						<dl class="dl-list">
+							<dt>你是帐户所有者，你可以管理竞价、报告、比价及所有许可的各个方面。</dt>
+							<dd class="clearfix lh50 h50 pl10">
+								<strong class="fr fwb">Administrator</strong>
+								<span>
+									<a href="<!--{$user_info['url']}-->"><img src="<!--{$user_info['avatar_img']}-->" alt="<!--{$user_info['username']}-->" class="avtar-50">&nbsp;&nbsp;<strong><!--{$adCompanyInfo.username}--></strong></a>
+								</span>
+							</dd>
+						</dl>
+					</div>
+											
+				  </div>
+
+<!-- 				<div class="codeBlock clearfix">
+					<div class="caList setad">
+						<h4>广告通知设置</h4>
+						<dl class="dl-list notice-list">
+							<dt>当你的广告帐户发生下列操作时，端口团队会通过电子邮件的方式通知您。即便您关闭通知，我们还是会将重要通知发送给您。
+								<p class="fwb color6">如遇到以下问题，请给我发送电子邮件至 xxx@gmail.com:</p></dt>
+							<dd class="clearfix">
+								<input type="checkbox" name="not-1" id="not-1" class="cb mnc" <!--{if $noticeArr[0]==1}-->checked<!--{/if}-->>&nbsp;<label for="not-1">每日预算更动</label>
+								<p class="color9">当我更改任何活动预算时，给我发送确认邮件。</p>
+							</dd>
+							<dd class="clearfix">
+								<input type="checkbox" name="not-2" id="not-2" class="cb mnc" <!--{if $noticeArr[1]==1}-->checked<!--{/if}-->>&nbsp;<label for="not-2">广告未通过审核</label>
+								<p class="color9">当我提交的广告没有通过审核，给我发送邮件通知。</p>
+							</dd>
+							<dd class="clearfix">
+								<input type="checkbox" name="not-3" id="not-3" class="cb mnc" <!--{if $noticeArr[2]==1}-->checked<!--{/if}-->>&nbsp;<label for="not-3">广告需要编辑</label>
+								<p class="color9">当我的广告需要修改或者编辑时，给我发送确认邮件。</p>
+							</dd>
+							<dd class="clearfix">
+								<input type="checkbox" name="not-4" id="not-4" class="cb mnc" <!--{if $noticeArr[3]==1}-->checked<!--{/if}-->>&nbsp;<label for="not-4">广告通过审核</label>
+								<p class="color9">当我的广告通过审核时，给我发送确认邮件。</p>
+							</dd>
+							<dd class="clearfix">
+								<input type="checkbox" name="not-5" id="not-5" class="cb mnc" <!--{if $noticeArr[4]==1}-->checked<!--{/if}-->>&nbsp;<label for="not-5">已完成付款</label>
+								<p class="color9">我们会邮件通知您，当您的帐户支付各种费用时。</p>
+							</dd>	
+							<dd class="clearfix">
+								<input type="checkbox" name="not-6" id="not-6" class="cb mnc" <!--{if $noticeArr[5]==1}-->checked<!--{/if}-->>&nbsp;<label for="not-6">新闻通讯与产品更新信息</label>
+								<p class="color9">我们会定期发送给您新闻通讯邮件，提供许多关于新的广告功能。广告更新秘诀，条款更新等重要信息。</p>
+							</dd>
+							<dd class="clearfix">
+			 				<!--{if $noticeArr[6]==10}-->				
+								<input type="checkbox" name="not-7" id="not-7" class="cb mnc" checked="checked">&nbsp;<label for="not-7">帐户小结账单 </label>（次数&nbsp;<select name="interval_notice" id="interval_notice">
+									<option value="0" selected="selected">每周</option>
+									<option value="1">每月</option>
+								</select>）
+			 				<!--{elseif $noticeArr[6]==11}-->
+								<input type="checkbox" name="not-7" id="not-7" class="cb mnc" checked="checked">&nbsp;<label for="not-7">帐户小结账单 </label>（次数&nbsp;<select name="interval_notice" id="interval_notice">
+									<option value="0">每周</option>
+									<option value="1" selected="selected">每月</option>
+								</select>）
+			 				<!--{else}-->
+								<input type="checkbox" name="not-7" id="not-7" class="cb mnc">&nbsp;<label for="not-7">帐户小结账单 </label>（次数&nbsp;<select name="interval_notice" id="interval_notice">
+									<option value="0">每周</option>
+									<option value="1">每月</option>
+								</select>）
+							<!--{/if}-->				 															 												
+								<p class="color9">我们将会定期定期将帐户明显递送到您的邮箱。</p>
+							</dd>
+							<dd class="pl130"><span id="save_notice" class="btnBlue">保存设置</span></dd>					
+						</dl>
+					</div>
+											
+				  </div> -->
+
+	          <!-- end:广告列表 --> 
+       		 </div>
+		</div>
+		<!-- - - - - modlueBody结束 - - - - -->
+	</div>
+</div>
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/tempJS/trade/trade.js?v=<!--{$smarty.const.JS_VER}-->"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pro/createPro.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function () {
+		manageAds.initTrade($('#industry'), trade, <!--{$adCompanyInfo.industry}-->);
+	})
+</script>
+<!--{/block}-->

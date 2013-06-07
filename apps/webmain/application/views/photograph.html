@@ -1,0 +1,144 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+网页头像设置-
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/creatWeb/creatWeb.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- start: modlueBody 开始 -->
+		<div class="modlueBody">
+
+			<!-- start: regBody 注册区域主体开始 -->
+			<div class="regBody modlueContent">
+				<ul class="modlueBodyHeader clearfix">
+					<li>1、填写网上资料</li>
+					<li class="current">2、上传头像</li>
+					<li>3、邀请好友</li>					
+				</ul>
+				<div class="regCont">
+					<h3>网页头像设定</h3>
+					<div class="uploadHeader backLocal">
+						<div class="uploadHeaderTop">
+							<form enctype="multipart/form-data" method="post" name="upform" target="upload_target" action="<!--{$smarty.const.WEB_ROOT}-->front/index.php?c=register&m=avatar_upload">
+								<a class="backBtn" href="<!--{$avatar_pic}-->">返回本地上传</a>
+							</form>
+						</div>
+					</div>
+					<iframe src="about:blank" name="upload_target" class="hide ph"></iframe>
+					<div id="avatar_editor"></div>
+					<div class="regAction clearfix">
+						<span class="skip">
+							<a href="<!--{$searchfriend}-->">跳过此步</a>
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- end: regBody 注册区域主体结束 -->
+		</div>
+		<!-- end: modlueBody 结束 -->
+	</div>
+</div>
+
+<!--{/block}-->
+
+
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/common/utils.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/swfobject/AC_RunActiveContent.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var extensions = 'jpg,jpeg,gif,png';
+	//保存缩略图的地址.
+	var saveUrl = mk_url('webmain/avatar/avatar_save');//'<!--{$smarty.const.WEB_ROOT}-->main/index.php?c=avatar&m=avatar_save';
+	//保存摄象头白摄图片的地址.
+	var cameraPostUrl = mk_url('webmain/avatar/avatar_camera_save');//'<!--{$smarty.const.WEB_ROOT}-->main/index.php?c=avatar&m=avatar_camera_save';
+	//头像编辑器flash的地址.
+	var editorFlaPath = '<!--{$smarty.const.MISC_ROOT}-->flash/avatarEditor.swf';
+	//网页id
+	var web_id = '<!--{$webid}-->';	
+	//首页地址
+	var searchFriend = '<!--{$searchfriend}-->';
+	function useCamera(){
+		runac.AC_FL_RunContent(
+			'appendTo', 'avatar_editor',
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+			'id','avatar',
+			'width', '514',
+			'height', '464',
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'wmode', 'transparent',
+			'allowScriptAccess','always',
+			'movie', editorFlaPath.replace(/\.swf$/ig,""),
+			'Flashvars','type=camera'+'&web_id='+encodeURIComponent(web_id)+'&postUrl='+encodeURIComponent(cameraPostUrl)+'&redirect_url='+encodeURIComponent(searchFriend)+'&radom=1&saveUrl='+encodeURIComponent(saveUrl)+'&radom=1',
+			'style','display:block;'
+		); //end AC code
+	}
+	function buildAvatarEditor(pic_id,pic_path,post_type){
+		runac.AC_FL_RunContent(
+			'appendTo', 'avatar_editor',
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+			'id','avatar',
+			'width', '514',
+			'height', '464',
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'wmode', 'transparent',
+			'allowScriptAccess','always',
+			'movie', editorFlaPath.replace(/\.swf$/ig,""),
+			'Flashvars','type='+encodeURIComponent(post_type)+'&photoUrl='+encodeURIComponent(pic_path)+'&photoId='+encodeURIComponent(pic_id)+'&postUrl='+encodeURIComponent(cameraPostUrl)+'&saveUrl='+encodeURIComponent(saveUrl),			'style','display:block;'
+		); //end AC code
+	}
+	/**
+	  * 提供给FLASH的接口 ： 没有摄像头时的回调方法
+	  */
+	function noCamera(){
+		$.alert("你没有摄像头");
+	}
+			
+	/**
+	 * 提供给FLASH的接口：编辑头像保存成功后的回调方法
+	 */
+	function avatarSaved(){
+		//alert('头像保存成功，请继续填写个人资料');
+		window.location.href = mk_url('webmain/create/add_fellow',{aid:web_id});//'<!--{$smarty.const.WEB_ROOT}-->'+'main/index.php?c=create&m=add_fellow&aid='+web_id;
+	}
+	
+	/**
+	  * 提供给FLASH的接口：编辑头像保存失败的回调方法, msg 是失败信息，可以不返回给用户, 仅作调试使用.
+	  */
+	function avatarError(msg){
+		alert(msg);
+	}
+
+	function checkFile(){
+		var path = document.getElementById('Filedata').value;
+		var ext = getExt(path);
+		var re = new RegExp("(^|\\s|,)" + ext + "($|\\s|,)", "ig");
+		if(extensions != '' && (re.exec(extensions) == null || ext == '')) {
+			$.alert('对不起，只能上传jpg, gif, png类型的图片');
+			return false;
+		}
+		showLoading();
+		document.upform.submit();
+	}
+
+	function getExt(path){
+		return path.lastIndexOf('.') == -1 ? '' : path.substr(path.lastIndexOf('.') + 1, path.length).toLowerCase();
+	}
+	function showLoading(){
+		document.getElementById('loading_gif').style.visibility = 'visible';
+	}
+	function hideLoading(){
+		document.getElementById('loading_gif').style.visibility = 'hidden';
+	}
+
+useCamera();
+
+</script>
+<!--{/block}-->

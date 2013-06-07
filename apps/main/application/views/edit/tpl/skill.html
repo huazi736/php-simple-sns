@@ -1,0 +1,58 @@
+<div id="SkillInfoForm" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>技能名称：</th>
+				<td class="data">
+					<select name="name0">
+	                    <option value="-1">请选择...</option>
+	                    <option value="1">计算机/IT</option>
+	                    <option value="2">机械维修</option>
+	                    <option value="3">生产技工</option>
+	                    <option value="4">园林艺术</option>
+	                    <option value="5">手工艺</option>
+	                    <option value="6">烹饪/餐饮</option>
+	                    <option value="7">服装/服饰</option>
+	                    <option value="8">驾驶</option>
+	                    <option value="9">安全保护</option>
+	                    <option value="10">语言翻译</option>
+	                    <option value="11">建筑/装修</option>
+	                    <option value="12">医护/美容</option>
+	                    <option value="13">其他</option>
+                    </select>
+					<input type="text" class="vinput limL" name="name1" maxlength="30"/>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">使用时间：</th>
+				<td class="data"><input type="text" class="vinput short_text limL" name="time"  maxlength="4" /><span class="mls">个月</span></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob">掌握程度：</th>
+				<td class="data nob">
+					<select name="deep">
+	                    <option value="-1">请选择...</option>
+	                    <option value="1">精通</option>
+	                    <option value="2">熟练</option>
+	                    <option value="3">一般</option>
+	                    <option value="4">了解</option>
+                  	</select>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr>
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0)">取消</a></div><div class="btnBlue fr mrs"><a href="javascript:void(0)" id="SkillInfoAdd" class="bnt_add SkillInfoAdd" style="display: none">确定</a><a href="javascript:void(0)" class="bnt_edit SkillInfoEdit">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

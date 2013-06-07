@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<infoPic>
+	<pic>
+		<url>misc/img/flash/player/play.png</url>
+	</pic>
+	<pic>
+		<url>misc/img/flash/player/pause.png</url>
+	</pic>
+	<pic>
+		<url>misc/img/flash/player/fullscreen.png</url>
+	</pic>
+	<pic>
+		<url>misc/img/flash/player/normal.png</url>
+	</pic>
+	<pic>
+		<url>misc/img/flash/player/sound.png</url>
+	</pic>
+	<pic>
+		<url>misc/img/flash/player/sound_close.png</url>
+	</pic>
+	<pic>
+		<url>misc/img/flash/player/forward.png</url>
+	</pic>
+	<pic>
+		<url>misc/img/flash/player/back.png</url>
+	</pic>
+	<pic>
+		<url>misc/img/flash/player/replay_big.png</url>
+	</pic>
+	<pic>
+		<url>misc/img/flash/player/config.png</url>
+	</pic>
+</infoPic>

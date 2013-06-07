@@ -1,0 +1,267 @@
+/*
+ * @ name: index.css
+ * @ author: lishijun
+ * @ desc:  图片查看器css
+ *
+ */
+ 
+@charset "utf-8";
+
+h2, em, strong{
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+#contentCol{
+	border:1px #C4CCDF solid;
+	overflow:hidden;
+}
+
+/***********************start: 左侧菜单**************************************/
+
+.tagMenu{
+	float: left;
+	background-color: #F2F2F2;
+	border-right: 1px #ccc solid;
+	padding: 0 1px;
+	width: 176px;
+	padding-bottom: 9999px;
+	margin-bottom: -9999px;
+}
+.tagMenu .tipIco{
+	height: 46px;
+	background: url(../../img/system/job_tipIco.png) no-repeat;
+}
+
+.tagMenu .item h2{
+	height: 31px;
+	line-height: 28px;
+	background: url(../../img/system/job_ulBk.png) no-repeat left bottom;
+	cursor: pointer;
+	padding-left: 20px;
+}
+.tagMenu .item h2 i, .tagMenu .item h2 strong, .tagMenu .item h2 em{
+	display: inline-block;
+	float: left;
+}
+.tagMenu .item h2 i{
+	background: url(../../img/system/job_expIco.png) no-repeat left 10px;
+	margin-right:10px;
+	height: 31px;
+	width: 8px;
+}
+.tagMenu .item h2 em{
+	margin-left:60px;
+	height: 31px;
+	width: 4px;
+}
+.tagMenu .item ul{
+	display: none;
+	padding: 5px 0 15px 30px;
+	background: url(../../img/system/job_ulBk.png) no-repeat left bottom;
+}
+.tagMenu .item ul li{
+	margin-top: 5px;
+}
+.tagMenu a{
+	display: block;
+	color: #333;
+}
+.tagMenu a:hover{
+	text-decoration:underline;
+}
+
+/*当前状态*/
+.tagMenu .current{
+	color: #3C5A9A;
+}
+.tagMenu .current h2 a{
+	color: #3C5A9A;
+}
+.tagMenu .current h2 i{
+	background: url(../../img/system/job_shrIco.png) no-repeat left 12px;
+}
+.tagMenu .current h2 em{
+	background: url(../../img/system/job_pointIco.png) no-repeat left 12px;
+}
+.tagMenu .current ul{
+	display: block;
+}
+.tagMenu .current ul li.subCurrent a{
+	color: #3C5A9A;
+}
+
+/***********************end: 左侧菜单**************************************/
+
+
+/***********************start: 右侧具体内容**************************************/
+
+/***********************start: 公共**************************************/
+.specContent{
+	float: left;
+	background-color: #fff;
+	padding: 16px;
+	width: 638px;
+}
+.specContent h2{
+	border-bottom: 1px #E8E8E8 solid;
+	padding-bottom: 10px;
+}
+.specContent h2 span{
+	color:#3C5A9A;
+}
+.specContent .detail h3{
+	color: #575757;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+}
+.specContent .detail p{
+	color: #565656;
+	line-height:20px;
+}
+span.btnBlue{
+	font-size:12px;
+}
+.specContent .detail .addBtn span.btnBlue{
+	position: relative; 
+	top: -30px; 
+	left: 212px; 
+	width: 78px;
+}
+
+
+/***********************end: 公共**************************************/
+
+
+/***********************start: 首页**************************************/
+
+.specContent .txtDetail h4{
+	margin-bottom: 10px;
+}
+.specContent .txtDetail p{
+	line-height: 25px;
+	margin-bottom: 15px;
+}
+.specContent .txtDetail .post{
+	background: url(../../img/system/job_postIco.png) no-repeat left center;
+	cursor: pointer;
+	padding-left: 10px;
+	margin: 10px 0;
+}
+.specContent .txtDetail .post span{
+	float: right;
+}
+.specContent .technologyTxtDetail{
+	padding: 20px;
+}
+
+/***********************end: 首页**************************************/
+
+
+/***********************start: 发送简历**************************************/
+
+.resume .detail h3{
+	text-align: left;
+}
+.resume .detail table th{
+	height: 50px;
+	text-align:left;
+}
+.resume .detail table td{
+	height: 45px;
+#	width: 70px;
+}
+.resume .detail table td input, .resume .detail table td select{
+	height: 23px;
+	line-height: 23px;
+	border: 1px #BCC8D8 solid;
+}
+.resume .detail table td select{
+	width:80px;
+}
+.resume .detail span.btnBlue{
+	margin-top: 40px;
+}
+
+/***********************end: 发送简历**************************************/
+
+
+/***********************start: 填写简历**************************************/
+
+.resumeWirte .detail ul.tab{
+	font-size: 14px; 
+	border-bottom: 1px solid #ccc; 
+	padding-left: 10px;
+	margin: 15px 0;
+}
+.resumeWirte .detail ul.tab li{
+	float: left; 
+	margin-right: 10px; 
+	padding: 0px 15px; 
+	cursor: pointer; 
+	height: 30px; 
+	line-height: 30px;
+}
+.resumeWirte .detail ul.tab li a{
+	color: #333;
+}
+.resumeWirte .detail ul.tab li.selected{
+	position: relative; 
+	top: 1px; 
+	border: 1px solid #ccc; 
+	border-bottom: none; 
+	background-color: #fff; 
+	font-weight: bold;
+}
+.resumeWirte .detail .tagDetail .nameInput{
+	width: 195px;
+}
+.resumeWirte .detail .tagDetail .selectTd{
+	width: 300px;
+}
+.resumeWirte .detail .tagDetail .radioTd{
+	padding-bottom: 5px;
+	width: 200px;
+}
+.resumeWirte .detail .tagDetail .radioTd input{
+	position: relative;
+	top: 5px;
+	border: none;
+}
+.resumeWirte .detail .tagDetail .radioTd span{
+	margin-right: 5px;
+}
+.resumeWirte .detail .tagDetail .certSelectTd select{
+	width: 195px;
+}
+.resumeWirte .detail .tagDetail .smallSelectTd select{
+	width: 100px;
+}
+.resumeWirte .detail .tagDetail .moneyTd{
+	width: 300px;
+}
+.resumeWirte .detail .tagDetail .selfEvalTd{
+	width: 300px;
+} 
+.resumeWirte .detail .tagDetail .selfEvalTd textarea{
+	border: 1px #BCC8D8 solid;
+	height: 100px;
+	width: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.resumeWirte .detail .tagDetail .schoolTd{
+	width: 400px;
+}
+.resumeWirte .detail .tagDetail p.statement{
+	margin-top: 20px;
+	width:470px;
+}
+
+
+/***********************end: 填写简历**************************************/
+
+
+/***********************end: 右侧具体内容**************************************/

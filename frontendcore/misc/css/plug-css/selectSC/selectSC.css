@@ -1,0 +1,49 @@
+/**
+ * Created on 2012-03-28
+ * @author： yewang
+ * @version： 1.0
+ * @desc：学校、院系、公司、职位选择插件样式
+ */
+ 
+/* selectWid styles */
+body { background-color:#fff; }
+select { height:20px; }
+.selectWid { padding:10px; }
+.selectTitle { width:100%; overflow:hidden; border-bottom:1px solid #ddd; padding:5px 0; }
+.selectTitle span { float:left; padding-right:5px; }
+.selectIndex { padding-top:5px; overflow:hidden; zoom:1; }
+.selectIndex a { float:left; height:18px; line-height:18px; padding:3px 5px; margin-right:5px; }
+.selectIndex a.selected, .selectIndex a:hover { background-color:#3D5998; color:#fff; }
+.selectCont { border:1px solid #3D5998; padding:10px; height:208px; overflow-x:hidden; overflow-y:auto; }
+.selectCont ul { width:100%; overflow:hidden; }
+.selectCont li { width:33%; float:left; padding:5px 0; background:url(../../../img/system/square.gif) no-repeat left center; }
+.selectCont li.selectContTitle { width:100%; background:none; font-weight:bold; }
+.selectCont li a { margin-left:8px; }
+/*自定义公司*/
+.vinput{
+	border: 1px solid #96A6C5;
+    color: #777777;
+    padding: 0 3px;
+    height:18px;
+    line-height:18px;
+    width:200px;
+}
+.blueBtn {
+    color: #FFFFFF;
+}
+.popBtns {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-right: 2px;
+}
+.btnBlue, .blueBtn {
+    background-position: 0 -98px;
+    border-color: #3B5998;
+}
+
+#selectWid  #addCompany { margin-left:3px; height:16px; padding:2px 4px 0; line-height:14px;}
+.selectTitle span.error_tip{ color: #DD4B39; float: none;}
+/*添加工作之行业*/
+#trade{ margin-right:8px;}

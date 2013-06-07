@@ -1,0 +1,10 @@
+DMIMI.cpu.merge(DMIMI,[
+	{
+		name:"selector",
+		obj:DMIMI.selector
+	},
+	{
+		name:"tool",
+		obj:DMIMI.tool
+	},
+]);

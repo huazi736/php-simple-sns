@@ -1,0 +1,106 @@
+<!--{extends file="base_layout.html"}-->
+
+<!--{block name=header_css}-->
+<!--问答CSS 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/ask/plug_ask.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/tip/jquery.tip.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name=body}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix"><span class="userImg"><a href="<!--{$userInfo['author_url']}-->"><img src="<!--{$userInfo['author_avatar']}-->" alt="" /></a></span>
+			<div class="userName"><span class="nameTxt"><a href="<!--{$userInfo['author_url']}-->"><!--{$userInfo['author_username']}--></a></span><span class="modlueName nameTxt"><span class="fl"><a href="<!--{$userInfo['ask_url']}-->">问答</a></span></span></div>
+			
+		</div>
+		<div class="modlueBody">
+			<div id="contentArea">
+                <div class="uiHeader clearfix">
+                    <div class="ask_operation">
+                        <div class="left"><span  id="friend_askList" class="on">所有问答</span>
+                            <d class="big">·</d>
+                            <span id="my_askList">我的问答</span></div>
+                    </div>
+                    <div class="btnGray"><a href="#" id="addask"><img src="/frontendcore/misc/img/system/icon_plus.png" alt="" width="8" height="8" /> 提问</a></div>
+                </div>
+                <!--start: 提问-->
+                <div id="addNewAsk" style="display:none;">
+                    <div class="icon_up"></div>
+                    <div class="content">
+                        <div class="msg"><span style="float:right;">[?]</span>不明白？来问问好友：</div>
+                        <div id="inputBox">
+                            <input type="text" msg="问个问题..." maxlength="260" />
+                        </div>
+                        <div id="votingBox" style="display:none">
+                            <div class="title"><span>投票选项</span></div>
+                            <!--start 添加投票选项 -->
+                            <div class="voting_option">
+                                <div class="new_item">
+                                    <input type="text" maxlength="80"  msg="添加选项" />
+                                </div>
+                                <div class="new_item">
+                                    <input type="text" maxlength="80"  msg="添加选项" />
+                                </div>
+                                <div class="new_item">
+                                    <input type="text" maxlength="80"  msg="添加选项" />
+                                </div>
+                            </div>
+                            <!--end 添加投票选项 -->
+                        </div>
+                        <div class="operation clearfix">
+                            <div id="setting_moreOptions"  style="display: none; float:left;">
+                                <input type="checkbox" checked="checked" id="add_allPerson" />
+                                <label class="bold" for="add_allPerson">允许任何人添加选项</label>
+                            </div>
+                            <div id="setting_more"  style="display:none;">
+                                <label class="bold disabled">
+                                    <input type="radio" name="moreRadio" value="0" disabled="disabled" />
+                                    单选</label>
+                                <label class="bold" >
+                                    <input type="radio" checked="checked" name="moreRadio" value="1" />
+                                    多选</label>
+                            </div>
+                            <a  href="javascript:void(0)" id="setting_voting">添加投票选项</a><a id="add_asks" class="uibutton" href="javascript:void(0)">提问</a>
+                            <div id="shareRights" oid="123" s="1" uid="" tip="公开" class="dropWrap tip_up_right_black dropMenu">
+                                <input type="hidden" name="permission" value="1" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end: 提问-->
+				<!--start: 问答列表-->
+				<div id="askList_box" class="askList">
+					<div class="listshow clearfix">
+					</div>
+					<div class="noInfo" style="display:none">没有可显示的问答列表</div>
+				</div>
+                <!--end: 问答列表-->
+			</div>
+		</div>
+	</div>
+	
+</div>
+<input type='hidden' id='hd_UID' value="<!--{$visitorInfo['visitor_uid']}-->" />
+<input type='hidden' id='hd_userName' value="<!--{$visitorInfo['visitor_uid']}-->" />
+<input type='hidden' id='hd_avatar' value="<!--{$visitorInfo['visitor_avatar']}-->" />
+<input type='hidden' id='dkou' value="<!--{$visitorInfo['visitor_dkcode']}-->" />
+<input type='hidden' id='askuid' value="<!--{$visitorInfo['ask_uid']}-->" />
+<input type='hidden' id='sessionuid' value="<!--{$visitorInfo['visitor_uid']}-->" />
+<input type='hidden' id='getmy' value="<!--{$getmy}-->" />
+
+<!--{/block}-->
+
+<!--{block name=footer_js}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-tip/dk.tip.js" type="text/javascript"></script>
+<!--以下为问答相关JS-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.UICombox.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-searcher/ViolenceSearch.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/friends_list/friends_list.js" type="text/javascript"></script>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/relation/relation.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/scrollLoad.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/ask/plug_ask.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/ask/ask_forpage.js" type="text/javascript"></script>
+<!--{/block}-->

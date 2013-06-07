@@ -1,0 +1,93 @@
+<!--{extends file='main_layout.html'}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/search/search.css?1343118517153" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$user_url}-->"><img  src="<!--{$user_avatar}-->" alt="<!--{$user_name}-->" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$user_url}-->"><!--{$user_name}--></a></span>
+				<span class="nameTxt"><a href="<!--{$app_url_list.event.url}-->">搜索</a></span>
+				<span class="nameTxt"><span class="fl"><a href="<!--{$app_url_list.event.url}-->"><!--{$app_settings.event.name}--></a></span></span>
+			</div>
+		</div>
+		<div class="modlueBodySearch clearfix" id="globalSearchs">
+			<div class="modlueNav dropMenu clearfix">
+				<div class="">
+					<span>
+					</span>
+				</div>
+				<ul class="dropListul clearfix">
+					<span class="droplistulspan">搜索分类</span>
+					<!-- 
+					<li><a href="#" class="itemAnchor"><i class="i_friend"></i><span>所有结果</span><b></b></a></li>
+					-->
+					<li><a href="<!--{$app_url_list.people.url}-->" class="itemAnchor"><i class="i_friend"></i><span><!--{$app_settings.people.name}--></span><b><!--{$left_navigator.people}--></b></a></li>
+					<li><a href="<!--{$app_url_list.website.url}-->" class="itemAnchor"><i class="i_page"></i><span><!--{$app_settings.website.name}--></span><b><!--{$left_navigator.website}--></b></a></li>
+					<li><a href="<!--{$app_url_list.status.url}-->" class="itemAnchor"><i class="i_status"></i><span><!--{$app_settings.status.name}--></span><b><!--{$left_navigator.status}--></b></a></li>
+					<li><a href="<!--{$app_url_list.photo.url}-->" class="itemAnchor"><i class="i_photo"></i><span><!--{$app_settings.photo.name}--></span><b><!--{$left_navigator.photo}--></b></a></li>
+					<li><a href="<!--{$app_url_list.album.url}-->" class="itemAnchor"><i class="i_album"></i><span><!--{$app_settings.album.name}--></span><b><!--{$left_navigator.album}--></b></a></li>
+					<li><a href="<!--{$app_url_list.video.url}-->" class="itemAnchor"><i class="i_video"></i><span><!--{$app_settings.video.name}--></span><b><!--{$left_navigator.video}--></b></a></li>
+					<li><a href="<!--{$app_url_list.blog.url}-->" class="itemAnchor"><i class="i_blog"></i><span><!--{$app_settings.blog.name}--></span><b><!--{$left_navigator.blog}--></b></a></li>
+					<li><a href="<!--{$app_url_list.event.url}-->" class="itemAnchor"><i class="i_activity"></i><span><!--{$app_settings.event.name}--></span><b><!--{$left_navigator.event}--></b></a></li>
+				</ul>				
+			</div>
+			<div class="modlueContainer clearfix">
+
+				<h3 class="modlueBodyTitle categoryTitle" id="term" name="<!--{$keyword}-->"><i class="modlueImgS act"></i><!--{$app_settings.event.name}--><!--{$center_count_border.prefix}--><!--{$left_navigator.event}--><!--{$center_count_border.subfix}--></h3>
+				<!--{if $isEmpty eq true}-->
+				<div class="noResult"><h3>未搜索到相应结果，请重新输入关键字</h3></div>
+				<!--{else}-->
+				<div class="searchResult">
+					<ul class="searchactivity clearfix">
+					<!--{foreach from=$event item=vo}-->
+						<li class="searchLi clearfix">
+							<a href="<!--{$vo.url}-->" class="headerImg headerImgVideo" target="_blank"><img src="<!--{$vo.img}-->" width="133px" height="80px" alt="<!--{$vo.full_name}-->" /></a>
+							<div class="searchDetail clearfix">
+								<h5 class="searchCont">
+									<a href="<!--{$vo.url}-->" title="<!--{$vo.full_name}-->" target="_blank"><!--{$vo.name}--></a>
+								</h5>
+								<div class="color666">时&nbsp;&nbsp;&nbsp;间：<i><!--{$vo.start_time}--> - <!--{$vo.end_time}--></i></div>
+								<div class="color666">发起人：<a href="<!--{$vo.originator_url}-->" title="" target="_blank"><!--{$vo.originator}--></a></div>
+
+							<!--{if trim($vo.detail) neq '' }-->
+								<div class="color666">简&nbsp;&nbsp;&nbsp;介：<i><!--{$vo.detail}--></i></div>
+							<!--{/if}-->
+							</div>
+							<div class="fr">
+							<!--{if trim($vo.status) eq '即将开始' }-->
+								<div class="a-status-0"><!--{$vo.status}--></div>
+							<!--{/if}-->
+							<!--{if trim($vo.status) eq '正在进行' }-->
+								<div class="a-status-1"><!--{$vo.status}--></div>
+							<!--{/if}-->
+							<!--{if trim($vo.status) eq '已经结束' }-->
+								<div class="a-status-2"><!--{$vo.status}--></div>
+							<!--{/if}-->
+								<div class="a-join-um"><!--{$vo.join_num}-->人参与</div>
+							</div>
+						</li>
+					<!--{/foreach}-->
+					</ul>
+					
+					<!--{if !$is_end }-->
+					<div class="moreResult hide">
+						<a name="9" href="<!--{$ajax_path}-->" rel="1" class="hide"><!--{$app_settings.event.html_more_result}--><i></i></a>
+						<span ><img width="16" height="7" alt="loading" src="img/system/more_loading.gif"></span>
+					</div>
+					<!--{/if}-->
+				</div>
+				<!--{/if}-->
+			</div>
+		</div>
+		
+	</div>
+	<div class="sideArea">
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/searchResult/searchResult.js?1343118517154"></script>
+<!--{/block}-->

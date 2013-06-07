@@ -1,0 +1,849 @@
+.clearthis{
+	clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+
+}
+
+#discussContent{
+	background-color: #FFFFFF;    
+    overflow: hidden;
+    position: relative;
+    margin-top:10px;    
+    height:auto;
+   
+    /*css3*/
+    border: 1px solid #C5CDE0;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 0 #D8DEEA;
+}
+.new_roomBox{
+	
+	position: absolute;
+	float:right;
+	right:50px;
+	top:30px;	
+	cursor: pointer;
+	
+	}
+
+.fr_add_fans
+{
+	position: absolute;
+	float:right;
+	right:120px;
+	top:30px;	
+	cursor: pointer;
+}
+
+.submitform{
+	display:block;
+	border-color:#41588C;
+	
+	width:50px;
+	height:24px;
+	font-size:14px;
+	line-height:24px;
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+	
+	
+	}
+.submitform input{
+	display:block;
+	background: url("../../img/system/ui2.gif") no-repeat scroll 0 -97px transparent;
+
+	color:#fff;
+	border:medium none;
+	font-weight:bold;
+	width:50px;
+	height:24px;
+	font-size:14px;
+	line-height:24px;
+	cursor: pointer;
+	
+
+	}
+.chatRoomBox{
+	
+	
+
+	margin-top:50px;
+	margin-left:30px;
+	
+	
+}
+.chatRoomBox ul{
+	
+	
+	display: block;
+	margin: 0px;
+	padding: 0px;
+
+	
+	
+}
+.chatRoomBox ul li{
+	list-style-type: none;
+	display: block;
+	float: left;
+	width:140px;
+	height:95px;
+	margin:10px 10px 10px 0px;
+	text-align:center;
+}
+.chatRoomBox ul li a{
+	display: block;
+	text-align:center;
+
+
+}
+.chatRoomBox ul li img{
+	border:0px;
+	width:90px;
+	height:60px;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+}
+.chatRoomBox ul li .img_list{
+	
+	display: block;
+	
+	width:140px;
+	height:62px;
+	
+	text-align:center;
+}
+
+.chatRoomBox ul li .img_list a{
+	background: url("../../img/system/fansroom_list.png") no-repeat scroll 20px 5px transparent;
+	border:0px;
+	width:90px;
+	height:60px;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border:#ccc 1px solid;
+	margin-left: 25px;
+	
+	display: block;
+}
+
+
+.chatRoomBox ul li .img_list a img{
+	border:0px;
+	width:30px;
+	height:30px;
+	float: left;
+	border-radius:0px;
+
+}
+
+.show_stream_photo{
+	float: left;
+	width:138px;
+	height:106px;
+	border: 1px solid #ccc;
+
+}
+#show_stream_photo_a{
+	display: block;
+	width:138px;
+	height:106px;
+	line-height:138px;
+	text-align: center;
+	
+
+
+}
+#err_add_report{
+	background: url("../../img/system/ui2.gif") no-repeat scroll 0 -97px transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: 24px;
+    line-height: 24px;
+    width: 70px;
+}
+
+
+/*好友列表 start*/
+.fansRoom_friend_list{
+	margin-top: 10px;
+	
+	width:850px;
+	height:55px;
+	background-color: #fff;
+	border:#c8c9de 1px solid;
+	
+	overflow:hidden;
+	
+	position:relative;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	padding:5px 0px 5px 0px;
+	}
+
+.fansRoom_friend_list ul {
+	display:block;
+	padding:0px;
+	margin:0px;
+	position: absolute;
+	
+	
+	}
+.fansRoom_friend_list ul li{
+	display:block;
+	float:left;
+	
+	height:50px;
+	width:50px;
+	margin-left:5px;
+	}
+
+.fansRoom_friend_list ul li img{
+	display:block;
+	height:50px;
+	width:50px;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	}
+
+/*好友列表 end*/
+
+/*聊天室窗口 start*/
+.fansRoom_con{
+	margin-top: 10px;
+	width:850px;
+	height:630px;
+	background-color: #fff;
+	border:#c8c9de 1px solid;
+	position:relative;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	
+	}
+.log_fansRoom_con{
+	margin-top: 10px;
+	width:850px;
+	
+	background-color: #fff;
+	border:#c8c9de 1px solid;
+	position:relative;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	padding-bottom: 20px;
+
+}
+.composerAttachments li.s_log{
+    float: left;
+    font-weight: bolder;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    position: relative;
+    width: 680px;
+}
+
+
+
+/*聊天室内容 start*/
+.fansRoom_info{
+		width:850px;
+		_height:450px;
+		overflow:hidden;
+		min-height:450px !important;
+		min-height:450px;
+		
+	
+	}
+
+
+.fansRoom_info ul{ 
+		display:block;
+		margin:0px;
+		padding:0px;
+		margin-left:20px;
+		width:810px;
+		
+		
+	}
+.fansRoom_info ul li{
+	display:block;
+	list-style-type:none;
+	margin:15px 0px 15px 0px;
+	position:relative;
+	clear: both;
+	} 
+.fansRoom_info ul li:after{
+	 clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+/*左对齐对话栏 start*/
+.fansRoom_headImg_left{	
+	float:left;	
+	width:50px;
+	height:50px;
+
+	}
+.fansRoom_headImg_left img{
+	border:0px;
+	width:50px;
+	height:50px;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	
+	}
+.tip_left{
+	width:13px;
+	height:50px;
+	float:left;
+	background:url(../../img/system/round_left.jpg) 0px -4px no-repeat;
+	
+	}
+.fansRoom_lineinfo_left
+{
+	float:left;	
+	min-width:50px !important;
+	min-height:50px !important;
+	_width:auto;
+	_height:auto;
+	background:#f0f0f0;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	padding: 10px 15px 10px 15px;
+
+	
+	}
+
+.fansRoom_lineinfo_left_sys{
+	float:left;	
+	min-width:50px !important;
+	min-height:50px !important;
+	_width:auto;
+	_height:auto;
+	
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	padding: 10px 15px 10px 15px;
+
+}
+/*左对齐对话栏 end*/
+
+/*右对齐对话栏 start*/
+.fansRoom_headImg_right{
+	float:right;	
+	width:50px;
+	height:50px;
+	}
+.fansRoom_headImg_right img{
+	border:0px;
+	width:50px;
+	height:50px;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	
+	}
+.fansRoom_lineinfo_right
+{
+	float:right;	
+	min-width:50px !important;
+	min-height:50px !important;
+	_width:auto;
+	_height:auto;
+	background:#e9ecf1;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	padding: 10px 15px 10px 15px;
+	}
+.tip_right{
+	width:13px;
+	height:50px;
+	float:right;
+	background:url(../../img/system/round_right.jpg) -7px 0px no-repeat;
+	}
+	
+/*右对齐对话栏 end*/
+/*内部文字 start*/
+.fansRoom_name{ }
+.fr_info_time{ margin-left:15px;}
+.fansRoom_author{ max-width:680px; margin-top:5px; text-indent:auto; word-wrap:break-word; word-break:break-all; display:table-cell;}
+.fansRoom_author img{ max-width:400px;}
+.fr_info_kick{margin-left:15px; color: #ccc;}
+/*内部文字 end*/
+/*聊天室内容 end*/
+.fansRoom_input{
+	
+	width:850px;
+	height:179px;
+	background: #eeeff4;
+	border-top: 1px solid #B4BBCD;
+	position: relative;
+	}
+.fansRoom_bj_fff{
+	
+	background-color: #fff;
+
+}
+.fansRoom_pointUp_bj
+{
+	height: 7px;
+	
+}
+.fansRoom_pointUp{
+	background: url(../../img/system/fr_arrow-up-composer.jpg) -1px 0px no-repeat;
+	bottom: -1px;
+    clear: left;
+    font-size: 0;
+    height: 7px;
+    left: 22px;
+    position: relative;
+    width: 11px;
+}
+.fr_distributeInfoBox
+{
+	border-top: 1px solid #B4BBCD;
+	background-color: #fff;
+	
+}
+
+.fr_StatusTextArea{
+	border: 0 none;
+    color: #666666;
+    overflow: auto;
+    padding: 4px;
+    resize: none;
+    width: 840px;
+    height:100px;
+}
+.fr_StatusTextArea_s{
+	border: 0 none;
+    color: #666666;
+    overflow: auto;
+    padding: 4px;
+    resize: none;
+    width: 840px;
+    height:50px;
+
+}
+.fr_StatusTextArea_l{
+	border: 0 none;
+    color: #666666;
+    overflow: auto;
+    padding: 4px;
+    resize: none;
+    width: 700px;
+    height:100px;
+    float: left;
+
+}
+
+.fansRoom_footer{
+	
+	background: none repeat scroll 0 0 #eeeff4;
+    border-top: 1px solid #E6E6E6;
+    
+    height: 25px;
+    padding: 4px 0;
+    position: relative;
+}
+.fansRoom_footer label{
+	margin-right: 10px;
+
+}
+.fansRoom_footer_span{
+	display: block;
+	 position:absolute;
+	 right:70px;
+	 top:2px;
+	 height:25px;
+	 line-height:25px;
+
+}
+.choiceButton{
+	display: block;
+	height:125px;
+	
+
+}
+.distributeBox{
+	width:850px;
+
+}
+.partChoice{
+	width:410px;
+	margin-left: 5px;
+	float: left;
+	height:135px;
+	border:1px solid #ebeef4;
+	
+
+}
+.partChoice:hover{
+	background-color: #ebeef4;
+	text-decoration: none;
+}
+.partChoice span{
+	display: block;
+	height:30px;
+	line-height:30px;
+	margin-top: 20px;
+	text-align:center;
+}
+.choiceButtonText{
+	color: #3B5998;
+    
+    font-size: 14px;
+    font-weight: bolder;
+}
+.detailIntro{
+	color: #999999;
+    display: block;
+}
+
+.fileOption{
+	display:none;
+	background-color: #fff;
+}
+#flashuploaduid{
+	width:830px;
+	height:50px;
+	margin: 0px;
+	padding: 0px;
+	border:none;
+	background-color: #fff;
+	
+	
+	position: relative;
+
+}
+#uploadPhotoFont{
+	
+    height: 30px;
+    left: 345px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 400px;
+    z-index：0;
+
+}
+#uploadPhoto_Obj{
+	display: block;
+    height: 50px;
+    left: 265px;
+    
+    padding: 0;
+    position: absolute;
+    top: 3px;
+    width: 60px;
+
+}
+#up_photo_success{
+	text-align:center;
+	margin:0px;
+
+}
+
+
+/*聊天室列表 end*/
+
+/*创建聊天室弹出窗口 start*/
+.new_roomBox_con{
+	position: relative;
+	padding-top: 20px;
+	height:55px;
+}
+.new_roomBox_name{
+	display: block;
+	height:20px;
+	line-height:20px;
+	margin-left: 20px;
+	
+
+
+}
+.new_roomBox_name span{
+	line-height:20px;
+	display: block;
+	float: left;
+	height:20px;
+	width:100px;
+
+
+}
+.new_roomBox_name input{
+	float: left;
+	
+
+}
+.new_roomBox_check{
+	border: 1px solid #CCCCCC;
+    color: red;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 22px;
+    margin-top: 2px;
+    padding: 0 0 0 3px;
+    width: 230px;
+
+
+}
+.new_roomBox_name_point{
+	background: url("../../img/system/arrow-up-composer.jpg") no-repeat scroll 0 0 transparent;
+    bottom: -4px;
+    clear: left;
+    font-size: 0;
+    height: 7px;
+    left: 45px;
+    position: relative;
+    width: 11px;
+
+}
+
+
+/*创建聊天室弹出窗口 end*/
+
+/*聊天记录页面 start*/
+.turn_page_list{
+	height：22px;
+	background-color: #fff;
+
+
+}
+.turn_page_list ul{
+	margin-left:auto;
+	margin-right: auto;
+	height:22px;
+	width:500px;
+
+}
+.turn_page_list ul li{
+	height:22px;
+	width:100px;
+	float: left;
+	list-style-type: none;
+	text-align: right;
+
+}
+.turn_page_num{
+	width:20px;
+	height:20px;
+
+}
+
+/*聊天室内容 start*/
+.fansRoomlog_info{
+	height:600px;	
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 850px;
+}
+.fansRoomlog_info ul{ 
+		display:block;
+		margin:0px;
+		padding:0px;
+		margin-left:20px;
+		width:810px;
+		
+		
+	}
+.fansRoomlog_info ul li{
+	display:block;
+	list-style-type:none;
+	margin:15px 0px 15px 0px;
+	position:relative;
+	clear: both;
+	} 
+.fansRoomlog_info ul li:after{
+	 clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+
+/*聊天记录*/
+.log_fansRoomlog_info{
+	
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 850px;
+}
+.log_fansRoomlog_info ul{ 
+		display:block;
+		margin:0px;
+		padding:0px;
+		margin-left:20px;
+		width:810px;
+		
+		
+	}
+.log_fansRoomlog_info ul li{
+	display:block;
+	list-style-type:none;
+	margin:15px 0px 15px 0px;
+	position:relative;
+	clear: both;
+	} 
+.log_fansRoomlog_info ul li:after{
+	 clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.frl_but{
+	width:50px;
+	height:20px;
+	line-height:20px;
+	background-color: #e0e9f8;
+	border:#ccc 1px solid;
+	
+}
+.frl_but_dis{
+	width:50px;
+	height:20px;
+	line-height:20px;
+	background-color: #eee;
+	border:#ccc 1px solid;
+	
+}
+.frl_but_go{
+	height:20px;
+	width:20px;
+	background-color: #eee;
+	border:#ccc 1px solid;
+}
+.frl_but_y{
+	height:20px;
+	width:20px;
+	
+}
+
+
+
+/*聊天室内容 end*/
+
+
+
+
+
+/*聊天记录页面 end*/
+/*插件jscroll css start*/
+.jscroll-u,.jscroll-d,.jscroll-h{
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px
+}
+#fr_page_scroll{
+	height:450px;
+
+}
+.fansRoom_welcome{height:450px;font-size:24px;text-align: center;line-height:450px;}
+/*插件jscroll css end*/
+
+/*本页面slider start*/
+#fr_slider_bar{
+	height:10px;
+	background:url("../../img/system/fansRoomScroll.gif") repeat-x 0 4px;
+	margin: 0 3px 0 3px;
+	position: relative;
+	-moz-user-select: none;
+	top:55px;
+	
+
+
+}
+#fr_slider_but{
+	width:30px;
+	height:10px;
+	background:#ccc;
+	broder-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	position:absolute;
+	-moz-user-select: none;
+	cursor: pointer;
+
+	
+}
+.span_pop{
+	padding:10px 0 10px 0;
+	text-align: center;
+	
+
+}
+
+.err_fansroom_h1,.err_fansroom_h2{
+	margin-left: 10px;
+	height:25px;
+	line-height:25px;
+
+}
+.err_fansroom_h3{
+	margin-left: 10px;
+	height:70px;
+
+}
+.err_fansroom_img{
+	display: block;
+	float: left;
+	width:50px;
+	height:50px;
+
+}
+.err_fansroom_img img{
+	
+	width:50px;
+	height:50px;
+	border:none;
+
+}
+.err_fansroom_con{
+	
+	float: left;	
+	height:50px;
+
+}
+.err_fansroom_con div{
+	margin-left: 10px;
+
+}
+
+/*本页面slider end*/
+
+#footer {
+    padding-bottom: 25px;
+    padding-top: 20px;
+}

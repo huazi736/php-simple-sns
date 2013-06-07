@@ -1,0 +1,62 @@
+<div class="mediaItemContent">
+    <div id="mediaItem">
+        <div class="mediaItem">
+            <div class="mediaItemBox addPhoto">
+                <div class="photoCover">
+                    <form class="formUpload" action="<!--{mk_url('/album/api/publicUploadCrossPhoto',['type'=>'4','flashUploadUid'=>$user['uid']])}-->" method="post" enctype="multipart/form-data" lang="1" >
+                        <span class="uploadWrap">
+                            <a href=""></a>
+                            <input type="file" class="fileUpload" name="Filedata" accept="images/jpg,images/png,images/gif">
+                        </span>
+                    </form>
+                </div>
+                <div class="photoCover">
+                    <form class="formUpload" action="<!--{mk_url('/album/api/publicUploadCrossPhoto',['type'=>'4','flashUploadUid'=>$user['uid']])}-->" method="post" enctype="multipart/form-data" lang="2" >
+                        <span class="uploadWrap">
+                            <a href=""></a>
+                            <input type="file" class="fileUpload" name="Filedata" accept="images/jpg,images/png,images/gif">
+                        </span>
+                    </form>
+                </div>
+                <div class="photoCover">
+                    <form class="formUpload" action="<!--{mk_url('/album/api/publicUploadCrossPhoto',['type'=>'4','flashUploadUid'=>$user['uid']])}-->" method="post" enctype="multipart/form-data"  lang="3" >
+                        <span class="uploadWrap">
+                            <a class="" href=""></a>
+                            <input type="file" class="fileUpload" name="Filedata" accept="images/jpg,images/png,images/gif">
+                        </span>
+                    </form>
+                </div>
+                <div class="photoCover">
+                    <form class="formUpload" action="<!--{mk_url('/album/api/publicUploadCrossPhoto',['type'=>'4','flashUploadUid'=>$user['uid']])}-->" method="post" enctype="multipart/form-data"  lang="4">
+                        <span class="uploadWrap">
+                            <a href=""></a>
+                            <input type="file" class="fileUpload" name="Filedata" accept="images/jpg,images/png,images/gif">
+                        </span>
+                    </form>
+                </div>
+            </div>
+            <div class="mediaItemBox inputField">
+                <label class="label Title" for="goodsTitle">请输入商品标题。</label>
+                <input id="goodsTitle" class="text" type="text" require-data="isEmpty" value="">
+            </div>
+            <div class="mediaItemBox inputField">
+                <label class="label Links" for="goodsLinks">请输入商品的链接地址。</label>
+                <input id="goodsLinks" class="text" type="text" require-data="isLinks" value="">
+            </div>
+            <div class="mediaItemBox goods_pinpai" id="goods_pinpai">
+                <span>品牌：</span>
+                <span value="" id="checkedPP" title="123">请点击选择</span>
+            </div>
+            <div class="mediaItemBox inputField inputPrice">
+                <label class="label Price" for="goodsPrice">请输入售价</label>
+                <input id="goodsPrice" class="text" type="text" require-data="isPrice" value="">
+                <b class="unit">RMB</b>
+            </div>
+        </div>
+    </div>
+    <!-- 暂时不需要 --
+    <div class="mediaItemBox addGoods">
+        <a class="addGoodsButton" href="">我要增加商品</a>
+    </div>
+    -->
+</div>

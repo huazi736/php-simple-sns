@@ -1,0 +1,56 @@
+/*
+ * Created on 2012-03-05
+ * @author： duxianwei
+ * @version： 1.0
+ * @desc：关注、粉丝、好友
+ */
+
+ /*好友粉丝或者关注列表*/
+ #group_follower a,#group_friend a{display:inline-block; color: #333; padding: 0px 8px; height:25px; line-height:25px; margin-top:10px; border: 1px solid #aaa; border-radius: 3px;background-color: #F2F2F2;}
+ .popTitle span{padding-left:5px;}
+ .friends_operation { padding:10px; border-bottom:1px solid #ccc; background:#f2f2f2; }
+ #group_detail{padding:10px;}
+ .group_list { height:350px;_height:342px;width:740px; overflow: auto; position:relative; z-index:0; background-color: #fff;outline:none }
+ .group_list ul{display: block;}
+ .group_list li {z-index:3;display: block; float: left; height: 50px; position: relative; width: 114px; overflow: hidden; padding:2px; border:1px solid #fff; list-style:none; margin:0 22px 16px 0;}
+ .group_list li span { display: block; position: relative; width: 118px; height:50px; cursor:pointer; z-index:2;} 
+ .group_list li a { left: 65px; position: absolute; top: 0; }
+ .group_list li.checked { background:#d8dfea; border:1px solid #c3cce1; }
+ .group_list li.disabled { background:#ccc; opacity:0.3;filter:Alpha(Opacity=30);}
+ .group_list li img { left: 0; top:0; position: absolute;  z-index:1;}
+ .group_list li input { position: absolute; left:65px; top: 37px; *top:34px; }
+ /*点击下一步填写群组信息*/
+ #group_info{ padding: 106px 0px 0px 0px;}
+ #group_table{ margin: 0 auto;}
+ .group_info_fill{ height:353px;_height:345px;}
+ #group_table th{ padding: 0px 5px 0 0; font-weight:400; text-align: right;}
+ #group_table td{ padding: 0px 0px 15px 0px;}
+ .group_logo li{ float: left; margin: 0px  16px 0px 0px; cursor: pointer;border:1px solid #fff;}
+ .group_logo li.checked{ border:1px solid #b9c0da;}
+ .group_logo li a{border:1px solid #fff; display: block; padding:2px;}
+ .group_logo li a:hover{border:1px solid #b9c0da;}
+ .group_logo li.checked a:hover{border:1px solid #fff;}
+ .group_logo .li img{ width:62px; height:62px;}
+ #group_logo_sub .group_logo img{ width:16px; height:16px;}
+ #group_logo_sub .group_logo{ margin-top:10px;}
+ #group_logo_sub .group_logo li{ margin-right:5px;}
+ #group_logo_sub #group_table td{ padding:0px 0 10px 0;}
+ #group_name,#group_textarea{border:1px solid #bdc7d8; width:456px;}
+ #group_name{  height:21px; line-height:21px; padding:0 4px 0 4px;}
+ #group_textarea{ height:109px; padding:4px; overflow:auto;}
+ .popBtnsWrap span{ margin: 0px 4px 0px 0px;}
+ #group_table .popBtnsWrap{ border:0; text-align: left; padding:0px; background-color:#fff;}
+ #group_table .popBtnsWrap span{ margin: 0px 4px 0px 0px;}
+ .color999{color:#999;}
+ .color333{ color: #333;}
+ /*滚动条调用*/
+.group_user_list{width: 178px;height:430px;overflow:auto;margin-bottom:10px;outline:none}
+.horizontal-only{height: auto;max-height: 200px;}
+.group_user_list .jspVerticalBar,.group_list .jspVerticalBar{width:4px;}
+.group_user_list .jspDrag,.group_list .jspDrag{background-color:#c5cade;}
+.group_user_list .jspTrack,.group_list .jspTrack{background-color:#eaeaf2;}
+/*搜索框*/
+ .group_search{padding:10px;height:25px;overflow:hidden;border-bottom:1px solid #ccc;background-color:#F2F2F2;text-align:right;}
+ .group_search_input{display:inline-block;height:24px; line-height:24px; border:1px solid #999; width:185px;padding-left:4px; background:#fff;}
+ .group_search_submit{display:inline-block;height:24px;line-height:20px;margin-left:10px;}
+ .create_close{ position: absolute; right:20px; top:15px;}

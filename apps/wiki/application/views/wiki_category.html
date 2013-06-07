@@ -1,0 +1,81 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name="title" prepend}-->百科首页-<!--{/block}-->
+<!--{block name="header_css"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wiki/wiki_view.css?v=<!--{$smarty.const.CSS_VER}-->" type="text/css" rel="stylesheet" />
+<!--{/block}-->
+<!--{block name="body"}-->
+
+	<div class="body clearfix">
+		<div class="mainArea">
+         		<!--{include file="wiki_common_nav.html"}--><!--wiki公共面包屑-->
+			<!-- 百科分类 -->
+			<div class="wikiCategoryItem clearfix">
+				<!-- 搜索词条 -->
+				<div class="wikiSearch">
+					<form method="post" action="<!--{$seach_url}-->">
+					<input type="text" class="wikiSearchInput vam" name="seach" value="请输入词条名称" onmousedown="if(this.value == '请输入词条名称')this.value='';" onblur="if(this.value == '') this.value = '请输入词条名称';" style="color:#898989">
+					<span class="btnGray vam"><input type="submit" value="搜索词条" onclick="if((document.getElementsByName('seach')[0].value == '请输入词条名称') || (document.getElementsByName('seach')[0].value == '')){alert('请输入词条名称');return false;}"/></span>
+					</form>
+				</div>
+				<!-- 一级分类 -->
+				<ul>
+					<!--{foreach from=$category_main item =i}-->
+					
+						<li class="<!--{if $mainId eq $i.imid}-->current<!--{else}--> <!--{/if}-->">
+							<a href="<!--{$mainurl}-->&main_id=<!--{$i.imid}-->&later=<!--{$input_later}-->"><i class="icon-public icon-<!--{$i.imid}-->"></i><!--{$i.imname}--></a>
+						</li>
+					<!--{/foreach}-->
+				</ul>
+			</div>
+			<!-- 二级分类 -->
+            <!--{if $category_secnd}-->
+			<div class="wikiCategoryItem clearfix">
+				<ul>
+					<!--{foreach from=$category_secnd item =s}-->
+					<li class="<!--{if $second_id eq $s.iid }-->current<!--{else}--> <!--{/if}-->">
+						<a href="<!--{$mainurl}-->&main_id=<!--{$mainId}-->&second_name=<!--{$s.iid}-->&later=<!--{$input_later}-->"><!--{$s.iname}--></a>
+					</li>
+					<!--{/foreach}-->
+				</ul>
+			</div>
+            <!--{/if}-->
+			<!-- 词条列表 -->
+			<div class="modlueBody">
+				<!-- 字母索引 -->
+				<div class="wikiAbc mb20 clearfix">
+					<ul>
+							<li>
+					    	<a style="color:#F00;" href="#">
+					        	<b>词条汇总</b>
+					        </a>
+					    </li>        
+						<li>
+							<!--{foreach from = $later_list item=i}-->
+									<a href="<!--{$mainurl}-->&main_id=<!--{$mainId}-->&second_name=<!--{$second_id}-->&later=<!--{$i}-->"><b><!--{$i}--></b></a>&nbsp;&nbsp;
+								<!--{/foreach}-->
+						</li>
+					</ul>	
+							
+				</ul>
+
+				</div>
+				<!-- 当前字母索引 -->
+				<div class="wikiAbcIndex">
+					<span class="wikiCurrentIndex"><!--{$input_later}--></span>
+				</div>
+				<div class="wikiEntryItem">
+					<ul>
+                      <!--{if $citiao}-->
+						<!--{foreach from =$citiao item = c}-->
+								<li><a href="<!--{$citiao_view_url}-->?citiaoid=<!--{$c.citiao_id}-->&mtmeas=<!--{$c['_id']}-->&web_id=<!--{$webid}-->"><!--{$c.web_name}--></a></li>
+						<!--{/foreach}-->
+                      <!--{else}-->
+                         <li>还没有词条...</li>
+                      <!--{/if}-->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--{/block}-->

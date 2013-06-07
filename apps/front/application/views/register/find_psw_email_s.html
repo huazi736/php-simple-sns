@@ -1,0 +1,56 @@
+<!--{extends file='nologin_base_layout.html'}-->
+<!--{block name='title' prepend}-->
+找回密码-
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<!-- start: headerWrap 头部开始 -->
+<div class="headerWrap">
+	<div class="regHeader">
+		<h1><a href="<!--{$smarty.const.WEB_ROOT}-->" title="Duankou">Duankou</a></h1>
+	</div>
+</div>
+<!-- end: headerWrap 头部结束 -->
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- start: modlueBody 开始 -->
+            <div class="modlueBody stepwrap clearfix">
+               	<div class="forgetPw">
+					<div class="forgetPwTitle clearfix">
+						<h3>重新设定密码</h3>
+						<a href="<!--{$smarty.const.WEB_ROOT}-->">返回注册页面</a>
+					</div>
+	                <p class="tip"></p>
+					<!-- start：找回密码 -->
+					<div class="clearfix checkEmail">
+						<i class="i confirEmail"></i>
+						<p class="text">端口网已向<!--{$email}-->邮箱发送一封确认邮件。</br>请查看邮件进行修改密码操作。</p>
+					</div>
+					<!-- end：找回密码 -->
+					<!--{if $mailtype}-->
+					<!--{if $smarty.const.WEB_ROOT eq 'http://www.duankou.com/'}-->
+					<div class="backAction  center clearfix">
+					    <a class="saveBtn" href="<!--{$mailtype}-->" target="_blank">立即查看我的邮箱</a>
+					</div>
+					 <!--{else}-->
+						<div class="backAction  center clearfix">
+							<a class="saveBtn" href="<!--{$url}-->" target="_blank">立即查看我的邮箱</a>
+						</div>
+					 <!--{/if}-->
+					<!--{/if}-->
+    			</div>
+            </div>
+	<!-- end:主体内容 -->
+
+	</div>
+	<!-- end: modlueBody 结束 -->
+	<div class="sideArea">
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/reg/findPsw.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

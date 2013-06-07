@@ -1,0 +1,85 @@
+<html>
+<head>
+	<meta http-equiv="content" content="text/html;charset=UTF-8" />
+	<style type="text/css">
+		table, th, td {border: 1px solid #ccc; boder-collapse: collapse}
+	
+	</style>
+</head>
+<body>
+
+<table style="border: 2px">
+
+		<tr>
+			<th>用户积分</th>
+			<th>等级</th>
+			<th>可用积分</th>
+		</tr>
+		<tr>
+			<td><!--{$data['credits']['c']}--></td>
+			<td><!--{$data['credits']['lv']}--></td>
+			<td><!--{$data['credits']['c'] - $data['credits']['cc']}--></td>
+		</tr>
+
+</table>
+
+<table style="border: 2px">
+
+		<tr>
+			<th>登录</th>
+			<th>邀请注册</th>
+			<th>发布</th>
+			<th>评论</th>
+			<th>转发</th>
+			<th>赞</th>
+			<th>关注</th>
+			<th>好友</th>
+			<th>关注网页</th>
+			<th>创建活动</th>
+			<th>参加活动</th>
+			<th>博客</th>
+		</tr>
+	
+		<tr>
+			<td><!--{$data['statics']['log']}--></td>
+			<td><!--{$data['statics']['inv']}--></td>
+			<td><!--{$data['statics']['ent']}--></td>
+			<td><!--{$data['statics']['comm']}--></td>
+			<td><!--{$data['statics']['for']}--></td>
+			<td><!--{$data['statics']['like']}--></td>
+			<td><!--{$data['statics']['flw']}--></td>
+			<td><!--{$data['statics']['frd']}--></td>
+			<td><!--{$data['statics']['flweb']}--></td>
+			<td><!--{$data['statics']['acty']}--></td>
+			<td><!--{$data['statics']['att']}--></td>
+			<td><!--{$data['statics']['blog']}--></td>			
+		</tr>
+	
+</table>
+
+
+<table>
+
+		<tr>
+			<th>修改头像</th>
+			<th>修改封面</th>
+			<th>教育资料</th>
+			<th>工作资料</th>
+			<th>基本资料</th>
+			<th>个人介绍</th>
+			<th>家庭资料</th>
+			<th>创建网页</th>
+		</tr>
+
+		<tr>
+			<td><!--{$data['one']['ava']}--></td>
+			<td><!--{$data['one']['cov']}--></td>
+			<td><!--{$data['one']['edu']}--></td>
+			<td><!--{$data['one']['work']}--></td>
+			<td><!--{$data['one']['basic']}--></td>
+			<td><!--{$data['one']['intro']}--></td>
+			<td><!--{$data['one']['home']}--></td>
+			<td><!--{$data['one']['web']|default: 0}--></td>		
+		</tr>
+</table>
+</body></html>

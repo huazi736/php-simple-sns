@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Default Examples</title>
+		<style>
+			form {
+				margin: 0;
+			}
+			textarea {
+				display: block;
+			}
+			
+		</style>
+		<script charset="utf-8" src="../kindeditor.js"></script>
+		<script charset="utf-8" src="../lang/zh_CN.js"></script>
+		<script>
+			var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[name="content"]', {
+					allowFileManager : true,
+					items : [ 
+						'oneblock', 'twoblock', 'bold', 'italic', 'underline',
+						'|', 'justifyleft', 'justifycenter', 'justifyright', '|', 'image', 'link', '|', 'removeformat']
+				});
+				K('input[name=getHtml]').click(function(e) {
+					alert(editor.html());
+				});
+				K('input[name=isEmpty]').click(function(e) {
+					alert(editor.isEmpty());
+				});
+				K('input[name=getText]').click(function(e) {
+					alert(editor.text());
+				});
+				K('input[name=selectedHtml]').click(function(e) {
+					alert(editor.selectedHtml());
+				});
+				K('input[name=setHtml]').click(function(e) {
+					editor.html('<h3>Hello KindEditor</h3>');
+				});
+				K('input[name=setText]').click(function(e) {
+					editor.text('<h3>Hello KindEditor</h3>');
+				});
+				K('input[name=insertHtml]').click(function(e) {
+					editor.insertHtml('<strong>插入HTML</strong>');
+				});
+				K('input[name=appendHtml]').click(function(e) {
+					editor.appendHtml('<strong>添加HTML</strong>');
+				});
+				K('input[name=clear]').click(function(e) {
+					editor.html('');
+				});
+
+				//实时更新目录内容
+				setInterval(function(){
+					var s = editor.html();
+					if(s.indexOf('<h1>') > -1 || s.indexOf('<h2>') > -1){
+						s = s.replace(/\s/g, '').replace(/<[^\d]>.*?<\/[^\d]>/g, '').replace(/<[^\d>]+?>/g,'');
+						K('#result').html(s);
+					}
+				},1500);
+
+				//处理目录锚点
+				K('#result').click(function(e) {
+					var target = getEventTarget(e);//获取目标元素
+					if(target.tagName == 'H1' || target.tagName == 'H2'){
+						var result = document.getElementById('result');
+						var dirItems = result.getElementsByTagName(target.tagName);
+						var textItems = window.frames[0].document.getElementsByTagName(target.tagName);
+						var index;//记录当前点击元素的坐标
+						for(var i = 0, len = dirItems.length; i < len; i++){
+							if(dirItems[i] == target){
+								index = i;
+							}
+						}
+						// dirItems[index].className = 'on';
+						var t = textItems[index].offsetTop;//获取元素距离父元素的位置
+						window.frames[0].document.body.scrollTop = t;//设置滚动条位置
+					}
+				});
+			});
+			
+			//获取事件目标元素
+			function getEventTarget(e){
+			  e = e || window.event;
+			  return e.target || e.srcElement;
+			}
+		</script>
+		<style type="text/css">
+			#sideDir{position:absolute;left:900px;top:0;height:600px}
+			#result h1{padding-left:20px;background: url(recommend.gif) no-repeat 5px -126px;}
+			#result h2{padding-left:40px}
+			#result a{color:#36C;text-decoration: none;}
+			#result{
+			    border: 1px solid #999999;
+			    height: 500px;
+			    padding: 10px;
+			    width: 200px;
+			}
+			#result h1,h2{
+				font-size:14px;
+				color: #36C;
+				cursor:pointer;
+				line-height:24px;
+				font-weight: normal;
+				margin:0;		
+			}
+			#result .on{
+				background:#999;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<textarea name="content" style="width:800px;height:400px;visibility:hidden;">KindEditor</textarea>
+			<!-- <p>
+				<input type="button" name="getHtml" value="取得HTML" />
+				<input type="button" name="isEmpty" value="判断是否为空" />
+				<input type="button" name="getText" value="取得文本(包含img,embed)" />
+				<input type="button" name="selectedHtml" value="取得选中HTML" />
+				<br />
+				<br />
+				<input type="button" name="setHtml" value="设置HTML" />
+				<input type="button" name="setText" value="设置文本" />
+				<input type="button" name="insertHtml" value="插入HTML" />
+				<input type="button" name="appendHtml" value="添加HTML" />
+				<input type="button" name="clear" value="清空内容" />
+				<input type="reset" name="reset" value="Reset" />
+			</p> -->
+		</form>
+		<div id="sideDir">
+			<h3>词条目录</h3>
+			<div id="result">
+				
+			</div>
+		</div>
+	</body>
+</html>

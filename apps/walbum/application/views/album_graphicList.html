@@ -1,0 +1,144 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/JQuery-uploadify/JQuery_uploadify.css" type="text/css" rel="stylesheet" />
+<!--以下为涂鸦墙(相册) CSS 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/album/album.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<!--以下为简洁评论样式 CSS 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/pro/pro.css" type="text/css" rel="stylesheet"/>
+<!--{/block}-->
+
+<!--{block name='body'}-->
+	<div class="body clearfix">
+	<!-- start: mainArea-->
+	<div class="mainArea picList">
+		<!--start: modlueHeader-->
+		<div class="modlueHeader clearfix">
+			<!--{include file="./album_top_name.html"}-->
+			<div class="btnGray btnGray_moreIcon">
+				<a class="listIcon_01" href="<!--{$piclist_url}-->" title="查看全部照片"><span></span></a>
+				<a class="listIcon_02 selected_02" href="javascript:;" title="查看有评论的照片"><span></span></a>
+			</div>
+		</div>
+		<!--end: modlueHeader-->
+       
+       <!--{if !$photo_lists.data}-->
+       
+       <!--Start: 不存在相片时 by 李世君 2012-3-19-->
+		<div class="noAlbum noPicList" style="padding-top:0; padding-bottom:120px;">
+			<div class="contentTit">
+				<div class="uiHeader clearfix pgray" style="padding-left:41px; padding-bottom:90px;">
+					<h2><i class="uiIconP titleIcon bp_blog"></i><!--{$datainfo['name']}--></h2>
+					<p class="tipline">来自<a href="<!--{getUserUrl($action_uid, $web_id)}-->"> <!--{$web_info['name']}--> </a>的<a href="<!--{$album_url}-->">相册</a> · 更新于<!--{$datainfo['last_dateline']}--> <!--{if $is_author}--></a><!--{/if}--></p>
+				</div>
+			</div>
+			<p class="noPic">此相册中没有任何带有评论的照片</p>
+		</div>
+		<!--End: 不存在相片时 by 李世君 2012-3-19-->
+		
+		<!--{else}-->
+		
+		<!--Start: 存在相片时-->
+        <!-- start: contentCol-->
+        <div id="contentCol" class="clearfix">
+          <div class="contentTit">
+            <div class="uiHeader clearfix pgray">
+              <h2>评论的照片<span style="font-weight:normal;">（<a href="<!--{$piclist_url}-->"><!--{$datainfo['name']}--></a>）</span></h2>
+              <p>来自<a href="<!--{getUserUrl($action_uid, $web_id)}-->"> <!--{$web_info['name']}--> </a>的<a href="<!--{$album_url}-->">相册</a> · 更新于<!--{$datainfo['last_dateline']}--> 
+              <!--{if $datainfo['a_type'] == 0}-->
+              	<!--{if $is_author}--> · <a href="javascript:;" class="editAlbum_btn">编辑相册</a><!--{/if}-->
+              <!--{else}-->
+              	<!--{if $is_author}--> · <a href="<!--{mk_url('walbum/photo/editMore',['web_id'=>$datainfo['web_id'],albumid=>$datainfo['id']])}-->" class="editphoto_btn">编辑照片</a><!--{/if}-->
+              <!--{/if}--></p>
+            </div>
+          </div>
+          <div id="contentArea"> 
+            <!--start: 涂鸦墙(相册) 图文列表-->
+            <div class="album">
+              <div class="album_graphicList clearfix">
+              	<div id="waiting">正在加载，请稍后...</div>
+              </div>
+
+            <!--Start: 添加相册说明-->
+				<div class="pic_name">
+				<!--如果没有数据-->
+				<!--{if !$datainfo['discription']}-->
+				<!--Start: 添加说明-->
+		 			<!--{if $is_author}-->
+		 				<!--{if $datainfo['a_type'] == '0'}-->
+							<p class="clearfix"><em></em><span>添加相册说明</span></p>
+						<!--{else}-->
+							<div class="staticDis"><span><!--{$datainfo['discription']}--></span></div>
+						<!--{/if}-->
+					<!--{else}-->
+						<div class="staticDis"><span><!--{$datainfo['discription']}--></span></div>
+					<!--{/if}-->	
+									
+				<!--{else}-->
+				<!--如果有数据-->
+					<!--{if $is_author}-->
+						<!--{if $datainfo['a_type'] == '0'}-->
+							<p class="clearfix"><em></em><span><!--{$datainfo['discription']}--></span></p>
+						<!--{else}-->
+							<div class="staticDis"><span><!--{$datainfo['discription']}--></span></div>
+						<!--{/if}-->
+					<!--{else}-->
+						<div class="staticDis"><span><!--{$datainfo['discription']}--></span></div>
+					<!--{/if}-->	
+				<!--{/if}-->
+			    </div>
+			   <!--End: 添加相册说明-->
+
+              <div class="comment_easy" commentObjId="<!--{$datainfo['id']}-->" pageType='web_album' action_uid='<!--{$action_uid}-->' msgname='<!--{$datainfo['name']}-->' msgurl='<!--{$photolist_url}-->' web_id = '<!--{$datainfo['web_id']}-->'></div>
+
+              <input type="hidden" class="album_type" value="<!--{$datainfo['a_type']}-->" />
+              <input type="hidden" id="album_id" value="<!--{$datainfo['id']}-->" />
+              <input type='hidden' id='hd_UID' value="<!--{$uid}-->" />
+			  <input type='hidden' id='hd_userName' value='<!--{$login_username}-->' />
+			  <input type='hidden' id='hd_avatar' value='<!--{$login_avatar}-->' />
+			  <input type='hidden' id='hd_userPageUrl' value='<!--{$login_userpageurl}-->' />
+			  
+            </div>
+            <!--end: 涂鸦墙(相册) 图文列表--> 
+          </div>
+        </div>
+        <!-- end contentCol --> 
+        <!--End: 存在相片时-->
+        
+        <!--{/if}-->
+        
+	</div>
+	<!-- end: mainArea-->
+	<div class="sideArea">
+		
+	</div>
+	<!-- start 侧栏广告 by dongweiliang-->
+	<div id="adsArea"></div>
+	<!-- end 侧栏广告 by dongweiliang-->
+</div>
+<!--{/block}-->
+<!--Start 编辑相册-->
+<!--{include file="./album_editing.html"}-->
+<!--End 编辑相册-->
+
+<!--{block name='footer_js'}-->
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/album.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/editText.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/picViewer.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-dragsort/jquery.dragsort.min.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/embed-for-flash/swfobject.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/scrollLoad.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pro/showPro.js"></script>
+
+<!--{if $smarty.const.UID == $smarty.const.ACTION_UID}-->
+<!-- <div id="friends_detail"></div> -->
+<!--{/if}-->
+
+<!--{/block}-->

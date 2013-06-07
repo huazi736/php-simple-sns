@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><!--{block name='title'}-->端口网<!--{/block}--></title>
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/popUp/popUp.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{block name='header_css'}--><!--{/block}-->
+<script type="text/javascript">
+
+var CONFIG = {};
+
+//路由用的域名
+CONFIG['domain'] = "<!--{$smarty.const.DOMAIN}-->";
+//远程或本地运行
+CONFIG['local_run'] = <!--{intval($smarty.const.LOCAL_RUN)}-->;
+//网页ID
+CONFIG['web_id'] = "<!--{$js_config['web_id']}-->";
+
+CONFIG['action_dkcode'] = "<!--{$js_config['action_dkcode']}-->";
+//
+CONFIG['fdfshost'] = '';
+//
+CONFIG['fdfsGroup'] = '';
+
+//路由中的子域名
+CONFIG['subdomain'] = <!--{$js_config['subdomain']}-->;
+</script>
+<!--{block name='header_js'}--><!--{/block}-->
+</head>
+<body>
+
+<!--{block name='body'}--><!--{/block}-->
+
+<div id="footer">
+	<!--{include file='block_footer.html'}-->
+</div>
+
+<!--{$jsfiles[] = 'misc/js/jquery.min.js'}-->
+<!--{$jsfiles[] = 'misc/js/init.js'}-->
+<!--{$jsfiles[] = 'misc/js/common/utils.js'}-->
+<!--{$jsfiles[] = 'misc/js/plug/popUp/popUp.js'}-->
+<!--{compile_js($jsfiles)}-->
+
+<!--[if IE 6]>
+	<script language="javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/ie6png/DD_belatedPNG.js"></script>
+	<script language="javascript">
+		DD_belatedPNG.fix('.png, .jewelButton');
+	</script>
+<![endif]-->
+<!--{block name='footer_js'}--><!--{/block}-->
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!--{extends file='nologin_base_layout.html'}-->
+<!--{block name='title' prepend}-->
+登录-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<!-- start: headerWrap 头部开始 -->
+<div class="headerWrap">
+	<div class="regHeader">
+		<h1><a href="<!--{$smarty.const.WEB_ROOT}-->" title="Duankou">Duankou</a></h1>
+	</div>
+</div>
+<!-- end: headerWrap 头部结束 -->
+<div class="body clearfix">
+<!-- start:主体内容 -->
+	<div class="mainArea">
+		<!--start: 设置新密码头部-->
+
+		<!--end: 设置新密码头部-->
+		<!--start: 设置新密码主体-->
+		<div class="modlueBody">
+           	<div class="stepwrap clearfix">
+               	<div class="forgetPw">
+					<div class="forgetPwTitle clearfix">
+						<h3>Duankou 登录</h3>
+					</div>
+	                <div class="tip"></div>
+					<!-- start：找回密码 -->
+					<form name="login_form" id="login_form" method="post" action="<!--{$url_login}-->">
+						<input type="hidden" name="login_switch" value='true'/>
+						<ul class="newpsw">
+							<li class="error" style="padding-left:110px; height:20px; float:none;">
+								<!--{if $iserror}--><!--{$error}--><!--{/if}-->
+							</li>
+							<li class="clearfix">
+								<label>电子邮箱/端口号：</label>
+								<input type="text" id="reloginUsername" maxlength="64" name="login_name" class="inputTxt defaultColor" value="电子邮件/端口号" default="电子邮件/端口号" />
+								<span class="error" id="errorNewp"></span>
+							</li>
+							<li class="clearfix">
+								<label>密码：</label>
+								<input type="password" id="reloginPwd" maxlength="20" class="inputTxt" />
+								<span class="error" id="errorOldp"></span>
+								<input type="hidden" id="MD5reloginPwd" name="passwd" />
+							</li>
+							<li class="clearfix">
+								<label></label>
+								<input class="rememberMe" id="rememberMe" type="checkbox" name="remember" value="1" />
+								<label class="rememberMe" for="rememberMe">保存我的登录状态</label>
+							</li>
+							<li class="loginBtn clearfix">
+								<label></label>
+								<span class="submit"><input class="saveBtn" type="submit" id="reLogin" value="登 录" /></span>
+								<label class="reg" for="rememberMe">或者<a href="<!--{$reg}-->"><strong>注册 Duankou</strong></a></label>
+							</li>
+							<li>
+								<label></label>
+								<a href="<!--{$forget}-->">忘记密码？</a>
+							</li>
+						</ul>
+					</form>
+					<!-- end：找回密码 -->
+
+				</div>
+           	</div>
+
+        </div>
+        <!--end: 设置新密码主体-->
+    </div>
+<!-- end:主体内容 -->    
+</div>
+
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/md5/md5.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/reg/loginReg.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

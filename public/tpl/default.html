@@ -1,0 +1,123 @@
+<!--{extends file='base_layout.html'}-->
+
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/tip/jquery.tip.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/wgoods/wgoods.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/navigation/navigation.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/ask/plug_ask.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/layout.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/local/local.css" type="text/css" rel="stylesheet" />
+<!--{/block}-->
+
+<!--{block name='navigation'}-->
+<ul class="circleNav">
+	<li><a href="<!--{mk_url('interest/index/alist')}-->" class="pageLink <!--{if strpos($smarty.server.HTTP_HOST, 'interest.duankou') !== false || strpos($smarty.server.REQUEST_URI, '/interest/')}-->current<!--{/if}-->" >频道</a></li>
+	<li><a href="<!--{mk_url('main/index/main')}-->" class="pageLink <!--{if strpos($smarty.server.HTTP_HOST, 'interest.duankou') === false && strpos($smarty.server.REQUEST_URI, '/interest/') === false}-->current<!--{/if}-->">首页</a></li>
+</ul>
+<div class="fr">
+	<form action="<!--{mk_url('main/search/main',['type'=>'globals'])}-->" method="get" id="navSearch">						
+		<div class="uiTypeahead">
+			<input type="text" class="searchInput fl" name="term" id="globalSearch" maxlength="50" />
+			<input type="hidden" name="type" />
+			<button type="submit" title="search">
+				<span class="hide">搜索</span>
+			</button>
+			<span class="initVal" id="initval">搜索</span>
+		</div>
+	</form>
+	<!-- Start 右侧箭头下拉-->
+	<div id="pageNav" class="fl">
+		<ul>
+			<li>
+				<a id="topUserLink" class="topNavLink tinyman" href="<!--{mk_url('main/index/profile')}-->" title="个人主页" rel="uid_1234">
+					<img id="topUserAvatar" width="23" height="23" alt="头像" src="<!--{$js_config['avatar']}-->" >
+					<span id="topUserInfo" class="headerTinyName"><strong><!--{$js_config['username']}--></strong></span>
+				</a>
+			</li>
+			<li id="navAccount" class="dropMenu">
+				<a class="triggerBtn" id="navAccountTogger" href="javascript:void(0)"></a>
+				<ul id="subNavAccount" class="dropList">
+					<li><a href="<!--{mk_url('interest/web_setting/index')}-->">我的专页</a></li>
+					<li class="menuDivider"></li>
+					<li><a href="<!--{mk_url('main/invitecode/index')}-->">邀请码</a></li>
+					<li class="menuDivider"></li>
+					<li><a href="<!--{mk_url('credit/credit/index')}-->">我的积分</a></li>
+                                <!--{if $js_config['access'] eq 1}-->
+					<li><a href="<!--{mk_url('ads/adadmin/index')}-->">自助广告管理中心</a></li>
+                                <!--{/if}-->
+					<li><a href="<!--{mk_url('main/setting/index')}-->">系统设置</a></li>
+					<li><a target="_blank" href="<!--{mk_url('main/help/index')}-->">帮助中心</a></li>
+					<li><a href="<!--{mk_url('feedback/main/index')}-->" id="user_feedback_a">用户反馈</a></li>
+					<li><a href="#logout"  onclick="logout();">退出</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+<!--end 右侧箭头下拉 -->
+</div>
+<!--{/block}-->
+
+<!--{block name='header_js'}-->
+<script type="text/javascript">
+//视频图片域名
+var video_pic_domain = "<!--{config_item('video_pic_domain')}-->";
+</script>
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body">
+
+<div class="columnsWrap clearfix">
+	<!--左侧导航栏 开始-->
+	<div  class="leftCol">
+		<!--{include file="left.html"}-->
+	</div>
+	<!--左侧导航栏 结束-->
+
+
+	<div class="contentCol">
+		<!--{block name='right'}--><!--{/block}-->
+	</div>
+	</div>
+	<input type="hidden" value="<!--{$smarty.const.SYS_TIME}-->" id="ctime" />
+	<input type="hidden" value="<!--{$smarty.const.SYS_TIME}-->" id="ltime" />
+</div>
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+<script type="text/javascript">
+//列表菜单项鼠标移上去显示更多
+var disMore = function(obj){
+	obj.on({
+		'mouseover':function(){
+			$(this).find("h3 a").show();
+		},
+		'mouseout':function(){
+			$(this).find("h3 a").hide();
+		}
+	})
+}
+disMore($(".list"));
+</script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-searcher/ViolenceSearch.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/friends_list/friends_list.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/relation/relation.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/ask/plug_ask.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/player/AC_RunActiveContent.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/picViewer.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-history/dk-history.js" type="text/javascript" ></script>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-video/dk-video.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/scrollLoad.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-tip/dk.tip.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/leavemsg/juicer-min.js" type="text/javascript"></script>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/follow-view/person.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/follow-view/local.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/follow-view/wgoods.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/follow-view/games.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/follow-view/house.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/navigation/navigation.js" type="text/javascript"></script>
+
+<!--{/block}-->

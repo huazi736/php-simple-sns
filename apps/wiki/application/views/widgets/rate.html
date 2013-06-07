@@ -1,0 +1,43 @@
+<!--{if $action eq 'edit'}-->
+<!--{elseif $action eq 'edit_js'}-->
+<script language="javascript" type="text/javascript" > 
+  //提交验证
+  function validate_<!--{$_id}-->(){
+	  return true;
+  }
+  //提交之前收集数据
+  function ajax_submit_data_<!--{$_id}-->(){
+	  
+  }
+</script>
+<!--{elseif $action eq 'normal'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->js/plug/jRating/jRating.jquery.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<div class="mb10 clearfix">
+<div class="plugin_label fl"><!--{$label}-->:</div>
+<div id="<!--{$value['average']}-->_<!--{$_id}-->" class="fl ml5 plugin_rate <!--{$_id}-->"></div>
+<div class="rateinfoid ml5 fl"><span id="<!--{$_id}-->_rateinfoid" class="ml5" style="color:#f83d04"></span><span class="ml5" style="color:#A26D00"><!--{$value['rate_nums']}--></span>人评价</div>
+</div>
+<!--{elseif $action eq 'normal_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/ie6png/DD_belatedPNG.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jRating/jRating.jquery.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" defer="defer">
+  var current_average = <!--{$value['average']}-->;
+  var current_rate_nums = <!--{$value['rate_nums']}-->;
+
+  $(".<!--{$_id}-->").jRating({
+	  length: 5,
+	  rateMax: 10,
+	  decimalLength : 1,
+	  phpPath: "<!--{$updateRateInfo}-->",
+	  rateInfosId: "<!--{$_id}-->_rateinfoid",
+	  showRateInfo: true,
+	  <!--{if $is_self}-->
+	  isDisabled: true,
+	  <!--{/if}-->
+	  otherdata: {"current_average": current_average, "current_rate_nums": current_rate_nums}
+  });
+  
+  DD_belatedPNG.fix('.jStar'); //解决IE6 png透明问题
+  
+</script>
+<!--{/if}-->

@@ -1,0 +1,40 @@
+/**
+ * Created on 2012-07-11
+ * @author： zhoulianbo
+ * @version： 1.0
+ * @desc：收藏样式
+ */
+
+.favoriteTitle{border-bottom:1px solid #ccc;padding-bottom:10px;height:24px;line-height:24px;}
+.favoriteTitle h4{font-size:12px;}
+.favoriteTitle ul{float:left;height:24px;}
+.favoriteTitle li{float:left;width:41px;height:24px;text-align:center;margin-right:5px;}
+.favoriteTitle li.on{background:url(../../img/system/favorite_icon.gif) no-repeat left top;}
+.favoriteSearch{border:1px solid #999; width:180px; height:21px; position:relative;}
+.favoriteSearch i{background:url("../../img/system/ui0.png") no-repeat scroll -262px -233px; display:inline-block; width:22px; height:21px; border-right:1px solid #999; cursor:pointer;}
+.favoriteText{padding:1px 5px; height:14px; position:absolute; top:1px; border:1px solid #fff;}
+
+.favoritePage{padding:10px 0;color:#999;border-bottom:1px solid #ccc;margin-bottom:10px;}
+.favoriteList li{border-bottom:1px solid #E5E5E5;overflow:hidden;zoom:1;margin-bottom:10px;padding-bottom:15px}
+.favoriteList h3{height:28px;font-size:14px;font-weight:normal;background:url(../../img/default/blog.gif) no-repeat -30px -15px;line-height:28px;padding-left:40px;margin-bottom:15px;}
+.favoriteList h3 strong{color:#999;padding-left:30px;font-size:12px;}
+.favoriteList h3.typeAblum{background-image:url(../../img/default/photo.gif);}
+.favoriteList h3.typeVideo{background-image:url(../../img/default/video.gif);}
+
+.favoriteUser{width:50px;height:50px;float:left;margin-right:10px;}
+.favoriteMessage{width:700px;float:left;}
+.favoriteMessage h4{height:24px;font-size:14px;font-weight:normal;}
+.favoriteMessage h4 a.fr{background: url("../../img/system/icon_close.png") no-repeat 0 0;cursor: pointer;display: block;height: 15px;width: 15px;}
+.favoriteMessage h4 a.fr:hover{background-position:0 -31px;}
+.favCorner{height:9px;background:url(../../img/system/favorite_icon.gif) no-repeat 6px -28px;font-size:1px;line-height:1px;}
+.favoriteBody{background:#eeeff4;width:610px;padding:20px;}
+.favoriteBody .ablum dt,.favoriteBody .vedio dt{width:174px;float:left;text-align:center;}
+.favoriteBody .ablum dt img,.favoriteBody .vedio dt img{padding:2px;border:1px solid #ccc;background:#fff;display:block;}
+.favoriteBody .ablum dd,.favoriteBody .vedio dd {float:right;width:420px;line-height:20px;}
+.favoriteBody h2{font-size:18px;margin-bottom:8px;overflow:hidden;zoom:1;}
+.favoriteBody .blog .summary{padding:8px 0;}
+.favoriteBody .vedio dt{position:relative;}
+.favoriteBody .vedio dt span{position:absolute; padding:1px 2px 1px 4px; display:block; bottom:4px; right:4px; background-color:#000;opacity:0.7;-moz-opacity:0.7;filter:alpha(opacity=70);color:#fff;}
+.favoriteGetMore{padding:10px 0;text-align:center;}
+.delText{padding:10px;font-size:14px;}
+.noFav{background-color: #EEEFF4;border-color: #DEDDE3;border-style: solid;border-width: 1px 0;margin: 200px 0;padding: 10px 0;text-align: center;}

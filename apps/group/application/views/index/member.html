@@ -1,0 +1,37 @@
+<!--{extends file='default.html'}-->
+
+<!--{block name='header_css' append}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/groupall.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='group_title'}-->&gt;&gt; 群组成员列表<!--{/block}-->
+
+<!--{block name='right'}-->
+<!--{include file='navigation.html'}-->
+<div class="modlueBody" style="border:0;padding:0;;margin-top:0;">
+	<div class="listSearch" style="height:20px;margin:0 10px;">
+		<h4><!--{$group['name']}--> (<!--{$num}-->)</h4>                         
+	</div>
+	<ul class="listWrap clearfix" id="listWrap"> 
+		<!--{foreach from = $users item=flist}-->
+		<li class="clearfix">
+			<div class="avatarBox" >
+				<a href="<!--{$flist['href']}-->"><img src="<!--{$flist['avatar']}-->" alt="" /></a>
+			</div>
+			<span class="uName">
+				<a href="<!--{$flist['href']}-->"><!--{$flist['name']}--></a>
+			</span>
+		</li>
+        <!--{/foreach}-->
+    </ul>
+	<div class="blankWrap hide" id="noresult"><span>未检索到任何结果，请重新输入关键字</span></div>
+</div>
+<input type="hidden" name="gid" value="<!--{$gid}-->" id="group_id"></input>
+<!--{/block}-->
+
+<!--{block name='footer_js' append}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/memberlist.js" type="text/javascript"></script>
+<script type="text/javascript">
+list.init({moreUrl:'group/index/memberbypage', searchUrl:'group/manage/search'});
+</script>
+<!--{/block}-->

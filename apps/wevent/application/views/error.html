@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/error/error.css" rel="stylesheet" type="text/css" />
+<title>登陆口-端口网</title>
+</head>
+<body style="background-color:#E7EBF2;">
+
+<!-- start: headerWrap 头部开始 -->
+<div class="headerWrap">
+	<div class="regHeader">
+		<h1><a href="<!--{$smarty.const.WEB_ROOT}-->" title="Duankou">Duankou</a></h1>
+	</div>
+</div>
+<!-- end: headerWrap 头部结束 -->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueBody">
+			<div class="sorry">
+				<!--{foreach from=$msg item=item}-->
+				<p><!--{$item}--></p>
+				<!--{/foreach}-->
+				<ul>
+					<li>您可以：</li>
+					<li>2、返回 <a href="<!--{$url}-->">上一页</a></li>
+					<li>3、返回 <a href="<!--{$smarty.const.WEB_ROOT}-->">首页</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- start: footer 底部开始 -->
+<div class="clearfix" id="footer">
+	<span class="copyRight">Duankou &copy; 2011 · <a href="#">中文(简体)</a></span>
+	<span class="footerLinks"><a href="#">关于</a>·<a href="#">开放平台</a>·<a href="#">手机</a>·<a href="#">广告</a>·<a href="#">招聘</a>·<a href="#">隐私政策</a>·<a href="#">帮助中心</a></span>
+</div>
+<!-- end: footer 底部结束 -->
+</body>
+</html>

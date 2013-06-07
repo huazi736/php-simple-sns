@@ -1,0 +1,394 @@
+﻿/**弹出层内容样式***/
+.black{ color: #000000;}	
+.fb{ font-weight: bold;}
+.f14{ font-size: 14px;}
+.hovercolor{color:#3b5998;}
+.mal{ margin: 20px;}
+.pam{ padding: 10px;}
+.uiBoxGray{ background-color: #F2F2F2; border: 1px solid #CCCCCC;}
+.uiMediaThumbLarge{ display: inline-block;}
+.uiMediaThumbLarge i{ height: 116px; width: 149px;}
+.uiMediaThumb{ background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #CCCCCC; display: block; padding: 4px; position: relative;vertical-align: bottom; width: 150px; height: 124px;}
+.photoList .uiMediaThumb{ height:116px;}
+.albumList .uiMediaThumb{ height:124px;}
+.albumList li a.fb{ width:150px; display: inline-block;}
+.uiMediaThumb i{ background-color: #FFFFFF; background-position: center 25%; background-repeat: no-repeat; display: block;}
+.photoList{ width: 528px; _width: 527px; height: 338px; overflow-y: auto; overflow-x:hidden; margin-left: 10px; padding-top: 10px; position: relative;}
+.photoList li{ float: left; margin-right: 10px; margin-bottom: 10px;}
+
+/******时间线头部主体*******/
+.dkTimelineSection{ background: none repeat scroll 0 0 #FFFFFF;}
+.mainAreaTop{margin:0px; width:100%;}
+.coverEmptyWrap{height:100px; position: relative; text-align: center;}
+
+.timelineNavgation{ position:relative; padding:10px 0px 10px 0px; background:#FFF; float:left;border-top:solid 1px #c4cde0;border-left:solid 1px #c4cde0;border-right:solid 1px #c4cde0;border-bottom:solid 2px #c4cde0; width:849px; -moz-border-radius:0px 0px 3px 3px;}
+.dkTimelineNavigation{position: relative; z-index:90; /*overflow: hidden; 为了展开权限选项 by李世君 2012-3-24*/}
+.menuLeftUl{ margin-top: 12px;}
+/******时间线导航个人图片*******/
+.personalSmallImgBorder{position:absolute; left:23px; bottom:-50px; border-radius:3px 3px 3px 3px;box-shadow:0 1px 1px rgba(0,0,0,0.07);  border:1px solid #999; z-index:116;}
+.personalSmallImg{width:125px; height:125px; border:solid 4px #ffffff; -moz-border-radius:2px 2px 2px 2px; overflow: hidden;}
+.personalSmallImg img{ width:125px; height:125px; vertical-align:top;}
+/******时间线导航个人姓名和信息发送按钮*******/
+.nameAndSendMsg{ padding-left:170px; width:670px; height:30px;}
+.personalName{float:left; padding-top:5px;}
+.personalName span{ font-size:20px; color:#1c2a47; font-weight:normal; display: block; line-height:28px; font-family:'微软雅黑','黑体'; }
+.personalName a:hover{ text-decoration:underline;}
+.actions{ float:right; max-width:500px; padding:17px 7px 0 10px; text-align:right;}
+.actions .statusBox {float:left;}
+.actions .statusBox .btnBlue {background:none; border:none;}
+.actions .statusBox .btnBlue i {background-position:-8px -87px;}
+.actions .statusBox .btnBlue a, .actions .statusBox .btnBlue a:hover {color:#333;}
+.actions .dropWrap {border:none;}
+.actionDropdown{ display:inline-block;}
+.uiButtonGroup{ white-space:nowrap;background-clip:padding;border-radius:3px 3px 3px 3px; box-shadow:0 1px 0 rgba(0,0,0,0); background-color:#ffffff; border:1px solid #999; display:inline-block; padding:3px 0 3px 0;}
+.uiButtonGroupItem{ border-color:#666; cursor:pointer; padding:5px 5px 3px 10px; border-left:solid 1px #CCC; display:inline; vertical-align:top;}
+.firstTtem{ border-left:0 none;}
+.uiButtonText{ font-size:14px;font-weight:bold; color:#333;}
+.clickBg{ background:#697faf; border:solid 1px #3b5998; margin-top:1px;}
+/******时间线菜单主体*******/
+.timelineMenu{ width:100%; height:auto;}
+/******时间线菜单左*******/
+.timelineNavigation li{ float: left; position: relative;}
+.timelineMenu .menuLeft{float:left; width:95%;}
+/*.menuLeft .menuLeftUl{ width:100%; height:100%;}*/
+.menuLeftUl .textLinkLi{ cursor:pointer;float:left;height:108px;}
+
+.menuLeftUl .textLinkLi .textLinkLiBorder{height:60px;border-left:none;border-radius:0 3px 3px 0; display:block;border:solid 1px #e5e7eb;border-left:none;}
+.menuLeftUl .textLinkLi .textLinkLiBorder:hover{border:solid 1px #a6a6a6;border-left:none;}
+.menuLeftUl .textLinkLi .textLinkLiText{height:17px; line-height:17px; display:block;overflow:hidden;padding-top: 4px;}
+.timelineSummarySectionWrapper{cursor: pointer;}
+.timelineSummarySectionWrapper .textLinkLiText{ padding-left: 43px;}
+#textLinkLi{ width: 201px; _width:207px; overflow: hidden; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis;}
+#menuLeftUl ul.fr{width:600px}
+.noPermission{position:absolute; top:12px; right:0; background-color:#F2F3F8; border:1px #E5E7EB solid; border-right:none; border-radius:3px 0 0 3px; width:634px; height:60px;} /*首页应用区无内容时样式 by李世君 2012-4-16*/
+.noPermission .noPermissionTip{background:url(../../img/system/ui7.png) no-repeat -17px -51px; margin:20px auto; padding-left:16px; width:260px; height:18px; line-height:18px; }
+.timelineNavigation li .tab{ display: block; height: 100px; padding-left: 6px;_padding-left: 5px; width: 94px;}
+.menuLeftUl .imgLinkLiImg{ background-color:#F1F3F8; border:1px solid #E5E7EB; border-radius:3px; height:60px; width: 90px;_width:93px; overflow: hidden; }
+.menuLeftUl .imgLinkLiText{ width:94px;_width:93px; height:20px; line-height:20px; display:block;overflow:hidden;}
+.menuLeftUl .textLinkLi .detail{ background-color: #f1f3f8;cursor: pointer;}
+.timelineSummarySection{ padding: 5px 0 0 26px;}
+.timelineSummarySection .blue{color:#3B5998;}
+.profileFragment{ color: #333333; display: block; line-height: 16px; overflow: hidden; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.timelineNavigation i.photo{ background-color: #ecefe5; background-size: cover; display: block; height: 74px; text-align: left; width: 111px;}
+.timelineNavigation .friends .friend,.timelineNavigation .attention .attention,.timelineNavigation .fans .fans{ display: block; float: left; height: 37px; width: 37px;}
+/*top条*/
+.uiComposerAttachment{ color: #333333; display: inline-block; position: relative;}
+.attachmentLink{ margin: 0 3px; padding: 3px 7px 5px;}
+/******时间线菜单右*******/
+.timelineMenu .menuRight,
+.timelineBox .menuRight {float:right; width:4%;height:100px;}
+.timelineBox .menuRight, .uiArrow { width:34px; position:absolute; top:-5px; right:0; }
+.menuRight .uiArrow { display:none; margin-top:45px; }
+.menuRight .hideImgLinkBtn, .uiArrow { width:95%; height:60px; margin:0px auto; position: relative; margin-top: 12px;}
+.menuRight .hideImgLinkBtn a, .uiArrow a {display:block;width:100%; height:100%;border:solid 1px #e5e7eb; background:#ffffff; border-right:none;border-radius:3px 0 0 3px;}
+.menuRight .hideImgLinkBtn a:hover, .uiArrow a:hover {border:solid 1px #a6a6a6; border-right:none;}
+.uiArrow span.ico { display:inline-block; width:16px; height:22px; margin:19px 0 0 7px; background:url(../../img/system/icon_timeline_bar.gif) no-repeat -84px -14px; }
+.uiArrow a:hover span.ico { background-position: -84px -64px; }
+.menuRight .hideImgLinkBtn .linkClickSpan { display:block; text-align:center; border: 1px solid #a6a6a6; position: absolute; top: 50%; margin-left: -3px; margin-top: -9px; background-color: #FFFFFF; padding: 1px 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.15); border-radius: 1px;}
+.linkClickSpan .text{ line-height:14px; vertical-align:top; padding:0px; font-weight:bold; background-image:url("../../img/system/listdoen.gif"); background-position: 100% 50%; background-repeat: no-repeat; color: #3B5998; padding-right: 10px;}
+a.opennav .linkClickSpan{background: url("../../img/system/listup.gif") no-repeat 50% 50%;}
+.timelineNavigation .frame{ border: 1px solid #FFFFFF; border-radius: 3px; overflow: hidden; position: absolute; margin-top: -75px; width: 111px;}
+.timelineNavigation .frame .mat{ border:1px solid #000000; width: 107px; height: 70px; border-radius: 2px; overflow: hidden; padding: 1px;}
+.timelineNavigation li.photo:hover .imgLinkLiImg{border:1px solid #97a4c2;}
+.timelineNavigation li.fans:hover .whiteborder,.timelineNavigation li.friends:hover .whiteborder,.timelineNavigation li.attention:hover .whiteborder,.timelineNavigation li.friends:hover .whiteborder,.timelineNavigation li.photo:hover .whiteborder{ border:2px solid white; height:70px; overflow: hidden; border-radius: 2px; }
+.timelineNavigation li.fans:hover .contentwrapper,.timelineNavigation li.friends:hover .contentwrapper,.timelineNavigation li.attention:hover .contentwrapper,.timelineNavigation li.friends:hover .contentwrapper,.timelineNavigation li.photo:hover .contentwrapper{margin-top: -2px; margin-left: -2px; height: 74px; width: 111px;}
+.contentwrapper .canmove, .contentwrapper .tip { height:60px; } /*add by李世君 2012-4-11*/
+.tip { cursor:pointer; }
+/*编辑头像*/
+.uiMenu{ z-index: 5;}
+.editHead{ position: absolute; top: 50px; left: 80px; background: #ffffff;border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.2); width: 130px;}
+.uploadPic{ position: relative;height: 23px; width:204px; overflow: hidden;}
+.uploadPic form input { ie-dummy: expression(this.hideFocus = true); }
+font{font-size:12px;}
+.editPortrait{
+	position:relative;
+}
+.editButton,.addButton{
+	border:1px solid #aaa;
+	border-radius:2px;
+	display:block;
+	height:22px;
+	line-height:22px;
+	cursor: pointer;
+}
+.editButton font,.addButton font{
+	color:#333;
+	float:left;
+	font-weight:900;
+}
+.editButton s,.editButton b,.addButton s,.addButton b{
+	display:inline;
+	float:left;
+	height:14px;
+	margin:4px 6px;
+	width:10px;
+}
+.editButton s{
+	background:url("../../img/system/timelineui.gif") no-repeat scroll 0 0 transparent;
+}
+.editButton b{
+	background:url("../../img/system/timelineui.gif") no-repeat scroll -22px 0px transparent;
+}
+.editButtonClick{
+	background-color:#6d84b4;
+	border-color:#3b5998 #3b5998 #6d84b4;
+}
+.editButtonClick font{
+	color:#fff;
+}
+.editButtonClick s{
+	background-position:-11px 0px;
+}
+.editButtonClick b{
+	background-position:-33px 0px;
+}
+.uiMenu{
+	border-color:#777 #777 #293e6a;
+	border-style:solid;
+	border-width:1px 1px 2px;
+	padding:3px 0 4px;
+	position:absolute;
+	top:24px;
+	left:0;
+	z-index: 10000;
+	background: #FFFFFF;
+}
+.uiMenu li{
+	clear:both;
+}
+.uiMenu li a{
+	display:block;
+	line-height:16px;
+	overflow:hidden;
+	padding:1px 0 3px 22px;
+	width:182px;
+}
+.uiMenu li a:hover,.uiMenu li:hover{
+	background-color:#6d84b4;
+	color:#fff;
+}
+.uiMenu li font{
+	cursor:pointer;
+	display:block;
+	float:left;
+}
+.uiMenu li s{
+	background:url("../../img/system/timelineui.gif") no-repeat scroll transparent;
+	cursor:pointer;
+	float:left;
+	height:16px;
+	margin-right:5px;
+	width:16px;
+}
+.uiMenu li .icon_1{
+	background-position:-43px 2px;
+}
+.uiMenu li .icon_2{
+	background-position:-59px 0;
+}
+.uiMenu li a .icon_3{
+	background-position:-76px 2px;
+}
+.uiMenu li a:hover .icon_3{
+	background-position:-128px 2px;
+}
+.uiMenu li .icon_4{
+	background-position:-93px 0;
+}
+.uiMenu li .icon_5{
+	background-position:-109px 0;
+}
+.timelineMenu{ /*overflow: hidden; 为了展开权限选项 by李世君 2012-3-24*/ zoom: normal;}
+
+/*编辑封面*/
+
+.dkEditCover #dkTimelineHeadline,.dkEditCover .dkTimelineNavigationWrapper,.dkEditCover .dkTimelineHeadline,.dkEditCover #inlet{ display: none;}
+.dkEditCover .coverEditor,.dkEditCover .profilePicNotch{ display: block;}
+#dkProfileCover .coverWrap{ cursor:default; border:1px solid #C4CDE0; border-top:none; z-index:114; display: block; height: 315px; overflow: hidden; position: relative; text-decoration: none;}
+#dkProfileCover .coverWrap.cursor { cursor:pointer; }
+#dkProfileCover .coverBorder{ border:1px solid rgba（0，0，0，0.3）; bottom: 0; left: 0; position: absolute; right: 0; top: 0; }
+#dkCoverImageContainer .photo{z-index:115; image-rendering:optimizequality;left: 0; min-height: 100%; min-width:100%; position: absolute;}
+#dkProfileCover .profilePicNotch{ background-color: rgba(0,0,0,0.3); border-radius: 3px 3px 0 0; box-shadow:0 1px 1px rgba(0,0,0,0.07); display:block; left: 23px; padding: 1px 1px 0; position: absolute; top: 223px; }
+.dkEditCover .profilePicNotch,.dkEditCover .coverWrap .coverBorder{cursor: move;}
+.dkEditCover .notchInner{ background: #FFFFFF; border-radius: 2px 2px 0 0; height: 91px; width: 133px;}
+.coverImage{ position: relative; z-index:113;}
+
+#dkCoverImageContainer .dkCoverLoading { position:absolute; left:50%; top:50%; margin-left:-8px; margin-top:-6px; }
+
+/*.coverImage .personalSmallImgBorder{top:225px;}*/
+#addCover,#editCover { width:100px; position: absolute; left: 700px; background: #ffffff;border-radius: 2px;box-shadow: 0 1px 2px rgba(0,0,0,0.2);z-index:115;}
+#addCover { width:130px;_width:140px; top:65px;}
+#editCover{top:265px; left:725px; display:none;}
+.coverEditor{ padding: 8px 10px; text-align: center;}
+.coverEditor .saveAndCancel{ text-align: right;}
+.uiBntConfirm{ padding: 2px 6px; margin-left: 4px;}
+.cancelBnt{ padding: 2px 6px;}
+.dkEditCover .instructionWrap{display: block;line-height: 26px; margin-top:125px; position: relative; text-align: center; width: 100%; z-index:120;}
+.dkEditCover .instruction{background:url("../../img/system/Zi4SfiYNyqJ.gif") no-repeat scroll 9px 8px #546185; opacity: 0.4; -moz-opacity: 0.4; filter:alpha(opacity=40); border-radius: 2px; box-shadow: 0px 1px 0px rgba(0,0,0,0.12)inset; height:18px; margin:0 auto; padding: 4px 9px 6px 0px; width:165px;}
+.dkEditCover .instructionWrap span{position:absolute; top:0; left:340px; color: #FFFFFF; font-size: 14px; font-weight: bold; padding-left:29px;}
+#dkTimelineHeadline{height:auto !important;z-index:100;_height:47px; min-height: 47px;position: relative;border-left: 1px solid #C4CDE0;border-right: 1px solid #C4CDE0; z-index:100;}
+#coverEditCancelArea{border-left: 1px solid #C4CDE0;border-right: 1px solid #C4CDE0;}
+.timelineNavgationPagelet{ min-height: 121px; _height:121px; border-bottom:2px solid #C4CDE0; border-left: 1px solid #C4CDE0; border-right:1px solid #C4CDE0;}
+.seeAlbum{ cursor: pointer;}
+#dkProfileCover .cover{position:relative; z-index:110; height:auto !important; _height:100px; min-height:100px; /*为了不被覆盖 by程婷婷 2012-4-3*/}
+#dkProfileCover .coverNoImage{ background: none repeat scroll 0 0 #e7ebf2; border-bottom: 1px solid #c4cde0; height: 100px; position: relative;}
+/*#dkProfileCover .coverNoImage .personalSmallImgBorder{top:15px;}*/
+.uiMediaThumbWrap{ background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #CCCCCC; left: 4px; padding: 4px; position: absolute; top: 4px;}
+/*tip*/
+.timelineNavigation a.tip{ display:inline-block; padding: 0px; margin: 0px; float: left;}
+.gray{color:gray;}
+.hoverStage{height:160px;width:350px;}
+.hoverContent{
+	border-bottom:1px solid #e5e5e5;
+	overflow:hidden;
+	padding:10px;
+}
+.hoverPortrait{
+	display:block;
+	float:left;
+	height:100px;
+	overflow:hidden;
+	width:100px;
+}
+.hoverPortrait img{
+	text-align:center;
+}
+.hoverInfo{
+	float:left;
+	margin-left:10px;
+	width:210px;
+}
+.hoverInfo h3{
+	font-size:14px;
+}
+.hoverInfo h4{
+	font-size:12px;
+}
+.hoverNum{
+	line-height:28px;
+}
+.hoverInfo .hoverFriend a{
+	display:block;
+	float:left;
+	height:32px;
+	margin-right:2px;
+	overflow:hidden;
+	width:32px
+}
+.imgLinkLiText .gray{ color: #999999;}
+/*资料icon*/
+.profileFragment i.live,.profileFragment i.birth,.profileFragment i.home{ display: inline-block;width:10px; height:10px; margin-right:7px; background:url(../../img/system/timelineinfo.png) no-repeat;}
+.profileFragment i.live{ background-position:0 2px;+background-position:0 0; _background-position:0 4px;}
+.profileFragment i.home{ background-position:0 -14px;+background-position:0 -16px; _background-position:0 -12px;}
+.profileFragment i.birth{ background-position:0 -31px;+background-position:0 -33px; _background-position:0 -29px;}
+/*应用区*/
+.whiteborder .contentwrapper a{ float: left;}
+
+/*权限设置*/
+.dkTimelineNavigationWrapper .tab{ position:relative;}
+.dkTimelineNavigationWrapper .dropMenu{ position:absolute; top:-10px; right:-2px; opacity:0.4; }
+.timelineNavigation li.photo:hover .dropMenu{ opacity: 1; }
+.dkTimelineNavigationWrapper .dropListul u, .triggerBtn u{ margin: 0px; }
+.dkTimelineNavigationWrapper .dropWrap .triggerBtn{ padding: 2px;}
+
+/*@start: 改变权限按钮高度和宽度 by李世君 2012-3-24*/
+span.tab div.listPermission .triggerBtn { height:16px; width:16px; overflow:hidden; }
+span.tab div.listPermission .dropList{ top:20px !important; }
+.permissionMiskPar{ position:relative; }
+.permissionMisk{ position:absolute; top:-1px; left:-1px; width:22px; height:22px; background-color:#fff; opacity:0.5; -ms-filter:'alpha(opacity=50)'; filter:alpha(opacity=50); zoom:1; }
+/*@End: 改变权限按钮高度和宽度*/
+
+/*web 资料设置*/
+.webIfo{
+	clear:both;
+	color:#777976;
+}
+.webIfo i{
+	background:url("../../img/system/web_ifo.gif") no-repeat scroll 0 1px transparent;
+	display:block;
+	float:left;
+	height:13px;
+	margin:4px 7px 0 0;
+	width:10px;
+}
+.menuLeftUl .webtextLinkLi{
+	cursor:default;
+}
+
+/* start: 网页关注时效 弹出层 设置关注时间 by卜海亮 2012-06-26 */
+.timeSetDiv{ padding: 10px; }
+.timeSetDiv li{ padding: 5px; }
+.timeSetDiv li .input{ border: 1px solid #96A6C5; padding: 3px; width: 30px; }
+.timeSetDiv li select{ border: 1px solid #96A6C5; padding: 2px; width: 50px; }
+.timeSetDiv li span.hide{ display: none; }
+.timeSetDiv li span.error{ color: #dd4b39; }
+/* end: 网页关注时效 弹出层 设置关注时间 */
+
+/* start: 删除好友  弹出层提示 by卜海亮 2012-07-03 */
+.delFriendDiv{ padding: 10px; }
+.delFriendDiv li{ padding: 5px; }
+.delFriendDiv span.strong{ font-weight: bold; }
+.delFriendDiv li label span{ line-height: 14px; height: 14px; }
+.delFriendDiv li input.unFollowCheck{ float: left; margin-top: 4px; margin-top: 1px\9; *margin-top: -1px; *margin-right: -4px; _margin-right: -7px; }
+/* end: 删除好友  弹出层提示 */
+
+/* start: 人与人关系建立 个人首页 状态、按钮样式 by卜海亮 2012-07-04 */
+#relationWrap .actionBtn{ float: left; border-right: 1px solid #d4d4d4; }
+#relationWrap .theAction{ margin-left: 5px; }
+#relationWrap .triggerBtn s{ margin: 9px 0 8px; }
+#relationWrap .actionBtn .plus{ background: url('../../img/system/ui4-gif.gif') no-repeat scroll -8px -84px; width: 8px; }
+#relationWrap .dropDown .actionBtn{ background: url("../../img/system/ui2.gif") no-repeat scroll 0 -50px; }
+
+#relationWrap .followed{ float: left; border-right: 1px solid #d4d4d4; padding: 4px 7px; cursor: pointer; }
+#relationWrap .followed i{ height: 13px; width: 13px; margin: 0; overflow: hidden; float: left; background: url('../../img/system/ui4-gif.gif') no-repeat scroll 0 -143px; }
+
+#relationWrap .relation_state{ float: left; border-radius: 3px 3px 3px 3px; border: 1px solid #aaaaaa; background: #f1f2f1; font-weight: normal; color: #999999; padding: 5px 8px; padding: 4px 8px\9; margin-top: 3px; }
+#relationWrap .relation_state span{ line-height: 12px; float: left; padding-top: 2px\9; }
+#relationWrap .relation_state i{ height: 13px; width: 13px; margin: 0px 5px 0 0; overflow: hidden; float: left; }
+#relationWrap .relation_state i.friend{ background: url('../../img/system/ui4-gif.gif') no-repeat scroll 0 -143px; }
+#relationWrap .relation_state i.doubleFollow{ background: url('../../img/system/arrow2.gif') no-repeat scroll left 1px; }
+#relationWrap .dropMenu .relation_state{ border: medium none; border-right: 1px solid #d4d4d4; border-radius: 0px 0px 0px 0px; margin-top: 0px; font-size: 12px; }
+/* end: 人与人关系建立 个人首页 状态、按钮样式 */
+
+/* start: 关系入口 by卜海亮 2012-07-10 */
+.nameAndRelation{ float: left; width: 260px; }
+.relationEntri{ float: left; clear: left; }
+.relationEntri ul{ width: 240px; }
+.relationEntri ul li{ float: left; color: #526ea6; font-size: 12px; margin-right: 20px; line-height: 14px; height: 14px; }
+.relationEntri ul li span, .relationEntri ul li a{ float: left; }
+.relationEntri ul li a{ color: #526ea6; margin-top: 1px; margin-top: -1px\9; }
+.relationEntri ul li a:hover{ text-decoration:underline; }
+/* end: 关系入口 */
+
+/* start: 等级积分入口 by罗豪鑫 2012-07-17 */
+#inlet{ visibility:hidden; position:absolute;bottom:-27px; z-index:115; padding:13px 0 0 8px; width:55px; height:14px;}
+#inlet .dropBox{ visibility:hidden; position:absolute; top:-69px; z-index:115; width:130px; height:56px; padding:8px;  box-shadow:0 1px 1px #D5D8E3; border-radius:3px; border:1px solid #9399AE; background-color:#fff;}
+#inlet .expBar-total,#inlet .expBar-cur{ height:15px;}
+#inlet .expBar-total{ position:relative; width:127px; margin-top:23px; *margin-top:29px; border-radius:3px; border:1px solid #bdc7dc; background:url(../../img/credits/credit-icon_1.gif) 0 -63px repeat-x;}
+#inlet .expBar-cur{ width:0; border-radius:2px; background:url(../../img/credits/credit-icon_1.gif) 0 -79px repeat-x;}
+#inlet .dk-lv_p{ width:107px;position:absolute; top:2px; z-index:10; padding:0 10px; height:7px; font-size:0;}
+#inlet .refer{ position:absolute; top:72px; left:30px; width:12px; height:7px; line-height:7px; font-size:0; background:url(../../img/credits/credit-icon_2.gif) -11px -8px no-repeat;}
+.cur_cd_b{ display:block; top:-21px; position:absolute; }
+.cur_cd_b .refer_s{ position:absolute; top:13px; z-index:116; width:9px;height:6px; line-height:6px; font-size:0; background:url(../../img/credits/credit-icon_1.gif) no-repeat;}
+.cur_cd{ display:block; padding:0 10px; line-height:12px; border:1px solid #9eadcc;  background-color:#fff; font-size:10px;}
+/* end: 等级积分入口 by罗豪鑫 2012-07-17 */
+
+
+
+/*start:管理界面入口 BY朱立琦 2012-07-21*/
+.mainEdit{width:100%;height:55px;border:1px solid #C4CDE0;background-color:#ffffff;}
+.mainEdit h4{height:55px;line-height:55px;font-size:18px;margin-left:30px;float:left;}
+.selectEdit{float:right;margin:15px 20px 15px;border:1px solid #949494;border-radius:3px;cursor:pointer;position:relative;z-index:2;}
+.selectEdit .selectEidtLi{float:left;height:22px;line-height:22px;font-size:14px; background: url("../../img/system/ui2.gif") no-repeat scroll 0 -50px transparent;font-weight:bold;padding:0 8px;}
+.mainEdit .riverImg{_font-size:5px;width:9px;height:5px;float:left;background:url("../../img/system/ui0.png") no-repeat scroll -183px -317px transparent;margin:9px 0 0 5px;	}
+.mainEdit .borderRight{border-right:1px solid #dbdbdb;}
+.mainEdit .editPro{position:absolute;z-index:999;left:0px;top:23px;border-width:1px 1px 2px;border-color:#777777 #777777 #293e6a;border-style:solid;padding:2px 0;width:89px;display:none;}
+.selectEidtLi span{float:left;}
+.editPro li{border:0px solid #949494;width:89px;padding:2px 0;background-color:#ffffff;border-top:0px;}
+.editPro li a{color:#1e1e1e;display:block;width:82%;height:100%;padding:0 8px;font-size:12px;font-weight:normal;}
+.editPro li a:link{background-color:#ffffff}
+.editPro li a:visited{background-color:#ffffff}
+.editPro li a:hover{background-color:#6D84B4;}
+.mainArea .modlueMainBody{position:relative;z-index:1;}
+.mainArea .mainEdit{position:relative;z-index:20;}
+/*end:管理界面入口 BY朱立琦 2012-07-21*/

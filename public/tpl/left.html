@@ -1,0 +1,78 @@
+		<!--用户头像 开始-->
+		<div class="welcomeBox">
+			<a class="welcomeBoxHeader fl" href="<!--{mk_url('main/index/main', ['dkcode' => $user.dkcode])}-->"><img src="<!--{$user.avatar}-->" alt="头像"></a>
+			<a class="welcomeBoxName" href="<!--{mk_url('main/index/main', ['dkcode' => $user.dkcode])}-->"><!--{$user.username}--></a>
+			<!--添加等级图标by罗豪鑫-2012-7-23-->	
+			<a class="creaditLink" href="<!--{mk_url('credit/credit/index')}-->"><span class="dk-level-icon dk-level-lv<!--{$level}--> lvpst"></span></a>
+			<!--/添加等级图标-->
+		</div>
+		<div class="sideNav">
+			<div class="list">
+				<h3 class="sideNavHeader">关注<a class="sideNavLink" href="#follow-more"><!-- <!--{mk_url('interest/index/alist')}--> -->更多</a></h3>
+				<ul class="sideNavList clearfix" id="j_followNavList" >
+					<li type="follow-people">
+						<a class="sideNavLink" href="<!--{mk_url('main/index/main')}-->#follow-people"><i class="linkIcon linkIcon_personal"></i>个人</a>
+					</li>
+					<!--{if $followingChannel}-->
+					<!--{foreach $followingChannel as $v}-->
+					<li class="" type="<!--{$v['ename']}-->">
+						<a class="sideNavLink" rel="<!--{$v['imid']}-->" href="<!--{mk_url('main/index/main')}-->#<!--{$v['ename']}-->"><i class="linkIcon linkIcon_<!--{$v['ename']}-->"></i><!--{$v['imname']}--></a>
+					</li>
+					<!--{/foreach}-->
+					<!--{/if}-->
+				</ul>
+			</div>
+			
+			<div class="list">
+				<h3 class="sideNavHeader">关系</h3>
+				<ul class="sideNavList clearfix">
+					<li type="group-friend">
+						<a class="sideNavLink" href="<!--{mk_url('main/index/main')}-->#group-friend">
+							<i class="linkIcon linkIcon_friend"></i>好友
+						</a>
+					</li>
+					<li class="<!--{if isset($group) and $group.source_type eq RELATIVE}-->current<!--{/if}-->">
+						<a class="sideNavLink" href="<!--{mk_url('group/group/relative')}-->">
+							<i class="linkIcon linkIcon_family"></i>亲人
+						</a>
+					</li>
+					<li class="<!--{if isset($group) and $group.source_type eq COLLEAGUE}-->current<!--{/if}-->">
+						<a class="sideNavLink" href="<!--{mk_url('group/group/workmate')}-->">
+							<i class="linkIcon linkIcon_colleague"></i>同事
+						</a>
+					</li>
+					<li class="<!--{if strpos($smarty.server.REQUEST_URI, '/classmate') !== false}-->current<!--{/if}-->">
+						<a class="sideNavLink" href="<!--{mk_url('group/group/classmate')}-->">
+							<i class="linkIcon linkIcon_classmate"></i>同学
+						</a>
+					</li>
+					<li class="<!--{if isset($group) and $group.source_type eq PEER}-->current<!--{/if}-->">
+						<a class="sideNavLink" href="<!--{mk_url('group/group/peer')}-->">
+							<i class="linkIcon linkIcon_peer"></i>同行
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="list">
+				<h3 class="sideNavHeader">网页拓展群<a class="sideNavLink" href="<!--{mk_url('group/group/index')}-->">更多</a></h3>
+				<ul class="sideNavList clearfix">
+					<!--{if isset($left_groups)}-->
+					<!--{foreach from = $left_groups item = g}-->
+					<li class="<!--{if isset($group) and $group.gid eq $g.gid}-->current<!--{/if}-->">
+						<a class="sideNavLink" href="<!--{mk_url('group/index/detail', ['gid' => $g.gid])}-->">
+							<i class="linkIcon"></i><!--{$g.name}-->
+						</a>
+					</li>
+					<!--{/foreach}-->
+					<!--{/if}-->
+				</ul>
+			</div>
+			
+			
+			<div class="list">
+				<h3 class="sideNavHeader">应用中心<a class="sideNavLink" href="http://app.duankou.dev">更多</a></h3>
+			</div>
+			
+		</div>
+		<input type="hidden" value="<!--{if isset($is_main)}--><!--{$is_main}--><!--{else}-->0<!--{/if}-->" id="is_main">

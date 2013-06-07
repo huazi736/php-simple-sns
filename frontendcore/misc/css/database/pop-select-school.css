@@ -1,0 +1,53 @@
+@charset "utf-8";
+/**
+ * 端口网络公共样式
+ * css/pop-select-school.css
+ * @author: <a href="mailto:willian12345@126.com">Xiao dong</a>
+ * 2011-7-12
+ */
+
+/********** reset css ***********/
+dl,dt,dd,ul,ol,li,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;/*border:none;*/font-weight:400;}
+h1,h2,h3,h4,h4,h5{margin:0;padding:0;font-size:100%;font-weight:normal;}
+*{margin:0;padding:0}
+body{margin:0;padding:0;font:12px/160% Verdana,Arial,sans-serif,"Times New Roman",simsun;}
+html,body{height:100%}
+ul,ol{list-style:none;}
+input,select{vertical-align:middle; overflow-x:visible;}
+select{font-size:12px;}
+fieldset,img,a img,form{border:none}
+button{overflow:visible;cursor:pointer;}
+th,em,strong,b,address,cite,i{font-style:normal;font-weight:normal;}
+div,p{display:block;}
+table{border-collapse:separate;border-spacing:0;font-size:inherit;/*font:100%;*/}
+caption,th,td{}
+a,span{text-decoration:none; outline:none;}
+
+
+/********** public css **********/
+.clearfix:after,li:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.clearfix,li{display: inline-block;}
+.clearfix,li{display: block;}
+
+.tf_bb{font-weight:bolder;}
+
+.sele_opt{height:22px; min-width:80px;}
+.option_base{padding:8px 0;}
+.option_index{border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:10px 3px;}
+.option_index a{display:inline-block; padding:0 6px; line-height:22px; color:#053B85;}
+.option_index a.cur{background:#E5E5E5; border-radius:3px;}
+.option_index a:hover{text-decoration:underline;}
+.school_list,.list{padding:10px;}
+.option_list{height:240px; overflow-y:auto;}
+.option_list li,.option_list dd{display:inline; float:left; height:23px; line-height:23px; overflow:hidden; white-space:nowrap; width:200px;}
+.option_list li a,.option_list dd a{color:#053B85;}
+.option_list li a:hover,.option_list dd a:hover{text-decoration:underline;}
+.option_list dt{display:block; clear:both;border-top:1px solid #ccc; font-size:14px;}
+
+.option_base .companysel_search{width:190px; float:right; border:1px solid #333;}
+.option_base .companysel_search span{display:none; border:1px solid red;}
+.option_base #companysel_searchIcon{height:20px; width:20px; border:0 none; background:url(../images/duankouimg/bg_search.png) no-repeat 100% -20px; text-indent:-999em;}
+.option_base .ipt_tex{border:0 none; padding:0 6px;}
+.option_base .pagenation{height:30px; background:#eee; position:absolute; bottom:0;}
+.pop_select .pop_pagenation a{color:#053B85; margin-right:8px;}
+.pop_select .pop_pagenation a:hover{text-decoration:underline;}

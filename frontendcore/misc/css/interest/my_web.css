@@ -1,0 +1,31 @@
+/*
+ * Created on 2012-07-10
+ * @author： yewang
+ * @desc：我的网页列表
+ */
+
+.modlueBody{ padding:3px;}
+
+.modlueBody h3 { font-size:14px; padding:10px; border-bottom:#ccd3e5 solid 1px; background:#eeeff4; }
+.weblist { width:100%; overflow:hidden; }
+.weblist li { float:left; width:100%; padding:3px 0 3px 0px; border-bottom:#d9dfeb 1px solid; }
+.avatarBox { float:left; width:50px; height:50px; }
+.webInfo { float:left; width:50%; padding-left:10px; }
+.webInfo a { font-weight:bold; font-size:14px; }
+.webInfo span { display:block; margin-top:10px; }
+.webOperate { padding:10px 10px 0 0;}
+.webOperate, .webOperate span { float:right; }
+.webOperate span { cursor:pointer; color:#3B5998; margin-left:10px; }
+.webOperate span i {float:left; background: url("../../img/system/icon_userinfo.png") no-repeat -16px 0; width: 16px; height: 16px; margin: 5px 3px 0 0; }
+.webSet { width:100%; float:left; background-color:#f0f0f0; margin-bottom:-5px; }
+.setList { width:100%; overflow:hidden; padding-bottom:10px; border-bottom:1px solid #ccc; }
+.setList label { display: block; padding:10px 0 0 245px; }
+.setList label.hide { display:none; }
+.setList label input { vertical-align:middle; display: inline-block; width:14px; height:14px; margin-right:3px; }
+.webBtns { padding:10px 0 5px 245px; }
+.webBtns .btnBlue{ margin-right:5px; }
+.blankWrap, .loadMore { width:100%; height:30px; line-height:30px; background-color:#E7EBF2; font-size:13px; text-align:center; }
+.blankWrap { margin-top:200px; }
+.loadMore { background:#E7EBF2 url("../../img/system/more_loading.gif") no-repeat center center;}
+.del-web-msg { padding:10px; line-height:26px; }
+.del-web-msg p.msg { color:#666; }

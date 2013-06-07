@@ -1,0 +1,159 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name="title" prepend}--><!--{if $smarty.get.item_id}-->编辑词条<!--{else}-->添加词条<!--{/if}-->-<!--{/block}-->
+<!--{block name="header_css"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wiki/wiki_view.css?v=<!--{$smarty.const.CSS_VER}-->" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->js/plug/ueditor/themes/default/ueditor.css?v=<!--{$smarty.const.CSS_VER}-->" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+	document.domain = location.href.split("/")[2].substr(location.href.split("/")[2].indexOf('.') + 1);
+</script>
+<!--{/block}-->
+<!--{block name="body"}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!--{include file="wiki_common_nav.html"}--><!--wiki公共面包屑-->
+		<div class="modlueBody pd0">
+			<div class="wikiEdit">
+
+				<form action="<!--{$url_wiki_edit}-->" method="post" enctype="multipart/form-data" id="wikiEditForm" >
+				<!-- 义项 -->
+				<div class="wikiEditHeader">
+					<h1 class="fs32 mb15" title="<!--{$citiao}-->"><!--{$citiao|msubstr:0:15}--></h1>
+					<div>添加义项：
+                       <!--{if $edit }-->
+                    <input type="text" id="item_desc" name="item_desc" class="text c8 vam" readonly  value="<!--{$item.item_desc}-->">
+                     <!--{else}-->
+                     <input type="text" id="item_desc" name="item_desc" class="text c8 vam" maxlength="20" defaultVal='请输入义项名称' value="<!--{$item.item_desc|default: $defaultName}-->">
+                      <!--{/if}-->
+                    </div>
+				</div>
+
+				<!-- 正文 -->
+				<div class="wikiEditWrap mb20">
+					<h1 class="titleBg mb20"><span class="ml30 fs16">正文</span></h1>
+					<div class="wikiEditContent clearfix">
+						<div class="wikiEditText fl">
+							<script type="text/plain" name="content" id="editor">
+							<!--{$module.content|default:''}-->
+							</script>
+						</div>
+						<div class="wikiEditItem fl ml10">
+							<h1 class="dt">目录</h1>
+							<div class="wikiDirBox">
+								<h2 class="name mb10" title="<!--{$citiao}-->"><!--{$citiao|msubstr:0:6}--></h2>
+								<div class="wikiDirPanel">
+									<div id="wikiDir" class="wikiDirItem fc">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<!-- 摘要 -->
+               
+				<div class="wikiEditWrap mb20">
+					<h1 class="titleBg mb20"><span class="ml30 fs16">摘要</span><span class="fs12 c8 fwn">（词条的概述）</span></h1>
+                     <a name="zy"></a>
+					<div class="wikiEditAbs">
+						<div class="wikiAbsImg mb20 clearfix">
+							<div class="fl">
+								<div id="wikiImgBgWrap" class="wikiImgBgWrap">
+									<div class="wikiImgBg"><img id="uploadImg" class="uploadImg" data="<!--{$smarty.const.MISC_ROOT}-->img/system/wiki_default.gif" src="<!--{if $edit && $image_file <> ''}--><!--{$image_file}--> <!--{else}--><!--{$smarty.const.MISC_ROOT}-->img/system/wiki_default.gif <!--{/if}-->"></div>
+								</div>
+								<div class="tac"><a href="javascript:;" id="delUploadImgBtn">删除该图片</a></div>
+							</div>
+				<!-- <form id="uploadForm" name="uploadForm" action="<!--{$url_wiki_edit}-->" method="post" target="uploadFrame" enctype="multipart/form-data"> -->
+							<div class="wikiUploadFile fl ml15 c8">
+								<p class="mb5"><span class="c3 fwb fs16">上传图片</span>（图片格式：<!--{$fileType}-->文件小于2MB）</p>
+								<p class="mb20 pr">
+									<input id="uploadPath" type="text" class="text" readonly>
+									<span class="btnGray vam"><a href="javascript:;" id="uploadBtn">选择文件</a></span>
+                                    <span class="fileWrap">
+									<input id="uploadFile" name="uploadFile" type="file"  size="1" class="file">
+                                    </span>
+									<input id="uploadImgUrl" name="uploadImgUrl" type="hidden" value="<!--{$image_file}-->">
+
+								</p>
+								<p class="mb5"><span class="c3 fwb fs16">图片描述</span>（最多15个字）</p>
+								<p><input type="text" name="imgDesc" defaultVal="请输入图片描述" maxlength="15"  id="imgDesc" class="text" value="<!--{$module.imgDesc|default:'请输入图片描述'}-->"></p>
+							</div>
+							<!-- </form> -->
+							<iframe class="vb" id="uploadFrame" name="uploadFrame"></iframe>
+							<div class="clearfix"></div>
+						</div>
+						<div class="wikiAbsText">
+							<h1 class="fs16 mb5">内容：<span class="fr c8 fs12 fwn">（还可以输入<span id="descNum" class="cr">300</span>字）</span></h1>
+							<textarea class="bd br3 c8" id="description" name="description" defaultVal='请输入摘要内容'><!--{$module.description|default:'请输入摘要内容'}--></textarea>
+						</div>
+					</div>
+				</div>
+ 				<!--{if $edit }-->
+
+				<!-- 原因 -->
+				<div class="wikiEditWrap mb20">
+					<div class="wikiEditReason mb20">
+						<h1 class="titleBg mb20"><span class="ml30 fs16">操作原因</span></h1>
+						<div class="wikiReasonText">
+							<textarea class="bd br3 c8" id="reason" name="reason" defaultVal='请输入操作原因'>请输入操作原因</textarea>
+						</div>
+					</div>
+				</div>
+<!--{/if}-->
+				<!-- 提交 -->
+				<div class="wikiEditWrap mb20">
+					<div class="wikiEditSubmit">
+						<input type="hidden" name="web_id" value="<!--{$web_id}-->">
+                    	<input type="hidden" name="item_id" value="<!--{$item_id|default:'0'}-->" />
+						<!--{if $quote}--><input type="checkbox" name="quote" class="cb vam" <!--{if $quote=='check'}-->checked<!--{/if}-->>引用词条<!--{/if}-->
+						<input type="submit" class="btnGray ml15 vam wes" id="wikiEditSubmit" value="提交词条" onClick="javascript:window.onbeforeunload = null;">
+						<span class="btnGray ml5 vam"><a href="javascript:history.go(-1);">退出</a></span>
+						<span class="errorTip"></span>
+					</div>
+				</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name="footer_js"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/ueditor/editor_config.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/ueditor/editor.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wiki/wiki.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wiki/wiki_edit.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+	<script type="text/javascript">
+	function upload_callback(url){
+		$('#wikiImgBgWrap').removeClass('wikiImgBgLoad');
+		$('#uploadImg').attr('src',url).fadeIn();
+		$('#uploadImgUrl').val(url);
+	}
+	function submit_callback(msg){
+		wiki.view('tip',[$('.errorTip'),msg]);
+	}
+	
+	var init_values = [];
+	$("#item_desc, #uploadPath, #imgDesc, #description, #reason").each(function(i,n){
+		if($(this)){
+			init_values.push({"obj":$(this), "oldvalue": $.trim($(this).val()).toLowerCase()});
+		}
+	});
+
+	//离开页面时提示
+	$(window).bind("beforeunload", function(){
+		var form_changed = false;
+		$.each(init_values,function(i,n){
+			newvalue = $.trim(n.obj.val()).toLowerCase();
+			if(newvalue != n.oldvalue) {
+				form_changed = true;
+				return false;
+			}
+		});
+		if(form_changed || oldContent != editor.getContent()) return "你输入的内容尚未保存， 确定离开此页面吗?";
+	});
+    
+ </script>
+<!--{/block}-->

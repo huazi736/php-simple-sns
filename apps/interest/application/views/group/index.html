@@ -1,0 +1,125 @@
+<!--{include file="`$smarty.const.WEB_ROOT_SMARTY`/main/application/views/header.html"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/interest/interest.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/group2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<!--{include file="`$smarty.const.WEB_ROOT_SMARTY`/main/application/views/top_bar.html"}-->
+<div class="body clearfix">
+<div class="mainArea" id="interest_box">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$smarty.const.WEB_ROOT}-->"><img  src="<!--{get_avatar($uid,'ss')}-->" alt="<!--{$user.username}-->" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$smarty.const.WEB_ROOT}-->"><!--{$user.username}--></a></span>
+				<span class="nameTxt"><span class="fl">群名称导入页</span></span>
+			</div>
+			<div class="userName step2_next step2_next_disabled">
+				<span class="nameTxt">
+					<form method="post" action="<!--{$create_group_step3}-->">
+					<input type="hidden" name="name" value="" id="save_value" />
+					<input type="submit" value="下一步" class="sub" />
+					</form>
+				</span>
+			</div>
+		</div>
+		
+		<div class="sort-top clearfix">
+		请选择下面的群名称。
+		</div>
+		
+		<!-- start 发现兴趣主体 -->
+			<!--start: 一级分类 -->
+			<div class="sort-top clearfix">
+				<ul>
+				<!--{foreach from=$category_big  item=item}-->
+					<li <!--{if $imid==$item.imid}-->class="current"<!--{/if}-->>
+						<a href="?c=group&imid=<!--{$item.imid}-->">
+						<i class="icon-public <!--{$item.app_icon}-->">
+						</i>
+				        	<!--{$item['imname']}-->
+				        </a>
+				    </li>
+				<!--{/foreach}-->
+				</ul>
+			</div>
+			<!--end: 一级分类 -->
+			<!--start: 二级分类 -->
+			<div class="sort-top clearfix">
+				<ul>
+				<!--{foreach from=$category_sort item=item}-->
+					<li <!--{if $iid==$item.iid}-->class="current"<!--{/if}-->>
+				    	<a href="?c=group&imid=<!--{$imid}-->&iid=<!--{$item.iid}-->">
+				        	<!--{$item['iname']}-->
+				        </a>
+				    </li>
+				<!--{/foreach}-->
+				</ul>
+			</div>
+			<!--end: 二级分类 -->
+			<div class="main-list">
+			<!--{*
+			<!--start: 热门网页 -->
+			<div class="hot-web clearfix">
+ 				<div class="hot-web-hd">热门</div>
+            	<!--{foreach from=$hot_category_web item=item}-->
+                    <div class="web-box clearfix">
+                        <div class="photo"><a href="<!--{$smarty.const.WEB_ROOT}--><!--{$smarty.const.APP_URL}-->?c=index&m=web_list&web_id=<!--{$item.aid}-->" ><img alt="<!--{$item.name}-->" src="<!--{get_webavatar($item.uid,'ss',$item.aid)}-->" onerror="this.onerror=''; this.src='<!--{$smarty.const.MISC_ROOT}-->img/default/web_ss.gif'" /></a></div>
+                        <div class="web-info">
+                            <p class="name"><a href="<!--{$smarty.const.WEB_ROOT}--><!--{$smarty.const.APP_URL}-->?c=index&m=web_list&web_id=<!--{$item.aid}-->" title="<!--{$item.name}-->"><!--{sm_substrs($item.name,8)}--></a></p>
+                            <p class="live">粉丝数<strong><!--{$item.fans_count}--></strong>人</p>
+                        </div>
+                    </div>
+                <!--{/foreach}-->
+				
+			</div>
+			<!--end: 热门网页 -->
+			*}-->
+			<!--start: 字母筛选 -->
+			<div class="sort-letter clearfix">
+				<ul>
+				<!--{foreach from=$participle_arr key=key item=item}-->
+					<li>
+				    	<a href="?c=group&imid=<!--{$imid}-->&iid=<!--{$iid}-->&participle_id=<!--{$key}-->"  <!--{if $participle_id==$key}-->style="color:#F00;"<!--{/if}-->   >
+				        	<b><!--{$item}--></b>
+				        </a>
+				    </li>
+				<!--{/foreach}-->
+				</ul>
+			</div>
+			<!--end: 字母筛选 -->
+
+		<!--{if $participle_id==0}-->
+		<div  class="letter-box">
+		<!--{foreach from=$participle_data_arr key=key item=pitem}-->
+		<div  class="letter-list clearfix">
+			<div class="letter-top clearfix">
+				<strong class="name"><!--{$participle_arr[$key]}--></strong>
+				<span class="this-all">
+                	<a rel="<!--{$participle_arr[$key]}-->" href="javascript:void(0);" class='interest_top' request_url="index.php?c=group&m=get_category_top&imid=<!--{$imid}-->&iid=<!--{$iid}-->&participle_id=<!--{$key}-->" participle_id='<!--{$key}-->' >全部TOP</a>
+                </span>
+			</div>
+		    <div id="web_item_box_<!--{$key}-->" class="web-item-box">
+				<!--{include file="group/web_item_box.html" item_data=$participle_data_arr[$key] continue_load=false}-->
+                
+		    </div><!-- .web-item-box end-->
+		</div>
+		    <!--{/foreach}-->
+		</div>
+		
+        <!--{else}-->
+		
+        <div  class="letter-list clearfix">
+        	<div id="web_item_box_min" class="web-item-box">
+            	<!--{include file="group/web_item_box_min.html" item_data=$participle_data_value continue_load=$continue_load page=$page+1}-->
+            </div>
+        </div>
+		<!--{/if}-->
+		</div><!--.main-list end -->
+		<!-- end 发现兴趣主体-->
+	</div>
+</div>
+<!--{include file="`$smarty.const.WEB_ROOT_SMARTY`/main/application/views/footer.html"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/interest/interest.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group2.js" type="text/javascript"></script>
+</body>
+</html>

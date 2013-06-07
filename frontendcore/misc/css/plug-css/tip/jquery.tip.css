@@ -1,0 +1,23 @@
+/*
+	* Create on   2011/11/22
+	* @author:	linchangyuan
+	* @name: tip v1.2
+	* @desc: tip style
+*/
+.tip_win { background: #cccccc; color: #666666; position: absolute; z-index: 2006; display:none; }
+.tip_win .bg { background:#fff;  padding:6px; border:1px solid #666; }
+.tip_win .content { padding:2px 3px;  }
+.tip_win_black .content{line-height:16px;}
+.tip_win .arrow_r, .tip_win .arrow_l, .tip_win .arrow_t, .tip_win .arrow_b { background: url("../../../img/plug-img/tip/layer_arrow.png"); display: block; overflow: hidden; position: absolute; }
+.tip_win_black .arrow { background: url("../../../img/plug-img/tip/layer_arrow_black.png"); }
+.tip_win .arrow_r, .tip_win .arrow_l { background-position: -11px -24px; height: 16px; right: -6px; width: 11px; }
+.tip_win .arrow_l { background-position: 0 -24px; left: -11px; right: auto; }
+.tip_win .arrow_t, .tip_win .arrow_b { background-position: -4px -7px; height: 12px; left: 15px; width: 16px; }
+.tip_win .arrow_b { background-position: 0 -11px; }
+.tip_win .up{ position: relative;}
+.tip_win_black { background:black; }
+.tip_win_black .bg { background:black; padding:0 4px; color:white; border:1px solid black; }
+.tip_win_black .arrow_l{ background-position:-4px -8px;}
+.tip_win_black .arrow_r, .tip_win_black .arrow_l{ width:4px;}
+.tip_win_black .arrow_b{ background-position:-4px -12px;}
+.tip_win_black .arrow_t, .tip_win_black .arrow_b{ width:8px; height:4px;}

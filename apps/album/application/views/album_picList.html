@@ -1,0 +1,176 @@
+<!--{extends file='base_layout.html'}-->
+
+<!--{block name='title' prepend}-->
+	相册列表
+<!--{/block}-->
+
+<!--{block name='header_js'}-->
+<!--{/block}-->
+
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/album/album.css" rel="stylesheet" type="text/css" />
+<!--以下为简洁评论样式 CSS 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<!--以下为添加相片弹窗 CSS 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/JQuery-uploadify/JQuery_uploadify.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<!--以下为权限插件CSS文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/jQuery-uiCombox/jQuery-uiCombox.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<!-- start: mainArea-->
+	<div class="mainArea picList">
+		<!--start: modlueHeader-->
+		<div class="modlueHeader clearfix">
+			<!--{include file="./album_top_name.html"}-->
+
+			<!--{if $datainfo['a_type'] eq 0}-->
+				<!--{if $is_author}-->
+					<div class="userActions">
+						<span class="btnGray"><i class="a"></i><a href="#" id="updataPic_picList">添加照片<input type="hidden" value="<!--{$datainfo['id']}-->" /></a></span>
+					</div>
+				<!--{/if}-->
+				
+			<!--{/if}-->
+			<div class="btnGray btnGray_moreIcon">
+				<a class="listIcon_01 selected_01" href="javascript:;" title="查看全部照片"><span></span></a>
+				<a class="listIcon_02" href="<!--{mk_url('album/index/photoGraphicLists',['dkcode'=>$action_dkcode,albumid=>$datainfo['id']])}-->" title="查看有评论的照片"><span></span></a>
+			</div>
+		</div>
+		<!--end: modlueHeader-->
+		
+		<!--{if !$photo_lists['data']}-->
+		<!--Start: 不存在相片时 by 李世君 2012-3-19-->
+		<div class="noAlbum noPicList" style="padding-top:0; padding-bottom:120px;">
+			<div class="contentTit">
+				<div class="uiHeader clearfix pgray" style="padding-left:41px; padding-bottom:90px;">
+					<h2><i class="uiIconP titleIcon bp_blog"></i><!--{$datainfo['name']}--> (<!--{$datainfo['photo_count']}-->)</h2>
+					<p class="tipline">来自<a href="<!--{$author_url}-->"> <!--{$action_userinfo['username']}--> </a>的<a href="<!--{$album_url}-->">相册</a> · 更新于<!--{$datainfo['last_dateline']}--> <!--{if $is_author}--><!--{if $datainfo['a_type'] == '0'}--> · <a href="javascript:void(0);" class="editAlbum_btn">编辑相册<a href="javascript:;" id="deleteAlbum_btn">删除相册</a><!--{/if}--><input type="hidden" class="album_type" value="<!--{$datainfo['a_type']}-->" /></a><!--{/if}--></p>
+					<input type='hidden' id='isHavePhoto' value='0' />
+				</div>
+			</div>
+			<p class="noPic">此相册中没有任何照片</p>
+		</div>
+		<!--End: 不存在相片时 by 李世君 2012-3-19-->
+		<!--{else}-->
+		
+			<!--Start: 存在相片时-->
+			<!-- start: contentCol-->
+	        <div id="contentCol" class="clearfix">
+	          <div class="contentTit">
+	            <div class="uiHeader clearfix pgray">
+	              <h2><i class="uiIconP titleIcon bp_blog"></i><!--{$datainfo['name']}--> (<!--{$datainfo['photo_count']}-->)</h2>
+	              <p class="tipline">来自<a href="<!--{$author_url}-->"> <!--{$action_userinfo['username']}--> </a>的 <a href="<!--{$album_url}-->">相册</a> · 更新于<!--{$datainfo['last_dateline']}-->
+	              	  <!--{if $is_author}--><!--{if $datainfo['a_type'] == '0'}--> · <a href="javascript:void(0);" class="editAlbum_btn">编辑相册<!--{/if}--><input type="hidden" class="album_type" value="<!--{$datainfo['a_type']}-->" /></a><a href="javascript:;" id="manageMore">批量管理</a><!--{if $datainfo['a_type'] == '0'}--><a href="javascript:;" id="deleteAlbum_btn">删除相册</a><!--{/if}--><!--{/if}-->
+	              </p>
+	              <!--{if $isEditPageJump}--><p class="editSaveTip">修改已保存</p><!--{/if}-->
+				  <div id="managing" class="clearfix">
+				  	<span class="clearfix"><i class="input"><input type="checkbox" id="allChecked" /></i><i>本页全选</i></span>
+				  	<!--if $datainfo['a_type'] == '0'-->
+				  		<!--{if $is_author}-->
+							<span><a href="javascript:;" id="delPhoto">删除</a></span>
+							<!--{if $datainfo['a_type'] == '0'}-->
+							<!--{if $all_album_list}-->
+							<span id="movePhoto">
+								<a href="javascript:;" class="downIcon">移动到</a>
+								<div class="albumUl">
+		  							<ul>
+										<!--{foreach from=$all_album_list item = strdata name=foo}-->
+										<li><a herf="javascript:;" albumId="<!--{$strdata.id}-->" title="<!--{$strdata.name}-->"><!--{$strdata.name}--></a></li>
+										<!--{/foreach}-->
+									</ul>
+		  				 	 	</div>
+							</span>
+							<!--{/if}-->
+							<!--{/if}-->
+						<!--{/if}-->
+					<!--/if-->
+				  </div>
+	            </div>
+	          </div>
+	          <div id="contentArea"> 
+	            <!--start: 涂鸦墙(相册) 图片列表-->
+	            <div class="album">
+	              	<div class="album_picList clearfix <!--{if $is_author}-->albumPic_move<!--{/if}-->"><!--这里如果class="albumPic_move"是可以移动相册并排序的，否则是不能排序的。-->
+		                <input type="hidden" id="album_myID_forMover" value="<!--{$datainfo['id']}-->" />
+		                <ul class="clearfix">
+		                	<div id="waiting">正在加载，请稍后...</div>
+		                </ul>
+	            	</div>
+	            	<!--Start: 添加相册说明-->
+					<div class="pic_name">
+					<!--如果没有数据-->
+					<!--{if !$datainfo['discription']}-->
+					<!--Start: 添加说明-->
+			 			<!--{if $is_author}-->
+			 				<!--{if $datainfo['a_type'] == '0'}-->
+								<p class="clearfix"><em></em><span>添加相册说明</span></p>
+							<!--{else}-->
+								<div class="staticDis"><span><!--{$datainfo['discription']}--></span></div>
+							<!--{/if}-->
+						<!--{else}-->
+							<div class="staticDis"><span><!--{$datainfo['discription']}--></span></div>
+						<!--{/if}-->	
+										
+					<!--{else}-->
+					<!--如果有数据-->
+						<!--{if $is_author}-->
+							<!--{if $datainfo['a_type'] == '0'}-->
+								<p class="clearfix"><em></em><span><!--{$datainfo['discription']}--></span></p>
+							<!--{else}-->
+								<div class="staticDis"><span><!--{$datainfo['discription']}--></span></div>
+							<!--{/if}-->
+						<!--{else}-->
+							<div class="staticDis"><span><!--{$datainfo['discription']}--></span></div>
+						<!--{/if}-->	
+					<!--{/if}-->
+				    </div>
+				    <!--End: 添加相册说明-->
+				  
+	              <div class="comment_easy" commentObjId="<!--{$datainfo['id']}-->" pageType='album' action_uid='<!--{$action_uid}-->' msgname='<!--{$datainfo['name']}-->' msgurl='<!--{$photolist_url}-->'></div>
+	            </div>
+	            <!--end: 涂鸦墙(相册) 图片列表--> 
+	          </div>
+	        </div>
+	        <!-- end contentCol --> 
+	        <!--End: 存在相片时-->
+        <!--{/if}-->
+
+		<input type='hidden' id='hd_UID' value="<!--{$uid}-->" />
+		<input type='hidden' id='hd_userName' value="<!--{$userName}-->" />
+		<input type='hidden' id='album_id' value="<!--{$datainfo['id']}-->" />
+		<input type='hidden' id='hd_avatar' value='<!--{$login_avatar}-->' />
+		<input type="hidden" id='albumIdForAddInfo' value="<!--{$datainfo['id']}-->" />
+		
+	</div>
+	<!-- end: mainArea-->
+	
+	<div class="sideArea">
+		
+	</div>
+
+</div>
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+
+<!--Start 编辑相册-->
+<!--{include file="./album_editing.html"}-->
+<!--End 编辑相册-->
+
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/album.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/editText.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-dragsort/jquery.dragsort.min.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/embed-for-flash/swfobject.js"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/scrollLoad.js"></script>
+<!--{if $is_author}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-searcher/ViolenceSearch.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/friends_list/friends_list.js"></script>
+<!--{/if}-->
+
+<!--{/block}-->

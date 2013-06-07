@@ -1,0 +1,49 @@
+<!--{extends file='base_layout.html'}-->
+
+<!--{block name='navigation'}-->
+<ul class="circleNav">
+	<li><a href="<!--{mk_url('interest/index/alist')}-->" class="pageLink <!--{if strpos($smarty.server.HTTP_HOST, 'interest.duankou') !== false || strpos($smarty.server.REQUEST_URI, '/interest/')}-->current<!--{/if}-->" >频道</a></li>
+	<li><a href="<!--{mk_url('main/index/main')}-->" class="pageLink <!--{if strpos($smarty.server.HTTP_HOST, 'interest.duankou') === false && strpos($smarty.server.REQUEST_URI, '/interest/') === false}-->current<!--{/if}-->">首页</a></li>
+</ul>
+<div class="fr">
+	<form action="<!--{mk_url('main/search/main',['type'=>'globals'])}-->" method="get" id="navSearch">						
+		<div class="uiTypeahead">
+			<input type="text" class="searchInput fl" name="term" id="globalSearch" maxlength="50" />
+			<input type="hidden" name="type" />
+			<button type="submit" title="search">
+				<span class="hide">搜索</span>
+			</button>
+			<span class="initVal" id="initval">搜索</span>
+		</div>
+	</form>
+	<!-- Start 右侧箭头下拉-->
+	<div id="pageNav" class="fl">
+		<ul>
+			<li>
+				<a id="topUserLink" class="topNavLink tinyman" href="<!--{mk_url('main/index/profile')}-->" title="个人主页" rel="uid_1234">
+					<img id="topUserAvatar" width="23" height="23" alt="头像" src="<!--{$js_config['avatar']}-->" >
+					<span id="topUserInfo" class="headerTinyName"><strong><!--{$js_config['username']}--></strong></span>
+				</a>
+			</li>
+			<li id="navAccount" class="dropMenu">
+				<a class="triggerBtn" id="navAccountTogger" href="javascript:void(0)"></a>
+				<ul id="subNavAccount" class="dropList">
+					<li><a href="<!--{mk_url('interest/web_setting/index')}-->">我的专页</a></li>
+					<li class="menuDivider"></li>
+					<li><a href="<!--{mk_url('main/invitecode/index')}-->">邀请码</a></li>
+					<li class="menuDivider"></li>
+					<li><a href="<!--{mk_url('credit/credit/index')}-->">我的积分</a></li>
+                                <!--{if $js_config['access'] eq 1}-->
+					<li><a href="<!--{mk_url('ads/adadmin/index')}-->">自助广告管理中心</a></li>
+                                <!--{/if}-->
+					<li><a href="<!--{mk_url('main/setting/index')}-->">系统设置</a></li>
+					<li><a target="_blank" href="<!--{mk_url('main/help/index')}-->">帮助中心</a></li>
+					<li><a href="<!--{mk_url('feedback/main/index')}-->" id="user_feedback_a">用户反馈</a></li>
+					<li><a href="#logout"  onclick="logout();">退出</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+<!--end 右侧箭头下拉 -->
+</div>
+<!--{/block}-->

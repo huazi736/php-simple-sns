@@ -1,0 +1,243 @@
+/**
+*@author:    willian
+*@created:   2011/11/16
+*@desc:      消息模块
+*@version:    v1.0
+**/
+#newMessage{margin-right:5px;}
+#MessagingSearch{width:270px;height:23px;line-height:23px;border:1px solid #999; position:relative;width: 263px;margin-left: 5px;}
+#MessagingSearch.selected{background:#e2e8f6;}
+
+.searchType{width:31px; height:22px; line-height:22px; position:absolute; top:-1px; left:-1px; display:block; cursor:pointer;}
+.searchType .uiSelector{width:31px; height:22px; position:absolute; top:0; left:0; padding:0; overflow:hidden; margin:0;}
+.searchType .uiSelectorMenu{background:transparent;width:31px; height:22px; display:block; background-image:url(../../img/system/ui6.png);_background-image:url(../../img/system/ui6.gif);
+				 background-repeat:no-repeat; background-position:-19px 2px; margin:2px 0 0 6px;}
+
+/****************** 过滤消息类型  ******************/
+#MessaginSearchQuery{width:125px; margin-left:0px; color:#333; border:0 none; vertical-align:middle; background:transparent; height:22px; line-height:22px; margin-left: 30px;outline:none;}
+#searchFilterType{display:none;}
+#searchFilterType ul,.searchType ul{width:112px;border:1px solid #999; border-bottom:2px solid #999; position:absolute; top:23px; background:#FFF;}
+#searchFilterType ul a,.searchType ul a{cursor:pointer; color:#111; border-bottom:1px solid #fff; border-top:1px solid #fff; height:20px; line-height:20px; padding-left:16px; display:block;}
+#searchFilterType ul a:hover,.searchType ul a:hover{cursor:pointer; background-color:#6D84B4; border-bottom:1px solid #3B5998; border-top:1px solid #3B5998; color:#fff; text-decoration:none;}
+#searchFilterType .uiMenuTit,.searchType .uiMenuTit{color: #666; padding-left: 16px;}
+
+#deleteFilter,.deleteAttachment{background:url(../../img/system/icon_close.png) no-repeat;width:15px; height:15px; position:absolute; right:2px; top:4px; cursor:pointer; display:none;}
+#deleteFilter:hover,.deleteAttachment:hover{background-position:0 -32px}
+#deleteFilter:active,.deleteAttachment:active{background-position:0 -48px}
+.deleteAttachment{display:inline-block; position:static; vertical-align:middle;}
+#searchFilterType li.selected a{background-image:url(../../img/system/icon_selected_right.png); background-position:-2px 6px; background-repeat:no-repeat;}
+#searchFilterType li.selected a:hover{background-position:-2px -55px;}
+
+/****************** 消息列表  ******************/
+#MessagingThreadlist{min-height:525px;_height:525px;}
+#MessagingThreadlist .threadRow 
+.threadMainCol{width:730px;font-size: 12px;}
+.unread .threadMainCol{}
+.plm{padding-left:10px;}
+.pls{padding-left:5px;}
+.threadLink{padding:5px 0;display:block; height:50px; overflow:hidden; width:100%;}
+.threadLink:hover{text-decoration:none;}
+.threadRow{padding:0 20px;border-top:1px solid #dce2ec;}
+.threadRow.unread{background-color:#ebeef4; margin:0 -20px; padding:0 40px 0 41px; position:static;}
+.threadRow .uiProfilePhoto{margin-right:10px; width:50px; height:50px;}
+.threadRow .time{float:right; width:100px; color:#aaa; padding-top:18px;}
+.threadRow .snippetWrapper{padding-top:8px; display:block; zoom:1; width:550px; word-wrap:break-word; word-break:normal; overflow:hidden;}
+.threadRow .snippetWrapper .author{color:#3B5998; font-weight:bold;font-size: 14px;}
+.threadLink:hover .author{text-decoration:underline;}
+.threadRow .snippetWrapper .snippet{color:#808080; display:block; width:550px; zoom:1; word-wrap:break-word; word-break:normal;margin-top:1px;}
+.threadRow .readState{display:block; background-image:url(../../img/system/ui6.png); _background-image:url(../../img/system/ui6.gif); background-position:-11px -106px; width:11px; height:11px;overflow:hidden;  background-repeat:no-repeat;}
+.threadRow .readState:hover{background-position:0 -106px;}
+.threadRow.unread .readState{display:block; background:url(../../img/system/ui6.png) no-repeat -11px -118px; _background:url(../../img/system/ui6.gif) no-repeat -11px -118px; width:11px; height:11px; zoom:1;}
+.threadRow.unread .readState:hover{background-position:0 -118px;}
+.threadRow .deleteItem,.deleteToken{display:block; background:url(../../img/system/icon_close_mini.png) no-repeat; _background:url(../../img/system/icon_close_mini.gif) no-repeat; width:11px; height:11px; overflow:hidden;}
+.threadRow .delItem{background:url(../../img/system/icon_rect.gif) no-repeat 0 -12px; width:11px; height:11px; overflow:hidden;display:block;}
+.threadRow .delItem:hover{background-position:0 0;}
+.threadRow .deleteItem:hover{background-position:0 -24px;}
+.threadRow .deleteItem:active{background-position:0 -36px;}
+.threadRow.archived .deleteItem {background: url("../../img/system/icon_close_mini.png") no-repeat scroll right top transparent;display: block;height: 11px;width: 11px;}
+.threadRow.archived .deleteItem:hover{background-position:0 -24px;}
+.threadRow.archived .delItem{display:block; background:url(../../img/system/icon_close_button.png) no-repeat right top; width:11px; height:11px;}
+.threadRow.archived .delItem:hover{background-position:left top;}
+.threadRow .plm a,.threadRow .pls a{display:block;}
+/****************** 组合头像  ******************/
+.uiSplitPics {width:50px; float:left; overflow:hidden; margin-right:10px;}
+.uiSplitPics .uiSplitPic{float:left; overflow:hidden;}
+.uiSplitPics .uiProfilePhotoLarge{ display:block; width:50px; height:50px;}
+.uiSplitPics .uiProfilePhotoSmall{margin-left:-4px; display:block; width:24px; height:24px;}
+.uiSplitPics .rTop, .uiSplitPics .rBottom{width:16px; margin-left:1px;}
+.uiSplitPics .rBottom{margin-top:1px;}
+.uiSplitPics .rBottom .img{width:25px;}
+
+/****************** 更多消息按钮  ******************/
+#moreMessagesButtonWrap{padding-top:10px;text-align: center;}
+#moreMessagesButton{border:1px solid #DCE2EC; background:#EBEEF4; width:100px; padding:6px 10px; text-align:center; margin:0 auto; border-radius:0 0 4px 4px;}
+#moreMessagesButtonWrap .loadingAnimation{display:none;}
+.footerActionBar{display:block; padding:0 10px 15px 0; height:30px; line-height:30px; text-align:left;}
+.whiteSpace1Word{display: inline-block;width: 1em;}
+.whiteSpace3Word{display: inline-block;width: 3em;}
+/****************** 新消息弹出层  ******************/
+i.plus { background: url("../../img/system/ui4-gif.gif") no-repeat scroll -8px -85px transparent;}
+i.uiButtonIcon {display: inline-block;height: 14px; margin-right: 5px; margin-top: 4px; vertical-align: top;width: 8px;}
+.receivePeopleWrap{border:1px solid #6D84B4; cursor:text; width:331px; min-height:30px; padding:0 2px 2px;}
+.tokenarea span{display:inline-block; background:#E2E6F0; height:14px; border-radius:2px; padding:3px; margin:2px 2px 0 0; border:1px solid #9daccc;}
+.tokenarea .deleteToken{display:inline-block; margin-left:6px;}
+.toPeopleInput{border:0 none; display:inline-block; width:330px;height:30px; overflow:hidden;outline:none;}
+.compactPeople{border:1px solid #233B7B; background:#fff; position:absolute; width:320px; z-index:999; display:none;}
+.compactPeople li{padding:2px 0; cursor:pointer;font-size:12px;}
+.compactPeople li .compactName{color:#333; font-weight:bolder;}
+.compactPeople li.selected{background:#6D84B4;}
+.compactPeople li .uiProfilePhoto{float:left; margin-right:10px; width:32px; height:32px;}
+#newMessageContentWrap{border:1px solid #6D84B4; width:335px;}
+#newMessageContent{border:0; width:331px !important; width:335px; min-height:40px; resize:none;outline:none;}
+#attachApps li{float:left; width:18px;}
+#attachApps li a span{width:18px; height:18px; display:block;}
+#attachApps .attachOptions{cursor:pointer;position:relative; display:block; width:17px; height:18px; background-image:url(../../img/system/icon_messages_module.gif); background-repeat:no-repeat; overflow:hidden;}
+#attachApps a.attachment:hover{cursor:pointer;background-position:-36px 0;}
+#attachApps .disabled.attachment,#attachApps .disabled.attachment:hover{background-position:0 0; opacity:.5;cursor:pointer;}
+#attachApps .camera{background-position:0 -19px;}
+#FileDataInputForDetailPage{margin-left:-154px;}
+#sendToMobile,#enterMassaging{float:right; display:block; vertical-align:middle}
+#sendToMobile input,#enterMassaging input{display:inline; vertical-align:middle;}
+#sendToMobile .mobile,#messagingComposerOptions .enter{display:inline-block; width:8px; height:12px;background:url(../../img/system/icon_messages_module.gif) no-repeat -26px -71px; vertical-align:middle; margin-left:4px;}
+#messagingComposerOptions .enter{background-position:-44px -39px; width:10px;}
+#attachedFilesWrap li{position:relative; overflow:hidden; height:22px; vertical-align:middle;}
+#attachedFilesWrap li .attachedFileIcon{outline:none; display:inline-block; width:16px; height:16px;background:url(../../img/system/icon_messages_module.gif) no-repeat; vertical-align:middle; margin-right:4px;}
+#attachedFilesWrap li .picFile{background-position:-34px -53px;float:left;}
+#attachedFilesWrap li .achiveFile{background-position:0 -53px;}
+#attachedFilesWrap li .footballFile{background-position:-18px -53px;}
+#attachedFilesWrap li .attachedFileName{vertical-align:middle;width:200px;height:24px;line-height:24px;float:left;display:block;text-overflow: ellipsis;white-space: nowrap;-o-text-overflow:ellipsis;overflow:hidden;}
+#hiddenAttachedFileButton{visibility:hidden; width:0; height:0; font-size:0; zoom:1; overflow:hidden; display:inline; position:absolute;}
+#newMessagesTable{width:404px; margin:0 auto;}
+.tokenarea {font-size:12px; }
+.tokenarea  i{font-style:normal;}
+.receivePeopleWrap .tokenarea span {background: none repeat scroll 0 0 #E2E6F0; border: 1px solid #9DACCC;border-radius: 2px 2px 2px 2px;display: inline-block; height: 14px;margin: 2px 2px 0 0; padding: 3px;font-style:normal;}
+.tokenarea .deleteToken {background: url("../../img/system/icon_close_mini.png") no-repeat scroll 0 0 transparent;height: 11px;overflow: hidden;width: 11px;}
+/****************** 搜索--消息详细页  ******************/
+.uiToolbarItem{float:left; margin-left:6px; vertical-align:top;}
+.uiToolbarDivider{width:1px; background:#d6d6d6; height:22px;}
+.uiSearchInput{width:194px; padding-top:0;}
+.uiSearchInput .uiTypeahead{height:24px; border:1px solid #899BC1;}
+.uiSearchInput .searchInput{width:164px; height:22px; line-height:22px;}
+
+.uiHeaderActions{position:relative;z-index:3;margin-top: 2px;}
+.messagingContentWrapper{padding-top:0;}
+#navSearch .uiTypeahead button, .uiSearchInput .uiTypeahead button { background: url("../../img/system/ui0.png") no-repeat scroll -262px -235px transparent; border: 0 none; cursor: pointer; display: block;height: 19px;padding: 0;position: absolute;right: 0;top: 0; width: 22px;}
+i.rightArrow {background: url("../../img/system/icon_messages_module.gif") no-repeat scroll -29px -38px transparent; width: 5px;}
+/****************** 消息对话列表--消息详细页  ******************/
+/*#MessagingMainContent{margin:-5px 20px 0 21px;}*/
+#MessagingMainContent .noborder{border:0 none;}
+/*.messagingMainContent{margin:0 20px;width:auto;}*/
+.messagingMessage{border-width:1px 0 0; border-color:#e9e9e9; border-style:solid; position:relative;/*width:765px;*/ }
+.messagingMessage .timestamp{color:#AAA;}
+.messagingMessage .messageCategory{color:#AAA;cursor:default;}
+.messagingMessage .massaginMain{padding:8px 15px; margin:0 -15px; position:relative;}
+.messagingMessage .massaginMain .uiImageBlock {position:relative;}
+.messagingMessage .content{line-height:18px; word-wrap:break-word; width:630px;}
+.messagingMessage .uiImageBlock .uiImageBlockContent{zoom:1}
+.messagingMessage .timeAndFrom{position:absolute; right:0; zoom:1; width:140px; text-align:right;}
+.messagingMessage .hints{position:absolute; right:0; zoom:1;}
+.messagingMessage .attachmentTit{position:relative; padding-left:20px; line-height:22px; zoom:1;width:200px;height:24px;line-height:24px;float:left;display:block;text-overflow: ellipsis;white-space: nowrap;-o-text-overflow:ellipsis;overflow:hidden;}
+.messagingMessage .uiIconP{top:3px;}
+.messagingMessage .previewWrapper{height:78px; margin:5px 0 15px;clear:both;}
+.messagingMessage .previewWrapper img.preview{border:1px solid #ccc; max-height:78px; max-width:400px; padding:2px;}
+.messagingMessage .previewWrapper img.preview:hover{border-color:#3b5998;}
+
+/****************** 消息回复框--消息详细页  ******************/
+#messaginShelf{width:auto;}
+#messaginShelf.fixedScrolling{width:809px;background-color:#fff;}
+#messaginShelfContent{padding:8px 10px 23px;margin:0 auto;width:450px;}
+.messagingComposer{padding-left:45px;}
+.messagingComposerBody{resize:none; width:310px; font-size:12px; margin-right:6px; overflow:auto; padding:3px; border:1px solid #bdc7d8;}
+#messagingComposerOptions{margin-top:2px; width:310px;}
+#ad{width:244px;}
+
+/****************** 针对滚动对话内容的特殊样式--消息详细页  ****************
+.modlueBody{overflow-x:hidden !important;}**/
+.modlueBody #blueBar{position:fixed !important; _position:absolute;}
+.modlueBody #leftCol{position:fixed !important; _position:static;}
+.messagingReadHeader{position:absolute; _position:static; background:#fff; width:759px; _width:758px; z-index:10; margin-top:-15px; padding-top:15px;}
+.modlueBody .messagingReadHeader{position:fixed !important; _position:static;}
+.modlueBody .fixedScrolling{position:fixed !important; _position:static; bottom:0;width:769px;z-index:3;}
+
+.bp_messageFrom {background: url("../../img/system/icon_messages_module.gif") no-repeat scroll -34px -38px transparent;display: inline-block;height: 13px;width: 9px;*width:10px;*background-position:-33px -38px;cursor:default;}
+/**
+ * 黑色带箭头提示
+ * 示例：可参考消息模块内具体应用
+ * <a href="javascript:void(0)" class="uiTooltip">
+ * <i class="uiTooltip"></i>
+ *   <span class="uiTooltipWrap rightTip">
+ * 	   <span class="tipInner">来自聊天室</span>
+ *   </span>
+ * </a>
+ * */
+.uiTooltip {position:relative; zoom:1;}
+.uiTooltip .uiTooltipWrap { display:none; }
+.uiTooltip:hover { padding:0; position:relative; text-decoration:none; margin:0;}
+.uiTooltip:hover .uiTooltipWrap { display:block; }
+.uiTooltip .topTip { margin-bottom:4px; background:none; position:absolute; bottom:100%; left:-10px; padding:0 0 4px;}
+.uiTooltip:hover .topTip { background:url(../../img/system/icon-arrow-black-point-down.gif) no-repeat 6px bottom; }
+.uiTooltip .rightTip { margin-left:4px; background:none; position:absolute; left:100%; top:-4px; padding:0 0 0 4px; }
+.uiTooltip:hover .rightTip { background:url(../../img/system/icon-arrow-black-point-left.gif) no-repeat left 6px; }
+.uiTooltip .downTip { margin-left:4px; background:none; position:absolute; top:100%; left:0; padding:4px 0 0; }
+.uiTooltip:hover .downTip { background:url(../../img/system/icon-arrow-black-point-top.png) no-repeat 10% top; }
+.uiTooltip .tipInner { background:#282828; display:block; padding:4px 8px; white-space:nowrap; color:#fff; }
+.uiTooltip .leftTip { margin-left:-95px; background:none; position:absolute; left:100%; top:-4px; padding:0 4px 0 0; }
+.uiTooltip:hover .leftTip { background:url(../../img/system/icon-arrow-black-point-right.gif) no-repeat right 6px; }	
+/*****消息头部*******/
+.msg_Head{border-bottom:dashed 1px #b3b3b3;height:45px;margin:0 -15px 0px -15px;padding: 12px 0 0 6px; background-color:#f2f2f2;display:none;}
+.msg_HeadBody{padding-top:10px;}
+.msg_HeadBody ul{overflow:hidden;height:22px;margin:0 15px;}
+.msg_HeadBody li{float:left;height:22px;margin-right: 3px;}
+.msg_HeadBody li i,.msg_HeadBody li em{ background:url(../../img/system/ui6.gif) no-repeat 0 -16px;height:16px;width:16px;display:block;float:left;margin:0 2px 0 0;}
+.msg_HeadBody .msg_email {color:#333;font-weight:bold;width:205px;}
+.msg_HeadBody .msg_email i{background-position:0 -159px;}
+.msg_HeadBody .msg_email em{background-position:0 -141px;}
+.msg_HeadBody .msg_email div{width:169px;overflow:hidden;}
+.msg_HeadBody .msg_textMessage {color:#3b5998;font-weight:normal;width: 123px;}
+.msg_HeadBody .msg_textMessage i{background-position:-20px -110px;}
+.msg_HeadBody .msg_textMessage em{background:url(../../img/system/ui1.gif) no-repeat -125px -1px;}
+.msg_HeadBody .msg_im {color:#333;font-weight:bold;}
+.msg_HeadBody .msg_im i{background-position:0 -159px;}
+.msg_HeadBody .msg_im em{background:url(../../img/system/ui1.gif) no-repeat -102px -133px;}
+.msg_HeadBody .threadRow .deleteItem, .deleteToken{background:none;}
+.msg_HeadBody .msg_close{float:right;}
+.msg_HeadBody .msg_close a{width:15px;height:15px;position:relative;}
+.msg_HeadBody .msg_close a:hover{background-position:0 32px;}
+.msg_close .pls{padding:0;}
+.modlueHeader .noBottomBorder{padding-top:8px;}
+.msg_HeadBody .uiTooltip .leftTip{ margin-left: -85px;}
+.msg_HeadBody .msg_close .leftTip{position:absolute;width:62px;margin-left: -85px;top:-3px;color:#fff;background: url(../../img/system/icon-arrow-black-point-right.gif) no-repeat right 6px; visibility:hidden;}
+.msg_HeadBody .msg_close .leftTip .tipInner{padding:3px 5px 0 0;background:#282828;padding:3px;display:block;margin-right:5px;}
+.msg_HeadBody .msg_close a:hover .leftTip{ visibility:visible;}
+.msg_HeadBody li .deleteItem{ background:url("../../img/system/icon_close.png") no-repeat 0 -16px;height:16px;width:16px;display:block;float:left;margin:0 2px 0 0;}
+.uiSplitPics .leftThree {width: 33px;}
+.uiSplitPics .leftThree img{margin-left:-8px;}
+.modlueName a{color:#333333;}
+.msg_HeadBody li .deleteItemSet {background: url("../../img/system/icon_close.png") no-repeat scroll 0 -16px transparent; display: block;float: left; height: 16px; margin: 0 2px 0 0; width: 16px;}
+.noInfo{border:1px solid #dedde3;border-left:none 0;border-right:none 0; background-color:#eeeff4;height:28px;margin: 200px -20px;text-align:center;padding:5px 0;}
+#contentCol{clear:both;}
+.msgTitle{margin-bottom:15px;height:25px;line-height:25px;padding-left:10px;}
+.msgTitle h3{float:left;font-size:16px;}
+#msgTitle .fr{float:right;width:174px;}
+#msgTitle .m_userName{font-size:14px;font-weight: bold;float:left;*line-height:33px;}
+#msgTitle .m_userName i{vertical-align:middle;width:16px;height:16px;background: url("../../img/system/ui0.gif") no-repeat -272px -126px;display:block;float:left;margin: 10px 10px 0 0;}
+#sp_btnAction.dropMenu{float:right;margin-left:10px;height:22px;}
+#sp_btnAction .dropMenu #relation_state span{display:block;height: 14px;margin-top: 2px;background:url("../../img/system/ui7.gif") no-repeat -16px -18px;width:16px;}
+#sp_btnAction .dropDown{background:none;}
+#sp_btnAction .dropDown .dropList {text-align:center;left: -46px;z-index:22;}
+#sp_btnAction .dropDown .triggerBtn s{background-position:-183px -317px;}
+.chk_msg{float: left;margin: 20px 5px;position:relative;z-index:2;}
+.inputButton.disabled {opacity:0.7;-moz-opacity:0.7;filter:alpha(opacity=70); background-color: #F0F0F0;border-color: #E7E7E7 #666666 #666666 #E7E7E7;color: #999999;}
+.inputButton.disabled input{cursor:default;}
+.disabled.uiButton:active{ background-color:#5B74A8;background:none;}
+#msgInfo_list .selected,#messagingMessages .selected{background-color:#eff2f7;}
+#actionDelete{background-color: #FFFBE2;border: 1px solid #FFE222; padding: 15px;}
+#actionDelete fl{float:left;}
+#actionDelete fr{float:right;}
+#sp_btnBackUrl,#sp_btnAction{float:right;}
+#msgInfo .modlueBody,.messageBody .modlueBody{position:relative;z-index:1;padding:20px;}
+#msgInfo .modlueHeader{position:relative;z-index:2;}
+label.disable.uiButton1{background-color: #ADBAD4;cursor: auto;padding: 0 6px;}
+.uiButton1 {border:1px solid #29447E; display: inline-block;background-color: #5B74A8;box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);padding:1px 6px;height:19px;}
+.uiButton1 input{background-color: #5B74A8;border:0 none;cursor:pointer;}
+label.disable.uiButton1 input{cursor:default;border:0 none;}

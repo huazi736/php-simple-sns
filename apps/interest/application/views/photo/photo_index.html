@@ -1,0 +1,105 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+目录-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/interest/interest.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/interest/photo.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+
+<div class="body clearfix">
+<div class="mainArea" id="interest_box">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{mk_url('main/index/main')}-->"><img  src="<!--{get_avatar($uid,'ss')}-->" alt="<!--{$user.username}-->" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{mk_url('main/index/main')}-->"><!--{$user.username}--></a></span>
+				<span class="nameTxt"><span class="fl"><!--{if $target=='group'}-->群名称导入页：请选择下面的群名称<!--{else}-->频道<!--{/if}--></span></span>
+			</div>
+		</div>
+
+		<!--{if $is_create neq 1}--><!--{include file="interest_area.html"}--><!--{/if}-->
+
+
+		<!-- start 发现兴趣主体 -->
+			<!--start: 二级分类 -->
+			<div class="sort-top clearfix">
+				<div class="classfix clearfix">
+					<span><a href="">分类：&nbsp</a></span>
+					<ul class="threeClassTitle">
+                        <!--{foreach from=$category_sort item=item}-->
+                            <li <!--{if $iid==$item.iid}-->class="current"<!--{/if}-->>
+                                <a href="<!--{mk_url('interest/index/alist',[imid=>$imid,iid=>$item.iid,is_create=>$is_create])}-->">
+                                    <!--{$item['iname']}-->
+                                </a>
+                            </li>
+                        <!--{/foreach}-->
+					</ul>
+				</div>
+			</div>
+			<input type='hidden' name="hdd_val" id="hidden_is_create" value="<!--{$is_create}-->"/>
+			<!--end: 二级分类 -->
+			<div class="main-list">
+
+				
+				
+		<div class="letter-Box  clearfix">
+			<a title="" href="<!--{if $is_create eq 0}--><!--{mk_url('interest/index/web_list',['iid'=>$now_current.iid,'target'=>$target])}--><!--{else}-->javascript:void();<!--{/if}-->"><h5 class="leftter-h5">&nbsp;&nbsp;<!--{$now_current['iname']}--></h5></a>
+			<div class="PHOTOIDX">
+				<p class="idxs clearfix"><strong class="idxs_label">词条汇总</strong>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_a" class="idxs_idx idxs_idx-cur">A</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_b" class="idxs_idx">B</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_c" class="idxs_idx">C</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_d" class="idxs_idx">D</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_e" class="idxs_idx">E</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_f" class="idxs_idx">F</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_g" class="idxs_idx">G</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_h" class="idxs_idx">H</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_i" class="idxs_idx">I</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_j" class="idxs_idx">J</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_k" class="idxs_idx">K</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_l" class="idxs_idx">L</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_m" class="idxs_idx">M</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_n" class="idxs_idx">N</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_o" class="idxs_idx">O</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_p" class="idxs_idx">P</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_q" class="idxs_idx">Q</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_r" class="idxs_idx">R</a><a href="#"  data="<!--{$imid}-->_<!--{$iid}-->_s" class="idxs_idx">S</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_t" class="idxs_idx">T</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_u" class="idxs_idx">U</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_v" class="idxs_idx">V</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_w" class="idxs_idx">W</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_x" class="idxs_idx">X</a><a href="#" data="<!--{$imid}-->_<!--{$iid}-->_y" class="idxs_idx">Y</a>
+				<a href="#" data="<!--{$imid}-->_<!--{$iid}-->_z" class="idxs_idx">Z</a></p>
+				
+				<!--{foreach $result_item as $k=>$item_array}-->
+				<div class="pack <!--{if $k eq 0}-->pack-first<!--{/if}--> clearfix">
+					<div class="pack_info <!--{if $k eq 0}-->pack_info-hide<!--{else}-->pack_info-show<!--{/if}--> clearfix">
+						<p class="pack_info_idx"><!--{$k*50+1}-->-<!--{($k+1)*50}--></p>
+						<div class="pack_info_expand">
+							<div class="pack_info_expand_triangle"></div>
+							<a class="pack_info_expand_tip">展开</a>
+						</div>
+					</div>
+					<div class="pack_names <!--{if $k eq 0}-->pack_names-show<!--{else}-->pack_names-hide<!--{/if}-->">
+						<div class="pack_names_char">A</div>
+						<ul class="pack_names_list clearfix">
+							<!--{foreach $item_array as $item}-->
+								<li class="pack_names_list_item"><span class="pack_names_list_item_triangle"></span>
+									<a href="<!--{if $is_create eq 0}--><!--{mk_url('interest/index/web_list',['web_id'=>$item.eid,'target'=>$target,'pid'=>$item.eid])}--><!--{else}--><!--{mk_url('webmain/create/found',['iid'=>$now_current.iid,'imid'=>$imid,'eid'=>$item.eid])}--><!--{/if}-->">
+									<!--{$item.name}--></a>
+								</li>
+							<!--{/foreach}-->
+						</ul>
+						<div class="pack_names_collapse">
+							<a class="pack_names_collapse_tip">收起</a>
+							<div class="pack_names_collapse_triangle"></div>
+						</div>
+					</div>
+				</div>
+				<!--{/foreach}-->
+				
+			</div>
+		</div>
+
+		</div><!--.main-list end -->
+		<!-- end 发现兴趣主体-->
+
+	</div>
+</div>
+
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/interest/interest.js?v=<!--{$js_css_v}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/interest/photo.js?v=<!--{$js_css_v}-->" type="text/javascript"></script>
+<!--{/block}-->

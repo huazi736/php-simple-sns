@@ -1,0 +1,13 @@
+@charset "utf-8";
+/**
+ * Created on 2012-05-02
+ * @author:huweiliang
+ * @version:1.0
+ * @desc:error,success
+ */
+.error{border:1px #d6d6d6 solid; background:#fff; height:248px; width:60%;margin:150px auto; overflow:hidden;}
+.error dl{ margin:50px 0 0 50px;}
+.error dl dt.erro_icon{ background:url(error.png) no-repeat; height:248px; width:48px; float:left; margin-right:10px;}
+.error dl dt.success_icon{ background:url(success.png) no-repeat; height:248px; width:48px; float:left; margin-right:10px;}
+.error dl dd{ line-height:20px;}
+.error dl dd.title{ font-size:18px; font-weight:bold; margin-bottom:10px;}

@@ -1,0 +1,91 @@
+<div id="relationshipEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<tbody id="addRelativeFrames">
+			<tr class="dataRow" uid="">
+				<th width="10%">家人：</th>
+				<td width="6%" class="data img"><img class="face" src="<!--{$smarty.const.MISC_ROOT}-->img/system/blank-profilepic.png" width="50" height="50" /></td>
+				<td width="35%" class="data">
+					<div class="fname">
+						<input type="text" name="addRelationships"/>
+					</div>
+				</td>
+				<td width="35%" class="data">
+					<select>
+						<option value="1">姐姐</option>
+						<option value="2">太太</option>
+						<option value="3">妈妈</option>
+						<option value="4">女儿</option>
+						<option value="5">妹妹</option>
+						<option value="6">外祖母</option>
+						<option value="7">孙女</option>
+						<option value="8">姨妈（母亲的姐姐）</option>
+						<option value="9">姑妈（父亲的姐姐）</option>
+						<option value="10">姨妈（母亲的妹妹）</option>
+						<option value="11">姑妈（父亲的妹妹）</option>
+						<option value="12">外甥女</option>
+						<option value="13">侄女</option>
+						<option value="14">表姐妹</option>
+						<option value="15">堂姐妹</option>
+						<option value="16">姻亲（女）</option>
+						<option value="17">儿媳妇</option>
+						<option value="18">岳母</option>
+						<option value="19">婆婆</option>
+						<option value="20">女性伙伴</option>
+						<option value="21">哥哥</option>
+						<option value="22">老爷</option>
+						<option value="23">爸爸</option>
+						<option value="24">儿子</option>
+						<option value="25">弟弟</option>
+						<option value="26">外祖父</option>
+						<option value="27">孙子</option>
+						<option value="28">姨父（母亲的姐姐的丈夫）</option>
+						<option value="29">姑父（父亲的姐姐的丈夫）</option>
+						<option value="30">姨父（母亲的妹妹的丈夫）</option>
+						<option value="31">姑父（父亲的妹妹的丈夫）</option>
+						<option value="32">外甥</option>
+						<option value="33">侄儿</option>
+						<option value="34">表兄弟</option>
+						<option value="35">堂兄弟</option>
+						<option value="36">姻亲（男）</option>
+						<option value="37">女婿</option>
+						<option value="38">岳父</option>
+						<option value="39">公公</option>
+						<option value="40">男性伙伴</option>
+					</select>
+				</td>
+				<td width="10%" class="data">
+					<img class="deletAction" style="cursor:pointer" src="<!--{$smarty.const.MISC_ROOT}-->/img/system/icon_close_01.gif" width="15" height="16" />
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th></th>
+				<td colspan="4"><a id="addMemeber" style="padding-top:7px; display:block;" href="javascript:void(0)">添加一个家庭成员</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr tipmodel="dkUserwikiBacicInfo base 450">
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0)">取消</a></div><div class="btnBlue fr mrs"><a href="javascript:void(0)" class="relationshipStore">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+$(function(){
+	var addMemeber = $('#addMemeber');
+	var	addFrames = $('#addRelativeFrames');
+	var	str = '<tr class="dataRow"><th width="10%"></th><td width="6%" class="data img"><img class="face"  src="'+CONFIG["misc_path"]+'img/system/blank-profilepic.png" width="50" height="50" /></td><td width="35%" class="data"><div class="fname"><input type="text" name="addRelationships"/></div></td><td width="35%" class="data"><select><option value="1">姐姐</option><option value="2">太太</option><option value="3">妈妈</option><option value="4">女儿</option><option value="5">妹妹</option><option value="6">外祖母</option><option value="7">孙女</option><option value="8">姨妈（母亲的姐姐）</option><option value="9">姑妈（父亲的姐姐）</option><option value="10">姨妈（母亲的妹妹）</option><option value="11">姑妈（父亲的妹妹）</option><option value="12">外甥女</option><option value="13">侄女</option><option value="14">表姐妹</option><option value="15">堂姐妹</option><option value="16">姻亲（女）</option><option value="17">儿媳妇</option><option value="18">岳母</option><option value="19">婆婆</option><option value="20">女性伙伴</option><option value="21">哥哥</option><option value="22">老爷</option><option value="23">爸爸</option><option value="24">儿子</option><option value="25">弟弟</option><option value="26">外祖父</option><option value="27">孙子</option><option value="28">姨父（母亲的姐姐的丈夫）</option><option value="29">姑父（父亲的姐姐的丈夫）</option><option value="30">姨父（母亲的妹妹的丈夫）</option><option value="31">姑父（父亲的妹妹的丈夫）</option><option value="32">外甥</option><option value="33">侄儿</option><option value="34">表兄弟</option><option value="35">堂兄弟</option><option value="36">姻亲（男）</option><option value="37">女婿</option><option value="38">岳父</option><option value="39">公公</option><option value="40">男性伙伴</option></select></td><td width="10%" class="data"><img class="deletAction" style="cursor:pointer" src="'+CONFIG["misc_path"]+'img/system/icon_close_01.gif" width="15" height="16" /></td></tr>';
+
+	addMemeber.click(function(){
+		addFrames.append(str);
+		tips._class.position();
+		return false;
+	});
+})
+</script>

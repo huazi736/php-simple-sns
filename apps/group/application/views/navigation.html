@@ -1,0 +1,13 @@
+<!--{if isset($group)}-->
+<!-- start: 群组面包屑-->
+	<div class="group_center_top">
+		<div class="group_nav clearfix">
+			<div class="group_nav_left">
+				<a href="<!--{mk_url('group/index/detail', ['gid' => $group.gid])}-->" class="group_logo"><img src="<!--{$group.icon}-->" /></a>
+				<a href="<!--{mk_url('group/index/detail', ['gid' => $group.gid])}-->" class="group_name"><b><!--{$group.name}--></b></a>
+				<span class="group_title_sub"><!--{block name='group_title'}--><!--{/block}--></span>
+			</div>
+		</div>
+	</div>
+<!-- end: 群组面包屑-->
+<!--{/if}-->

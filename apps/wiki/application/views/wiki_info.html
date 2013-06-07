@@ -1,0 +1,114 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name="title" prepend}-->网页资料-<!--{/block}-->
+<!--{block name="header_css"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wiki/wiki_view.css?v=<!--{$smarty.const.CSS_VER}-->" type="text/css" rel="stylesheet" />
+<!--{/block}-->
+
+<!--{block name="body"}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<!--{include file="wiki_common_nav.html"}--><!--wiki公共面包屑-->
+		<div class="modlueBody">
+			<!-- 百科头部 -->
+			<div class="wikiHeader mb40">
+				<div class="wikiInfo mb20">
+					<div class="wikiLeft fl">
+						<h1 class="fs32 mb5" title="<!--{$web_info['name']}-->"><!--{$web_info['name']|msubstr:0:20}--></h1>
+                        <!--{if $web_info['is_info'] OR $item_content['is_system']}-->
+						<p>于<!--{$item_content['create_time']}-->由<a href="<!--{$item_content['action_url']}-->"><!--{$item_content['create_name']}--></a>创建</p>
+                        <p>
+                        <!--{/if}-->
+                        <!--{if $is_self and $item_content['version'] < $item_content['new_version']}-->
+							<a href="<!--{$history_url}-->"><span class="cr">温馨提示：</span>该词条已更新 点击查看新版本</a>
+                         <!--{/if}-->
+                        </p>
+					</div>
+					<div class="wikiRight fr">
+						<p class="tar mb5">
+							<span class="fs16 fwb">引自<a href="<!--{$wiki_index}-->" class="ml5 c6">端口百科</a></span>
+						</p>
+						<p class="tar mb5">发布时间：<!--{$item_content['edit_datetime']}--></p>
+						<p class="tar">
+                        <!--{if $is_self}-->
+                    		 <span class="btnGray"><a href="<!--{$rematch_url}-->">重新匹配</a></span>
+                   		<!--{/if}-->
+                       	
+                        
+                       	 <span class="ml5 btnGray"><a href="<!--{$edit_url}-->">编辑词条</a></span>
+                        </p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!-- 单义项 -->
+				<h1 class="wikiSense br3"><!--{$item_content['web_name']|msubstr:0:15}--> （<span title="<!--{$item_content['item_desc']}-->"> <!--{$item_content['item_desc']|msubstr:0:15}--></span>）</h1>
+			</div>
+            
+			<!-- 百科主体 -->
+			<div class="wikiBody">
+				<!-- 百科摘要 -->
+				<div class="wikiAbs bd br3 pd20 mb15 clearfix">
+					<h2 class="absTitle mb10">摘要</h2>
+                    <div class="wikiImgBgWrap fl">
+						<div class="wikiImgBg">
+							<img class="absImg" src="<!--{if $item_content['img_file']}--><!--{$item_content['img_file']}--><!--{else}--><!--{$smarty.const.MISC_ROOT}-->img/system/wiki_default.gif<!--{/if}-->">
+						</div>
+						<p class="tac fs12"><!--{$item_content['imgDesc']}--></p>
+					</div>
+					<div class="absContent fl ml15"><!--{$item_content['description']}--></div>
+				</div>
+               
+                <a name="wiki_detail_body"></a>
+				<!-- 百科目录 -->
+				<div class="wikiDir wikiDirControl mb15">
+					<div id="wikiDirWrap" class="wikiWrap wikiUnwrap bd br3 bd">
+						<h2 class="mb10">目录</h2>
+						<div class="wikiDirList item fc">
+							
+						</div>
+						<a href="javascript:;" class="s">展开</a>
+						<div class="clearfix"></div>
+					</div>
+					<div class="wikiWrap"></div>
+				</div>
+
+				<!-- 百科内容 -->
+				<div class="wikiViewContent bd br3 pd20">
+					<!-- <h2>&nbsp;<i class="fr wikiEditIcon"></i></h2> -->
+
+					<div id="wikiText" class="wikiText clearfix">
+					<!--{$item_content['content']}-->
+                    </div>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+
+<!-- 百科右侧目录 -->
+<div class="wikiSide wikiDirControl">
+	<div class="wikiBtnWrap fl">
+	<a href="#" class="wikiTop">回到顶部</a><a href="javascript:void(0);" class="wikiDirBtn">词条目录</a>
+	</div>
+	<div class="wikiDirWrap vb fl">
+		<a href="javascript:;" class="wikiPrev"></a>
+		<div class="wikiDirBox">
+			<h2 class="mb10"><!--{$web_info['name']|msubstr:0:8}--></h2>
+			<div class="wikiDirPanel">
+				<div class="wikiDirList wikiDirItem fc">
+				
+				</div>
+			</div>
+		</div>
+		<a href="javascript:;" class="wikiNext"></a>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<!--{/block}-->
+
+<!--{block name="footer_js"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wiki/wiki.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wiki/wiki_view.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

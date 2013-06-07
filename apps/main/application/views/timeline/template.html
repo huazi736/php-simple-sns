@@ -1,0 +1,50 @@
+<!--{include file="../header.html"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css" rel="stylesheet" type="text/css" />
+<body>
+<!--{include file="../top_bar.html"}-->
+
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$smarty.const.WEB_ROOT}-->"><img src="<!--{$avatar50}-->" alt=""  /></a></span>
+			<div class="userName" id="userName">
+				<span class="nameTxt"><a href="<!--{$smarty.const.WEB_ROOT}-->"><!--{$username}--></a></span>
+				<span class="nameTxt">
+					<span class="fl"><a href="<!--{$url}-->">头像设置</a></span>
+				</span>
+			</div>
+		</div>
+<!-- start: regBody 注册区域主体开始 -->
+		<div class="modlueBody">
+			<div class="regCont">
+				<h3>个人头像设定</h3>
+				<div class="uploadHeader">
+					<div class="uploadHeaderTop">
+						<form enctype="multipart/form-data" method="post" name="upform" target="upload_target" action="<!--{$avatar_upload}-->">
+							<div id="vessel">
+								<input class="hidden" type="file" name="Filedata" id="Filedata" />
+								<input class="browse" id="relatedEInput" type="text"/>
+								<a class="uploadBtn">浏览···</a>
+							</div>
+							<input type="hidden" name="switch" value='1' />
+							<a onClick="checkFile();"class="mt5">本地上传 | </a><a class="mt5" id="usecamera" onClick="useCamera()">现拍图片</a>
+							<span style="visibility:hidden;" id="loading_gif"><img src="<!--{$smarty.const.MISC_ROOT}-->img/system/loading.gif" align="absmiddle" />上传中，请稍侯......</span>
+						</form>
+					</div>
+				</div>
+				<iframe src="about:blank" name="upload_target" class="hide"></iframe>
+				<div id="avatar_editor"></div>
+			</div>
+		</div>
+<!-- end: regBody 注册区域主体结束 -->
+	</div>
+
+</div>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/swfobject/AC_RunActiveContent.js?v=<!--{$js_css_v}-->" type="text/javascript"></script>
+
+<!--{include file="<!--{$smarty.const.TEMPLATE_PATH}-->footer.html"}-->
+</body>
+</html>

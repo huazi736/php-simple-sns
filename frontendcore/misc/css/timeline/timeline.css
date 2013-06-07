@@ -1,0 +1,114 @@
+/* copy line 97~99 */
+#timelineContent,
+#timelineContent1 { overflow:hidden;}
+#timelineContent .timelineTree,
+#timelineContent1 .timelineTree { overflow:visible; background: url(../../img/system/timeline.gif) repeat-y scroll center top transparent; list-style: none; position: relative; z-index:1;}
+#timelineContent .timelineBox,
+#timelineContent1 .timelineBox { clear:both; margin-top:21px; background-color:#FFF; border:1px solid #C4CDE0;_padding-bottom:3px; border-radius:3px; position: relative; z-index:1;}
+
+.streamComposer {padding:5px;} /* copy line 225 */
+
+/* 覆盖info.css样式，需解决 */
+#timelineContent .timelineBox .mediaContent,
+#timelineContent1 .timelineBox .mediaContent { margin: 0; padding: 0; text-align: left; }
+
+.mediaBox .mediaItemBox { margin:0; padding:0; border:0; }
+
+/* 重写的部分 */
+/* mediaBox */
+.mediaBox { position:relative; padding:5px; }
+.mediaBox .pointUp { position:absolute; top:35px; left:18px; width:11px; height:7px; background:url(../../img/system/arrow-up-composer.jpg) no-repeat; }
+
+/* mediaNav */
+.mediaNav { height:32px; padding-bottom:3px; }
+.mediaNav .mediaNavItem { float:left; padding:0 3px; border-left:1px solid #E5E5E5; }
+.mediaNav .mediaNavStatus { border-left:0; }
+.mediaNav .mediaNavItem a { position:relative; float:left; height:18px; padding:7px 7px 7px 30px; font-weight:bold; }
+.mediaNav .mediaNavItem a:hover { background:#EBEEF4; }
+.mediaNav .mediaNavItem.mediaCurrent a { color:#333; cursor:text; }
+.mediaNav .mediaNavItem.mediaCurrent a:hover { background:none; }
+/* icon */
+.mediaNav .uiIconP { left:7px; top:10px; }
+
+/* mediaWrap */
+.mediaBox .mediaWrap { border:1px solid #B4BBCD; }
+.mediaBox textarea { overflow:hidden; width:100%; height:50px; border:0 none; vertical-align:top; line-height:1.36; word-wrap:break-word; word-break:break-all; color:#999; }
+
+/* mediaItems */
+.mediaSection { display:none; }
+.mediaSection .mediaItem { display:none; }
+.mediaSection .mediaItemBox { margin:5px; *zoom:1; }
+
+/* textWrap */
+.mediaSection .mediaItem .textWrap { position:relative; overflow:hidden; padding:5px; padding-bottom:20px; border:1px solid #CCC; zoom:1; }
+.mediaSection .mediaItem .textWrap .tip { position:absolute; bottom:3px; right:5px; }
+
+/* mediaItemNav */
+.mediaBox .mediaItemNav { padding:5px; }
+.mediaBox .mediaItemNav li { display:inline; _zoom:1; }
+.mediaBox .mediaItemNav li a { float:left; width:193px; height:38px; padding:10px 0; text-align:center; color:#888; }
+.mediaBox .mediaItemNav.w3 li a { width:129px; }
+.mediaBox .mediaItemNav li a:hover { background:#EBEEF4; }
+.mediaBox .mediaItemNav li a b { display:block; padding-bottom:2px; font-size:14px; color:#3B5998; }
+
+/* mediaStatus */
+.mediaStatus .mediaItem { display:block; }
+.mediaStatus .mediaItem .textWrap { padding:0; padding-bottom:20px; border:0; }
+.mediaStatus textarea { height:35px; }
+
+/* uploadBox */
+.mediaBox .uploadBox { position:relative; }
+.mediaBox .uploadBox.success,
+.mediaBox .uploadBox .flashUpload { height:24px; padding:13px 10px; border-width:1px; border-style:solid; }
+.mediaBox .uploadBox .flashUpload { padding-left:25px; border-color:#CCC; background-color:#EFEFEF; }
+.mediaBox .uploadBox .flashUpload object { display:inline-block; vertical-align:middle; }
+.mediaBox .uploadBox .controls { position:absolute; top:13px; right:10px; }
+
+/* 未上传 */
+.mediaBox .uploadBox .controls,
+.mediaBox .uploadBox .msg { display:none; }
+
+/* 上传成功 */
+.mediaBox .uploadBox.success { border-color:#FFE222; background-color:#FFFBE2; }
+.mediaBox .uploadBox.uploading .flashUpload,/* 上传中 */
+.mediaBox .uploadBox.success .flashUpload,
+.mediaBox .uploadBox.success .fileQueue { position:absolute; top:-9999px; }
+.mediaBox .uploadBox.success .msg,
+.mediaBox .uploadBox.success .controls { display:block; }
+
+/* mediaFooter */
+.mediaBox .mediaFooter { height:22px; border-top:1px solid #E6E6E6; padding:4px 5px; background:#F2F2F2; *zoom:1; }
+.mediaFooter .uiItems { float:left; }
+
+/* timelineDate */
+.mediaBox .timelineDate { float:left; padding-right:5px; padding-left:0; }
+.mediaBox .timelineDate .fieldText { height:18px; line-height:18px; padding:1px; border:1px solid #BCC4D7; vertical-align:top; }
+.mediaBox .timelineDate .selectDate .fieldText { cursor:pointer; width:68px; padding-right:18px; background:url(../../img/plug-img/calendar/calendar_day.png) no-repeat right center; }
+
+.mediaBox .mediaButtons { float:right; }
+.mediaBox .shareRights { margin-right:5px; }
+.mediaBox .shareRights.dropWrap { border:0; box-shadow:none; background:none; }
+.mediaBox .shareRights.dropDown { background:#6079AB; }
+.mediaBox .shareRights u { margin: 4px 2px 0 0; }
+.mediaBox .dropDown .triggerBtn u.o { background-position:-17px -36px; }
+.mediaBox .sendPost { float:left; }
+
+/* media buttons */
+.mediaBox .uiMediaButton { padding:0; }
+.mediaBox .uiMediaButton input { width:52px; height:20px; padding:0; vertical-align:top; }
+.mediaBox .uiMediaButton.disable { opacity:0.5; fliter:alpha(opacity=50) }
+
+/* 分享视频 */
+.shareVideo .form-field { padding:5px; }
+.shareVideo .form-field .label { cursor:pointer; display:block; margin-bottom:5px; }
+.shareVideo .form-field .text { float:left; width:299px; height:18px; line-height:18px; margin-right:6px; padding:3px 5px; border:1px solid #CACACA; color:#9B9B9B; }
+.shareVideo .form-field .submit { cursor:pointer; float:left; width:60px; height:26px; border:1px solid #7B7B7B; line-height:26px; font-size:14px; font-weight:bold; text-align:center;
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9F9), to(#DCDCDC));
+    background:-moz-linear-gradient(100% 100% 90deg, #F9F9F9, #DCDCDC);
+    filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#F9F9F9', endColorstr='#DCDCDC');
+}
+.shareVideo .shareData { overflow:hidden; *zoom:1; }
+.shareData .media_prev { float:left; position:relative; }
+.shareData  .showFlash { position:absolute; top:50%; left:50%; margin:-17px 0 0 -17px; }
+.shareData .textArea { float:right; }
+.shareData .textArea textarea { width:230px; height:70px; }

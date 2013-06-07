@@ -1,0 +1,28 @@
+<!--{extends file='default.html'}-->
+
+<!--{block name='header_css' append}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/jscrollpane/jscrollpane.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/groupall.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='right'}-->
+<div class="contentArea">
+	<div class="group_index_c" uid="<!--{$authcode}-->">
+	</div>
+</div>
+<div class="rightCol">
+	<!--{include file="index/right.html"}-->
+</div>
+	
+
+<input type="hidden" id="group_id" value="<!--{$gid}-->" />
+<!--{/block}-->
+
+<!--{block name='footer_js' append}-->
+<script type="text/javascript">var WEB_ROOT = '<!--{$smarty.const.WEB_ROOT}-->';</script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jscroll/jquery.jscrollpane.min.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jscroll/jquery.mousewheel.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group_add_friends.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group_create_son.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/detail.js" type="text/javascript"></script>
+<!--{/block}-->

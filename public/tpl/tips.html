@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv='refresh' content='<!--{$time}-->;url=<!--{$url}-->'></meta>
+        <link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css" rel="stylesheet" type="text/css" media="screen,projection" />
+        <link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/indexReg.css" rel="stylesheet" type="text/css" media="screen,projection" />
+        <script src="<!--{$smarty.const.MISC_ROOT}-->js/init.js" type="text/javascript"></script>
+		<title>端口网络提示信息</title>
+		<style type="text/css">
+
+		</style>
+    </head>
+    <body>
+    <div class="header">
+        <div class="header_c">
+               <a href="<!--{$smarty.const.WEB_ROOT}-->" title="端口网" class="logo"><img src="<!--{$smarty.const.MISC_ROOT}-->img/system/logo_reg.gif" alt="端口网"/></a>
+        </div>
+    </div>
+    <div class="stepwrap clearfix">
+    	<!-- .main start-->
+		<div class="main clearfix">
+			<!-- .main_inner start-->
+			<div class="main_inner">
+				<div class="tile">
+					<div class="tile_cont">
+						<!--{if $type eq 1}-->
+						<div class="hintMsg">
+							<ul>
+							<!--{foreach from=$msg item=item key=key}-->
+								<li><!--{$item}--></li>
+							<!--{/foreach}-->
+							</ul>
+						</div>
+						<!--{elseif $type eq 2}-->
+						<div class="errMsg">
+							<ul>
+							<!--{foreach from=$msg item=item}-->
+								<li><!--{$item.info}--></li>
+							<!--{/foreach}-->
+							</ul>
+						</div>
+						<!--{elseif $type eq 3}-->
+						<div class="loadMsg">
+							<ul>
+							<!--{foreach from=$msg item=item}-->
+								<li><!--{$item}--></li>
+							<!--{/foreach}-->
+							</ul>
+						</div>
+						<!--{elseif $type eq 4}-->
+						<div class="norlMsg">
+							<ul>
+							<!--{foreach from=$msg item=item}-->
+								<li><!--{$item}--></li>
+							<!--{/foreach}-->
+							</ul>
+						</div>
+						<!--{/if}-->
+						<br />
+						<!--{$time}-->秒后页面自动跳转，如果没有跳转请点击：<br />
+						<a href="<!--{$url}-->">返回</a>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+	</body>
+</html>

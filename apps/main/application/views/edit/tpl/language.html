@@ -1,0 +1,75 @@
+<div id="lanInfoFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>语种：</th>
+				<td class="data">
+					<select name="name">
+						<option value="-1">请选择...</option>
+                        <option value="1">英语</option>
+                        <option value="2">日语</option>
+                        <option value="3">法语</option>
+                        <option value="4">德语</option>
+                        <option value="5">俄语</option>
+                        <option value="6">韩语</option>
+                        <option value="7">西班牙语</option>
+                        <option value="8">葡萄牙语</option>
+                        <option value="9">阿拉伯语</option>
+                        <option value="10">意大利语</option>
+                        <option value="11">其它</option>	
+					</select>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>等级：</th>
+				<td class="data"><input type="text" class="vinput short_text limL" name="grade" maxlength="10" /></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">成绩：</th>
+				<td class="data"><input type="text" class="vinput short_text limL" name="mark" maxlength="10" /></td>
+			</tr>
+		</tbody>		
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">读写：</th>
+				<td class="data">
+					<select name="read">
+						<option value="-1">请选择...</option>
+                        <option value="1">一般</option>
+                        <option value="2">良好</option>
+                        <option value="3">熟练</option>
+                        <option value="4">精通</option>
+					</select>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob">听说：</th>
+				<td class="data nob">
+					<select name="listen">
+						<option value="-1">请选择...</option>
+                        <option value="1">一般</option>
+                        <option value="2">良好</option>
+                        <option value="3">熟练</option>
+                        <option value="4">精通</option>						
+					</select>
+				</td>
+			</tr>
+		</tbody>		
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr>
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0)">取消</a></div><div class="btnBlue fr mrs"><a id="LanguageInfoAdd" href="javascript:void(0);" class="bnt_add LanguageInfoAdd" style="display: none">确定</a><a href="javascript:void(0);" class="bnt_edit LanguageInfoEdit">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

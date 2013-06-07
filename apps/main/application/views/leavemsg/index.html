@@ -1,0 +1,85 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/timeline/info.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/leavemsg/leavemsg.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix" id="followerFramework">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$userinfo['url']}-->"><img src="<!--{$userinfo['avatar']}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$userinfo['url']}-->"><!--{$userinfo['action_username']}--></a></span>
+				<span class="nameTxt"><a>留言板</a></span>
+				<!--<span class="nameTxt"><a class="selectClassBtn" id="selectClassBtn"></a></span>-->
+			</div>
+		</div>
+
+		<div class="modlueBody clearfix">
+			<div class="boardSideLeft">
+				<!--Start:发表框-->
+				<div class="distributeInfoBox">
+					<div id="distributeMsg" class="txtArea">
+						<textarea id="myStatusTextArea" class="shareInfoCont msg" msg="既然来了，就顺便留句话吧..." tmaxlength="140" isnull="0" style="overflow: hidden; word-wrap: break-word; word-break: break-all;"></textarea>
+					</div>
+					
+					<div class="footer clearfix">
+						<div id="J_face" class="face">
+							<a data-id="myStatusTextArea" title="表情" href=""><i class="face-icon face0"></i>表情</a>
+						</div>
+						<div class="shareIt">
+							<label class="uiButton uiButtonConfirm"><input type="button" id="distributeButton" value="发表" autocomplete="off"></label>
+						</div>
+					</div>
+				</div>
+				<!--End:发表框-->
+
+				<div class="boardLstPanel">
+					<div class="boardInfo clearfix"><span id="j_msgAmount"><!--43条留言--></span></div>
+					
+					<!--begin：留言列表-->
+					<ul id="j_messageLst" class="boardLst"></ul>
+					<!--end：留言列表-->
+
+					<div id="j_getMore" class="boardGetMore">
+						<img src="<!--{$smarty.const.MISC_ROOT}-->img/plug-img/djax/loading2.gif" />
+						<a href="javascript:void(0);">点击显示更多留言</a>
+					</div>
+				</div>
+			</div>
+			<div class="boardSideRight">
+				<h2 class="boardTitle"><span>最近联系的人</span><!-- <a href="#" class="more">显示全部</a> --></h2>
+				<!--begin：联系人列表-->
+				<ul class="contactLst">
+<!--{if isset($contactpeople[0]) && is_array($contactpeople)}-->
+ <!--{foreach from=$contactpeople item=one}-->
+					<li>
+						<div class="contactAvatar"><a href="<!--{$one.url}-->"><img src="<!--{$one['headpic']}-->" height="50" wodth="50" alt="<!--{$one['username']}-->" /></a></div>
+						<div class="contactInfo"><strong><a href="<!--{$one.url}-->"><!--{$one['username']}--></a></strong><br /><span><!--{if $one['friends']}--><!--{$one['friends']}-->个共同好友<!--{else}-->没有共同好友<!--{/if}--></span></div>
+					</li>
+<!--{/foreach}-->
+<!--{else}-->
+					<li>
+					暂时没有最近联系人
+                    </li>
+<!--{/if}-->
+				</ul>
+				<!--end：联系人列表-->
+			</div>
+		</div>
+    </div>
+</div>
+<input type="hidden" id="action_uid" value="<!--{$userinfo['action_uid']}-->" />
+<input type="hidden" id="action_username" value="<!--{$userinfo['action_username']}-->" />
+<input type="hidden" id="uid" value="<!--{$userinfo['uid']}-->" />
+<input type="hidden" id="username" value="<!--{$userinfo['username']}-->" />
+<input type="hidden" id="avatar" value="<!--{$userinfo['uavatar']}-->" />
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-textarea-msgtip/jQuery-textarea-msgtip.js?v=" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/face.js?v=" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/leavemsg/juicer-min.js?v=" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/leavemsg/leavemsg.js?v=" type="text/javascript"></script>
+<!--{/block}-->
+</body>
+</html>

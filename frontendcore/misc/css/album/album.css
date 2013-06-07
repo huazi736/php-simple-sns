@@ -1,0 +1,216 @@
+/*
+ * @ name: album.css
+ * @ author: lishijun
+ * @ desc:  相册css
+ *
+ */
+ 
+@charset "utf-8";
+
+/*reSet contentCol PADDING */
+#contentCol { padding-left:0px; padding-right:0px; width:714px; }
+.contentTit { margin-top:20px; }
+ /*无相册/相片时样式*/
+#contentCol { background-color:#fff; border:1px #ccc solid; margin-top:10px; padding:0 41px 20px 41px; width:767px; }
+.noAlbum { background-color:#fff; border:1px #ccc solid; margin-top:20px; padding:100px 0; width:851px; }
+.noAlbum .noPic { border-top:1px #D7E0E9 solid; border-bottom:1px #D7E0E9 solid; background-color:#EEEFF4; font-size:14px; text-align:center; width:100%; height:35px; line-height:35px; }
+.noPicList { padding-top:0; padding-bottom:120px; }
+.noPicList .contentTit .uiHeader { padding-left:41px; padding-bottom:90px; }
+
+/*按钮*/
+.uiHeader h2 { padding-bottom:10px; font-size:16px; }
+.uiHeader ul.permissionTab{font-size:14px; border-bottom:1px solid #ccc; margin:15px 0;}
+.uiHeader ul.permissionTab li{float:left; margin-right:10px; padding:0px 15px; cursor:pointer; height:30px; line-height:30px;}
+.uiHeader ul.permissionTab li.selected{position:relative; top:1px; border:1px solid #ccc; border-bottom:none; background-color:#fff; font-weight:bold;}
+.uiHeader ul.permissionTab li.unbind{font-weight:bold; font-size:16px; padding:0;}
+.pgray p { color:gray; }
+.pgray p.editSaveTip { padding:10px 0; font-size:14px; font-weight:bold; color:red; }
+.modlueHeader .userActions { width:95px; _width:93px; padding-left:0; }
+.modlueHeader .btnGray { float:right; margin-left:5px; margin-left:2px\9; _display:inline; }
+.modlueHeader .btnGray_moreIcon { margin-top:3px; height:22px; _height:21px; width:35px; overflow:hidden; }
+.modlueHeader .btnGray_moreIcon a { float:left; margin:0px; padding:0px; _height:23px; }
+.modlueHeader .btnGray a.listIcon_01 { margin-left:-5px; height:22px; }
+.modlueHeader .btnGray a.listIcon_02 { margin-right:-5px; height:22px; }
+.modlueHeader .btnGray a.listIcon_01 span, .modlueHeader .btnGray a.listIcon_02 span { display:block; width:8px; height:8px; background:url(../../img/system/ui4.png) no-repeat -8px -102px; margin:7px 7px; }
+.modlueHeader .btnGray a.listIcon_02 span { background:url(../../img/system/ui4.png) no-repeat -8px -117px; }
+.modlueHeader .btnGray .selected_01 { border-right:1px solid #999; background:#DDD; }
+.modlueHeader .btnGray .selected_02 { border-left:1px solid #999; background:#DDD; }
+/*相册标题*/
+
+.album .album_title { height:30px; line-height:30px; padding:0px 8px; border-top:1px solid #e2e2e2; margin-top:5px; background:#f2f2f2; }
+.album .album_title h3 { display:block; font-weight:bold; padding:0px; margin:0px; line-height:30px; float:left; }
+.album .album_title span { display:block; padding:0px; margin:0px; line-height:30px; float:right; color:#808080; }
+.album .album_title span a { margin-left:0px; }
+
+#waiting{height:180px; line-height:180px; text-align:center;}
+
+/*相册列表*/
+.album .album_list { padding-top:10px; }
+.album .album_list ul { display:block; padding:0px; margin:0px; list-style:none; float:left; width:770px; height:auto; }
+.album .album_list ul.noData {height:180px; line-height:180px; text-align:center;}
+.album .album_list ul li { display:inline; width:182px; height:165px; float:left; margin-right:10px; margin-bottom:15px; }
+.album .album_list ul li a.photoLink { display:block; background:url(../../img/system/icon_albumListBG_182.gif) no-repeat; text-align:center; padding:10px; height:106px; width:162px; overflow:hidden; position:relative;}
+.album .album_list ul li a.photoLink:hover { background-position:0 -126px; }
+.album .album_list ul li a.photoLink span { display:table-cell; *display:block; vertical-align:middle; text-align:center; *font-size:93px; height:106px; width:162px; }
+.album .album_list ul li a.photoLink span img { vertical-align:middle; }
+.album .album_list ul li a.photoLink i { display:none; position:absolute; width:18px; height:18px; overflow:hidden; top:9px; left:9px; background:url(../../img/system/icon_mover.gif) no-repeat; z-index:101; }
+.album .album_list ul li a { font-weight:bold; }
+.album .album_list ul li .album_name a { display:block; height:15px; line-height:15px; overflow:hidden; width:158px; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis; }
+.album .album_list ul li a:hover { text-decoration:underline; }
+.album .album_list ul li span { color:#808080; line-height:22px; }
+
+/*@start: 新权限插件样式*/
+.album .album_list .dropMenu { float:right; z-index:119; }
+.album .album_list .dropMenu .dropList { top:20px !important; }
+.album .album_list .dropMenu .dropList ul { float:none; width:auto; }
+.album .album_list .dropMenu .dropList ul li { width:auto; height:auto; float:none; margin-right:0; margin-bottom:0; }
+.album .album_list .dropMenu .dropList ul li a { font-weight:normal; color:#333; }
+.album .album_list .dropMenu .dropList ul li span { color:#333; line-height:auto;}
+.album .album_list .dropMenu .dropList ul li a.itemAnchor:hover span { color:#fff; }
+.album .album_list .dropMenu .triggerBtn { height:16px; width:16px; overflow:hidden; padding-left:4px; _padding-left:3px; padding-right:0; padding-bottom:4px; }
+.album .album_list .dropDown .triggerBtn span { color:#fff; }
+/*@End: 新权限插件样式*/
+
+.editAlbum_btn, .editphoto_btn, #manageMore, #deleteAlbum_btn { background:url(../../img/system/ui4.png) no-repeat left -126px; background-position:left -128px\9; height:16px; margin-left:3px; padding-left:15px; }
+#deleteAlbum_btn { background:url(../../img/system/IconClose.gif) no-repeat left 5px; background-position:left 3px\9; *background-position:left 1px\9; _background-position:left 3px\9; }
+
+/*Start: 添加说明样式*/
+.pic_name { width:437px; }
+.pic_name p, .pic_name .staticDis { width:437px; }
+.pic_name p span { float:left; display:block; width:421px; cursor:pointer; word-wrap:break-word; }
+.pic_name p span textarea{ width:437px; height:40px; overflow-x:hidden; overflow-y:auto; border:1px #bdc7d8 solid; color:#777; resize:none; }
+.pic_name p em { float:left; display:block; background:url("../../img/system/ui4.png") no-repeat left -126px; cursor:pointer; width:16px; height:16px; }
+.pic_name .optBtn{ padding-top:5px; width:439px; }
+.pic_name .optBtn span{ float:right; margin-left:5px; width:30px; }
+/*End: 添加说明样式*/
+
+/*批量管理图片*/
+.editAlbum_btn, .editphoto_btn, #manageMore { background:url(../../img/system/ui4.png) no-repeat left -126px; background-position:left -128px\9; height:16px; margin-left:3px; padding-left:15px; }
+#manageMore, #deleteAlbum_btn { margin-left:10px; }
+#managing { display:none; margin:10px 0; }
+#managing span { display:inline-block; float:left; margin-right:10px; }
+#managing span i { display:inline-block; float:left; font-style:normal; }
+#managing span i.input { margin:4px 2px 0 0; margin:2px 3px 0 0\9; +margin:-2px 0 0 0; _margin-top:0; }
+#movePhoto{position:relative; z-index:101;}
+#movePhoto a.downIcon{display:block; position:absolute; top:0; left:0; z-index:100; background:url(../../img/system/listdoen.gif) no-repeat 50px 50%; height:18px; width:50px; background-color:#fff; border:1px #fff solid; border-bottom:none; padding:0 10px;}
+#movePhoto .albumUl{display:none; position:absolute; left:0; top:18px; width:135px; z-index:90; background-color:#fff; border:1px #ccc solid; max-height:280px; padding:5px 0; overflow-x:hidden; overflow-y:auto;}
+#movePhoto .albumUl ul li a{display:block; height:20px; line-height:20px; width:115px; overflow:hidden; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis; padding:0 10px;}
+#movePhoto .albumUl ul li a:hover{background-color:#3B5998; color:#fff;}
+
+/*图片列表*/
+.album .album_picList { padding-top:8px; margin-bottom:10px; }
+.album .album_picList ul { padding:0px; margin:0px; width:790px; _width:767px; padding:15px 0; }
+.album .album_picList ul li { position:relative; float:left; display:inline;  margin:0 20px 8px 0; _margin-right:15px; height:164px; width:176px; }
+.album .album_picList ul li .toCheck { padding:5px 0; height:15px; }
+.album .album_picList ul li .toCheck span { display:block; float:left; }
+.album .album_picList ul li .toCheck span.checkBar { display:none; margin-top:4px; margin-top:2px\9; +margin-top:-2px; _margin-top:0; }
+.album .album_picList ul li .toCheck span.picName { width:160px; *width:145px; height:17px; margin-left:2px; display:inline; text-align:center; overflow:hidden; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis; }
+.album .album_picList ul li a.photoLink { background:#FFF; display:table-cell; *display:block; *font-size:108px; vertical-align:middle; text-align:center; width:170px; height:130px; padding:2px; border:1px solid #CCC; overflow:hidden; }
+.album .album_picList ul li a.photoLink img { vertical-align:middle; }
+.album .album_picList ul li a.photoLink i { display:block; position:absolute; width:18px; height:18px; overflow:hidden; top:2px; _top:3px; left:2px; background:url(../../img/system/icon_mover.gif) no-repeat; z-index:89; }
+.album .album_picList ul li a.photoLink:hover { border-color:#3b5998; }
+
+/*图片排序*/
+.album .album_move { }
+.album .albumPic_move { +padding-bottom:8px; _padding-bottom:0; }
+.album .album_move a.photoLink { cursor:move; }
+.album .albumPic_move a.photoLink { cursor:move; }
+/*图文列表*/
+.album .album_graphicList { padding-top:8px; }
+.album .album_graphicList .album_graphicList_list { padding:10px 0px; margin-bottom:20px; border-bottom:1px solid #e9e9e9; }
+.album .album_graphicList .album_graphicList_list .album_graphicList_img { float:left; }
+.album .album_graphicList .album_graphicList_list .album_graphicList_img a { display:table-cell; vertical-align:middle; text-align:center; *display:block; *font-size:111px; border:1px solid #CCC; height:136px; height:134px\9; width:174px; }
+.album .album_graphicList .album_graphicList_list .album_graphicList_img a:hover { border-color:#3b5998; }
+.album .album_graphicList .album_graphicList_list .album_graphicList_text { width:408px; float:right; }
+.album .album_graphicList .album_graphicList_list .album_graphicList_text .comment_easy { width:408px; margin-top:0px; margin-bottom:0px; }
+.album .album_graphicList .album_graphicList_list .album_graphicList_text .comment_easy ul.comment_content li.comment_form input { width:385px; }
+.album .album_graphicList .album_graphicList_list .album_graphicList_text .comment_easy ul.comment_content li.comment_form input.focus { width:345px; }
+.album .album_graphicList .album_graphicList_getMore a {display:block; padding:5px; background:#f1f1f1; border:1px solid #b4bbcd; text-align:center; font-size:14px; }
+.album .album_graphicList .album_graphicList_getMore a:hover {background:#b4bbcd; font-size:14px; }
+
+/*新建相册*/
+#addNew_album { display:none; }
+input,select{overflow-x:hidden !important;}
+
+/*编辑相册*/
+#edit_album { display:none; }
+#edit_album_table { padding:10px; }
+#edit_album_table td { padding:5px; border:none; }
+#edit_album_table th { width:120px; color:#666; font-weight:bold; text-align:right; padding:5px; vertical-align:top; }
+#edit_album_table td input { width:349px; padding:0px 5px; height:22px; line-height:22px; border:1px solid #bdc7d8; font-size:12px; }
+#edit_album_table td textarea { width:349px; padding:5px; border:1px solid #bdc7d8; overflow:auto; height:40px; font-size:12px; }
+#edit_album_table tr.tc_red { display:none; }
+
+/*权限设置*/
+.album_mineBox { margin-top:5px;}
+.album_mine .album_name{ float:left; width:158px; overflow:hidden; }
+.album_list .uiComboxHeaderGray{ margin-top:5px; _zoom:1; }
+.album .album_authority{ float:right; }
+.album_num{ color:#808080; }
+.album .album_authority ul li{ width:auto; height:auto; margin-left:auto; margin-right:auto; margin-bottom:auto; float:none; }
+.album .album_list .uiComboxHeaderGray a.uiButton:hover{ text-decoration:none; }
+.album .album_list ul li .uiComboxMenu a:hover { text-decoration:none; }
+.album .album_list ul li.album_mine a:hover{ text-decoration:none; }
+.album_newPower{ width:100px; }
+.album_newPower .uiComboxSelector,.album_authority .uiComboxSelector,.album_authority .uiComboxSelector span{ width:15px; overflow:hidden; font-size:0px; overflow:hidden; height:22px; }
+.album_newPower .popCont .uiComboxSelector,.popCont  .uiComboxSelector{ overflow:hidden; font-size:12px; }
+.album_mine .uiComboxHeaderGray .uiButton{ background-color:#fff; border:0 none; }
+
+.album .comment_easy { width:437px; }
+
+.uiButton .uiButtonText { font-size:12px; }
+
+.popBtnsWrap a#deleteAlbum_btn { margin-right:290px; }
+
+a.nextPage .getMore { padding:15px 0; margin:10px 0 30px 0; background-color:#E7EBF2; font-size:14px; text-align:center; height:10px; line-height:10px; }
+.loading{background:url(../../img/system/load_darkBlue.gif) no-repeat 50% 10px; padding:15px 0; height:10px; width:100%;}
+
+#popUp .itemsArea{ position:relative; padding:5px 0; height:470px; width:780px; overflow-x:hidden; overflow-y:auto; }
+#popUp .itemsArea .item{ position:relative; float:left; display:inline; margin:8px 0 0 10px; height:184px; width:180px; overflow:hidden; /*background:#ccc url(../../img/plug-img/djax/loading.gif) no-repeat 50% 50%;*/ }
+#popUp .itemsArea .uncomplete{ border:1px #ccc solid; height:182px; width:178px; overflow:hidden; }
+#popUp .itemsArea .uncomplete p{ text-align:center; margin-top:5px; }
+#popUp .itemsArea .item .img{ display:table-cell; *display:block; *font-size:115px; text-align:center; vertical-align:middle; border:1px #ccc solid; height:140px; width:178px; }
+#popUp .itemsArea .item .img .imgMask{ display:none; position:absolute; left:0; top:0; height:141px; width:180px; background-color:#000; opacity: 0.5; -moz-opacity: 0.5; filter:alpha(opacity=50); }
+#popUp .itemsArea .item .img .imgMask em{ display:block; position:absolute; left:5px; top:5px; font-style:normal; font-size:12px; color:#fff; cursor:pointer; padding-left:13px; height:20px; padding-top:2px\9; height:18px\9; width:55px; background:url(../../img/system/optIcons.png) no-repeat left 4px; }
+#popUp .itemsArea .item .img .imgMask i{ display:block; position:absolute; right:5px; top:5px; font-style:normal; font-size:12px; color:#fff; cursor:pointer; padding-left:15px; height:20px; padding-top:2px\9; height:18px\9; width:25px; background:url(../../img/system/closeIcon.png) no-repeat left 5px; }
+#popUp .itemsArea .item .desc {height:40px; width:180px; margin-top:1px;}
+#popUp .itemsArea .item .desc textarea{ border:1px #ccc solid; height:38px; width:178px; color:#999; overflow-y:auto; }
+#popUp .itemsArea .errorTip{ position:relative; background-image:none; background-color:#ccc !important; line-height:184px; text-align:center; }
+#popUp .itemsArea .errorTip .imgMask{ display:none; position:absolute; left:0; top:0; height:184px; width:180px; background-color:#000; opacity: 0.5; -moz-opacity: 0.5; filter:alpha(opacity=50); }
+#popUp .itemsArea .errorTip .imgMask i{ position:absolute; right:5px; top:8px; font-style:normal; color:#fff; cursor:pointer; line-height:10px; padding-left:15px; height:15px; padding-top:2px\9; height:13px\9; width:25px; background:url(../../img/system/closeIcon.png) no-repeat left 1px; }
+#popUp .disItem{ position:absolute; left:40%; top:35%; }
+.uploadBtnArea{position:absolute; width:241px; height:65px; top:150px; left:250px; z-index:999;}
+#popUp .uploadTip{ font-family:Microsoft YaHei; font-size:16px; color:#666; text-align:center; height:220px; line-height:25px; padding:220px 0 0 260px; }
+#popUp .uploadTip p{text-align:left;}
+#popUp a.closePop{ display:block; position:absolute; right:8px; top:8px; height:11px; width:11px; background:url(../../img/system/uploadCloseBtn.gif) no-repeat left top; }
+#popUp a.closePop:hover{background-position:right top;}
+#popUp .cAlbum{ float:left; margin:0 20px 0 30px; cursor:pointer; }
+.popBtnsWrap object { float:right; border:1px solid #999; }
+.popBtnsWrap .popBtns_float { float:right; margin-left:5px; _display:inline; }
+
+/*选择相册*/
+#popUp .popBtnsWrap .chooseAlbum{margin-right:25px;}
+#popUp .popBtnsWrap .chooseAlbum i.listDownIcon { width:21px; height:24px; position:absolute; top:0; *top:1px; right:-21px; background:url(../../img/system/icon_selectRight.gif); cursor:pointer; }
+#popUp .popBtnsWrap .chooseAlbum input{ color: #333333; width:155px; border:1px solid #BDC7D8; height:22px; line-height:22px; padding:0 5px; }
+#popUp .popBtnsWrap .chooseAlbum .createAndSelectAlbum{ display:none; padding:5px 0; border:1px solid #bdc7d8; position:absolute; top:25px; right:-21px; z-index:2000; background:#f1f1f1; }
+#popUp .popBtnsWrap .chooseAlbum ul { width:186px; height:218px; _line-height:1px; overflow-y:auto; overflow-x:hidden; }
+#popUp .popBtnsWrap .chooseAlbum ul li { cursor:pointer; line-height:22px; padding:0 10px; padding-right:10px; color:#333; height:22px; overflow:hidden; text-align:left; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis; }
+#popUp .popBtnsWrap .chooseAlbum ul li.liHover { background:#6d84b4; text-decoration:none; color:#FFF; }
+#popUp .popBtnsWrap .chooseAlbum .createAlbum{display:none; padding-left:5px; padding-bottom:5px; border-bottom:1px #000 solid; width:181px; }
+#popUp .popBtnsWrap .chooseAlbum .createAlbum span{display:block; float:left;}
+#popUp .popBtnsWrap .chooseAlbum .createAlbum .create_txt{width:116px; height:22px;}
+#popUp .popBtnsWrap .chooseAlbum .createAlbum .createBtn{margin-left:5px; width:30px;}
+#popUp .popBtnsWrap .chooseAlbum .createAlbum .createBtn a{font-size:12px;}
+#popUp .popBtnsWrap .dropMenu { margin-top:1px; }
+/*#popUp .popBtnsWrap .dropMenu .triggerBtn { height:16px; width:16px; overflow:hidden; padding-left:4px; padding-right:0; padding-bottom:4px; }
+#popUp .popBtnsWrap .dropWrap .dropList { top:21px !important; }*/
+/*Start: 进度提示片段*/
+.tipArea{ display:none; padding:10px 10px 0 10px; }
+.progressTip { width:750px; height:15px; border:1px #ccc solid; }
+.progressTip .progressBar { width:0px; height:15px; background-color:#3B5999; }
+.tipArea .countTip{ width:750px; }
+.tipArea .countTip em{ font-style:normal; }
+/*End: 进度提示片段*/
+/*Start: 单张进度提示*/
+.uncomplete .progressTip { width:150px; margin:80px 0 0 15px; }
+/*End: 单张进度提示*/

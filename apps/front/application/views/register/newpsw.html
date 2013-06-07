@@ -1,0 +1,66 @@
+<!--{extends file='nologin_base_layout.html'}-->
+<!--{block name='title' prepend}-->
+找回密码-
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<!-- start: headerWrap 头部开始 -->
+<div class="headerWrap">
+	<div class="regHeader">
+		<h1><a href="<!--{$smarty.const.WEB_ROOT}-->" title="Duankou">Duankou</a></h1>
+	</div>
+</div>
+<!-- end: headerWrap 头部结束 -->
+<div class="body clearfix">
+<!-- start:主体内容 -->
+	<div class="mainArea">
+		<!--start: 设置新密码头部-->
+
+		<!--end: 设置新密码头部-->
+		<!--start: 设置新密码主体-->
+		<div class="modlueBody">
+           	<div class="stepwrap clearfix">
+               	<div class="forgetPw">
+					<div class="forgetPwTitle clearfix">
+						<h3>修改密码</h3>
+						<a href="<!--{$smarty.const.WEB_ROOT}-->">返回注册页面</a>
+					</div>
+	                <div class="tip"></div>
+					<!-- start：找回密码 -->
+					<form name="findpwd" id="findpwd" method="post" action="<!--{$action}-->">
+						<ul class="newpsw">
+							<li class="clearfix">
+								<label>新密码：</label>
+								<input type="password" id="password" name="" maxlength="20" onpaste="return false" class="psw inputTxt"/>
+								<span class="error" id="errorNewp"></span>
+								<input type="hidden" id="MD5password" name="password" />
+								<input type="hidden" name="email" value="<!--{$email}-->">
+							</li>
+							<li class="clearfix">
+								<label>确认密码：</label>
+								<input type="password" id="repassword" name="" maxlength="20" onpaste="return false" class="psw inputTxt"/>
+								<span class="error" id="errorOldp"></span>
+								<input type="hidden" id="MD5repassword" name="repassword" />
+							</li>
+						</ul>
+					</form>
+					<!-- end：找回密码 -->
+					<div class="backAction  pl">
+					    <a class="saveBtn" id="subnewpswbtn">确认修改</a>
+					</div>
+				</div>
+           	</div>
+
+        </div>
+        <!--end: 设置新密码主体-->
+    </div>
+<!-- end:主体内容 -->
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/md5/md5.js?v=<!--{$smarty.const.JS_VER}-->"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/reg/findPsw.js?v=<!--{$smarty.const.JS_VER}-->"></script>
+<!--{/block}-->

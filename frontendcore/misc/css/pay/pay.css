@@ -1,0 +1,171 @@
+/*********************************************************
+文件信息
+1. 作者: 姚智译
+2. 时间: 20120217-11
+3. 规范: 
+3.1 尽量少用 margin, 统一用 margin-top
+3.2 按照共享和非共享部分编写css代码。提取共性，同时限制特殊代码的作用域
+3.3 样式类名中下划线体现html层次关系; 减号连接词组
+3.4 尽量用 class; 避免使用标签名,否则 css 与 html 容易耦合，不利 html 代码修改
+4. 备注:
+4.1 当前框架使无法对 <body> 添加类,而弹出框会插入到 <body> 中,所以无法做到在同一个 css 文件中写出只针对一个页面的样式
+4.2 不过因为这种需求不强烈, 可以变通解决
+**********************************************************/
+
+/* 一. 跨页面共享 */
+
+/* 1. pay.html payto.*.html 页面共享*/
+
+/* 1.1 各种logo */
+.logo-bank{width:120px;height:28px;display:inline-block;background:url(../../img/pay/pay.gif) no-repeat;}
+.logo-bank{border:1px solid #999999;}
+.logo-cur{border:1px solid red;}
+
+.logo-ICBCB2C{background-position:0px 0px;}
+.logo-CMB{background-position:-120px 0px;}
+.logo-CCB{background-position:-240px 0px;}
+.logo-BOCB2C{background-position:-360px 0px;}
+.logo-ABC{background-position:0px -28px;}
+.logo-COMM{background-position:-120px -28px;}
+.logo-PSBC-DEBIT{background-position:-240px -28px;}
+.logo-CEBBANK{background-position:-360px -28px;}
+.logo-SPDB{background-position:0px -56px;}
+.logo-GDB{background-position:-120px -56px;}
+.logo-CITIC{background-position:-240px -56px;}
+.logo-CIB{background-position:-360px -56px;}
+.logo-SDB{background-position:0px -84px;}
+.logo-CMBC{background-position:-120px -84px;}
+.logo-BJBANK{background-position:-240px -84px;}
+.logo-HZCBB2C{background-position:-360px -84px;}
+.logo-SHBANK{background-position:0px -112px;}
+.logo-BJRCB{background-position:-120px -112px;}
+.logo-SPABANK{background-position:-240px -112px;}
+.logo-FDB{background-position:-360px -112px;}
+.logo-WZCBB2C-DEBIT{background-position:0px -140px;}
+.logo-NBBANK{background-position:-120px -140px;}
+.logo-ICBCBTB{background-position:-240px -140px;}
+.logo-CCBBTB{background-position:-360px -140px;}
+.logo-SPDBB2B{background-position:0px -168px;}
+.logo-ABCBTB{background-position:-120px -168px;}
+.logo-TENPAY{background-position:-240px -168px;}
+.logo-ALIPAY{background-position:-360px -168px;}
+
+/* 1.2 logo 和 radio 的垂直对齐 */
+.radio-logo{position:relative;width:140px;height:30px;padding:0 12px 0 0;}
+.radio-logo .radio-wrap{position:absolute;width:18px;height:18px;line-height:16px;left:0;top:6px;overflow:hidden;}
+.radio-logo .logo-bank{position:absolute;left:18px;top:0;}
+
+/* html结构
+	<radio-logo>
+		<radio-wrap><input radio /></radio-wrap>
+		<span logo-bank></span>
+	</radio-logo>
+*/
+
+/* hack IE8 hack 必须早于 IE7*/
+.radio-logo .radio-wrap{/*FF*/top:9px;/*IE8*/top:7px\9;/*IE7*/*+top:3px;/*IE6*/_top:4px;}
+/* 1.3 表单 item 的间隔; 表单 内容的居中; */
+.form_item{padding-top:16px;clear:both;height:18px;line-height:18px;}
+
+.form_item .label,
+.form_item .content{display:inline-block;height:18px;line-height:18px;}
+.form_item .label,
+.form_item .content{float:left;}
+
+/* 1.4 question & answer*/
+.qa-header{background-color:#F2F2F2;font-size:12px;padding:3px 0;color:#333333;margin-top:35px;}
+.qa-item{font-size:11px;margin-top:22px;}
+.qa-item .idx{display:inline-block;width:15px;}
+.qa-item .a{padding-left:15px;}
+
+
+/* 1.5 按钮*/
+.form_item-action,
+.form_item-action .label,
+.form_item-action .content{height:26px;line-height:26px;}
+.form_item-action .content .button,
+.PAY_left-banks-buttons .button,
+.PAY_left-banks-buttons .button:hover{padding:0px 8px;display:inline-block;cursor:pointer;color:white;font-weight:bold;background-color:#5D74A8;border:1px solid #1F2F61;height:24px; line-height:24px;}
+
+/* 1.6 用户名粗体 */
+.uname{font-weight:bold;}
+
+/* 1.7 数字输入框 */
+.form_item-fee,
+.form_item-fee .label,
+.form_item-fee .content{height:26px;line-height:26px;}
+.form_item-fee .content .fee{font-size:12px;height:24px;line-height:24px;border:1px solid #999999;outline:none;width:120px;}
+
+/* 二. 页面独立样式*/
+
+/* 1. pay.html */
+/* 1.1 pay.html */
+.PAY_panels,
+.PAY_ways{font-size:12px;color:#333333;}
+.PAY_panels{border-top:2px solid #E7EBF2;}
+.PAY_panels .panel{display:none;}
+.PAY_panels .panel-cur{display:block;}
+.PAY_ways{clear:both;}
+.PAY_ways a:hover{cursor:pointer;}
+.PAY_ways .tip,
+.PAY_ways .way{display:inline-block;padding:6px 12px;line-height:12px;}
+.PAY_ways .tip{padding-left:0;}
+.PAY_ways .cur{position:relative;z-index:2;background-color:#FFFFFF;border-radius:3px 3px 0px 0px; border:1px solid #E7EBF2;margin-bottom:-6px;border-bottom:2px solid #FFFFFF;}
+
+/* 1.2 表单 */
+.PAY .label{width:84px;text-align:right;}
+.PAY .panel-alipay .label,
+.PAY .panel-tenpay .label{width:60px; text-align:left;}
+.PAY .list-item{float:left;}
+.PAY .label-which-bank,
+.PAY .link-to-other-banks,
+.PAY .banks-form_item-which-bank{height:30px;line-height:30px;}
+/*实现银行 logo 与 充值金额的输入左对齐*/
+.PAY .content{padding-left:18px;}
+.PAY .content-which-bank{padding-left:0;}
+
+/* 1.3 弹出框 */
+.PAY_left-banks-content{padding:20px 23px 55px 23px;}
+.PAY_left-banks-content .pop-item{clear:both;}
+.PAY_left-banks-content .bank{float:left;margin-top:8px;}
+/*标签宽度*/
+.PAY_left-banks-content .label-cur-bank,
+.PAY_left-banks-content .label-left-bank{width:60px;}
+/*当前银行 logo 定位*/
+.PAY_left-banks-content .item-cur-bank{height:30px;width:400px;padding:0 0 10px 0;}
+.PAY_left-banks-content .item-left-banks{padding:18px 0 3px 0;border-top:1px dashed #999999;}
+.PAY_left-banks-content .label-cur-bank{display:inline-block;height:30px;line-height:30px;float:left;}
+.PAY_left-banks-buttons .button{margin-right:13px;}
+
+/* 2. payto.*.html */
+/* 2.1 表单 */
+.PAYTO .label{width:60px;text-align:left;}
+.PAYTO .content{padding-left:8px;}
+.PAYTO .label-way{height:30px; line-height:30px;}
+.PAYTO .form_item-way,
+.PAYTO .form_item-way .label,
+.PAYTO .form_item-way .content{display:inline-block;height:30px;line-height:30px;}
+
+/* 3. result.html */
+/* 3.1 */
+.SUCCESS .inform{text-align:center;margin-top:100px;}
+.SUCCESS .msg{color:#333333;font-size:12px;height:19px;line-height:19px;font-weight:bold;}
+.SUCCESS .fee{display:inline-block;padding:0 4px;color:#DD513D;}
+.SUCCESS .links{margin-top:10px;}
+.SUCCESS .pict{display:inline-block;width:19px;height:19px;background:url(../../img/pay/pay.gif) no-repeat 0 -205px;margin-top:0px;margin-bottom:-6px;margin-right:10px;}
+.SUCCESS .links a{display:inline-block;height:12px;line-height:18px;padding:4px 4px;font-size:10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

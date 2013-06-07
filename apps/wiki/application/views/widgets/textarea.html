@@ -1,0 +1,26 @@
+<!--{if $action eq 'edit'}-->
+<p>
+<span class="plugin_label"><!--{$label}-->:</span>&nbsp;
+<textarea cols="40" rows="6"  id="<!--{$_id}-->"  ><!--{$value}--></textarea>
+</p>
+<!--{elseif $action eq 'edit_js'}-->
+<script language="javascript" type="text/javascript">
+//提交验证
+function validate_<!--{$_id}-->(){
+	return true;
+}
+//提交之前收集数据
+function ajax_submit_data_<!--{$_id}-->(){
+	plugin_info['<!--{$_id}-->'] = $("#<!--{$_id}-->").val();
+}
+</script>
+<!--{elseif $action eq 'normal'}-->
+<p>
+<span class="plugin_label"><!--{$label}-->:</span>&nbsp;
+<!--{if $value}-->
+<span><!--{$value}--></span>
+<!--{else}-->
+未填写
+<!--{/if}-->
+</p>
+<!--{/if}-->

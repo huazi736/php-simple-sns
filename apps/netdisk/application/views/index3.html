@@ -1,0 +1,53 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name='title' prepend}-->
+我的网盘 -
+<!--{/block}-->
+<!--{block name=header_css}-->
+<!--网盘 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/netdisk/netdisk.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name=body}-->
+<div class="body clearfix" id="netdisk">
+
+	<div class="mainArea">
+		<!--{include file="netdisk_header.html"}-->
+		<div class="modlueBody">
+			<div class="columnsWrap clearfix">
+				<div id="contentArea">
+					<!--{include file="netdisk_nav.html"}-->
+					<div class="contentCol">
+						<div class="panl"><div class="checkAll"><label id="select"><input type="checkbox" /><span>全选</span></label></div><div class="buttonBox"><span class="uiButton" id="showInDate">显示在时间线上</span><span class="uiButton">取消显示</span></div></div>
+						<div class="clist" id="videoCon">
+							<ul id="diskVideo">
+								<li ischeck='false' uId="" src=""><img src="" /><span class='look'>预览</span><span class='check_pic'>选取</span><div class='check'></div>
+                                </li>
+                                <li ischeck='false' uId="" src=""><img src="" /><span class='look'>预览</span><span class='check_pic'>选取</span><div class='check'></div>
+                                </li>
+                                <li ischeck='false' uId="" src=""><img src="" /><span class='look'>预览</span><span class='check_pic'>选取</span><div class='check'></div>
+                                </li>
+							</ul>
+                            <form action="<!--{mk_url('netdisk/index/do_post')}-->" method="post" id="dataForm">
+								<input type="hidden" name="data" id="data" />
+							</form>
+						</div>
+						<!--more-->
+						<div class="loadmore" type="1">
+							<a id="moreBlog"  pager="2">点击查看更多</a>
+							<span class="hide"></span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<!--{/block}-->
+
+<!--{block name=footer_js}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/netdisk/diskVideo.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

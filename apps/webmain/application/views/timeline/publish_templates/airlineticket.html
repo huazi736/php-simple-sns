@@ -1,0 +1,57 @@
+<div class="tripBox airlineticket">
+  <form action="">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="100"  valign="top" style="padding-top:6px;">请选择往返城市：</td>
+        <td><div class="form_border" >
+            <p class="mrg0">
+              <input name="setout_city" type="text" class="input_txt require" value="出发城市">
+            </p>
+          </div></td>
+        <td style="text-align:center">-</td>
+        <td><div class="form_border">
+            <p class="mrg0">
+              <input name="arrive_city" type="text" class="input_txt require" value="到达城市">
+            </p>
+          </div></td>
+      </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="100"  valign="top" style="padding-top:6px;">请选择出发时间：</td>
+        <td><div class="form_border" >
+            <p class="mrg0">
+            <input type="text" id="out_date" class="setoutDate" name="txt_selectDate" value="<!--{date('Y-n-j')}-->" now="<!--{date('Y-n-j')}-->"/>
+            </p>
+          </div></td>
+      </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td style="padding-right:5px; width: 60%"><div class="form_border">
+            <label id="price"></label>
+            <p>
+              <input name="ticket_price" type="text" class="input_txt require isfloat" value="请输入机票价格">
+              <em>RMB</em></p>
+          </div></td>
+        <td style="padding-right:5px;"><div class="form_border">
+            <label id="price"></label>
+            <p>
+              <input name="discount" type="text" class="input_txt require isfloat" value="请输入折扣">
+              <em>折</em>
+            </p>
+          </div></td>
+        <td><select name="ticket_sort" style="width: 100%;">
+            <option value="0">单程</option>
+            <option value="1">往返</option>
+          </select></td>
+      </tr>
+    </table>
+    <div class="form_border">
+      <label id="link"></label>
+      <p>
+        <input name="ticket_link" type="text" class="input_txt require url" value="http://">
+      </p>
+    </div>
+  </form>
+</div>

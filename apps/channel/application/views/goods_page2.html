@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html>
+<head>
+	<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wgoods/wgoods.css" rel="stylesheet" type="text/css" />
+	<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/popUp/popUp.css" rel="stylesheet" type="text/css" />
+	<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" />
+	<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css" rel="stylesheet" type="text/css" />
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js" type="text/javascript"></script>
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/init.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var CONFIG = {};
+//CONFIG['uid'] = "";
+//CONFIG['dkcode'] = "";
+//CONFIG['username'] = "";
+//CONFIG['action_uid'] = "";
+//CONFIG['action_dkcode'] = "";
+//CONFIG['action_username'] = "";
+//路由用的域名
+CONFIG['domain'] = "<!--{$smarty.const.DOMAIN}-->";
+CONFIG['time'] = "<!--{$smarty.const.SYS_TIME}-->";
+//远程或本地运行
+CONFIG['local_run'] = <!--{intval($smarty.const.LOCAL_RUN)}-->;
+CONFIG['misc_path'] =  "<!--{$smarty.const.MISC_ROOT}-->";
+//网页ID
+CONFIG['web_id'] = "<!--{$js_config['web_id']}-->";
+//用户UID
+CONFIG['u_id'] = "<!--{$js_config['uid']}-->";
+//用户头像
+CONFIG['u_head'] = "<!--{$js_config['avatar']}-->";
+//用户姓名
+CONFIG['u_name'] = "<!--{$js_config['username']}-->";
+//被访问者的端口号
+CONFIG['action_dkcode'] = "<!--{$js_config['action_dkcode']}-->";
+//
+CONFIG['fdfshost'] = '';
+//
+CONFIG['fdfsGroup'] = '';
+</script>
+</head>
+
+
+
+<body class="popUpBody" style="overflow:auto;">
+<div class="popUpShow">
+	<div class="popUpHead clearfix">
+		<div class="popUpHeadImg">
+			<a href="<!--{mk_url('/webmain/index/main',['web_id'=>$web_id])}-->"><img alt="头像" src="<!--{get_webavatar($web_id,'s')}-->"></a>
+		</div>
+		
+		<div class="popUpFont clearifx">
+			<p class="popUpFontName"><a href="<!--{mk_url('/webmain/index/main',['web_id'=>$web_id])}-->"  ><!--{$web_info['name']}--></a></p>
+			<p class="popUpFontDetail"> 价格:<!--{$data.price}--> RMB</p>
+			<div class="popUpFontDetailN clearfix">
+				<p class="popoUpFontDetalName"><!--{$data.name}--></p>	
+			</div>
+		</div>
+        <div class="popUpButton">
+        	<a href="<!--{$data.link}-->" target="_blank" >立即购买</a>
+        </div>
+	</div>
+	<div class="popUpContent">
+		<ul class="popUpImg">
+        	<!--{foreach $data.pics_img as $key=>$item}-->
+			<li>
+				<img src="<!--{$fastdfs_domain}--><!--{$item}-->" alt="" <!--{if $data['pics_img_size'][$key]['b']['w']>635}-->style="width:635px;"<!--{/if}--> />
+			</li>
+            <!--{/foreach}-->
+		</ul>
+		
+	</div>
+	<div class="popUpImg_comment">
+        <div class="comment_easy" 
+            commentObjId="<!--{$data.id}-->"
+            pageType='goods' 
+            action_uid='<!--{$data.uid}-->'
+            dkcode=''
+            msgurl=''
+            msgname='<!--{$data.name}-->'>
+        </div>
+        <br>
+        <br>
+	</div>
+	<div class="closePopUp">		</div>
+</div>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wgoods/wgoods.js" type="text/javascript"></script>
+<!--[if IE 6]><script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/ie6png/DD_belatedPNG.js" type="text/javascript"></script><![endif]-->
+
+</body>
+</html>

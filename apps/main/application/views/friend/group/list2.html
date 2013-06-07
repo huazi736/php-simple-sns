@@ -1,0 +1,89 @@
+<!--{include file="<!--{$smarty.const.TEMPLATE_PATH}-->header.html"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/follow/follow.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/group2.css" rel="stylesheet" type="text/css" />
+<!--{include file="<!--{$smarty.const.TEMPLATE_PATH}-->top_bar.html"}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$home_info['url']}-->"><img src="<!--{$home_info['src']}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$home_info['url']}-->"><!--{$home_info['username']}--></a></span>
+				<span class="nameTxt"><span class="fl"><a href="<!--{$home_info['self_url']}-->">好友列表</a></span></span>
+			</div>
+		</div>
+		
+		<div class="modlueHeader clearfix" style="margin-top:10px;border-top: 1px solid #C4CCDF;">
+		<strong>新建群名称：</strong><!--{$group_name}-->
+		</div>
+		
+		<div class="modlueBody">
+			<div class="listSearch clearfix">
+                                <!--{if ($home_info['NumOfFriends'] > 0)}-->
+                                    <h4>好友 (<!--{$home_info['NumOfFriends']}-->)</h4>
+                                <!--{/if}-->
+                                <!--{if ($home_info['is_self'] == ture)}-->
+                                    <input type="text" value="请输入姓名" class="fieldWithText" ref="请输入姓名" id="searchList" /><span class="btnGray"><s></s></span>
+                                <!--{/if}-->
+			</div>
+			<form method="post" action="<!--{$create_group_step4}-->">
+			<input type="hidden" name="name" value="<!--{$group_name}-->" />
+			<ul class="listWrap clearfix" id="listWrap" style="height:520px;overflow-x:hidden;">
+ 					<!--{if ($home_info['is_self'] == ture)}-->    
+					<!--{foreach from = $friendlist item = flist}-->
+						<li>
+							<div class="check">
+								<span><input name="uid[]" value="<!--{$flist['id']}-->" /></span>
+							</div>
+						<!--{if ($flist['hidden'] == 0)}--> 
+ 							<div class="avatarBox" >
+						<!--{else}--> 
+							<div class="avatarBox invisible" >
+						<!--{/if}-->    
+								<a href="<!--{$flist['href']}-->"><img src="<!--{$flist['src']}-->" alt="" /></a>
+								<s id="<!--{$flist['id']}-->"></s>
+							</div>
+							<span class="uName">
+								<a href="<!--{$flist['href']}-->"><!--{$flist['name']}--></a>
+							</span>
+						</li>
+					<!--{/foreach}-->
+					<!--{/if}--> 
+					<!--{if ($home_info['is_self'] == false)}-->    
+						<!--{foreach from = $friendlist item=flist}-->
+ 						<li>
+							<div class="avatarBox" >
+								<a href="<!--{$flist['href']}-->"><img src="<!--{$flist['src']}-->" alt="" /></a>
+							</div>
+							<span class="uName">
+								<a href="<!--{$flist['href']}-->"><!--{$flist['name']}--></a>
+							</span>
+						</li>
+						<!--{/foreach}-->
+					<!--{/if}-->
+             <!--{if $home_info['NumOfFriends'] > 27}--> 
+                 <div class="loadmore hide" id="loadmore"><a></a></div>
+             <!--{/if}-->
+             <!--{if $home_info['NumOfFriends'] < 1 && $home_info['is_self'] == ture}--> 
+                  <div class="blankWrap" id="nodata"><span>您还没有好友</span></div>
+             <!--{/if}-->
+             <!--{if $home_info['NumOfFriends'] < 1 && $home_info['is_self'] == false}--> 
+                  <div class="blankWrap" id="nodata"><span>该用户还没有好友</span></div>
+             <!--{/if}-->
+             </ul>
+             <!--{if ($home_info['is_self'] == ture)}-->
+             <div style="text-align:right;padding:0 20px;color:white;" id="start"><input type="submit" value="开始" disabled="disabled" class="dis"/></div>
+             <!--{/if}-->
+             </form>
+			<div class="blankWrap hide" id="noresult"><span>未检索到任何结果，请重新输入关键字</span></div>
+		</div>
+	</div>
+</div>
+
+<!--{include file="<!--{$smarty.const.TEMPLATE_PATH}-->footer.html"}-->
+<script type="text/javascript">
+$(function() {
+	list.init({visibleUrl:'main/friend/hideFriend', moreUrl:'main/friend/getFriendByPage2', searchUrl:'main/friend/searchFriendByName2'});
+});
+</script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/follow/followlist.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group2.js" type="text/javascript"></script>

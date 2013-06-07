@@ -1,0 +1,16 @@
+﻿/*
+** @author:zhuliqi
+** @data:2012/8/3
+*/
+
+
+.createChannel{padding:0px;}
+.createChannel .channelHeader{width:835px;border-bottom:1px solid #c5ccdf;padding:12px 0 0 15px;position:relative;}
+.createChannel .channelText{width:69px;height:27px;border:1px solid #c5ccdf;border-radius:3px;border-bottom:1px solid #ffffff;line-height:27px;font-weight:bold;position:relative;top:1px;left:0px;text-align:center;}
+.createChannel .channelModle{padding:3px;border:2px solid #e8e8e8;float:left;margin-left:18px;margin-top:15px;_display:inline;}
+.createChannel .channelModle .channelModleInside{padding:51px 62px;}
+.createChannel .channelModle .channelModelInertData{width:56px;padding-top:66px;text-align:center;display:block;}
+.channelModleInside a:link{}
+.channelModleInside a:visited{}
+.channelModleInside a:hover{background-position:-99px -14px!important;}
+.channelModleInside a:active{}

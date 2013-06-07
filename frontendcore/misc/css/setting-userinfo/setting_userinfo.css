@@ -1,0 +1,140 @@
+/*
+ * Created on 2012-02-22
+ * @author： chengtingting
+ * @version： 2.0
+ * @desc：账户设置,安全设置,通知设置样式
+ */
+
+/*
+ * Created on 2012-07-12
+ * @author： chengtingting
+ * @version： 1.0
+ * @desc：账户设置,安全设置,通知设置样式
+ */
+
+
+/*全局样式*/
+.modlueBody{padding:0px; overflow:hidden;}
+.accountTitle{border-bottom:1px solid #ccc; font-size:16px; height:60px; line-height:60px;}
+.icon{background:url("../../img/system/icon_userinfo.png") no-repeat scroll transparent; display:block; float:left; height:16px; margin:13px 3px 0 0; width:16px;}
+.icon_edit{background-position:-16px 0;}
+.blue{color:#3B5998;}
+.hide{display:none;}
+.but{padding-left:50px;}
+.save, .cancel{border:1px solid #1D2A5B; color:#FFFFFF; cursor: pointer; float: left; font-weight: bold; height: 18px; line-height: 14px; margin-right: 10px; padding: 2px 10px 0; background: url("../../img/system/ui2.png") no-repeat scroll 0 -98px #5972A8;}
+.cancel_save{background-position:0 -75px; border-color:#BBBBBB;}
+.inputText,select{border:1px solid #BDC7D8; margin:2px 0 0; padding:2px; width:150px;}
+select{width:155px;}
+.errors{color:#c00;}
+
+.settingMenu{float:left; padding-top:20px; width:180px;}
+.settingMenu a{clear:both; color:#333; display:block; height:22px; line-height:22px; padding-left:20px;}
+.settingMenu a.selected{background-color:#d8deea; font-weight:900;}
+.settingMenu .icon{margin:5px 5px 0 0;}
+.settingMenu .icon_account{background-position:0 -16px;}
+.settingMenu .icon_security{background-position:-16px -16px;}
+.settingMenu .icon_notification{background-position:-32px -16px;}
+.settingMenu .icon_ad{background-position:-16px -32px;}
+
+.settingContent{border-left:1px solid #ccc; float:left; min-height:500px; height:auto!important; height:500px; padding-left:15px; width:633px;}
+/*一般、安全*/
+.accountEditList{border-bottom:1px solid #e9e9e9; line-height:35px; overflow:hidden;}
+
+/*显示信息*/
+.accountEditList .editItem{cursor:pointer;}
+.accountEditList .settingLabel{float:left; padding-left:10px; width:155px;}
+.accountEditList .settingInfo{color:#818181;float: left; width:380px;}
+.accountEditList .settingEdit{cursor:pointer; float:right; padding-right:11px;}
+.accountEditList .settingEdit .icon_edit{background-position:-16px 0; float:left; margin:13px 3px 0 0;}
+/*编辑面板*/
+.accountEditList .editContent{background-color:#F0F0F0;}
+.accountEditList .settingEditPanel{float:left; line-height:28px; padding:5px 0; width:400px;}
+.accountEditList .settingEditPanel p{line-height:25px;}
+.leftLabel{color:#818181; display:block; float:left; text-align:right; width:100px;}
+.borderBottom{border-bottom:1px solid #cccccc; margin-bottom:10px; padding:3px 0 8px;}
+
+/*一般——邮箱设置*/
+.settingEditPanel .waitEmail{padding-bottom:8px;}
+.settingEditPanel .confirmPsw{padding-bottom:10px;}
+.emailPanel .leftLabel{width:130px;}
+
+/*通知*/
+.noticeP{border-bottom:1px solid #cccccc; line-height:22px; padding:10px;}
+.noticeBlock{padding:20px 20px 100px;}
+.noticeLabel{float:left; padding-left:10px; width:169px;}
+.noticeItem{float:left; width:590px;}
+.noticeItem li{border-bottom:1px solid #e9e9e9; line-height:35px; overflow:hidden;}
+.list_content{background:#f0f0f0; line-height:28px;}
+.noticeItemLabel{float:left; width:240px;}
+.noticeItemNum{float:left; width:270px;}
+.allNoticeList{cursor:pointer;}
+.noticeItemEdit{float:right; padding-right:11px;}
+table.noticeItemContent{background-color:#F0F0F0; line-height:20px;}
+.noticeItemContent td{padding:3px 0; vertical-align:bottom;}
+.noticeItemContent .hr{border-bottom:1px solid #ccc;}
+
+/*Start: 通知页面的小图标设置*/
+.icon_r{float:right;}
+.icon_ifo{background-position:0 -32px; cursor:pointer;}
+.icon_ifoNum{background-position:-32px 0;}
+.dk{background-position:-48px 0;}
+.photo{background-position:-96px 0;}
+.album{background-position:-64px 0;}
+.blog{background-position:-80px 0;}
+.link{background-position:-96px -16px;}
+.video{background-position:-112px 0;}
+.ask{background-position:-144px 0;}
+.helper{background-position:-128px 0;}
+.info{background-position:-112px -16px;}
+.event {background-position:-48px -16px;}
+.baike{background-position:-32px -32px;}
+.web{background-position:-144px -16px;}
+.group{background-position:-128px -16px;}
+
+
+
+
+/* End accountContent 设置*/
+/*小图标类名：dk/photo/album/blog/link/video/ask/helper*/
+
+/*Start: 网页设置 zhangbo 维护*/
+#userName .dropList { width:100px; }
+.loadmore, .blankWrap { height:40px; position:relative; }
+.blankWrap { margin-top:150px; }
+.loadmore a { background:url(../../img/system/more_loading.gif) center center no-repeat; }
+.loadmore a, .blankWrap span { display:block; width:849px; height:30px; line-height:30px; position:absolute; left:-40px; top:10px; background-color:#E7EBF2; text-align:center; font-size:13px; }
+.clickGet a { background-image:none; }
+#web_setting .icon_edit{margin: 5px 3px 0 0;}
+.web-setting-side{float: left;padding-left: 10px; padding-top:10px; width: 100%;}
+.web-info-item{ padding-top:3px; padding-bottom:3px; padding-left:160px;}
+.web-setting-side p.head{ width:100%;border-bottom: 1px solid #E9E9E9;padding-bottom:10px;}
+.webset-bd-box{border-bottom: 1px solid #E9E9E9; }
+.web-photo,.web-name,.operate-web{ float:left; }
+.operate-web{ width:95px; padding-top:10px;}
+.web-photo{ padding:5px 15px;}
+.web-name{width:440px;}
+.web-setting-option{ float:left; width:769px; background-color:#F0F0F0;padding-bottom:10px;}
+.web-setting-option p{line-height:32px; padding:0px 0px 0px 220px; }
+.web-setting-option span{ padding-left:4px;}
+/*确定 按钮*/
+.web-setting-option p.web-setting-but{border-top: 1px solid #CCC; line-height:35px; padding-top:10px;}
+.edit-web-confirm,.cancel-edit{
+	background:url("../../img/system/ui2.png") no-repeat scroll 0 -98px #5972A8;
+	border:1px solid #1D2A5B;
+	color:#fff;
+	cursor:pointer;
+	float:left;
+	font-weight:bold;
+	height:18px;
+	line-height:14px;
+	line-height:18px\9;
+	_line-height:15px;
+	margin-right:10px;
+	padding:2px 10px 0;
+	
+}
+#web_setting .nextPage{ display:inline-block; padding-top:10px; padding-left:196px;}
+.del-web-msg{padding: 10px;}
+.del-web-msg p{ color:#666; line-height:26px;}
+.del-web-msg p.msg{ font-size:14px; color:#333;}
+/*End: 网页设置*/

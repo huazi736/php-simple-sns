@@ -1,0 +1,122 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/credits/credits.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix"> <span class="userImg"><a href="<!--{$userinfo['url']}-->"><img src="<!--{$userinfo['avatar']}-->" alt="" /></a></span>
+			<div class="userName"> <span class="nameTxt"><a href="<!--{$userinfo['url']}-->"><!--{$userinfo['action_username']}--></a></span> <span class="nameTxt"><a>端口积分</a></span> 
+				<!--<span class="nameTxt"><a class="selectClassBtn" id="selectClassBtn"></a></span>--> 
+			</div>
+		</div>
+		<div class="modlueBody p0 clearfix"> 
+			
+			<!-------------左侧栏-------------->
+			<div class="dk-siderBar">
+				<ul class="subNav">
+					<li><a href="<!--{mk_url('credit/credit/index')}-->">我的积分</a></li>
+					<li><a class="nav_current" href="<!--{mk_url('credit/product/index')}-->">积分兑换</a></li>
+					<li><a href="<!--{mk_url('credit/credit/intro')}-->">成长体系介绍</a></li>
+					<li><a href="<!--{mk_url('credit/credit/faq')}-->">常见问题</a></li>
+				</ul>
+			</div>
+			<!-------------主体-------------->
+			<div class="dk-main"> 
+				<!---------------导航-------------->
+				
+				<div class="mall-tt clearfix">
+					<ul class="tab_s fl clearfix">
+						<li id="material" <!--{if $type eq 1}--> class="tab_selected" <!--{/if}-->><a href="<!--{mk_url('credit/product/index', ['type'=> 1])}-->">实物礼品</a>
+						</li>
+						<li id="virtual" <!--{if $type eq 2}--> class="tab_selected" <!--{/if}-->><a href="<!--{mk_url('credit/product/index', ['type'=> 2])}-->">虚拟物品</a>
+						</li>
+						<li id="game" <!--{if $type eq 3}--> class="tab_selected" <!--{/if}-->><a href="<!--{mk_url('credit/product/index', ['type'=> 3])}-->">游戏兑换</a>
+						</li>
+						<li id="coupon" <!--{if $type eq 4}--> class="tab_selected" <!--{/if}-->><a href="<!--{mk_url('credit/product/index', ['type'=> 4])}-->">优惠券</a>
+						</li>
+					</ul>
+					<ul class="nav_s fr mt10">
+						<li><a href="#">主题活动</a>
+							<div></div>
+						</li>
+						<li><a href="<!--{mk_url('credit/redeem/index')}-->">兑换记录</a></li>
+						<li><a class="last" href="<!--{mk_url('credit/address/index')}-->">收货地址</a></li>
+					</ul>
+				</div>
+				<!--------------------------->
+				<div class="mt20 clearfix">
+					<h3>确认收货地址</h3>					
+					<table id="address-table" class="mt20">
+						<tbody>
+							<tr id="a-table-tt" class="bgc2">
+								<th width="5%" class="a-table-tt">&nbsp;</th>
+								<th width="15%" class="a-table-tt">姓名</th>
+								<th width="26%" class="a-table-tt">地址</th>
+								<th width="18%" class="a-table-tt">手机号码</th>
+								<th width="20%" class="a-table-tt">电话</th>
+								<th class="a-table-tt">其他操作</th>
+							</tr>
+							<!--{foreach $addresses as $address}-->
+							<tr class="addressItem">
+								<td><span><input class="slta" name="sltAddress" value="0" type="radio"  <!--{if $address.priority eq 1}-->checked="checked" <!--{/if}--> /> </span></td>
+								<td><span class="uname"><!--{$address.uname|escape}--></span></td>
+								<td><span class="province"><!--{$address.province|escape}--></span><span class="city"><!--{$address.city|escape}--></span><span class="area"><!--{$address.area|escape}--></span><span class="street"><!--{$address.street|escape}--></span></td>
+								<td><span class="mob"><!--{$address.mob|escape}--></span></td>
+								<td><span class="area_code"><!--{$address.area_code|escape}--></span>-<span class="tel"><!--{$address.tel|escape}--></span>-<span class="extension"><!--{$address.extension|escape}--></span></td>		
+								<td>
+									<p time="<!--{$address.time}-->" class="setAddress lh20">设为首选地址</p>
+									<p time="<!--{$address.time}-->" province="<!--{$address.province|escape}-->" pcode="<!--{$address.pcode|escape}-->"  city="<!--{$address.city|escape}-->" area="<!--{$address.area|escape}-->" street="<!--{$address.street|escape}-->" area_code="<!--{$address.area_code|escape}-->" tel="<!--{$address.tel}-->" extension="<!--{$address.extension|escape}-->" priority="<!--{$address.priority|escape}-->" mob="<!--{$address.mob|escape}-->" uname="<!--{$address.uname|escape}-->" class="ediAddress lh20">修改</p>
+									<p time="<!--{$address.time}-->" class="delAddress lh20">删除</p>
+								</td>
+								<!--{foreachelse}-->
+									<tr id="nodata">
+										<td colspan="6">没有相关的地址信息，赶紧来添加吧~~~</td>
+									</tr>
+								<!--{/foreach}-->															
+								
+							</tr>																																			
+						</tbody>
+					</table>
+				</div>
+				<input type="hidden" name="redeemId" id="redeemId" value="<!--{$redeemId}-->" />
+				<input type="hidden" name="productId" id="productId" value="<!--{strval($product['_id'])}-->" />
+				<div class="mt20"><div class="clearfix"><span id="addNewAddress" class="blueBtn">添加新地址</span></div></div>
+				
+				<div class="mall-tt mt30">
+					<h4 class="fcb pb10">确认兑换信息</h4>
+				</div>
+				<div id="verify" class="clearfix">
+					<div class="fl product-img-d"><img src="<!--{$product['pic']}-->" /></div>
+					<div class="fl pl20">
+						<ul>
+							<li>商品名称：</li>
+							<li>
+								<h4 id="productName"><!--{$product['name']|escape}--></h4>
+							</li>
+							<li>积分兑换：<!--{$product['credit']|escape}-->积分</li>
+							<li>兑换条件：<!--{$product['condition']|escape}-->级</li>
+							<li>参考价格：<span class="rmb">￥</span><span><!--{$product['price']|escape}--></span></li>
+							<li>
+								<span id="verifyBtn" class="dk-btn-b">确定</span>
+							</li>
+						</ul>
+					</div>
+				</div>				
+				
+				</div>
+
+				<!-----------------------------> 
+			</div>
+		</div>
+		<div class="sideArea"> sideArea </div>
+	</div>
+<!--{/block}--> 
+
+<!--{block name='footer_js'}--> 
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/area-utils/area_utils.js"></script> 
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/popUp/popUp.js"></script> 
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/credits/creditInt.js"></script>  
+<!--{/block}-->

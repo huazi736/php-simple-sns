@@ -1,0 +1,85 @@
+<div id="ppweb_id" style="display:none;"><!--{$web_info['category_group']}--></div>
+<div class="webpost mediaWeb mediaBox clearfix">
+<input type="hidden" id="currentComposerAttachment" value="0" />
+<ul class="tabHead postHead">
+
+    <!--{if $web_tpl}-->
+    <!--{foreach from=$web_tpl item=web}-->
+    <li rel="<!--{$web['sign']}-->" title="<!--{$web['name']}-->" style="border-right:none" data-page="<!--{$web['sign']}-->">
+        <div class="tabImg <!--{$web['icon']}-->"></div>
+        <div class="tabTitle"><!--{$web['name']}--></div>
+    </li>
+    <!--{/foreach}-->
+    <!--{/if}-->
+</ul>
+<div class="menuRight">
+    <div class="hideImgLinkBtn">
+        <a id="seemore" href="javascript:void(0);"> <span class="linkClickSpan"><span class="text">5</span></span> </a>
+    </div>
+</div>
+<div class="split"></div>
+<div class="tabContent" id="data-page">
+    <div class="tabList">
+
+        <!--{if isset($web_tpl) && is_array($web_tpl)}-->
+            <!--{foreach from=$web_tpl item=web}-->
+                <!--{if $web['sign']=='status'}-->
+                    <div class="postText status txtArea Js_textArea postcont" id="distributeMsg">
+                        <!--{$web['template']}-->
+                    </div>
+                <!--{else if $web['sign']=='image'}-->
+                    <div  class="postImage image twoTab postcont" id="distributePhoto">
+                        <!--{$web['template']}-->
+                    </div>
+                <!--{else if $web['sign']=='video'}-->
+                    <div class="postVideo video twoTab postcont" id="distributeVideo">
+                        <!--{$web['template']}-->
+                    </div>
+                <!--{else}-->
+                    <div class="mediaSection <!--{$web['sign']}--> postcont" id="<!--{$web['sign']}-->DK">
+                        <!--{$web['template']}-->
+                    </div>
+                <!--{/if}-->
+            <!--{/foreach}-->
+        <!--{/if}-->
+
+    </div>
+    <div class="tabFooter clearfix">
+			<span class="sp_selectChristian">
+				<select name="sel_christian">
+                    <option value="0">公元</option>
+                    <option value="1">公元前</option>
+                </select>
+			</span>
+			<span rel="0" class="sp_selectDate">
+				<input type="text" id="date_a" class="selectDate html_date" name="txt_selectDate" begin_year="1-01-01" end_year="<!--{date('Y-n-j')}-->" value="<!--{date('Y-n-j')}-->" now="<!--{date('Y-n-j')}-->"/>
+			</span>
+			<span rel="1" class="sp_date">
+				<input type="text" class="yearNum" name="yearNum" maxLength="4"/>
+				<select name="sel_yearUnit">
+                    <option value="1">年</option>
+                    <option value="10000">万年</option>
+                    <option value="100000000">亿年</option>
+                </select>
+				<select name="sel_month">
+                    <option value="">月</option>
+                    <option value="1" rel="31">1月</option>
+                    <option value="2" rel="29">2月</option>
+                    <option value="3" rel="31">3月</option>
+                    <option value="4" rel="30">4月</option>
+                    <option value="5" rel="31">5月</option>
+                    <option value="6" rel="30">6月</option>
+                    <option value="7" rel="31">7月</option>
+                    <option value="8" rel="31">8月</option>
+                    <option value="9" rel="30">9月</option>
+                    <option value="10" rel="31">10月</option>
+                    <option value="11" rel="30">11月</option>
+                    <option value="12" rel="31">12月</option>
+                </select>
+				<select name="sel_Days" style="display:None;"></select>
+			</span>
+        <span class="sp_explain"><input type="text" value="" msg="年份说明" name="txt_explain" class="explain" maxLength="12"/></span>
+        <label class="uiButton uiButtonConfirm sendData"><a href="javascript:void(0);" id="distributeButton" name="btn_sendInfo">发布</a></label>
+    </div>
+</div>
+</div>

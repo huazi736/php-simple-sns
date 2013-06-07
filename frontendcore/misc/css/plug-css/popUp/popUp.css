@@ -1,0 +1,32 @@
+/**
+ * Created on 2011-09-05
+ * @author： yewang
+ * @version： 1.0
+ * @desc：全站弹出窗口样式
+ */
+ 
+/* popUp styles */
+.popUpWindow{position:fixed;_position:absolute;top:50%;left:50%;z-index:1999;}
+#alertWindow, #confirmWindow{width:400px;z-index:2010;}
+#popUpSub {z-index:2005;}
+.popUpMask {position:fixed;_position:absolute;z-index:1998;width:100%;height:100%;background-color:#fff;top:0;left:0;filter:alpha(opacity=60);opacity:0.6;}
+#alertMask, #confirmMask{z-index:2009;}
+#popMaskSub {z-index:2004;}
+.p_table{width:100%;margin:0;padding:0;border-spacing:0;border-collapse:collapse;}
+.p_table td{margin:0;padding:0;}
+.gary_bg{background-color:#000;filter:alpha(opacity=55);opacity:0.55;}
+.popTitle{font-size:14px;background-color:#6D84B4;padding:5px;color:#fff;margin:0;}
+.popTitle span{display:block; width:100%; word-wrap: break-word; white-space:normal;overflow:hidden;}
+.popCont,.alertCont{background-color:#fff;}
+.alertCont{padding:10px;}
+.popBtnsWrap{text-align:right;border-top:1px solid #ccc;background-color:#F2F2F2;padding:10px;}
+.popBtns{margin-right:2px;font-size:14px;font-weight:bold;cursor:pointer;height:20px;overflow:hidden;line-height:22px\9;_line-height:20px;}
+.blueBtn{color:#fff;}
+.frameBg {position:absolute; z-index:-1; width:100%; height:100%; top:0; left:0; border:0; filter:alpha(opacity=0);}
+.popUpWindow .corner{width:10px;height:10px;overflow:hidden;background-image:url(../../../img/plug-img/popUp/corner.png);_background:none;} /*圆角背景图片gif格式替换png格式修复ie6兼容问题 by李世君 2012-2-24*/
+
+/* corners for ie6 */
+.tl{_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/frontendcore/misc/img/plug-img/popUp/corner-tl.png");}
+.tr{background-position:-10px 0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/frontendcore/misc/img/plug-img/popUp/corner-tr.png");}
+.bl{background-position:0 -10px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/frontendcore/misc/img/plug-img/popUp/corner-bl.png");}
+.br{background-position:-10px -10px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/frontendcore/misc/img/plug-img/popUp/corner-br.png");}

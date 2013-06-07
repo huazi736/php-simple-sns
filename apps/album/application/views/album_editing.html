@@ -1,0 +1,25 @@
+<div id="edit_album">
+  <table id="edit_album_table">
+    <tr class="tc_red">
+      <th></th>
+      <td class="tc_red"></td>
+    </tr>
+    <tr>
+      <th>相册名称：</th>
+      <td><input id="editAlbum_name" name="editAlbum_name" class="editAlbum_name" type="text" value="<!--{$datainfo['name']}-->" maxlength="50" /></td>
+    </tr>
+    <tr>
+      <th>说明：</th>
+      <td><textarea  id="editAlbum_introduction" name="editAlbum_introduction" class="editAlbum_introduction" maxlength="140"><!--{$datainfo['discription']}--></textarea>
+  </td>
+    </tr>
+  <tr>
+      <th>权限:</th>
+      <td>
+          <div class="dropWrap dropMenu listPermission albumEdtListPermission" oid="<!--{$datainfo['id']}-->" s="<!--{$datainfo['object_type']}-->" uid="<!--{$datainfo['object_content']}-->">
+            <input type="hidden" name="permissions" class="albumEdtListPermission" value="<!--{if $datainfo['object_type'] > 0}--><!--{$datainfo['object_type']}--><!--{else}--><!--{$datainfo['object_content']}--><!--{/if}-->" />
+          </div>
+      </td>
+  </tr>
+  </table>
+</div>

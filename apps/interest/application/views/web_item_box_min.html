@@ -1,0 +1,13 @@
+<!--{foreach from=$item_data item=pitem2}-->
+<div class="web-box clearfix">
+    <div class="photo"><a href="<!--{mk_url('interest/index/web_list',['web_id'=>$pitem2.eid])}-->" ><img alt="<!--{$pitem2.name}-->的头像" src="<!--{get_webavatar($pitem2.uid,'ss',$pitem2.aid)}-->" onerror="this.onerror=''; this.src='<!--{$smarty.const.MISC_ROOT}-->img/default/web_ss.gif'"  /></a></div>
+    <div class="web-info">
+        <p class="name"><a href="<!--{mk_url('interest/index/web_list',['web_id'=>$pitem2.eid])}-->" title="<!--{$pitem2.name}-->"><!--{sm_substrs($pitem2.name,8)}--></a></p>
+        <p class="live">粉丝数<strong><!--{$pitem2.fans_count}--></strong>人</p>
+    </div>
+</div>
+<!--{/foreach}-->
+<!--{if  $continue_load && $item_data}-->
+	<em style="display:block;float:none;font-size:0;height:0;line-height:0;overflow:hidden;clear:both;visibility: hidden; "></em>
+	<div class="box_min_continue_load" request_url="<!--{mk_url('interest/index/get_categorys',['imid'=>$imid,'iid'=>$iid,'participle_id'=>$participle_id])}-->" participle_id='<!--{$participle_id}-->' page='<!--{$page++}-->'>查看更多</div>
+<!--{/if}-->

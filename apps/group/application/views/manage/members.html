@@ -1,0 +1,59 @@
+<!--{extends file='default.html'}-->
+
+<!--{block name='header_css' append}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/groupall.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='group_title'}-->&gt;&gt; 成员管理<!--{/block}-->
+
+<!--{block name='right'}-->
+<!--{if $group.source_type eq CUSTOM}-->
+<div class="group_son_head">
+	<span class="uiButton" id="dissolve_group" gid="<!--{$group.gid}-->">解散群组</span>
+</div>
+<!--{/if}-->
+<!--{include file='navigation.html'}-->
+<div id="mainContant">
+	<div class="group_app_list_add">
+		<div class="group_set">
+			<ul class="group_set_head clearfix">
+				<li><a href="<!--{mk_url('group/manage/index', ['gid' => $group_info.gid])}-->">基本资料</a></li>
+				<li class="on"><a href="javascript:void(0)">成员管理</a></li>
+			</ul>
+			<div class="group_search">
+				<span class="group_search_submit">查找好友：</span>
+				<input type="text" default="输入好友的名字" value="" class="group_search_input color999">
+			</div>
+		</div>
+		<div class="group_set_contant">
+
+			<div class="group_member_manage group_tab_contant">
+				<ul class="clearfix">
+				
+					<!--{foreach from=$members item=member}-->
+					<li>
+						<div class="group_member_list">
+							<a href="<!--{$member.href}-->" class="group_member_list_l"><img style="width:50px;height:50px" src="<!--{$member.avatar}-->"></a>
+							<div id="group_kickout_father"  class="group_member_list_r">
+								<p><a href="<!--{$member.href}-->" class="group_username"><!--{$member.name}--></a></p>
+								<!--{if $member.position eq 0}-->
+								<a uid="<!--{$member.uid}-->" gid="<!--{$group_info.gid}-->" href="javascript:void(0)" class="group_kickout">踢出此群</a>
+								<!--{/if}-->
+							</div>
+						</div>
+					</li>
+					<!--{/foreach}-->
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--{/block}-->
+
+
+
+<!--{block name='footer_js' append}-->
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/detail.js" type="text/javascript"></script>
+<!--{/block}-->

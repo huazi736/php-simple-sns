@@ -1,0 +1,56 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+关注首页-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<!--{/block}-->
+<!--{block name='body'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/follow/follow.css" rel="stylesheet" type="text/css" />
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$userinfo['url']}-->"><img src="<!--{$userinfo['avatar']}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$userinfo['url']}-->"><!--{$userinfo['username']}--></a></span>
+				<span class="nameTxt"><a href="<!--{$userinfo['self_url']}-->">推荐网页</a></span>
+			</div>
+		</div>
+		<div class="modlueBody">
+            <!--{if $followings_count}-->
+            <div class="listSearch clearfix">
+				<h4>推荐网页 (<!--{$followings_count}-->)</h4>
+			</div>
+            <!--{/if}-->
+                            <!--{if $followings_count}-->
+                            <ul class="listWrap clearfix" id="listWrap">
+                                <!--{foreach from=$followinglist item=following}-->
+                                    <li>
+                                        <div class="avatarBox">
+                                                    <a href="<!--{$following['href']}-->"><img src="<!--{$following['src']}-->" height="99" width="99" alt="" /></a>
+                                             </div>
+                                        <span class="uName">
+                                                <a href="<!--{$following['href']}-->"><!--{$following['name']}--></a>
+                                        </span>
+                                    </li>
+                                 <!--{/foreach}-->      
+                             </ul>
+                             <!--{if $followings_count gt 27}-->
+                             <div class="loadmore hide" id="loadmore"><a></a></div>
+                             <!--{/if}-->
+                            <!--{else}-->
+                             <div class="blankWrap"><span>没有找到推荐的网页</span></div>
+                            <!--{/if}-->
+		</div>
+	</div>
+</div>
+<!--{/block}-->
+<script type="text/javascript">
+$(function() {
+	list.init({visibleUrl:'main/following/visibleFollowing', moreUrl:'main/following/webMayKnowByPage', searchUrl:''});
+});
+</script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/follow/followlist.js" type="text/javascript"></script>
+</body>
+</html>

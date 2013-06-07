@@ -1,0 +1,15 @@
+/**
+ * Created on 2012-03-22
+ * @author： yewang
+ * @desc：帮助中心页面样式
+ */
+ 
+.helpCenter{ padding:20px 10px 10px}
+.title{ font-size:29px;font-family:"微软雅黑";font-weight:normal}
+.info{ text-indent:25px; line-height:20px;margin-top:20px;margin-bottom:0px;}
+.helpCenter ul li{ padding:5px 0}
+.helpCenter ul li p{ font-size:12px;font-weight:bolder;color:#3b5998;background:url(../../img/system/helpicon.gif) no-repeat left center;padding-left:13px;cursor:pointer;}
+.helpCenter ul li p.changeBg{background:url(../../img/system/listdoen.gif) no-repeat left center;}
+.helpCenter ul li div{ margin-top:5px;margin-bottom:0px;padding:5px 0px;margin-left:12px;}
+.helpCenter ul li div p{ font-weight:normal;color:#666;background:none;line-height:17px;font-size:12px;text-indent:0px;padding-left:0;cursor:auto;text-indent:25px;padding:5px 0}
+p.tt{line-height:22px; padding:0px 0;text-indent:0em;}

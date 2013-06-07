@@ -1,0 +1,38 @@
+			<div class="shopDetail" request_url="<!--{mk_url('/channel/goods/goods_desc',['web_id'=>$result_data.web_id,'gid'=>$result_data.id])}-->" is_self="<!--{if $is_self}-->true<!--{else}-->false<!--{/if}-->" >
+				<div class="shopDetailHead" <!--{if $result_data.pics_sh}--> style="height:<!--{$result_data.pics_sh}-->px; overflow:hidden;" <!--{/if}--> >
+                	<!--{if $result_data.pics_m}-->
+					<img src="<!--{$fastdfs_domain}--><!--{$result_data.pics_m}-->" alt="" />
+                    <!--{/if}-->
+				</div>
+				<div class="shopDetailFont">
+					<p><!--{$result_data.name}--></p>
+				</div>
+                
+                <!--{if is_array($result_data.comment)}-->
+				<div class="shopDetailRelation clearfix">
+					
+					
+					<a class="shopCorner"></a>
+					<span class="shopCornerFont" tag="赞" ><!--{$result_data.comment.greeCount}--></span>
+					<a class="shopCircle"></a>
+					<span class="shopCornerFont" tag="评论" ><!--{$result_data.comment.count}--></span>
+					<span class="shopPrice">￥<!--{$result_data.price}--></span>
+				</div>
+				<div class="shopComment">
+                	<ul>
+                    <!--{foreach $result_data.comment.data as $key=>$item}-->
+                    	<li uid="<!--{$item.uid}-->" >
+                                <span class="ui_closeBtn_box"><i style="display: none;" class="ui_closeBtn png"></i></span>
+                                <span class="comment_text">
+                                	<span><a href="<!--{mk_url('/main/index/main')}-->" alt="<!--{$item.name}-->"><!--{$item.name}--></a></span> 
+                                    <span>：<!--{$item.content}--></span>
+                                </span><input type="hidden" value="6593">
+                        </li>
+                    <!--{/foreach}-->
+                    </ul>
+				</div>
+                <!--{/if}-->					
+				<div class="shopDetailEditImg"></div>
+                <div class="shopDetailEditImg" request_url="<!--{mk_url('/channel/goods/edit_goods',['web_id'=>$web_id,'gid'=>$result_data.id])}-->" >
+				</div>
+			</div>

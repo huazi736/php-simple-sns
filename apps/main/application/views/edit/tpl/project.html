@@ -1,0 +1,66 @@
+<div id="ProjectExperInfoFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>项目名称：</th>
+				<td class="data"><input type="text" class="vinput limL" name="name" maxlength="30"/></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>时间：</th>
+				<td class="data"><select class="set_year" name="time_y_s"><option value="-1">请选择</option></select><select class="set_month" name="time_m_s"><option value="-1">请选择</option></select>至<select class="set_year" name="time_y_e"><option value="-1">请选择</option></select><select class="set_month" name="time_m_e"><option value="-1">请选择</option></select></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">项目描述：</th>
+				<td class="data">
+					<div><textarea name="desc" maxlength="500"></textarea></div>
+					<div class="clearfix">
+						<div id="desc" class="eg fl"><a>使用范例一</a> <a>使用范例二</a></div>
+						<div class="tip fr"></div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob">项目职责：</th>
+				<td class="data nob">
+					<div><textarea name="duty" maxlength="500"></textarea></div>
+					<div class="clearfix">
+						<div id="duty" class="eg fl"><a>使用范例一</a> <a>使用范例二</a></div>
+						<div class="tip fr"></div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr>
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0);">取消</a></div><div class="btnBlue fr mrs"><a id="ProjectExperInfoAdd" href="javascript:void(0);" class="bnt_add ProjectExperInfoAdd" style="display: none">确定</a><a href="javascript:void(0);" class="bnt_edit ProjectExperInfoEdit">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div id="desc0" class="hideEle">该项目为热轧场工程项目，总投资7.97亿美金。热轧工程主体为大跨度钢结构，主厂房长560米，宽120米。其中超大型设备基础，水处理（超深沉淀池）须涉及到大体积混凝土及沉井施工等施工工艺。</div>
+<div id="desc1" class="hideEle">该项目为现代广告效果检测系统设计开发项目。该系统主要为客户提供广告效果检测服务。根据调查分析的数据生成简明的Execl数据及图表，为企业提供科学决策方法。由于采集的数据量相当大，原先的手工出表出图效率低下，而且易出错。因此该项目的工作目标是：1）提高检测项目中的数据采集、计算效率；2）为客户提供实时“Excel及图标展示”。</div>
+<div id="duty0" class="hideEle">担任工程的项目经理，负责该项目土建部分的施工，对工程成本、质量、进度及安全进行控制与管理，对外沟通、协调与处理相关事宜，并负责项目部的行政管理。该项目比预计时间提前一年完成，并获得好评。</div>
+<div id="duty1" class="hideEle">负责后期系统运行性能的优化。主要从“数据算法”、“数据库索引”两个方面进行优化。优化后，数据查询时间比原来提高了5倍左右。一个七百万左右的数据查询优化前需要60秒，优化后只需要10秒。</div>
+<script>
+	$(function(){
+		var $div=$(".eg");
+		$('a',$div).click(function(){
+			var id=$(this).parent().attr('id');
+			var index=$(this).index();
+			var textarea=$(this).closest('.clearfix').prev().children();
+			var content=$('#'+id+''+index+'').text();
+			textarea.val(content).trigger('keyup');
+		});
+	});
+</script>

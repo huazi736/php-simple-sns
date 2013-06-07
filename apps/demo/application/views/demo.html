@@ -1,0 +1,32 @@
+<!--{extends file='demo_layout.html'}-->
+<!--{block name='title' prepend}-->
+使用范例
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<style type="text/css">
+body { margin: 0px auto; width:100%;}
+a:link,a:hover,a:visited { color:#333333; text-decoration:none; font-size:13px;}
+.layout { border:solid 1px #000033; width:800px; height:500px; margin:120px auto;}
+.layout li { width:350px; line-height:25px;height:25px;}
+</style>
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<div class="layout">
+<ul>
+<li><a href="<!--{mk_url('demo/welcome/fastdfs_upload')}-->" target="_blank">FastDFS使用范例-上传</a></li>
+<li><a href="http://192.168.12.242/group2/M00/08/34/wKgM8k_pQ3Gqyby7AAkVVGMybN8127.jpg" target="_blank">FastDFS使用范例-浏览</a></li>
+<li><a href="<!--{mk_url('demo/welcome/memcache')}-->" target="_blank">Memcache使用范例</a></li>
+<li><a href="<!--{mk_url('demo/welcome/redis')}-->" target="_blank">Redis使用范例</a></li>
+<li><a href="<!--{mk_url('demo/welcome/mysql')}-->" target="_blank">MySQL使用范例</a></li>
+<li><a href="<!--{mk_url('demo/welcome/mongodb')}-->" target="_blank">Mongodb使用范例</a></li>
+<li><a href="<!--{mk_url('demo/welcome/helper')}-->" target="_blank">Helper使用范例</a></li>
+<li><a href="<!--{mk_url('demo/welcome/service')}-->" target="_blank">Service使用范例</a></li>
+<li><a href="<!--{mk_url('demo/welcome/showurl')}-->" target="_blank">URL生成范例</a></li>
+<li><a href="<!--{mk_url('demo/welcome/parseurl')}-->" target="_blank">URL解析范例</a></li>
+<li><a href="<!--{mk_url('demo/welcome/log_message')}-->" target="_blank">log_message使用范例</a></li>
+<li><a href="<!--{mk_url('demo/welcome/debugtoolbar')}-->" target="_blank">Debug-Toolbar使用范例</a></li>
+</ul>
+</div>
+
+<!--{/block}-->

@@ -1,0 +1,12 @@
+/**
+ * Created on 2012-03-26
+ * @author： yewang
+ * @version： 1.0
+ * @desc：404页面样式
+ */
+
+.modlueBody { background:none; border:none; }
+.notFound { width:555px; height:245px; background-image:url(../../img/system/404.png); margin:100px auto 0; overflow:hidden; font-size:14px; }
+.notFound p { margin:80px 0 0 320px;}
+.notFound span { display:block; margin:102px 0 0 280px; }
+.notFound span a { margin-right:52px; }

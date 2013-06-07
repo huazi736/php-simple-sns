@@ -1,0 +1,118 @@
+/**
+ * @author:    张波
+ * @created:   2012/3/22
+ * @version:   v1.0
+ * @desc:      发现兴趣
+ */
+
+#game_box .clear{ clear: both; line-height: 0px; font-size: 0px; }
+#game_box .modlueBody{ margin-top: 15px; }
+
+/* 手机、电视游戏的三级分类 */
+.threeClass{ border-bottom: 1px solid #c4ccdf; padding-bottom: 3px; }
+.threeClass span{ float: left; font-weight: bold; color: #333333; display: block; height: 22px; line-height: 22px; margin: 2px; }
+.threeClass ul{ float: left; }
+.threeClass ul li{ float:left; margin:2px; padding-left:5px; padding-right:5px; height:22px; line-height:22px; border: 1px solid #FFF; white-space: nowrap; }
+.threeClass ul li.current{ border-radius: 3px 3px 3px 3px; border: 1px solid #48629F; background-color:#EEEFF4; }
+.threeClass ul li.current a{ color: #333333; }
+.threeClass .creatWebBtn{ float: right; }
+.threeClass .creatWebBtn a{ color: #3b5998; font-weight: bold; }
+
+/* 手机、电视游戏的四级分类 */
+.webContain{ padding-top: 15px; }
+.fourClass{ float: left; width: 80px; }
+.fourClass ul li{ margin:0 2px; padding-left:5px; padding-right:5px; height:22px; line-height:22px; border: 1px solid #FFF; white-space: nowrap; float: left; clear: left; }
+.fourClass ul li.current{ border-radius: 3px 3px 3px 3px; border: 1px solid #48629F; background-color:#EEEFF4; }
+.fourClass ul li.current a{ color: #333333; }
+
+/* 网页列表 */
+.webList{ width: 810px; float: left; margin-left: 0px; }
+.webList .webInfos{ float: left; width: 265px; margin:0 3px 15px 0; }
+.webList .webInfos .webImg{ float: left; }
+.webList .webInfos .webInfo{ margin-left: 110px; color: #3b5998; }
+.webList .webInfos .webInfo .webName a{ color: #3b5998; font-weight: bold; }
+.webList .webInfos .webInfo .follow{ margin-top: 20px; }
+
+/* 点击查看更多 */
+.clickMore{ width: 800px; text-align: center; padding: 7px 0; background: #E7EBF2; clear: both; cursor: pointer; display: none; }
+.clickMore a{ color: #3B5998; }
+
+/* flash游戏列表 */
+.btnGray i.uiButtonIcon { margin-top: 5px !important; }
+.flashGame .title{ font-size: 14px; color: #333333; font-weight: bold; padding: 10px 0 0 10px; }
+.flashGame .lists ul{ padding: 0 10px; }
+.flashGame .lists li{ padding: 10px 0; border-bottom: 1px solid #d9dfeb; height: 115px; }
+.flashGame .lists li .img{ width: 152px; height: 112px; border: 1px solid #d9dfeb; float: left; }
+.flashGame .lists li .info{ margin-left: 170px; }
+.flashGame .lists li .info .name{ padding: 15px 0 3px 0; }
+.flashGame .lists li .info .name a{ color: #3b5998; font-size: 14px; font-weight: bold; }
+.flashGame .lists li .info .name a:hover, .flashGame .lists li .info .action a:hover{ text-decoration: underline; }
+.flashGame .lists li .info .desc{ color: #666666; font-size: 12px; line-height: 16px; height: 32px; overflow: hide; }
+.flashGame .lists li .info .comment{ padding-top: 10px; height: 16px; color: #666666; line-height: 16px; }
+.flashGame .lists li .info .comment a, .flashGame .lists li .info .comment span{ float: left; margin-right: 7px; }
+.flashGame .lists li .info .action{ height: 18px; line-height: 18px; padding-top: 2px; }
+.flashGame .lists li .info .action a{ float: left; margin-right: 20px; }
+.flashGame .clickMore{ width: 790px; margin: 10px 10px 0 10px; }
+
+/* 弹出层 删除框 */
+.delDIv{ padding: 50px; }
+.delDIv li{ color: #656565; }
+.delDIv li span{ color: #c5c7c6; padding-right: 6px; }
+
+/* 游戏上传 */
+.flashGame div.uploadTitle{ padding-left: 0; }
+
+.tabs{padding:0; border-bottom:1px solid #ccc;}
+.tabs .leftTabs{float:left; padding-left:10px;}
+.tabs .toggleTabs{margin-bottom:-1px; text-align:center;}
+.tabs .toggleTabs li{display:inline; padding:2px 0 3px; background:#f1f1f1;}
+.tabs .toggleTabs li:after{display:inline;}
+.tabs .toggleTabs li a{padding:2px 8px 3px 9px; display:inline-block; font-weight:bold; border-style:solid solid solid none; border-color:#898989 #898989 #898989; color:#333; border-width:1px 1px 1px 0;}
+.tabs .toggleTabs li.first a{border:1px solid #898989;}
+.tabs .toggleTabs li a.selected{border:1px solid #898989; color:#fff; margin-left:-1px; background:#6d84b4; border-color:#3b5998 #5973a9; border-style:solid; border-width:1px;}
+.tabs{margin-top:13px;}
+
+.uploadOuter{ background: #f2f2f2; padding: 10px; border-top: 1px solid #F8F8F8; }
+.uploadInner{ border: 1px solid #cccccc; padding: 30px 20px 20px; background: #ffffff; }
+.uploadInner .uploadTitle, .uploadInner .uploadProcessInfo{ text-align: center; color: #4f4f4f; font-weight: bold; font-size: 14px; padding: 25px 0; }
+.uploadInner .uploadBody{ width: 378px; height: 58px; margin: 0 auto; background: #ededed; border: 1px solid #cccccc; }
+.uploadInner .uploadBody .uploadBtn, .uploadInner .uploadBody .uploadContent{ float: left; }
+.uploadInner .uploadBody .uploadBtn{ margin: 18px 0 0 36px; }
+.uploadInner .uploadBody .uploadContent{ margin: 20px 0 0 15px; color: #000000; }
+.uploadInner .uploadNotice{ padding: 20px 0 15px 190px; }
+.uploadInner .uploadNotice dt{ font-weight: bold; color: #000000; }
+.uploadInner .uploadNotice dd{ color: #000000; }
+.uploadInner .uploadNotice dd span{ color: #5973a9; padding-right: 4px; }
+
+.uploadInner .uploadImg div.left{ float: left; }
+.uploadInner .uploadImg div.text{ color: #989898; padding: 3px 0px 3px 5px; }
+
+.uploadInner #uploadProcess{ width: 355px; margin: 0 auto; }
+
+.uploadInner .uploadSuccess{ width: 378px; height: 58px; margin: 0 auto; background: #fffbe2; border: 1px solid #ffe222; }
+.uploadInner .uploadSuccess span{ float: left; padding: 18px 0 0 20px; }
+.uploadInner .uploadSuccess a{ float: right; padding: 18px 17px 0 0; }
+.uploadInner .formContent{ padding-left: 105px; }
+.uploadInner .formContent .metadataRow { padding: 0 0 6px; }
+.uploadInner .formContent .metadataLabel { display: block; float: left; font-weight: bold; padding: 4px 10px 4px 0; text-align: right; vertical-align: middle; width: 120px; }
+.uploadInner .formContent .metadataInput{ width: 380px; text-align: left; float: left; }
+.uploadInner .formContent .inputtext { border: 1px solid #BDC7D8; margin: 1px 0 0; padding: 3px 3px 4px; width: 320px; }
+.uploadInner .formContent .metadataInput textarea { border: 1px solid #BDC7D8; height: 70px; margin: 3px 0 0; overflow: hide; padding: 3px; width: 320px; }
+.uploadInner .formContent .inputButton { background-color: #3B5998; border-color: #D9DFEA #0E1F5B #0E1F5B #D9DFEA; border-style: solid; border-width: 1px; color: #FFFFFF; cursor: pointer; height: 25px; line-height: 25px; text-align: center; vertical-align: middle; width: 70px; }
+.uploadInner .formContent .false{ background: #adbad4; }
+.uploadInner .formContent .tip{ height: 18px; margin-top: 5px; text-align: right; }
+
+/* 弹出层 编辑框 */
+#editForm{ text-align: center; padding: 10px 0; }
+#editForm .metadataRow { padding: 0 0 3px; }
+#editForm .metadataLabel { display: block; float: left; font-weight: bold; padding: 4px 10px 4px 0; text-align: right; vertical-align: middle; width: 70px; }
+#editForm .metadataInput{ width: 330px; text-align: left; float: left; }
+#editForm .inputtext { border: 1px solid #BDC7D8; margin: 1px 0 0; padding: 3px 3px 4px; width: 320px; }
+#editForm .metadataInput textarea { border: 1px solid #BDC7D8; height: 70px; margin: 3px 0 0; overflow: hide; padding: 3px; width: 320px; }
+#editForm .inputButton { background-color: #3B5998; border-color: #D9DFEA #0E1F5B #0E1F5B #D9DFEA; border-style: solid; border-width: 1px; color: #FFFFFF; cursor: pointer; height: 25px; line-height: 25px; text-align: center; vertical-align: middle; width: 70px; }
+#editForm .false{ background: #adbad4; }
+#editForm .tip{ height: 18px; margin-top: 5px; text-align: right; }
+#editForm .uploadImg div.left{ float: left; }
+#editForm .uploadImg div.btn{ text-align: right; width: 175px; padding-top: 85px; }
+#editForm .uploadImg div.text{ color: #666666; padding: 3px 0px 3px 5px; clear: both; }
+.popBtnsWrap span.false{ background: #adbad4; }

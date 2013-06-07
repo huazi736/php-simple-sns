@@ -1,0 +1,1 @@
+var city_list = false;

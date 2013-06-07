@@ -1,0 +1,12 @@
+<ul class="" >
+<!--{foreach from=$item_data item=pitem2}-->
+
+    <li style="float:left; margin: 4px 0px;">
+        <a href="<!--{mk_url('interest/index/web_list',['web_id'=>$pitem2.eid,'target'=>$target])}-->" title="<!--{$pitem2.name}-->"><!--{$pitem2.name}--></a>&nbsp;&nbsp;&nbsp;&nbsp;
+	</li>
+<!--{/foreach}-->
+</ul>
+<!--{if  $continue_load && $item_data}-->
+	<em style="display:block;float:none;font-size:0;height:0;line-height:0;overflow:hidden;clear:both;visibility: hidden; "></em>
+	<div class="top_continue_load" request_url="<!--{mk_url('interest/index/get_category_top',['imid'=>$imid,'iid'=>$iid,'participle_id'=>$participle_id])}-->" participle_id='<!--{$participle_id}-->' page='<!--{$page}-->' >查看更多</div>
+<!--{/if}-->

@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>发送简历</title>
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/popUp/popUp.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/job/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- start: 头部-->
+<div id="header">
+    <div class="header">
+        <div class="topBar clearfix">
+            <!-- start: LOGO-->
+            <div class="nav_box clearfix">
+                <h1 id="logo"><a href="/www_duankou/main/index/main" title="首页">duankou</a></h1>
+            </div>
+            <!-- end: LOGO-->
+        </div>
+    </div>
+</div>
+<!-- end: 头部-->
+
+<!-- start: 内容区-->
+<div class="body clearfix">
+    <!-- start: mainArea-->
+    <div class="mainArea">
+
+        <!-- start: contentCol-->
+        <div id="contentCol" class="clearfix">
+            <!-- start: 菜单切换-->
+            <div class="tagMenu">
+                <div class="tipIco"></div>
+                <div class="item">
+                    <h2 class="clearfix"><a href="index.html"><i style="background:none;"></i><strong>招聘首页</strong><em></em></a></h2>
+                </div>
+                <!--高亮一级分类 item添加current类-->
+                <div class="item">
+                    <h2 class="clearfix"><i></i><strong>端口简介</strong><em></em></h2>
+                    <ul>
+                        <!--高亮二级分类 li添加subCurrent类-->
+                        <li><a href="#">了解端口网</a></li>
+                        <li><a href="#">端口团队</a></li>
+                        <li><a href="#">成长机制</a></li>
+                        <li><a href="#">薪酬和福利</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h2 class="clearfix"><i></i><strong>社会招聘</strong><em></em></h2>
+                    <ul>
+                        <li><a href="#">技术类职位</a></li>
+                        <li><a href="#">产品运营类职位</a></li>
+                        <li><a href="#">市场公关类</a></li>
+                    </ul>
+                </div>
+                <div class="item current">
+                    <h2 class="clearfix"><i></i><strong>发送简历</strong><em></em></h2>
+                    <ul>
+                        <li><a href="show_doc">在线发送简历</a></li>
+                        <li class="subCurrent"><a href="resumeWrite.html">在线填写简历</a></li>
+                </div>
+                <div class="item">
+                    <h2 class="clearfix"><i></i><strong>联系我们</strong><em></em></h2>
+                </div>
+            </div>
+            <!-- end: 菜单切换-->
+
+            <!-- start: 具体内容-->
+            <div class="specContent resume resumeWirte">
+                <h2><span>发送简历</span> > 在线填写简历</h2>
+                <div class="detail">
+                    <ul class="tab clearfix">
+                        <li><a href="./info">个人信息</a></li>
+                        <li><a href="resumeWrite_edu.html">教育情况</a></li>
+                        <li><a href="resumeWrite_work.html">工作经历</a></li>
+                        <li><a href="resumeWrite_train.html">培训经历</a></li>
+                        <li  class="selected"><a href="resumeWrite_skill.html">技能</a></li>
+                    </ul>
+
+                    <!-- start: 技能-->
+
+                    <div class="tagDetail" style="display:block;">
+                        <form action="./insert_skill" method="post" enctype="multipart/form-data">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>第一外语：</td>
+                                        <td class="smallSelectTd">
+                                            <select name="foreignLanguage">
+                                                <option value="英语">英语</option>
+                                                <option value="英语">英语</option>
+                                                <option value="英语">英语</option>
+                                                <option value="英语">英语</option>
+                                                <option value="英语">英语</option>
+                                                <option value="英语">英语</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>熟练程度：</td>
+                                        <td class="smallSelectTd">
+                                            <select name="proficiency">
+                                                <option value="精通">精通</option>
+                                                <option value="精通">精通</option>
+                                                <option value="精通">精通</option>
+                                                <option value="精通">精通</option>
+                                                <option value="精通">精通</option>
+                                                <option value="精通">精通</option>
+                                                <option value="精通">精通</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>外语等级：</td>
+                                        <td class="smallSelectTd">
+                                            <select name="foreignLanguageLevel">
+                                                <option value="二级">二级</option>
+                                                <option value="三级">三级</option>
+                                                <option value="二级">二级</option>
+                                                <option value="三级">三级</option>
+                                                <option value="二级">二级</option>
+                                                <option value="三级">三级</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:90px;">计算机水平：</td>
+                                        <td class="smallSelectTd">
+                                            <select name="computerLevel">
+                                                <option value="二级">二级</option>
+                                                <option value="三级">三级</option>
+                                                <option value="二级">二级</option>
+                                                <option value="三级">三级</option>
+                                                <option value="二级">二级</option>
+                                                <option value="三级">三级</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr><td align="center">驾龄：</td><td><input type="text" name="driveAge" value="" class="nameInput" /></td></tr>
+                                    <tr><td align="center">执业资格：</td><td><input type="text" name="qualification" value="" class="nameInput" /></td></tr>
+                                    <tr><td align="center">技术职称：</td><td><input type="text" name="technicalTitle" value="" class="nameInput" /></td></tr>
+                                    <tr><td colspan="2" style="width:200px;">其他证书或技能：</td></tr>
+                                    <tr><td colspan="2" class="selfEvalTd"><textarea name="otherSkill"></textarea></td></tr>
+                                </tbody>
+                            </table>
+                            <p class="statement">
+                                <b>声明：</b><br />我所填写的内容均属实，本人承诺，若提供资料及相关证明文件如有不实之处或有误导，本人的申请将被取消，若本人已经受聘，本人也将自愿接受无补偿立即解除劳动合同的处分。
+                            </p>
+                            <span class="btnBlue"><input type="submit" value="确认提交" /></span>
+                        </form>
+                    </div>
+
+                    <!-- end: 技能-->
+
+
+                </div>
+            </div>
+            <!-- end: 具体内容-->
+
+
+
+        </div>
+        <!-- end: contentCol --> 
+
+    </div>
+    <!-- end: mainArea-->
+
+    <div class="sideArea"></div>
+
+</div>
+<!--End 内容区-->
+
+<!--Start 底部-->
+<div id="footer" class="clearfix">
+    <span class="copyRight">Duankou &copy; 2011 · <a href="#">中文(简体)</a></span>
+    <span class="footerLinks"><a href="/about/index">关于</a>·<a href="http://open.duankou.dev">开放平台</a>·<a href="/www_duankou/feedback/main/index">用户反馈</a>·<a href="#">手机</a>·<a href="/www_duankou/ads/ad/index">广告</a>·<a href="#">招聘</a>·<a href="#">隐私政策</a>·<a href="/www_duankou/main/help/index" target="_blank">帮助中心</a>·<a href="http://115.238.237.226:5705/" target="_blank">流量统计</a></span>
+</div>
+<!--End 底部-->
+
+
+<script src=" <!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js"></script>
+<script src=" <!--{$smarty.const.MISC_ROOT}-->js/job/index.js"></script>
+</body>
+</html>

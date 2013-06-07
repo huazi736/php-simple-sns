@@ -1,0 +1,93 @@
+<div class="dkUserwikiNice wikicontentWrap">
+	<div class="schoolBox clearfix">
+		<a class="dkSchImageBlock"><img src="<!--MISC_ROOT-->img/system/editPageIcon2.png"/></a>
+		<div class="dkContentBlock fwb">
+			<span name="school_name"></span>
+		</div>
+	</div>
+	<div  class="uiContextualDialogDefaultPadding">
+		<table class="uiInfoTableForm">
+			<tbody>
+				<tr class="dataRow">
+					<th class="label"><em>*</em>学校：</th>
+					<td class="data"><span name="school_name"></span></td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr class="dataRow">
+					<th class="label"><em>*</em>学历：</th>
+					<td class="data">
+					<select name="eduCation_c">
+						<option value="-1">请选择</option>
+						<option value="9">博士</option>
+						<option value="8">硕士</option>
+						<option value="7">研究生</option>
+						<option value="6">本科</option>
+						<option value="5">专科</option>
+					</select></td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr class="dataRow">
+					<th class="label"><em>*</em>学历：</th>
+					<td class="data">
+					<select name="eduCation_m">
+						<option value="-1">请选择</option>
+						<option value="3">初中</option>
+						<option value="4">高中</option>
+					</select></td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr class="dataRow">
+					<th class="label"><em>*</em>院系：</th>
+					<td class="data">
+					<input type="text" name="school_department" class="vinput" id="department"/>
+					</td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr class="dataRow">
+					<th class="label"><em>*</em>入学年份：</th>
+					<td class="data">
+						<select class="set_year" name="school_year">
+							<option value="-1">请选择</option>
+						</select>
+						<select class="set_month" name="school_month">
+							<option value="-1">请选择</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr class="dataRow">
+					<th class="label">同班同学：</th>
+					<td class="data">
+						<ul class="person">
+							<li>
+								<input type="text" class="vinput" value="" uid="0" maxlength="10" name="classmate"/><span class="addTr allEite"><img src="<!--MISC_ROOT-->img/system/plus.gif" alt="" width="25" height="25" /></span>
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+		<table>
+			<tbody>
+				<tr>
+					<td width="65%" class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+					<td width="35%">
+					<div class="btnGray fr">
+						<a class="close" href="javascript:void(0);">取消</a>
+					</div>
+					<div class="btnBlue fr mrs">
+						<a href="javascript:void(0);" class="btn_edit TrainExperInfoEdit">确定</a>
+						<a href="javascript:void(0);" class="btn_save TrainExperInfoEdit" style="display: none">确定</a>
+					</div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,72 @@
+<form name="login_form" id="login_form" method="post" action="<!--{mk_url('front/login/userlogin')}-->">
+	<input type="hidden" name="login_switch" value='true'/>
+	<input type="hidden" name="backurl" id="backurl" value=''/>
+	<ul class="loginOut">
+		<li class="clearfix">
+			<label class="label">电子邮箱/端口号：</label><input type="text" id="loginoutUsername" maxlength="64" name="login_name" class="inputTxt defaultColor" value="" default="电子邮件/端口号" /><span class="error" id="errorNewp"></span>
+		</li>
+		<li class="clearfix">
+			<label class="label">密码：</label><input type="password" id="loginoutPwd" maxlength="20" class="inputTxt" /><span class="error" id="errorOldp"></span><input type="hidden" id="MD5reloginPwd" name="passwd" />
+		</li>
+		<li class="clearfix rememberMe">
+			<input id="rememberMe" type="checkbox" name="remember" value="1" /><label for="rememberMe">保存我的登录状态</label>
+		</li>
+		<li class="loginBtn clearfix">
+			<label></label><span class="submit"><input class="saveBtn" type="submit" id="loginOut" value="登 录" /></span><a href="<!--{mk_url('front/login/forget_pass')}-->">忘记密码？</a>
+		</li>
+	</ul>
+</form>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/md5/md5.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script type="text/javascript">
+	var loginForm = $('#login_form');
+	loginForm.find('input.inputTxt').focus(function(){
+		var _this = $(this);
+		_this.addClass('addBorder').next().text('');
+		_this.next().text('');
+	}).blur(function(){
+		$(this).removeClass('addBorder');
+	});
+
+	loginForm.find('#loginOut').click(function(){
+		var username = $('#loginoutUsername'),
+			_pwd = $('#loginoutPwd'),
+			_MD5pwd = $('#MD5reloginPwd'),
+			u = '', p = '';
+
+		u = dk_user(username);
+		p = dk_pwd(_pwd);
+		if(!u || !p){
+			return false;
+		}
+		var pVal = _pwd[0].value;
+		_MD5pwd.val(MD5(MD5(pVal)));
+		$('#backurl').val(window.location.href);
+	});
+
+	function dk_user($input) {
+		var val = $.trim($input.val());
+		if(val === '' || val == $input.attr('default')) {
+			$input.next().text('请输入邮箱或端口号');
+			return false;
+		}
+		if(val.length < 6){
+			$input.next().text('该邮箱或端口号不存在');
+			return false;
+		}
+		return true;
+	}
+
+	function dk_pwd($input) {
+		var val = $input.val();
+		if(val.length < 1) {
+			$input.next().text('请输入密码');
+			return false;
+		}
+		if(val.length < 6) {
+			$input.next().text('密码错误，请重新输入');
+			return false;
+		}
+		return true;
+	}
+</script>

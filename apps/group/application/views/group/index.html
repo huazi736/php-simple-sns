@@ -1,0 +1,31 @@
+<!--{extends file='default.html'}-->
+
+<!--{block name='header_css' append}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/groupall.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='right'}-->
+<div id="contentArea"   class="contentArea">
+	<div class="list_center">
+	<h2 id="list_header">群组</h2>
+	<div class="list_content">
+		<ul>
+			<!--{foreach from=$groups item=group}-->
+			<li class="clearfix"><span><!--{$group.frequency}--></span><a href="<!--{mk_url('group/index/detail', ['gid' => $group.gid])}-->"><!--{$group.name}--></a></li>
+			<!--{/foreach}-->
+		</ul>
+	</div>
+	</div>
+</div>
+<div id="rightCol"  class="rightCol">
+	<div class="group_right_ad">
+	可能认识的人
+	</div>
+	<div class="group_right_ad">
+	赞助链接
+	</div>
+</div>
+<!--{/block}-->
+
+<!--{block name='footer_js' append}-->
+<!--{/block}-->

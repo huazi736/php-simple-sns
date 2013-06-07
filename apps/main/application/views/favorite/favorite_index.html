@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>端口网</title>
+<link href="http://dev.duankou.com/misc/css/common/base.css" rel="stylesheet" type="text/css" />
+<link href="http://dev.duankou.com/misc/css/plug-css/popUp/popUp.css" rel="stylesheet" type="text/css" />
+<!-- start:imChat-->
+
+<link href="http://dev.duankou.com/misc/css/im/im.css" rel="stylesheet" type="text/css" />
+<link href="favorite.css" rel="stylesheet" type="text/css" />
+
+<!--赞和评论CSS开始-->
+<link href="http://dev.duankou.com/misc/css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<!--赞和评论CSS结束-->
+</head>
+<body>
+
+<div id="header">
+	<div class="header">
+		<div class="topBar clearfix">
+			<!-- start LOGO 通知 、站内信、请求、导航、搜索  -->
+			<div class="nav_box clearfix">
+				<h1 id="logo"><a href="http://dev.duankou.com/" title="首页">duankou</a></h1>
+				<!-- Start 通知 、站内信、请求 -->
+				<div id="jewelContainer" class="msg_box">
+					<div id="requestsJewel" class="jewel dropMenu" dataContent="requestsFlyout">
+						<a class="jewelButton triggerBtn" href="javascript:void(0)">
+							<span id="requestsCountWrapper" class="jewelCount"><span id="requestsCountValue">0</span></span>
+						</a>
+						<div id="requestsFlyout" class="jewelFlyout dropList">
+							<div class="clearfix uiHeaderBottomBorder jewelHeader">
+								<a style="display:none;" class="fr" href="javascript:void(0);">搜索朋友</a>
+								<div>
+									<h3 class="uiHeaderTitle">请求</h3>
+								</div>
+							</div>
+							<div class="invite">
+								 <ul class="invite_list">
+
+								 </ul>
+							</div>
+							<div class="jewelFooter">
+								<a class="seeMore" href="javascript:void(0);"><span>查看所有朋友请求</span></a>
+							</div>
+						</div>
+					</div>
+					<div id="messagesJewel" class="jewel dropMenu" dataContent="messagesFlyout">
+						<a class="jewelButton triggerBtn" href="javascript:void(0)">
+							<span id="messagesCountWrapper" class="jewelCount" ><span id="messagesCountValue">0</span></span>
+						</a>
+						<div id="messagesFlyout" class="jewelFlyout dropList">
+							<div class="clearfix uiHeaderBottomBorder jewelHeader">
+								<a class="fr" id="jewelSendNewMessage" href="javascript:void(0);">发送新信息</a>
+								<div>
+									<h3 class="uiHeaderTitle">站内信</h3>
+								</div>
+							</div>
+							<ul class="jewelItemList">
+
+							</ul>
+							<div class="jewelFooter">
+								<a class="seeMore" href="javascript:void(0);"><span>查看所有信息</span></a>
+							</div>
+						</div>
+					</div>
+					<div id="notificationsJewel" class="jewel dropMenu" dataContent="notificationsFlyout">
+						<a class="jewelButton triggerBtn" href="javascript:void(0)">
+							<span id="notificationsCountWrapper" class="jewelCount"><span id="notificationsCountValue">0</span></span>
+						</a>
+						<div id="notificationsFlyout" class="jewelFlyout dropList">
+							<div class="clearfix uiHeaderBottomBorder jewelHeader">
+								<div>
+									<h3 class="uiHeaderTitle">通知</h3>
+								</div>
+							</div>
+							<ul class="noticeItemList">
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- End 通知 、站内信、请求 -->
+				<div id="headNav" class="fl unvisible">
+					<ul id="circleNav"></ul>
+				</div>
+				<div class="fr">
+					<form action="/main/?" method="get" id="navSearch">
+						<input name="c" type="hidden" value="search">
+						<input name="m" type="hidden" value="main">
+						<input name="type" type="hidden" value="globals"/>
+						<div class="uiTypeahead">
+							<input type="text" class="searchInput fl" name="term" id="globalSearch" maxlength="50" />
+							<button type="submit" title="search">
+								<span class="hide">搜索</span>
+							</button>
+							<span class="initVal" id="initval">搜索</span>
+						</div>
+					<input name="duankou_key_check" value="UT5lfUbbe8vc96B5g60IKVhomV+USmn4L5aRKrcjAjdUV45Rzps5KafZgrmoTuEveyyCGdOp+RMcQyFctOkarg==" type="hidden" /></form>
+					<!-- Start 右侧箭头下拉-->
+					<div id="pageNav" class="fl">
+						<ul>
+							<li>
+								<a id="topUserLink" class="topNavLink tinyman" href="" title="home" rel="uid_1234">
+									<img id="topUserAvatar" width="23" height="23" alt="头像" src="http://dev.duankou.com/misc/img/default/avatar_30.gif" >
+									<span id="topUserInfo" class="headerTinyName"><strong></strong></span>
+								</a>
+							</li>
+							<li id="navAccount" class="dropMenu">
+								<a class="triggerBtn" id="navAccountTogger" href="javascript:void(0)"></a>
+								<ul id="subNavAccount" class="dropList">
+									<li><a href="http://dev.duankou.com/main/index.php?c=invitecode">邀请码</a></li>
+									<li class="menuDivider"></li>
+									<li><a href="http://dev.duankou.com/main/index.php?c=setting">系统设置</a></li>
+									<li><a target="_blank" href="http://dev.duankou.com/single/help/">帮助中心</a></li>
+									<li><a href="#logout" onclick="logout();">退出</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!--end 右侧箭头下拉 -->
+				</div>
+			</div>
+			<!-- end LOGO、通知 、站内信、请求、导航、搜索  -->
+
+		</div>
+	</div>
+</div>
+
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="http://dev.duankou.com/main/index.php?c=index&m=index&action_dkcode=101095"><img src="http://dev.duankou.com/misc/img/default/avatar_s.gif" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="http://dev.duankou.com/main/index.php?c=index&m=index&action_dkcode=101095">周连波</a></span>
+				<span class="nameTxt"><span class="fl"><a href="http://dev.duankou.com/single/blog/index.php?c=blog">收藏</a></span></span>
+			</div>
+		</div>
+
+		<div class="modlueBody clearfix">
+
+			<!--收藏主体 start-->
+			<div class="favoriteTitle clearfix">
+				<h4 class="fl">分类查看：</h4>
+				<ul>
+				<li class="on"><a href="#">全部</a></li>
+				<li><a href="#">视频</a></li>
+				<li><a href="#">日志</a></li>
+				<li><a href="#">相册</a></li>
+				</ul>
+				<div class="favoriteSearch fr">
+				<form id="" action="" method="post">
+				<i></i>
+				<input class="favoriteText" name="keywords" type="text" value="" /><input name="duankou_key_check" value="" type="hidden" />
+				</form></div>
+			</div>
+
+			<div class="favoritePage">当前显示 1-16条/共200条</div>
+			<ul class="favoriteList">
+			<li>
+			<h3>日志<strong>2012-07-10 18:12</strong></h3>
+			<div class="favoriteModel">
+				<div class="favoriteUser"><a href="#"><img src="http://static.duankou.com/misc/img/default/avatar_s.gif" width="50"></a></div>
+				<div class="favoriteMessage">
+				<h4><a href="#" class="fr"></a> <a href="#">火小雅：</a></h4>
+				<p class="favCorner"></p>
+				<div class="favoriteBody clearfix">
+					<div class="blog">
+					<h2><a href="#">治愈</a></h2>
+					<p>来自：<a href="#">轻舞飞扬</a></p>
+					<p class="summary">别人拥有的，你不必羡慕，只要努力，你也会拥有；自己拥有的，你不必炫耀，因为别人也在奋斗，也会拥有。多一点快乐，少一点忧伤，不论富或穷，地位高或低，知识浅或深。每天开心笑。累了就睡觉醒了就睡觉。别人拥有的，你不必羡慕，只要努力，你也会拥有；自己拥有的，你不必炫耀，因为别人也在奋斗，也会拥有。多一点快乐，少一点忧伤，不论富或穷，地位高或低，知识浅或深。每天开心笑。累了就睡觉醒了就睡觉。</p>
+					<a href="#"> >> 继续阅读</a>
+					</div>
+				</div>
+				</div>
+			</div>
+			</li>
+			<li>
+			<h3 class="typeAblum">照片<strong>2012-07-10 18:12</strong></h3>
+			<div class="favoriteModel">
+				<div class="favoriteUser"><a href="#"><img src="http://static.duankou.com/misc/img/default/avatar_s.gif" width="50"></a></div>
+				<div class="favoriteMessage">
+				<h4><a href="#" class="fr"></a> <a href="#">火小雅：</a></h4>
+				<p class="favCorner"></p>
+				<div class="favoriteBody clearfix">
+				<dl class="ablum">
+				<dt><a href="#"><img src="1.jpg" /></a></dt>
+				<dd><h2><a href="#">狗狗~萌宠家族  要比可爱吗？ 瞧瞧我水汪汪的大眼睛是不是喜欢上我了呢。</a></h2>
+				<p>相册：<a href="#">宠物控</a><br />来自：<a href="#">轻舞飞扬</a></p>
+				</dd>
+				</dl>
+				</div>
+				</div>
+			</div>
+			</li>
+			<li>
+			<h3 class="typeAblum">相册<strong>2012-07-10 18:12</strong></h3>
+			<div class="favoriteModel">
+				<div class="favoriteUser"><a href="#"><img src="http://static.duankou.com/misc/img/default/avatar_s.gif" width="50"></a></div>
+				<div class="favoriteMessage">
+				<h4><a href="#" class="fr"></a> <a href="#">火小雅：</a></h4>
+				<p class="favCorner"></p>
+				<div class="favoriteBody clearfix">
+				<dl class="ablum">
+				<dt><a href="#"><img src="1.jpg" /></a></dt>
+				<dd><h2><a href="#">狗狗~萌宠家族  要比可爱吗？ 瞧瞧我水汪汪的大眼睛是不是喜欢上我了呢。</a></h2>
+				<p>相册：<a href="#">宠物控</a><br />来自：<a href="#">轻舞飞扬</a><br />共54张照片</p>
+				</dd>
+				</dl>
+				</div>
+				</div>
+			</div>
+			</li>
+			<li>
+			<h3 class="typeVideo">视频<strong>2012-07-10 18:12</strong></h3>
+			<div class="favoriteModel">
+				<div class="favoriteUser"><a href="#"><img src="http://static.duankou.com/misc/img/default/avatar_s.gif" width="50"></a></div>
+				<div class="favoriteMessage">
+				<h4><a href="#" class="fr"></a> <a href="#">火小雅：</a></h4>
+				<p class="favCorner"></p>
+				<div class="favoriteBody clearfix">
+				<dl class="vedio">
+				<dt><a href="#"><img src="2.jpg" width="168" /></a><span>0:44</span></dt>
+				<dd><h2><a href="#">越狱啊越狱啊</a></h2>
+				<p>来自：<a href="#">轻舞飞扬</a></p>
+				</dd>
+				</dl>
+				</div>
+				</div>
+			</div>
+			</li>
+			</ul>
+
+			<div class="favoriteGetMore" id="j_getMore">
+				<img src="http://static.duankou.com/misc/img/plug-img/djax/loading2.gif">
+				<a href="javascript:void(0);">点击查看更多收藏</a>
+			</div>
+
+			<!--收藏主体 end-->
+		</div>
+	</div>
+	<div class="sideArea">
+		<!--sideArea广告区域-->
+	</div>
+</div>
+
+<div id="footer" class="clearfix">
+	<span class="copyRight">Duankou &copy; 2011 · <a href="#">中文(简体)</a></span>
+	<span class="footerLinks"><a href="#">关于</a>·<a href="#">开放平台</a>·<a href="#">手机</a>·<a href="http://dev.duankou.com/single/ad/index.php?c=ad&m=index">广告</a>·<a href="#">招聘</a>·<a href="#">隐私政策</a>·<a href="#">帮助中心</a></span>
+</div>
+
+</body>
+</html>

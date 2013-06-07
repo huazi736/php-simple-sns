@@ -1,0 +1,49 @@
+   <div class="groupPic">
+        <span class="DKcan_img addGroupImg">点击添加图片</span>
+        <span class="DKcan_imgOK addGroupOk">图片添加成功<a href="javascript:;" id="reAddGroup">重新上传</a></span>
+        <form id="grouponPIC" class="DK_bite formUpload" action="" method="post" enctype="multipart/form-data">
+						<span class="uploadWrap">
+							<input type="file" class="fileUpload" name="Filedata" accept="images/jpg,images/png,images/gif">
+						</span>
+        </form>
+
+    </div>
+    <div class="mediaItemContent">
+        <div class="mediaItem">
+            <div class="postText txtArea Js_groupArea" id="groupTitle">
+				<!--<div class="groupTitBg"><span></span></div>-->
+                <textarea msg="请输入促销标题" name="groupTitle" tmaxLength="500" id="groupTitleTex" style="height:50px;"></textarea>
+            </div>
+		
+        </div>
+    </div>
+
+    <div class="mediaItemBox inputField houseContact">
+        <label class="label price" for="groupPrice">请输入原价</label>
+        <input id="groupPrice" class="text" type="text"  validata-type="isNumber" value=""  title="请输入原价">
+        <span class="rmb">RMB</span>
+    </div>
+    <div class="mediaItemBox inputField houseContact">
+        <label class="label price" for="groupNowPrice">请输入现价</label>
+        <input id="groupNowPrice" class="text" type="text" validata-type="isNumber" value="" title="请输入现价">
+        <span class="rmb">RMB</span>
+    </div>
+    <div class="xc"></div>
+    <div class="groupTime">
+						<span rel="0" class="sp_selectDate">
+						<input type="text" id="groupDate" class="selectDate html_date" name="txt_selectDate" value="<!--{date('Y-n-j')}-->" now="<!--{date('Y-n-j')}-->"/>
+						</span>
+        <div class="groupHours" id="groupHours">
+            <i id="groupNowHouers">00:00</i>
+            <em id="grounpBg"></em>
+            <ul id="groupHourList"></ul>
+        </div>
+        <span class="groupTimeTips">请选择结束时间</span>
+
+    </div>
+
+    <div class="mediaItemBox inputField">
+        <label class="label Links" for="goodsLinks">请输入商品的连接地址。</label>
+        <input id="groupLink" class="text" type="text" require-data="isLinks" value="">
+    </div>
+

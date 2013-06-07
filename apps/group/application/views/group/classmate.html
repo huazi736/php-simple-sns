@@ -1,0 +1,111 @@
+<!--{extends file='default.html'}-->
+
+<!--{block name='header_css' append}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/groupall.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='right'}-->
+<div id="group_classmate">
+	<div class="group_list_new">
+		<h1>同学群 (<!--{$count}-->)</h1>
+	</div>
+	
+	<ul id="listWrap" class="listWrap clearfix">
+		<!--{foreach from=$schools item=types key=type}--> 
+		<li>
+			<h2><!--{$type}--></h2>
+			<!--{foreach from=$types key=name item=school}-->
+			<div class="box group_enter clearfix">
+				<!--{if $school.group|default:'' and $school.in_group}-->
+				<div class="listWrap_left">
+					<div class="avatarBox">
+						<div class="group_img_wrap">
+							<a href="<!--{$school.group.url}-->" class="clearfix">
+								<!--{foreach from=$school.group.members item=img}-->
+								<img src="<!--{$img}-->">
+								<!--{/foreach}-->
+								<!--{for $var=1 to 4-$school.group.member_counts}-->
+								<img src="<!--{$smarty.const.MISC_ROOT}-->img/default/avatar_s.gif">
+								<!--{/for}-->
+							</a>
+						</div>
+					</div>
+					<div class="uName">
+						<div class="className">
+							<a href="<!--{$school.group.url}-->"><!--{$school.group.name}--></a>
+						</div>
+						<span class="student_account">人数：<b><!--{$school.group.member_counts}--></b></span>
+					</div>
+				</div>
+				<div class="listWrap_right">
+				</div>
+				<!--{elseif $school.group|default:''}-->
+				<form method="post" action="<!--{mk_url('group/group/join')}-->">
+					<input type="hidden" value="<!--{$school.group.gid}-->" name="gid">
+					<input type="hidden" value="<!--{$user.uid}-->" name="uid[]">
+					<div class="listWrap_left">
+						<div class="avatarBox">
+							<div class="group_img_wrap">
+									<!--{foreach from=$school.group.members item=img}-->
+									<img src="<!--{$img}-->">
+									<!--{/foreach}-->
+									<!--{for $var=1 to 4-$school.group.member_counts}-->
+									<img src="<!--{$smarty.const.MISC_ROOT}-->img/default/avatar_s.gif">
+									<!--{/for}-->
+							</div>
+						</div>
+						<div class="uName">
+							<div class="className">
+								<!--{$school.group.name}-->
+							</div>
+							<span class="student_account">人数：<b><!--{$school.group.member_counts}--></b></span>
+						</div>
+					</div>
+					<div class="listWrap_right">
+							<span class="btnGray "><i class="uiButtonIcon plus"></i><input type="submit" value="加入群" /></span>
+					</div>
+				</form>
+				<!--{else}-->
+				<form method="post" action="<!--{mk_url('group/group/add')}-->">
+					<input type="hidden" value="<!--{$school.name}-->" name="name">
+					<input type="hidden" value="CLASSMATE" name="source_type">
+					<input type="hidden" value="<!--{$school.edulevel}-->" name="type">
+					<!--{foreach from=$school.classmate item=uid}-->
+					<input type="hidden" value="<!--{$uid}-->" name="uid[]">
+					<!--{/foreach}-->
+					<div class="listWrap_left">
+						<div class="avatarBox">
+							<div class="group_img_wrap">
+									<img src="<!--{$smarty.const.MISC_ROOT}-->img/default/avatar_s.gif">
+									<img src="<!--{$smarty.const.MISC_ROOT}-->img/default/avatar_s.gif">
+									<img src="<!--{$smarty.const.MISC_ROOT}-->img/default/avatar_s.gif">
+									<img src="<!--{$smarty.const.MISC_ROOT}-->img/default/avatar_s.gif">
+							</div>
+						</div>
+						<div class="uName">
+							<div class="className">
+								<!--{$school.name}-->
+							</div>
+							<span class="student_account"></span>
+						</div>
+					</div>
+					<div class="listWrap_right">
+							<span class="btnGray "><i class="uiButtonIcon plus"></i><input type="submit" value=创建群 /></span>
+					</div>
+				</form>
+				<!--{/if}-->
+			</div>
+			<!--{/foreach}-->
+		</li>
+		<!--{foreachelse}-->
+		<li><div class="blankWrap" id="nodata"><span>请先到 <a href="<!--{mk_url('user/userwiki/index', ['dkcode' => $user.dkcode])}-->">用户资料</a> 填入您的教育情况!</span></div></li>
+		<!--{/foreach}-->
+	</ul>
+</div>
+<!--{/block}-->
+
+
+
+<!--{block name='footer_js' append}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group.js" type="text/javascript"></script>
+<!--{/block}-->

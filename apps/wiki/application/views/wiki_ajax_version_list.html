@@ -1,0 +1,9 @@
+<!--{foreach from=$version_list item=version key=key}-->
+<tr>
+	<td><input type="checkbox" name="item_version" value="<!--{$version['version']}-->" >&nbsp;NO.<!--{$version['new_version']|default:0}--></td>
+	<td><a href="<!--{$version['author_url']}-->" ><img src="<!--{$version['avatar']}-->" width="32" height="32" title="<!--{$version['username']}-->"></a><span class="ml5"><a href="<!--{$version['author_url']}-->"><!--{$version['username']}--></a></span></td>
+	<td><!--{date('Y年m月d日 H:i:s', $version['edit_datetime'])}--></td>
+	<td><!--{if $version['reason']}--><!--{$version['reason']}--><!--{$version['reason']|msubstr:0:20}--></a><!--{/if}--></td>
+	<td><a href="<!--{$version['version_link']}-->">查看</a></td>
+</tr>
+<!--{/foreach}-->

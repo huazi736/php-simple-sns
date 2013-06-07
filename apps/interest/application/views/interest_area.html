@@ -1,0 +1,34 @@
+<!--中-->
+	<div class="interestMenu clearfix">
+		<ul class="">
+        	<!--{foreach $module_result as $item}-->
+			<li class="photo" <!--{if $imid==$item['imid']}-->set="1"<!--{/if}--> >
+            	<!--{if $item['is_local']==1 && $user['cityid']<=0}-->
+                	<a href="javascript:;" onclick="perfect_address()">
+            	<!--{elseif $item.channel_url}-->
+					<a href="<!--{mk_url($item.channel_url)}-->" >
+                <!--{else}-->
+                	<a href="<!--{mk_url('interest/index/alist',['imid'=>$item['imid']])}-->" >
+                <!--{/if}-->
+					<span class="tab">
+						<div class="imgLink <!--{$item['app_icon']}-->"  >
+
+						</div>
+						<span class="interestMenuShow">
+								<!--{$item['imname']}-->
+						</span>
+					</span>
+				</a>
+			</li>
+            <!--{/foreach}-->
+		</ul>
+		<div class="rightMenu">
+			<div class="linkButton">
+				<a id="" href="#">
+					<span class="linkButtonspan">
+						<span class="text"></span>
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>

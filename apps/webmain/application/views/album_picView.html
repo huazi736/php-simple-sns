@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/popUp/popUp.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/album/picViewer.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<!--以下为简洁评论样式 CSS 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" media="screen,projection" />
+</head>
+
+<body class="setbg">
+<div class="picViewer_box">
+  <div class="picViewer">
+    <div class="picViewer_picBox">
+      <div class="picViewer_pic">
+        <img src="<!--{$ptlists['img_b']}-->" alt="<!--{$ptlists['name']}-->" />
+        <!--{if $prev_next_list['prev_id']}--><div class="prevArea" title="上一张" href="<!--{$prev_url}-->"></div><!--{/if}-->
+        <!--{if $prev_next_list['next_id']}--><div class="nextArea" title="下一张" href="<!--{$next_url}-->"></div><!--{/if}-->
+      </div>
+      <div class="pic_name">
+      	<!--{if $is_author}-->
+        	<p class="clearfix"><em></em><span class="picNameText"><!--{$ptlists['name']}--></span></p>
+        <!--{else}-->
+        	<div class="staticDis picNameText"><span alt="<!--{$ptlists['name']}-->" title="<!--{$ptlists['name']}-->"><!--{mb_substr($ptlists['name'], 0, 30,'utf-8')}--><!--{if mb_strlen($ptlists['name']) > 30}-->...<!--{/if}--></span></div>
+        <!--{/if}-->
+      </div>
+    </div>
+    <div class="picViewer_info clearfix">
+      <div class="info_addInfo_addComment">
+  		  	<div class="pic_name">
+  		  	<!--{if !$ptlists['description']}-->
+	  		  	<!--{if $is_author}-->
+	            <p class="clearfix"><em></em><span>添加照片描述</span></p>
+	       		<!--{/if}-->
+	       	<!--{else}-->
+	       		<!--{if $is_author}-->
+	            	<p class="clearfix"><em></em><span><!--{$ptlists['description']}--></span></p>
+	       		<!--{else}-->
+	       			<div class="staticDis"><span><!--{$ptlists['description']}--></span></div>
+	       		<!--{/if}-->
+	       	<!--{/if}-->	
+       		 </div>
+
+        <div class="comment_easy picViewerCommentEasy" commentObjId="<!--{$ptlists['id']}-->" pageType="web_photo" action_uid="<!--{$action_uid}-->"  msgname='<!--{$album_info['name']}-->' msgurl='<!--{$view_photo_url}-->' ctime='<!--{$ptlists["timestamp"]}-->'></div>
+      </div>
+
+      <div class="picViewer_control">
+        <ul>
+          <li><span class="tc_9">相册：</span><a target="_top" href="<!--{$ptlistsurl}-->"><!--{$ptlists['album_name']}--></a><strong class="tc_9"> · </strong><span class="tc_9"><!--{$ptlists['photo_count']}--> 张中的第 <!--{$prev_next_list['num']}--> 张</span></li>
+          <li><span class="tc_9">发布于：</span><!--{$ptlists['dateline']}--></li>
+        </ul>
+        <ul class="setarea">
+          <li><a href="<!--{$uploadurl}-->">下载</a></li>
+          <!--<li><a href="#">制作个人头像</a></li>-->
+          <!--{if $is_author}-->
+    		  <li><a href="<!--{$smarty.const.WEB_ROOT}-->main/index.php?c=avatar&m=set_avatar&p=<!--{$ptlists['img']}-->&web_id=<!--{$album_info['web_id']}-->" target='_blank' id="picToAvatar2">制作个人头像</a><form id="picToAvatar_form" action="<!--{$smarty.const.WEB_ROOT}-->uc/avatar" method="post" target='_top'><input type='hidden' name='pid' value="<!--{$ptlists['id']}-->"><input type='hidden' name='pic' value="<!--{$ptlists['img_b']}-->"><input type="hidden" name="pic_id" value="<!--{$ptlists['id']}-->" /></form>
+    		  </li>
+          <li><a href="javascript:void(0);" id="picToCover">设置为封面</a><form id="picToCover_form" action="<!--{$smarty.const.WEB_ROOT}-->web/album/index.php?c=photo&m=setCover" method="post"><input type='hidden' name='aid' value="<!--{$ptlists['aid']}-->"><input type="hidden" name="pid" value="<!--{$ptlists['id']}-->" /><input type="hidden" name="web_id" value="<!--{$web_id}-->" /></form>
+          </li>
+    		  <li><a href="javascript:void(0);" id="picToMainCover">设置为网页应用区相册封面</a><form id="picToMainCover_form" action="<!--{$smarty.const.WEB_ROOT}-->web/album/index.php?c=photo&m=setMainCover&web_id=<!--{$album_info['web_id']}-->" method="post"><input type='hidden' name='aid' value="<!--{$ptlists['id']}-->"><input type="hidden" name="pid" value="<!--{$ptlists['id']}-->" /><input type="hidden" name="web_id" value="<!--{$web_id}-->" /></form>
+
+    		  </li>
+<li><a href="javascript:;" id="picViewer_del">删除此照片<form action="<!--{$ptdelete_url}-->" method="post"><input type="hidden" name="pic_id" value="<!--{$ptlists['id']}-->" /></form></a></li>
+        
+         
+          <!--{/if}-->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<input type='hidden' id='hd_UID' value="<!--{$uid}-->" />
+<input type='hidden' id='hd_userName' value='<!--{$login_username}-->' />
+<input type='hidden' id='hd_avatar' value='<!--{$login_avatar}-->' />
+<input type='hidden' id='hd_userPageUrl' value='<!--{$login_userpageurl}-->' />
+
+<input type="hidden" id="hd_imUID" value="<!--{$uid}-->" /><input type="hidden" id="hd_imUserName" value="<!--{$username}-->" />
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/init.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/common/utils.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/popUp/popUp.js"></script>
+
+<!--[if IE 6]>
+	<script language="javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/ie6png/DD_belatedPNG.js"></script>
+	<script language="javascript">
+		DD_belatedPNG.fix('.png');
+	</script>
+<![endif]-->
+
+<!--以下为相册相关JS-->
+
+<!--Start: 图片查看器页面JS-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/album/picViewerOpt.js"></script>
+<!--End: 图片查看器页面JS-->
+
+<!--start 添加说明/描述js-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/album/editText.js"></script>
+<!--End 添加说明/描述js-->
+
+<!--以下评论插件JS-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>端口网</title>
+<link type="text/css" rel="stylesheet" href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css">
+<link type="text/css" rel="stylesheet" href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/selectSC/selectSC.css">
+<script type="text/javascript" id="Data"></script>
+</head>
+<body>
+<div class="selectWid" id="selectWid">
+	<div class="selectTitle" id="selectTitle">
+		<span id="s_type">学校所在地：</span>
+		<span id="s_opts">
+			<select name="country" id="country">
+				<option selected="selected" value="1">中国</option>
+				
+			</select>
+			<select name="province" id="province">
+				<option selected="selected" value="11">北京</option>
+				<option value="12">天津</option>
+				<option value="13">河北</option>
+				<option value="14">山西</option>
+				<option value="15">内蒙古</option>
+				<option value="21">辽宁</option>
+				<option value="22">吉林</option>
+				<option value="23">黑龙江</option>
+				<option value="31">上海</option>
+				<option value="32">江苏</option>
+				<option value="33">浙江</option>
+				<option value="34">安徽</option>
+				<option value="35">福建</option>
+				<option value="36">江西</option>
+				<option value="37">山东</option>
+				<option value="41">河南</option>
+				<option value="42">湖北</option>
+				<option value="43">湖南</option>
+				<option value="44">广东</option>
+				<option value="45">广西</option>
+				<option value="46">海南</option>
+				<option value="50">重庆</option>
+				<option value="51">四川</option>
+				<option value="52">贵州</option>
+				<option value="53">云南</option>
+				<option value="54">西藏</option>
+				<option value="61">陕西</option>
+				<option value="62">甘肃</option>
+				<option value="63">青海</option>
+				<option value="64">宁夏</option>
+				<option value="65">新疆</option>
+				<option value="71">台湾</option>
+				<option value="81">香港</option>
+				<option value="82">澳门</option>
+			</select>
+		</span>
+	</div>
+	<div class="selectIndex" id="selectIndex">
+		<a href="all" class="selected">全部</a>
+		<a href="a" >A</a>
+		<a href="b" >B</a>
+		<a href="c" >C</a>
+		<a href="d" >D</a>
+		<a href="e" >E</a>
+		<a href="f" >F</a>
+		<a href="g" >G</a>
+		<a href="h" >H</a>
+		<a href="i" >I</a>
+		<a href="j" >J</a>
+		<a href="k" >K</a>
+		<a href="l" >L</a>
+		<a href="m" >M</a>
+		<a href="n" >N</a>
+		<a href="o" >O</a>
+		<a href="p" >P</a>
+		<a href="q" >Q</a>
+		<a href="r" >R</a>
+		<a href="s" >S</a>
+		<a href="t" >T</a>
+		<a href="u" >U</a>
+		<a href="v" >V</a>
+		<a href="w" >W</a>
+		<a href="x" >X</a>
+		<a href="y" >Y</a>
+		<a href="z" >Z</a>
+	</div>
+	<div class="selectCont" id="selectCont"></div>
+</div>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/init.js"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/tempJS/area/country.js"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/tempJS/area/1/province.js"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/tempJS/area/1/11.js"></script>
+<script type="text/javascript">
+$(function(){
+	var miscpath = parent.CONFIG['misc_path'];
+	var SC = {
+		cache: {
+			listData: []
+		},
+		init: function() {
+			this.selectInit();
+			this.tabList();
+			this.loadList();
+			this.selectCallback();
+		},
+		selectInit: function(type) {
+			var self = this,
+				c = $('#country'),
+				p = $('#province');
+			c.change(function() {
+				if($(this).val() !== '1') {
+					p.empty();
+					self.cache.listData = '';
+					$('#selectCont').empty();
+				} else {
+					var opt = '';
+					for(var i = 0, l = province_list.length; i < l; i++) {
+						opt += '<option value="'+province_list[i].area_id+'">'+province_list[i].area_name+'</option>';
+					}
+					p.append(opt).val('11');
+					self.loadList();
+
+				}
+			});
+			
+			p.change(function() {
+
+				self.loadList();
+
+			});
+			
+		},
+		loadList: function(val) {
+
+			var listData = '',
+				path = $('#province').val() + '.js',
+				cache = this.cache;
+
+			$('#Data').attr('src',miscpath+'js/tempJS/college/1'+path);	
+			$('#Data')[0].onload = $('#Data')[0].onreadystatechange = function(){
+				var ul = '';
+				cache.listData = listData = college;
+				for(var i = 0, l = listData.length; i < l; i++) {
+					ul += '<li><a title="'+listData[i].college_name+'" id="'+listData[i].id+'">'+listData[i].college_name+'</a></li>';
+				}
+				uls = '<ul>' + ul + '</ul>';
+				$('#selectCont').empty().append(uls);
+				$('#selectIndex').find('a').removeClass('selected').eq(0).addClass('selected');	
+				$('#Data').remove();
+				var oScript = document.createElement("script"),
+				    oHead = document.getElementsByTagName("HEAD").item(0);
+				oScript.id = 'Data';
+				oScript.type = "text/javascript";
+				oHead.appendChild(oScript);
+			}
+		},
+		tabList: function() {
+			var cache = this.cache,
+				par = $('#selectIndex');
+			par.find('a').click(function() {
+				if(!$(this).hasClass('selected')) {
+					var listData = cache.listData,
+						ul = '',
+						index = $(this).attr('href');
+					if(index !== 'all') {
+						for(var i = 0, l = listData.length; i < l; i++) {
+							if(listData[i].initial === index) {
+								ul += '<li><a title="'+listData[i].college_name+'" id="'+listData[i].id+'">'+listData[i].college_name+'</a></li>';
+							}
+						}
+					} else {
+						for(var i = 0, l = listData.length; i < l; i++) {
+							ul += '<li><a title="'+listData[i].college_name+'" id="'+listData[i].id+'">'+listData[i].college_name+'</a></li>';
+						}
+					}
+					ul = '<ul>' + ul + '</ul>';
+					$('#selectCont').empty().append(ul);
+				}
+				par.find('a').removeClass('selected');
+				$(this).addClass('selected');
+				return false;
+			});
+			
+		},
+		selectCallback: function() {
+			$('#selectCont').delegate('a', 'click', function() {
+				var self = this,
+					inputs = window.parent.document.getElementsByTagName('input'),
+					input = null,
+					p_id = $('#province').val();
+				for(var i = 0, len = inputs.length; i < len; i++) {
+					if($(inputs[i]).hasClass('operating_info')) {
+						input = inputs[i];
+						break;
+					}
+				}
+				$(input).removeClass('operating_info').val(self.title).attr({'id_code': self.id, 'p_id': p_id});
+				window.parent.currentCollegeCallback(self.title, self.id, input,"college", p_id);
+				window.parent.document.getElementById('popUp').style.display = 'none';
+			});
+		}
+		
+	};
+	
+	SC.init();
+	
+});
+</script>
+</body>
+</html>

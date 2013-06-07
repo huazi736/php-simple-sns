@@ -1,0 +1,37 @@
+<!--{extends file='main_layout.html'}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="feedback_post">
+                    	<form>
+                        <input type="hidden" name="is_in" value="<!--{$is_in}-->" id="is_in">
+                        <ul>
+                    	<li><span>意见类型：</span>
+                    	<select id="feedback_type" name="messageType">
+                    	<option value="0">个人账户</option>
+                    	<option value="1">主页功能</option>
+                    	<option value="2">网页功能</option>
+                    	<option value="3">搜索问题</option>
+                    	<option value="4">应用问题</option>
+                    	<option value="5">支付问题</option>
+                    	<option value="6">广告系统</option>
+                    	<option value="7">开放平台</option>"+
+                    	<option value="8">手机客户端</option>"+
+                    	</select></li>
+                    	
+                    	<li><span>网站地址：</span><input type="text" id="feedback_url" name="pagePath"></li>
+                    	<li><span>意见描述：</span><textarea type="text" id="feedback_con" name="content"></textarea></li>
+                    	<li><label for="submit" class="submit"><input type="button" value="提交" id="feed_submit"></label><label for="submit" class="submit"><input type="reset" value="重置" id="feed_submit"></label></li>
+              	</ul>
+              </form>
+     </div>
+</div>
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+
+<!--{/block}-->

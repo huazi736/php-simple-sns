@@ -1,0 +1,200 @@
+<!--{extends file='profile_layout.html'}-->
+
+
+<!--{block name='title' prepend}-->
+网页- 
+<!--{/block}-->
+
+
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/mainArea/mainArea_top.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/timeline/info.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/tip/jquery.tip.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/calendar/dk_calendar.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/JQuery-uploadify/JQuery_uploadify.css" type="text/css" rel="stylesheet"/>
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/pro/pro.css" type="text/css" rel="stylesheet"/>
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/interest/photo.css" type="text/css" rel="stylesheet"/>
+<!--{/block}-->
+
+
+<!--{block name='header_js'}-->
+<script type="text/javascript">
+//视频图片域名
+var video_pic_domain = "<!--{config_item('video_pic_domain')}-->";
+
+function mk_videoPicUrl(videoPicUrl) {
+	var videoPicDomain = video_pic_domain || "";
+
+	videoPicUrl = videoPicUrl ? (videoPicDomain + videoPicUrl) : (CONFIG.misc_path + "img/default/video_err1.jpg");
+
+	return videoPicUrl;
+};
+</script>
+<!--{/block}-->
+
+
+<!--{block name='body'}-->
+
+<div class="body clearfix" id="timelienIndex">
+	<input type="hidden" id="action_dkcode" value="<!--{$action_uid}-->" />
+	<input type="hidden" id="action_avatar" value="<!--{$action_avatar}-->" />
+	<input type="hidden" id="webId" value="<!--{$webId}-->" />
+	<div class="mainArea">
+		<!--{if $is_self}-->
+        <div class="mainEdit clearfix">
+			<h4 class="editer">管理员界面</h4>
+			<ul class="selectEdit clearfix">
+				<li class="selectEidtLi borderRight">
+					<span>编辑页面</span>
+					<div class="riverImg">
+					</div>
+					<ul class="editPro">
+						<!--{if $web_info['is_info']==0}-->
+                        	<li lang="1" val='1' web_id='<!--{$webId}-->' ><a href="javascript:void(0);">公开自己信息</a></li>
+                        <!--{else}-->
+                        	<li lang="5" val='0' web_id='<!--{$webId}-->' ><a href="javascript:void(0);">隐藏自己信息</a></li>
+                       	<!--{/if}-->
+						<li lang="2" web_id='<!--{$webId}-->' ><a href="javascript:void(0);">网页置顶</a></li>
+                        
+                        <!--{if $is_web_delete==1}-->
+                        	<li lang="13" web_id='<!--{$webId}-->' ><a href="javascript:void(0);">删除中...</a></li>
+                        <!--{else}-->
+							<li lang="3" web_id='<!--{$webId}-->' ><a href="javascript:void(0);">删除网页</a></li>
+                        <!--{/if}-->
+					</ul>
+				</li>
+<!--				<li class="selectEidtLi borderRight">
+					<span>建立听众群</span>
+					<div class="riverImg">
+					</div>
+				</li>-->
+				<li class="selectEidtLi">
+					<span>帮助中心</span>
+					<div class="riverImg">
+					</div>
+				</li>
+
+			</ul>
+			
+			<!-- start: 营销群入口  hexin 2012-07025 -->
+			<div class="statusBox" style="margin: 15px 20px 15px;">
+				<div class="userName" style="margin-top:0;">
+					<span class="btnBlue" style="background: none;border: none;"><a class="addFollow" href="<!--{mk_url('group/group/exist', ['name' => urlencode($web_info['name'])])}-->" style="color:#333;">营销网页</a></span>
+				</div>
+			</div>
+			<!-- end: 营销群入口 -->
+		</div>
+        <!--{/if}-->
+        
+        
+		<div id="modlueHeader" class="modlueHeader clearfix">
+			<span class="userImg"><a href="#"><img alt="" src="<!--{$webAvatar}-->"></a></span>
+			<div class="userName" id="userName">
+				<span class="nameTxt"><a href="#"><!--{$web_info['name']}--></a></span>
+			
+				<div class="dropMenu" id="timelineSelect" style="display:none"></div>
+				<div class="dropMenu" id="hotMonth" style="display:none" complete="false"></div>
+			</div>
+            <!--{if $is_self}-->
+            <div id="TopPostArea" class="userActions">				
+				<ul class="composerAttachments postHead">
+					<li class="s_msg act" ref="text"><span><i class="uiIconP icons3 bp_currentState"></i>文字</span></li>
+					<li class="s_photo" ref="photo"><span><i class="uiIconP icons1 bp_photo"></i>图片</span></li>
+					<li class="s_video" ref="video"><span><i class="uiIconP icons1 bp_video"></i>视频</span></li>
+				</ul>
+                <div class="pointUp hide"></div>
+                <div class="TopPostBox hide">
+                </div>
+            </div>
+            <!--{/if}-->
+		</div>
+		<div class="modlueMainBody"><!--{include file="timeline/mainArea_top.html"}--><!--{include file="timeline/info.html"}--></div>
+		<div id="sideArea">
+			<ul class="timelineBar"></ul>
+		</div>
+		<!-- start 侧栏广告 by dongweiliang-->
+		<div id="adsArea"></div>
+		<!-- end 侧栏广告 by dongweiliang-->
+	</div>
+</div>
+
+<!--当前登录用户（网页）的信息 by txb -->
+<!--以下为，网页是当前用户的放置网页信息，否则为当前登录用户的信息-->
+<input type='hidden' id='hd_UID' value="<!--{$user['uid']}-->" />
+<input type='hidden' id='hd_userName' value="<!--{$login_info['username']}-->" />
+<input type='hidden' id='hd_avatar' value="<!--{$login_info['avatar_url']}-->" />
+<input type='hidden' id='hd_userPageUrl' value="<!--{$login_info['url']}-->" />
+<!--end-->
+<input type="hidden" id="is_self" value="<!--{$is_self}-->" />
+<input type="hidden" id="web_avatar" value="<!--{$webAvatar}-->" />
+<div id="addNewAction" class="timeLinePlusPop clearfix">
+    <i class="spinePointer"></i>
+    <div class="flyoutComposer" id="addPlusPost">
+
+    </div>
+</div>
+<!--{/block}-->
+
+
+<!--{block name='footer_js'}-->
+
+<script type="text/javascript">
+	var fdfsHost = "http://<!--{$fdfsinfo}-->";
+	var fdfsGroup = "";
+	var webId = window.location.href.split('web_id=')[1];
+</script>
+
+<!--start: 关注按钮 by卜海亮 2012-06-26-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/common/validator.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/plug/relation/relation.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(".relationWraps").each(function(){
+		$(this).find('div.statusBox').webRelation();
+	});
+</script>
+<!--end: 关注按钮-->
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-tip/dk.tip.js" type="text/javascript"></script>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/drag/drag.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.uploader.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/timeline/timeline.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/mainArea/mainArea_top.js" type="text/javascript"></script>
+
+<!--start: 时间线头部模块排序 by李世君 2012-3-24-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-dragsort/jquery.dragsort.min.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/mainArea/mainArea_top_move.js" type="text/javascript"></script>
+<!--End: 时间线头部模块排序-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/uploader/uploader.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/picViewer.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->flash/videoUpload.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/timeline/postBox.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/timeline/view.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/timeline/viewPlug.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/timeline/info.js" type="text/javascript"></script>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/timeline/web_postInfo.js" type="text/javascript"></script>	
+<!--Begin: 电影频道时间线/发表框 -->
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/timeline/movie_post.js" type="text/javascript"></script>	
+<!--End: movies电影频道时间线/发表框-->
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/embed-for-flash/swfobject.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.UICombox.js" type="text/javascript"></script> 
+<!--<script src="&lt;!&ndash;{$smarty.const.MISC_ROOT}&ndash;&gt;js/plug/jQuery-textAreaHeight/jQuery.textAreaHeight.js" type="text/javascript"></script>-->
+<!--<script src="&lt;!&ndash;{$smarty.const.MISC_ROOT}&ndash;&gt;js/plug/jQuery-textArea/jquery.textarea.js" type="text/javascript"></script>-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-textarea-msgtip/jQuery-textarea-msgtip.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/calendar/dk_calendar.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-uploadify/jquery.uploadify.v2.1.4.min.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-searcher/ViolenceSearch.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/friends_list/friends_list.js" type="text/javascript"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/player/AC_RunActiveContent.js"></script>
+<!-- start adsArea javascript -->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pro/showPro.js" type="text/javascript"></script>
+<!-- end adsArea javascript -->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/interest/photo.js" type="text/javascript"></script>
+
+<!--景点发布框 by胡卫亮-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/timeline/tripBox.js" type="text/javascript"></script>
+<!--{/block}-->

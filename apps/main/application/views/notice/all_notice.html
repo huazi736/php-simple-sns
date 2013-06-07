@@ -1,0 +1,48 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+通知首页--
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/message/request_notice.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{mk_url('main/index/main')}-->"><img src="<!--{get_avatar($user['uid'],'s')}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{mk_url('main/index/main')}-->"><!--{$user['username']}--></a></span>
+				<div id="noticeDrop" class="dropMenu">
+					<div class="triggerBtn"><span class="fl">所有通知</span><s></s></div>
+					<div class="dropList">
+						<ul class="dropListul checkedUl">
+							<li class="current"><a  rel="0"  class="itemAnchor  select_event" href="javascript:void(0);"><i></i><span>所有通知</span></a></li>
+							<li><a rel="1" class="itemAnchor select_event" href="javascript:void(0);"><i></i><span>个人首页的通知</span></a></li>
+							<!--{foreach from=$type item=mrel}-->
+							<li><a rel="<!--{$mrel.aid}-->" class="itemAnchor select_event" href="javascript:void(0);" title="<!--{$mrel.name}-->"><i></i><span><!--{$mrel.name1}--></span></a></li>
+							<!--{/foreach}-->
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="modlueBody">
+			 <!-- start 通知列表区域 -->
+			<h3 class="modlueBodyTitle"><i></i>通知</h3>
+		<div id="noticeContent">
+				<div id="noticeContent-box">
+					
+	            </div>
+         </div>
+		  <!-- end 通知列表区域 -->
+		</div>
+	</div>
+	<div class="sideArea">
+		广告区域
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/scrollLoad.js" type="text/javascript" ></script>
+<!--{/block}-->

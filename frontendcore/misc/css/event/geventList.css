@@ -1,0 +1,36 @@
+/**groupEvent List**/
+#groupEvent{width:500px; padding:30px 30px; background:#fff;}
+#groupEvent .groupEventLabel{border-bottom:1px solid #ccc; position:relative; height:28px; line-height:27px;}
+#groupEvent .groupEventLabel ul.eventLabel{margin-left:15px; position:relative; _bottom:-1px;}
+#groupEvent .groupEventLabel ul li{float:left; margin-right:3px; border:1px solid #ccc; border-radius:5px 5px 0 0; padding:0px 10px; cursor:pointer; background-color: #F2F2F2;}
+#groupEvent .groupEventLabel ul li.hover{ border:1px solid #ccc; border-bottom:none; background-color: #FFF; line-height:28px; font-weight:bold;}
+#groupEvent span.btnGray{position:absolute; top:0px; right:10px;}
+#groupEvent .groupEventList{padding-left:15px;}
+#groupEvent .groupEventList ul li{border-bottom:1px solid #ccc; padding:10px 0;}
+#groupEvent .groupEventInfo{}
+#groupEvent .groupEventInfo a.groupEventImg{float:left; display:block;}
+#groupEvent .groupEventInfo img{width:50px; height:50px;}
+#groupEvent .groupEventInfo .groupEventTxt{float:right; width:85%;}
+#groupEvent dl.groupEventTxt{color:#666;}
+#groupEvent dl.groupEventTxt dt{font-size:14px; margin-bottom:10px; position:relative;}
+#groupEvent dl.groupEventTxt dt a{font-weight:bold;}
+#groupEvent dl.groupEventTxt dt i{display:block; width:11px; height:11px; overflow:hidden; position:absolute; top:4px; right:10px; background:url('../../img/system/icon_close_mini.png') 0 0 no-repeat; display:none;}
+#groupEvent dl.groupEventTxt dt i.hover{background-position:0 -12px;}
+#groupEvent dl.groupEventTxt dd{height:22px; line-height:22px;}
+
+/**loadmore**/
+#groupEvent .loadmore { border:1px solid #D8DFEA; position:relative; height:30px; line-height:30px; margin-top:10px; margin-left:15px;}
+#groupEvent .loadmore a, .loadmore span { display:block; background:#E7EBF2; text-align:center; }
+#groupEvent .loadmore a:hover { background:#d8dfea; }
+#groupEvent .loadmore span { background:#E7EBF2 url(../../img/system/more_loading.gif) no-repeat center center; }
+#groupEvent .loadmore a.hide, .loadmore span.hide { display:none; }
+#groupEvent .loadmore i { background:url(../../img/system/ui0.gif) no-repeat -183px -317px; display:block; width:9px; height:5px; overflow:hidden; position:absolute; top:13px; left:270px }
+
+/* pop content */
+#eventPub a{ font-size:12px;}
+#popUp .modlueBody{ min-height: 200px;}
+#popUp .contentBox{ padding: 0px 3px 3px;}
+#popUp .contentBox .inputText{ margin-left: 0px;}
+#popUpSub .popConBox{padding:15px 10px; background-color: #FFF;}
+#popUp .modlueHeader {display: block;}
+#popUp .viewMore {height: 520px; overflow-x:hidden; overflow-y:auto;}

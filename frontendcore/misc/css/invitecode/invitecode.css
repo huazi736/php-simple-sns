@@ -1,0 +1,49 @@
+/**
+ * @author:    张波
+ * @created:   2012/5/22
+ * @version:   v1.0
+ * @desc:      邀请码页面样式 
+ */
+#codeContent{ margin-bottom:30px;}
+#contentCol .btnBlue,#contentCol .btnGray,.btnGray i.friend{ font-size:12px;}
+.codeBlock_form{ padding-top:10px; padding-left:220px;}
+.codeBlock{ margin-top:15px;}
+.codeBlock h3{ border-bottom:1px solid #ddd; margin:5px 0; line-height:28px; color:#333; font-weight:bold;}
+.codeBlock h3 p{ font-size:12px; font-weight:normal;padding-right:10px;}
+.codeBlock .codeBlock_form p{ height:35px; line-height: 18px;}
+.codeBlock .codeBlock_form p label{ display:inline-block; width:110px; text-align:right;}
+.codeBlock .codeBlock_form input.friendName,.codeBlock .codeBlock_form input.userMobile{border:1px solid #C5C6CA; width:180px; padding:2px;}
+.codeBlock .codeBlock_form span.red{ color:red; padding:0 3px;}
+.codeBlock .codeBlock_form span.c-tipmsg{  padding:0 3px;}
+.codeBlock_photo li.item{ float:left; width:202px;  padding:8px 0 8px 0px;}
+.codeBlock .codeBlock_photo p.photo{float:left; line-height:25px;}
+.codeBlock .codeBlock_photo span.userinfo{float:left; padding-left:5px; height:19px; line-height:19px; font-weight:bold;}
+.codeBlock .codeBlock_photo span.userinfo .statusBox { float:left;}
+.codeBlock .codeBlock_photo span.userinfo p.name{color:#3A5A97; font-size:14px; padding-bottom:8px;}
+.codeBlock .codeBlock_photo span.userinfo p.name{color:#3A5A97; font-size:14px; width:120px; white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis; -o-text-overflow:ellipsis;}
+.codeBlock .codeBlock_photo img{ width:50px; height:50px;}
+.w70{ width:70px;}
+#codeContent .uiButton{padding:0} 
+.Depressed{ padding-left:110px;}
+#codeContent .codeBottom{ margin-top:8px; text-align:center; line-height:25px; background-color:#f6f8fb;}
+#down_pull{ float:left; width:14px; height:20px;}
+.modlueName s.cur_s{ width:14px; height:20px; display:block; background:url(../../img/system/ui0.gif) no-repeat -163px -308px; }
+.code_ok {display:inline-block; width:13px; height:13px; background:url(../../img/system/ui4-gif.gif) no-repeat 0 -143px; overflow:hidden; margin:4px 5px 0 0; }
+.notSend,.Send{ color: #FFF;display: inline-block;margin: 0;outline: medium none; padding: 1px 10px 2px; white-space: nowrap;}
+.Send{ color: #FFF;cursor:pointer;}
+.notSend{cursor:default; }
+/********** 下拉关系操作 **********/
+#codeContent .statusBox { float:left; font-weight:bold;}
+#codeContent .statusBox .btnBlue{ float:left; }
+#codeContent .statusBox .dropWrap .dropList { top:22px; left:-1px;}
+#codeContent .statusBox .dropWrap i { float:left; width:13px; height:13px; background:url(../../img/system/ui4-gif.gif) no-repeat 0 -143px; overflow:hidden; margin:4px 5px 0 0; }
+#codeContent .statusBox .itemAnchor span {margin-left:10px;  display:inline;}
+/********** end 张波维护样式 **********/
+
+/* start: 删除好友  弹出层提示 by卜海亮 2012/8/2 */
+.delFriendDiv{ padding: 10px; }
+.delFriendDiv li{ padding: 5px; }
+.delFriendDiv span.strong{ font-weight: bold; }
+.delFriendDiv li label span{ line-height: 14px; height: 14px; }
+.delFriendDiv li input.unFollowCheck{ float: left; margin-top: 4px; margin-top: 1px\9; *margin-top: -1px; *margin-right: -4px; _margin-right: -7px; }
+/* end: 删除好友  弹出层提示 */

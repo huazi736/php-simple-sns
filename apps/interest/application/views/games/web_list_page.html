@@ -1,0 +1,20 @@
+<!-- start: 网页列表 -->
+<!--{foreach from=$result_list key=key item=item}-->
+	<div class="webInfos">
+		<div class="webImg">
+			<a title="<!--{$item.name}-->" <!--{if $target!='group'}-->target="_blank"<!--{/if}--> href="<!--{if $target=='group'}--><!--{mk_url('group/group/exist',['name'=>urlencode($item.name)])}--><!--{else}--><!--{mk_url('webmain/index/main',['web_id'=>$item.aid])}--><!--{/if}-->"><img src="<!--{get_webavatar($item.aid,'mm')}-->" width="99" alt="" height="99" /></a>
+		</div>
+		<div class="webInfo">
+			<div class="webName"><a title="<!--{$item.name}-->" <!--{if $target!='group'}-->target="_blank"<!--{/if}--> href="<!--{if $target=='group'}--><!--{mk_url('group/group/exist',['name'=>urlencode($item.name)])}--><!--{else}--><!--{mk_url('webmain/index/main',['web_id'=>$item.aid])}--><!--{/if}-->">名称:<!--{$item.name}--></a></div>
+			<div class="follow"><a title="<!--{$item.name}-->" target="_blank" href="<!--{mk_url('webmain/follower/index',['web_id'=>$item.aid])}-->"> 粉丝：<!--{$item.fans_count}--></a></div>
+			<div class="cate">属类：游戏</div>
+		</div>
+	</div>
+<!--{/foreach}-->
+
+<!--{if  $continue_load && $result_list}-->
+	<em style="display:block;float:none;font-size:0;height:0;line-height:0;overflow:hidden;clear:both;visibility: hidden; "></em>
+	<div class="box_min_continue_load" request_url="<!--{mk_url('interest/index/get_web_list',[imid=>$imid,iid=>$iid,web_id=>$eid])}-->" participle_id='123' page='<!--{$page++}-->'>查看更多</div>
+<!--{/if}-->
+
+<!-- end: 网页列表 -->

@@ -1,0 +1,497 @@
+<?php
+  function displayInterestTags($interest,$type){
+    if(!($interest && $type)){
+        return false;
+    }
+    $count=count($interest);
+    $tmps=$interest;
+    foreach($interest as $key => $value){
+    	if($key == $type){
+    		foreach($value as $k => $v){
+    			echo '<a id="'.$v['id'].'" href="javascript:void(0)">'.$v['title'].'</a> ';
+    		}
+            if(isset($interestTmpp[$key+1])){
+                array_splice($tmps,$key, 1);
+            }
+    	}
+    }
+    return $tmps;
+  }
+?>    
+<div id="InterestInfoFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		
+		
+		<!--这是加生活技能-->
+		
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">生活技能：</th>
+				<td class="data">				
+					<input type="text" class="vinputl tag"/>
+					<div class="tagPickerArea">
+						<div class="tagrabs">
+                    		<div class="tagCloud">
+                                <!--start: tag picker 模块 -->	
+                                <div> 
+                                	<!--start: tag云 -->
+                                    <div class="tagPicker"> 
+                                        <div>
+                                        	<div> 
+                                            	<div data-cat="category_0" data-name="生活" class="tag_cloud"> 
+                                                    <?php
+                                                    $interest=displayInterestTags($interest,1);
+                                                    ?>
+                                           		</div> 
+                                         	</div>                                                     
+                                    	</div> 
+                                	</div> 
+                                	<!--end: tag云 -->	
+                               		<!--start: 选择的tag云 -->
+                                    <div class="tagBasket"> 
+                                    	您的生活技能 已选择 <em class="num">0/32</em> 个
+                                    	<div class="tagList"> </div> 
+                                    </div> 
+                                	<!--end: 选择的tag云 -->		
+                                </div>
+                                <!--end: tag picker 模块 -->	
+                    		</div>
+                      	</div>
+					</div>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		
+		<!--satrt:体育运动-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">体育运动：</th>
+				<td class="data">				
+					<input type="text" class="vinputl tag"/>
+					<div class="tagPickerArea">
+						<div class="tagrabs">
+                    		<div class="tagCloud">
+                                <!--start: tag picker 模块 -->	
+                                <div> 
+                                	<!--start: tag云 -->
+                                    <div class="tagPicker"> 
+                                        <div>
+                                        	<div> 
+                                            	<div data-cat="category_1" data-name="体育" class="tag_cloud"> 
+                                                    <?php
+                                                    $interest=displayInterestTags($interest,2);
+                                                    ?>
+                                           		</div> 
+                                         	</div>                                                     
+                                    	</div> 
+                                	</div> 
+                                	<!--end: tag云 -->	
+                               		<!--start: 选择的tag云 -->
+                                    <div class="tagBasket"> 
+                                    	您喜欢的体育运动 已选择 <em class="num">0/32</em> 个
+                                    	<div class="tagList"> </div> 
+                                    </div> 
+                                	<!--end: 选择的tag云 -->		
+                                </div>
+                                <!--end: tag picker 模块 -->	
+                    		</div>
+                      	</div>
+					</div>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:体育运动-->
+		<!--start:食物-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">食物：</th>
+				<td class="data">
+					<input type="text" class="vinputl tag"/>
+					<div class="tagPickerArea">
+						<div class="tagrabs">
+                    		<div class="tagCloud">
+                                <!--start: tag picker 模块 -->	
+                                <div> 
+                                    <!--start: tag云 -->
+                                    <div class="tagPicker"> 
+                                        <div>
+                                        	<div> 
+                                                <div data-cat="category_2" data-name="食物" class="tag_cloud"> 
+                                                    <?php
+                                                    $interest=displayInterestTags($interest,3);
+                                                    ?>
+                                                </div> 
+                                       		</div>
+                                    	</div> 
+                                	</div> 
+                                    <!--end: tag云 -->	
+                                	<!--start: 选择的tag云 -->
+                                    <div class="tagBasket"> 
+                                    	您喜欢的食物 已选择 <em class="num">0/14</em> 个
+                                    	<div class="tagList"> </div> 
+                                    </div> 
+                                	<!--end: 选择的tag云 -->		
+                                </div>
+                                <!--end: tag picker 模块 -->	
+                    		</div>
+                        </div>
+					</div>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:食物-->
+		<!--start:书籍-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">书籍：</th>
+				<td class="data">
+					<input type="text" class="vinputl tag"/>
+					<div class="tagPickerArea">
+						<div class="tagrabs">
+                    		<div class="tagCloud">
+                        		<!--start: tag picker 模块 -->	
+                        		<div> 
+                        			<!--start:tag云 -->
+                                    <div class="tagPicker"> 
+                                        <div>
+                                        	<div> 
+                                                <div data-cat="category_3" data-name="书籍" class="tag_cloud"> 
+                                                    <?php
+                                                    $interest=displayInterestTags($interest,4);
+                                                    ?>
+												</div> 
+                                         </div>
+                                    </div> 
+                                </div> 
+                        			<!--end:tag云 -->	
+                        			<!--start:选择的tag云 -->
+                            		<div class="tagBasket"> 
+                            			您喜欢的书籍 已选择 <em class="num">0/25</em> 个
+                            			<div class="tagList"></div> 
+                            		</div> 
+                        			<!--end:选择的tag云 -->		
+                        		</div>
+                        		<!--end: tag picker 模块 -->	
+                    		</div>
+                     	</div>
+					</div>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:书籍-->
+		<!--start:电影-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">电影：</th>
+				<td class="data">
+					<input type="text" class="vinputl tag"/>
+					<div class="tagPickerArea">
+						<div class="tagrabs">
+                        	<div class="tagCloud">
+                        		<!--start: tag picker 模块 -->	
+                        		<div> 
+                        			<!--start: tag云 -->
+                                    <div class="tagPicker"> 
+                                        <div>
+                                        	<div> 
+                                                <div data-cat="category_4" data-name="电视和电影" class="tag_cloud"> 
+                                                    <?php
+                                                    $interest=displayInterestTags($interest,5);
+                                                    ?>
+												</div> 
+                                        	</div>
+                                   		</div> 
+                                	</div> 
+                        			<!--end: tag云 -->	
+                        			<!--start: 选择的tag云 -->
+                            		<div class="tagBasket"> 
+                            			您喜欢的电影 已选择 <em class="num">0/15</em> 个
+                            			<div class="tagList"> </div> 
+                            		</div> 
+                        			<!--end: 选择的tag云 -->		
+                        		</div>
+                        		<!--end: tag picker 模块 -->	
+                        	</div>
+                        </div>
+					</div>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:电影-->
+		<!--start:节目-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">节目：</th>
+				<td class="data">
+					<input type="text" class="vinputl tag"/>
+					<div class="tagPickerArea">
+						<div class="tagrabs">
+	                    	<div class="tagCloud">
+	                    		<!--start: tag picker 模块 -->	
+	                    		<div> 
+	                    			<!--start: tag云 -->
+	                                <div class="tagPicker"> 
+	                                    <div>
+	                                    	 <div> 
+	                                             <div data-cat="category_5" data-name="节目" class="tag_cloud"> 
+	                                                <?php
+                                                        $interest=displayInterestTags($interest,6);
+                                                        ?>
+	                                             </div>  
+	                                         </div> 
+	                                	</div> 
+	                            	</div> 
+	                    			<!--end: tag云 -->	
+	                    			<!--start: 选择的tag云 -->
+	                        		<div class="tagBasket"> 
+	                       				 您喜欢的节目 已选择 <em class="num">0/12</em> 个
+	                        			<div class="tagList"> </div> 
+	                        		</div> 
+	                    			<!--end: 选择的tag云 -->		
+	                    		</div>
+	                    		<!--end: tag picker 模块 -->	
+	                    	</div>
+                    	</div>
+					</div>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:节目-->
+		<!--start:娱乐休闲-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">娱乐休闲：</th>
+				<td class="data">
+					<input type="text" class="vinputl tag"/>
+					<div class="tagPickerArea">
+						<div class="tagrabs">
+                        	<div class="tagCloud">
+                        		<!--start: tag picker 模块 -->	
+                        		<div> 
+                        			<!--start: tag云 -->
+                                    <div class="tagPicker"> 
+                                        <div>
+                                        	<div> 
+                                             	<div data-cat="category_6" data-name="休闲" class="tag_cloud"> 
+                                                    <?php
+                                                    $interest=displayInterestTags($interest,7);
+                                                    ?>
+												</div>  
+                                    		</div>
+                                    	</div> 
+                                	</div> 
+                        			<!--end: tag云 -->	
+                                	<!--start: 选择的tag云 -->
+                                    <div class="tagBasket"> 
+                                    	您喜爱的休闲娱乐 已选择 <em class="num">0/18</em> 个
+                                    	<div class="tagList"> </div> 
+                                    </div> 
+                                	<!--end: 选择的tag云 -->		
+                        		</div>
+                        		<!--end: tag picker 模块 -->	
+                        	</div>
+                    	</div>
+					</div>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:娱乐休闲-->
+		<!--start:业余爱好-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">业余爱好：</th>
+				<td class="data">
+					<input type="text" class="vinputl tag"/>
+					<div class="tagPickerArea">
+						<div class="tagrabs">
+	                    	<div class="tagCloud">
+	                    		<!-- tag picker 模块 -->	
+	                    		<div> 
+	                    			<!-- tag云 -->
+	                                <div class="tagPicker"> 
+	                                    <div>
+	                                    	<div> 
+	                                        	<div data-cat="category_7" data-name="兴趣" class="tag_cloud"> 
+	                                                <?php
+                                                        $interest=displayInterestTags($interest,8);
+                                                        ?>
+												</div> 
+	                                		</div>
+	                                	</div> 
+	                            	</div> 
+	                    			<!-- tag云 -->	
+	                    			<!-- 选择的tag云 -->
+	                        		<div class="tagBasket"> 
+	                        			您的业余爱好 已选择 <em class="num">0/18</em> 个
+	                        			<div class="tagList"></div> 
+	                        		</div> 
+	                    			<!-- 选择的tag云 -->		
+	                    		</div>
+	                    		<!-- tag picker 模块 -->	
+	                    	</div>
+                        </div>
+					</div>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:业余爱好-->
+		<!--start:旅游去处-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob">旅游去处：</th>
+				<td class="data nob">
+					<input type="text" class="vinputl tag"/>
+					<div class="tagPickerArea">
+						<div class="tagrabs">
+	                        <div class="tagCloud">
+	                    		<!-- tag picker 模块 -->	
+	                    		<div> 
+	                    			<!-- tag云 -->
+	                                <div class="tagPicker"> 
+	                                    <div>
+	                                    	<div> 
+	                                            <div data-cat="category_8" data-name="旅游" class="tag_cloud"> 
+	                                                <?php
+                                                        $interest=displayInterestTags($interest,9);
+                                                        ?>
+	                                             </div> 
+	                                        </div>
+	                                         
+	                                	</div> 
+	                            	</div> 
+	                    			<!-- tag云 -->	
+	                    			<!-- 选择的tag云 -->
+	                        		<div class="tagBasket"> 
+	                        			您喜欢的旅游去处 已选择 <em class="num">0/13</em> 个
+	                        			<div class="tagList"> </div> 
+	                        		</div> 
+	                    			<!-- 选择的tag云 -->		
+	                    		</div>
+	                    		<!-- tag picker 模块 -->	
+	                    	</div>
+                    	</div>
+					</div>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:旅游去处-->
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr>
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0)">取消</a></div><div class="btnBlue fr mrs"><a id="InterestInfoStore" href="javascript:void(0)">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script>
+	$(function(){
+		//向InterestInfoFormEdit里的input填充兴趣爱好资料
+		var oldD=$('#InterestInfoForm').find('.data');
+		var $input=$('#InterestInfoFormEdit').find('input');
+		$input.each(function(index){
+			$(this).val(oldD.eq(index).text());
+		});
+		//点击input效果	
+		var tagPickerAreaArr=$('.tagPickerArea');
+		$('input.tag').focus(function(){
+			var _this=$(this);
+			_this.attr('readonly','readonly');//设置input,禁止对其读写
+			var value=_this.val();//input中的值
+			var selectData='';//存储已经选择的项目
+			tagPickerAreaArr.each(function(){$(this).hide();});
+			var tagPicker=$(this).next('.tagPickerArea').show();
+			Tagpic(tagPicker,_this);//调用tagpicker.js
+			var $wiz = tagPicker;
+			var $tag_cloud_a=$("div.tag_cloud a",$wiz);
+			var getTagNum=$tag_cloud_a.length;
+			if(/、/.test(value)){//选择多项时
+				selectData=value.split('、');
+				for(var i=0,dL=selectData.length;i<dL;i++){
+					for(var j=0;j<getTagNum;j++){
+						if($.trim(selectData[i])==$.trim($($tag_cloud_a[j]).text())){//已被选择的项触发点击事件
+							$($tag_cloud_a[j]).click();
+						}
+					}
+					continue;
+				}
+			}else{//选择一项时
+				selectData=value;
+				for(var j=0;j<getTagNum;j++){
+					if($.trim(selectData)==$.trim($($tag_cloud_a[j]).text())){//已被选择的项触发点击事件
+						$($tag_cloud_a[j]).click();
+					}
+					continue;
+				}
+			}
+		});
+		$('input.tag').trigger('focus');
+		
+		//数据处理
+		$('#InterestInfoStore').click(function(){
+			var _this=$(this);
+			var $checkedL=$('#InterestInfoFormEdit').find('.tagList');
+			var a=[];//更改的兴趣爱好资料内容，如：游泳
+			var _a=[];//更改的兴趣爱好资料id，如：1_22
+			$checkedL.each(function(index){
+				var b=[];
+				var _b=[];				 								
+				$(this).children().each(function(index){
+					b.push($.trim($(this).attr('data-tag')));
+					//_b.push($.trim($(this).attr('tagid')));
+				});	
+				var c=oldD.eq(index).text().split('、');
+				/*if(c.toString()!=b.toString()){
+					a.push(index+':'+b);
+					_a.push(_b.join());
+				}*/
+				a.push(index+':'+b);
+				_a.push(index+1 + ':' + b);
+		
+			});
+			function upData (o,d) {//o:即<td class="data"></td>;d:重新选择的兴趣爱好，例如["0:游泳,网球,舞蹈","2：法国菜","6:网络,影视,舞蹈,手工艺"]
+				var $T=o;
+				var data=d;
+				for(i=0,l=data.length;i<l;i++){
+					var e=data[i].split(':');
+					$T.eq(e[0]).text(e[1].replace(/,/g,'、'));
+				} 
+			}
+			$.ajax({//提交数据
+				type:"POST",
+				url:otherpath+"interestEdit",
+				dataType:'json',
+				data:{params:_a},
+				success:function(data){
+					if(data.status==1){			
+						upData(oldD,a);//更新原HTML表格
+					}else{
+						$(this).popUp({
+							width:350,
+				            title:'友情提示',
+				            content:'<div style="padding:16px">'+data.msg+'</div>',
+				            buttons:'<span class="popBtns blueBtn closeBtn">确定</span>',
+				            mask:true,
+				            maskMode:true
+						});
+					}
+					_this.closest('.tip_win').attr('style','display:none');
+				},
+				error:function(){			
+				}				
+			});			
+		});		
+	});
+</script>

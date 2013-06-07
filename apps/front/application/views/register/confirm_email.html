@@ -1,0 +1,62 @@
+<!--{extends file='nologin_base_layout.html'}-->
+<!--{block name='title' prepend}-->
+激活-
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<!-- start: headerWrap 头部开始 -->
+<div class="headerWrap">
+	<div class="regHeader">
+		<h1><a href="<!--{$smarty.const.WEB_ROOT}-->" title="Duankou">Duankou</a></h1>
+	</div>
+</div>
+<!-- end: headerWrap 头部结束 -->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- start: modlueBody 开始 -->
+		<div class="modlueBody">
+			<!-- start: regBody 注册区域主体开始 -->
+			<div class="regBody">
+				<!-- start: subHeader 头部开始 -->
+				<div class="subHeader">
+					<a href="<!--{$smarty.const.WEB_ROOT}-->">返回首页</a>
+					<span>拓宽你的人脉，尽在Duankou</span>
+				</div>
+				<!-- end: subHeader 头部结束 -->
+				<div class="regCont">
+					<p class="blue">确认你的电子邮箱地址</p>
+					<p>
+						谢谢你注册加入 端口网！一封确认电子邮件已经发送至<span  dkcode="<!--{$dkcode}-->" id="nowEmail" class="blue"><!--{$usr_email}--></span>账户了点击电子邮件中的确认链接，完成注册。
+					</p>
+
+					<div id="check" class="btn <!--{if !$mailtype}--> hide <!--{/if}-->">
+					   <!--{if $smarty.const.WEB_ROOT eq 'http://www.duankou.com/'}-->
+						<span>立即<a target="_blank" href="<!--{$mailtype}-->">查看邮箱</a><i></i></span>
+					   <!--{else}-->
+					    <span>立即<a target="_blank" href="<!--{$active_mail_url}-->">查看邮箱</a><i></i></span>
+					   <!--{/if}-->
+						<p></p>
+					</div>
+
+					<dl class="regAction">
+						<dt>还没有收到确认邮件？</dt>
+						<dd>尝试到广告邮件，垃圾邮件目录里找找看。</dd>
+						<dd>邮箱地址写错了？你可以<span id="changEmail" class="blue">更改邮箱地址</span>。</dd>
+						<dd>再次<span id="resendEmail" class="blue">发送确认邮件</span>。</dd>
+					</dl>
+				</div>
+			</div>
+			<!-- end: regBody 注册区域主体结束 -->
+		</div>
+		<!-- end: modlueBody 结束 -->
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/common/validator.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/reg/regSteps.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

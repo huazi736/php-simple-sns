@@ -1,0 +1,122 @@
+/**
+ * @author:    wangwb(w.hoby@qq.com)
+ * @created:   2011/9/1
+ * @version:   v1.0
+ * @desc:      好友请求、通知页面共用。
+ */
+
+
+/***************** 查看所有请求页 ****************/
+#inviteContent{ width: 768px; min-height:650px; margin:10px 20px 5px 20px;}
+#inviteContent .btnBlue,#inviteContent .btnGray,.btnGray i.friend{ font-size:12px;}
+#inviteContent .mayKnow{ margin-top:18px;}
+#inviteContent h3{ font-size:14px; border-bottom:1px solid #ccc; padding-bottom:10px;}
+#inviteContent li{ display:block; margin:2px 0; padding:6px 8px 4px; background-color:#eff1f7;}
+#inviteContent li .picHead{ display:block; float:left; margin:0 10px 0 0;}
+#inviteContent li .picHead img{ width:50px;height:50px;}
+#inviteContent li .friendInfo{ display:block; float:left; line-height:25px;}
+#inviteContent li .addView{ display:block; float:right;}
+#inviteContent li .addView input{ margin-left:8px; width:70px; padding:4px;}
+#inviteContent .inviteBottom, #inviteContent .mayBottom{ display:block; margin-top:5px; height:25px; line-height:22px; text-align:center; background-color:#f6f8fb;}
+#inviteContent .mayBottom{margin:5px 0 15px 0;}
+.shareList{padding:5px 5px 10px;}
+.shareList div.statusBox{ float:right;  padding-top:10px;}
+.shareList li.clearfix{border-bottom: 1px solid #E9E9E9; padding:5px;font:bold 12px/50px ''}
+.shareList li img{float:left;margin-right:10px;}
+.unable-friend{ padding:20px 10px;}
+.unable-friend span{ color:#ff6600;}
+.btnBlue span{ color:#fff; font-size:10px; padding:0 4px 0 0;}
+
+#share_List_box .statusBox { float:right; font-weight:bold; }
+#share_List_box .statusBox .btnBlue { float:left; }
+#share_List_box .statusBox .dropWrap .dropList { top:22px; left:-1px; width:100%; _width:110px; }
+#share_List_box .statusBox .dropWrap i.friend { float:left; width:13px; height:13px; background:url(../../img/system/ui4-gif.gif) no-repeat 0 -143px; overflow:hidden; margin:4px 5px 0 0; }
+#share_List_box .statusBox .itemAnchor span { margin-left:10px; }
+/**************** 查看所有通知页 ****************/
+/**
+ * 其他人通知下拉
+ */
+#noticeDrop .dropList {width:auto; max-height: 230px; overflow: auto;}
+#noticeDrop ul.dropListul li a{ display:block;max-width:220px; overflow:hidden; white-space:nowrap;}
+#noticeDrop ul.dropListul li span { float:none;  display:block;padding-right:30px;}
+#noticeContent{ width: 768px; min-height:650px; margin:10px 20px 5px 20px;}
+#noticeContent-box{min-height:650px;}
+#noticeContent h3{ font-size:14px; border-bottom:1px solid #ccc; margin-top:15px; padding-bottom:5px;}
+#noticeContent .noticeList li{ display:block; margin:2px 0; padding:8px 8px 5px; border-bottom:1px solid #ececec; word-wrap:break-word; word-break:break-all; width: 752px; overflow-x: hidden;}
+#noticeContent .noticeList span.btn_del{ background:url(../../img/system/icon_X.png) no-repeat; float:right; width:9px; height:9px; cursor:pointer; display:none;}
+#noticeContent .noticeList a{ margin:0 3px;}
+#noticeContent .noticeList abbr.timestamp{ color:#999; margin-left:5px;}
+#noticeContent .nextPage{ display:block; margin-top:5px; height:25px; line-height:22px; text-align:center; background-color:#f6f8fb;}
+
+/********** 单条通知页面 **********/
+#getInfo_box .icon_permission_1,#getInfo_box .icon_permission_2,#getInfo_box .icon_permission_3,#getInfo_box .icon_permission_4,#getInfo_box .icon_permission_5{float:left; overflow:hidden;     margin: 4px 0 0 -2px; height: 16px;overflow: hidden;width: 16px; background: url("../../img/system/ui7.png") no-repeat scroll -17px -54px transparent;}
+#getInfo_box .icon_permission_1{background-position:-18px -38px; }/*星球*/
+#getInfo_box .icon_permission_2{background-position:-18px -87px; }/*粉丝*/
+#getInfo_box .icon_permission_3{background-position:-18px -72px;}/*朋友*/
+#getInfo_box .icon_permission_4{background-position:-18px -55px;}/*仅限自己*/
+#getInfo_box .icon_permission_5{background-position:-18px -20px; }/*自定义*/
+#getInfo_box .content li.info-item{ float:left; clear:both; width:806px; }
+#getInfo_box .timeBoxPermission { float: left;padding-left: 10px;position: relative; width: 60px;}
+#getInfo_box .timelineBox { clear:both; background-color:#FFF; position: relative;}
+#getInfo_box .timelineBox .headBlock { border-bottom:1px solid #E5E5E5;}
+#getInfo_box .timelineBox .headImg { float:left; margin-right: 8px; }
+#getInfo_box .timelineBox .AuthorName { display:inline-block; padding-top:5px; font-weight:bold; font-size:14px; }
+#getInfo_box .timelineBox span { font-size:12px; color:#666; font-weight:normal; }
+#getInfo_box .timelineBox .postTime span { float: left; }
+#getInfo_box .timelineBox .postTime { position: relative; padding-top:3px; color:#777;}
+#getInfo_box .infoContent{padding:15px 0}
+#getInfo_box .timelineBox .mediaContent .media_prev{cursor: pointer;position: relative;}
+#getInfo_box  .timelineBox .mediaContent .media_prev .showFlash img {height: 33px;left: 192px; opacity: 0.5; position: absolute; top: 125px; width: 33px;}
+#getInfo_box .timelineBox .forwardContent { border-left: 2px solid #C0C9DD;line-height: 16px;margin: 0 10px 12px 16px;padding: 5px 0 5px 10px;white-space: normal;}
+#getInfo_box .timelineBox .commentBox .comment_easy .comment_content { margin: 0;}
+#getInfo_box .timelineBox .commentBox .comment_easy { margin: 0;}
+#getInfo_box .timelineBox .commentBox .comment_easy .comment_title{border-bottom: 1px solid #fff; padding-left:10px; line-height:28px; background-color:#eeeff4; color:#999;}
+#getInfo_box .timelineBox .commentBox .comment_easy .comment_title li{*padding:0 2px;}
+#getInfo_box .timelineBox .commentBox .comment_easy .comment_corner{display:none;}
+#getInfo_box .timelineBox .commentBox .comment_easy li.comment_list li{border-bottom: 1px solid #fff; padding: 5px 10px 4px;}
+#getInfo_box .timelineBox .commentBox .comment_easy .comment_form{ padding: 5px 10px 4px;}
+#getInfo_box .timelineBox .commentBox .comment_easy .comment_form .fieldWithText{padding-left:2px; width:99%;}
+#getInfo_box .timelineBox .commentBox .showForward{float:right; margin-right:6px; +margin-top:-29px; _margin-top:-22px; }
+#getInfo_box .timelineBox .memo{margin: 13px 15px 5px; word-break:break-word; white-space:normal;}
+#getInfo_box .del_info{display:block; background:url(../../img/system/icon_close_mini.png) no-repeat; _background:url(../../img/system/icon_close_mini.gif) no-repeat; width:11px; height:11px; overflow:hidden;}
+#getInfo_box .del_info:hover{background-position:0 -24px;}
+#getInfo_box .del_info:active{background-position:0 -36px;}
+/* Box内容 */
+#getInfo_box .timelineBox .headBlock { border-bottom:1px solid #E5E5E5; padding:10px 0 10px 0px;}
+#getInfo_box .timelineBox .headImg { float:left; margin-right: 8px; }
+#getInfo_box .timelineBox .AuthorName { display: block; font-weight:bold; }
+#getInfo_box .timelineBox .subTip {padding-left:4px; font-weight:normal; color:gray;}
+#getInfo_box .timelineBox .postTime a {color: gray; }
+#getInfo_box .timelineBox .insertTime {display:inline-block; margin-left:7px; width:10px; height:10px; background-position:-25px -75px; background-image: url(../../img/system/icon_event.png);}
+#getInfo_box .timelineBox .infoContent { padding:5px 15px 15px; font-size:14px; line-height:20px; word-break:break-all; word-wrap:break-word; white-space:normal; overflow:hidden; }
+#getInfo_box .timelineBox .infoContent .more {border: 1px solid #CCC; color: #999;font-size: 12px; margin-top: 10px; text-align: center;}
+#getInfo_box .timelineBox .infoContent .readMore{display:block; margin-top:8px;}
+#getInfo_box .timelineBox .eventPic { float:left; margin:5px 8px 0 10px; }
+#getInfo_box .timelineBox .infoContent .eventInfo {margin:8px 0 0 15px; color:gray; font-size:12px;}
+#getInfo_box .timelineBox .infoContent .eventInfo h4{font-weight:normal; word-break:break-all; word-wrap:break-word; overflow:hidden;}
+#getInfo_box .timelineBox .blog{font-size:12px;line-height:18px;}
+#getInfo_box .timelineBox .blog h3{font-size:14px; font-weight:normal; color:#3B5998; margin-bottom:6px;}
+#getInfo_box .timelineBox .forwardContent {margin:0 10px 12px 16px; padding:5px 0 5px 10px; border-left:2px solid #C0C9DD; line-height:16px; word-break:break-word;white-space:normal; }
+#getInfo_box .timelineBox .forwardContent .oldAuthorName{padding-right:8px;}
+#getInfo_box .timelineBox .photoContent { margin:0 2px;}
+#getInfo_box .timelineBox .photoContent li{ float:left; padding:1px; height:133px; width:133px;text-align:center; vertical-align: middle}
+#getInfo_box .timelineBox .photoContent li.firstPhoto{width:auto; height:auto;}
+
+
+#getInfo_box li.twoColumn .timelineBox .photoContent { margin:0 2px;padding-left:2px; }
+#getInfo_box li.twoColumn .timelineBox .photoContent li{ height:118px; width:118px; line-height:118px; }
+#getInfo_box li.twoColumn .timelineBox .photoContent li img{ max-height:118px; max-width:118px;}
+#getInfo_box li.twoColumn .timelineBox li.firstPhoto{width:100%; height:auto; text-align:left;}
+#getInfo_box li.twoColumn .timelineBox li.firstPhoto img{ height:auto; width:auto;max-height:840px; max-width:838px;}
+#getInfo_box .timelineBox .photoContent li{ float:left; padding:1px;}
+#getInfo_box .timelineBox .photoContent li.firstPhoto{ display: block; width:99%; text-align:left; }
+
+#getInfo_box .timelineBox .mediaContent { width: 411px; margin:0 2px 3px; padding:1px;text-align:left; }
+#getInfo_box .timelineBox .mediaContent .media_prev{ position:relative; cursor:pointer; text-align:left;}
+#getInfo_box .timelineBox .mediaContent .media_prev img{}
+#getInfo_box .timelineBox .mediaContent .media_prev .showFlash img{position:absolute; width:33px; height:33px; left:192px; top:125px; filter:alpha(opacity=50); opacity:0.5;}
+#getInfo_box .timelineBox .mediaContent .media_prev .showFlash:hover img{filter:alpha(opacity=80); opacity:0.8;}
+#getInfo_box .timelineBox .mediaContent .media_disp {margin:1px;}
+#getInfo_box .timelineBox .mediaContent .media_disp p{margin:2px 0; padding:6px 0 3px; width:100%; background-color:#f5f9fd;}
+#getInfo_box .timelineBox .mediaContent .media_disp p a{margin:0 10px;}
+#getInfo_box .timelineBox .mediaContent .media_disp .hideFlash{background:url(../../img/system/icon_media_up.gif) no-repeat left center; padding-left:15px;}

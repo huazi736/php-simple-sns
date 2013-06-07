@@ -1,0 +1,139 @@
+<div id="basicInfoFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em> 主题：</th>
+				<td class="data">
+					<select id="select_topic" name="name">
+				      	<option rel="1" value="1">奖学金</option>
+				      	<option rel="2" value="2">获得奖项</option>
+				      	<option rel="3" value="3">担任职务</option>
+				      	<option rel="4" value="4">社会实践</option>
+				    </select>
+    			</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em> 内容：</th>
+				<td class="data">
+					<select name="content0">
+				    	<option value="-1">请选择</option>
+					    <option value="1">国际级</option>
+					    <option value="2">国家级</option>
+					    <option value="3">省市级</option>
+					    <option value="4">学校级</option>
+					    <option value="5">院系级</option>
+			   		</select>
+			   		<select name="content1">
+				    	<option value="-1">请选择</option>
+				      	<option value="1">特等奖</option>
+				      	<option value="2">一等奖</option>
+				      	<option value="3">二等奖</option>
+				      	<option value="4">三等奖</option>
+				    </select>
+			    </td>
+			</tr>
+		</tbody>
+		<tbody style="display: none">
+			<tr class="dataRow">
+				<th class="label"><em>*</em> 内容：</th>
+				<td class="data">
+					 <input class="vinput limL" type="text" name="content2" maxlength="30" />
+			    </td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em> 时间：</th>
+				<td class="data">
+					<select class="set_year" name="time_y">
+			     		<option value="-1">请选择</option>
+			    	</select>
+			    	<select class="set_month" name="time_m">
+			      		<option value="-1">请选择</option>
+			    	</select>
+			    </td>
+			</tr>
+		</tbody>
+		<tbody style="display: none">
+			<tr class="dataRow">
+				<th class="label">级别：</th>
+				<td class="data">
+					<select name="level">
+				    	<option value="-1">请选择</option>
+				      	<option value="1">班组级</option>
+				      	<option value="2">院校级</option>
+				      	<option value="3">县市级</option>
+				      	<option value="4">省区级</option>
+				      	<option value="5">国家级</option>
+				      	<option value="6">国际级</option>
+				    </select>
+				</td>	
+			</tr>
+		</tbody>
+		<tbody style="display: none">
+			<tr class="dataRow">
+				<th class="label"><em>*</em>时间：</th>
+				<td class="data">
+					<select class="set_year" name="time_y_s">
+			     		<option value="-1">请选择</option>
+			    	</select>
+			    	<select class="set_month" name="time_m_s">
+			      		<option value="-1">请选择</option>
+			    	</select>
+			    	至
+			    	<select class="set_year" name="time_y_e">
+			     		<option value="-1">请选择</option>
+			    	</select>
+			    	<select class="set_month" name="time_m_e">
+			      		<option value="-1">请选择</option>
+			    	</select>
+			    </td>
+			</tr>
+		</tbody>
+		<tbody style="display: none">
+			<tr class="dataRow">
+				<th class="label">社会实践：</th>
+				<td class="data">
+					<div><textarea name="society" maxlength="500"></textarea></div>
+					<div class="tip fr"></div>
+				</td>				
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr>
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0)">取消</a></div><div class="btnBlue fr mrs"><a href="javascript:void(0);"  style="display: none" id="SchoolInfoAdd" class="bnt_add SchoolInfoAdd">确定</a><a href="javascript:void(0);" class="bnt_edit SchoolInfoEdit">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script>
+	$(function(){
+		$('#select_topic').change(function(){
+			var value=$(this).val();
+			var $select=$(this).closest('table').children();
+			$select.hide();
+			$select.eq(0).show();
+				switch (value){
+					case "1":
+						$select.eq(1).show().end().eq(3).show();
+						break;
+				   case "2":
+						$select.eq(2).show().end().eq(3).show().end().eq(4).show();
+						break;
+					case "3":
+						$select.eq(2).show().end().eq(5).show();
+						break;
+					case "4":
+						$select.eq(2).show().end().eq(5).show().end().eq(6).show();
+						break;	
+					}
+			});
+	});
+</script>

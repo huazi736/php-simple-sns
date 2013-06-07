@@ -1,0 +1,138 @@
+<div class="mediaItemContent">
+    <div id="mediaItem">
+        <div class="mediaItem">
+            <div class="mediaItemBox addPhoto smr">
+                <div class="photoCover">
+                    <form class="formUpload" action="<!--{mk_url('/album/api/publicUploadCrossPhoto',['type'=>'4','flashUploadUid'=>$user['uid']])}-->" method="post" enctype="multipart/form-data" lang="1" >
+                        <span class="uploadWrap" <!--{if is_array($goods_info) && is_array($goods_info['pics_arr'][1])}--> style="background: url('<!--{$fastdfs_domain}--><!--{$goods_info['pics_arr'][1]['groupname']}-->/<!--{$goods_info['pics_arr'][1]['filename']}-->_ts.<!--{$goods_info['pics_arr'][1]['type']}-->') no-repeat scroll center center transparent;" is_onload="1" <!--{/if}--> >
+                            <a href=""></a>
+							<div class="inputFileImg" for="Filedata">
+								<input type="file" class="fileUpload" name="Filedata" id="Filedata" accept="images/jpg,images/png,images/gif">
+							</div>
+							<ul class="EditEase">
+								<li class="editImg">
+									<a href='javascript:void(0)' alt=''>更换</a>
+								</li>
+								<li class="editImg relative">
+									<a href='javascript:void(0)' alt=''>删除</a>
+								</li>
+							</ul>
+							
+                        </span>
+                    </form>
+					<div class="photoButton">
+						<form name="firstCover">
+							<label for="cover_id1">
+								<input type="radio" id="cover_id1" name="cover" <!--{if is_array($goods_info) && $goods_info['main_pics_key']==1}-->checked="checked"<!--{/if}--> />&nbsp设为封面
+							</label>
+						</form>
+					</div>
+
+                </div>
+
+                <div class="photoCover">
+                    <form class="formUpload" action="<!--{mk_url('/album/api/publicUploadCrossPhoto',['type'=>'4','flashUploadUid'=>$user['uid']])}-->" method="post" enctype="multipart/form-data" lang="2" >
+                        <span class="uploadWrap" <!--{if is_array($goods_info) && is_array($goods_info['pics_arr'][2])}--> style="background: url('<!--{$fastdfs_domain}--><!--{$goods_info['pics_arr'][2]['groupname']}-->/<!--{$goods_info['pics_arr'][2]['filename']}-->_ts.<!--{$goods_info['pics_arr'][2]['type']}-->') no-repeat scroll center center transparent;" is_onload="1" <!--{/if}--> >
+                            <a href=""></a>
+                           	<div class="inputFileImg" for="Filedata">
+								<input type="file" class="fileUpload" name="Filedata" id="Filedata" accept="images/jpg,images/png,images/gif">
+							</div>
+							<ul class="EditEase">
+								<li class="editImg">
+									<a href='javascript:void(0)' alt=''>更换</a>
+								</li>
+								<li class="editImg relative">
+									<a href='javascript:void(0)' alt=''>删除</a>
+								</li>
+							</ul>
+                        </span>
+                    </form>
+					<div class="photoButton">
+						<form  name="firstCover">
+							<label for="cover_id2">
+								<input type="radio" id="cover_id2" name="cover" <!--{if is_array($goods_info) && $goods_info['main_pics_key']==2}-->checked="checked"<!--{/if}--> />&nbsp设为封面
+							</label>
+						</form>
+					</div>
+					
+                </div>
+                <div class="photoCover">
+                    <form class="formUpload" action="<!--{mk_url('/album/api/publicUploadCrossPhoto',['type'=>'4','flashUploadUid'=>$user['uid']])}-->" method="post" enctype="multipart/form-data"  lang="3" >
+                        <span class="uploadWrap" <!--{if is_array($goods_info) && is_array($goods_info['pics_arr'][3])}--> style="background: url('<!--{$fastdfs_domain}--><!--{$goods_info['pics_arr'][3]['groupname']}-->/<!--{$goods_info['pics_arr'][3]['filename']}-->_ts.<!--{$goods_info['pics_arr'][3]['type']}-->') no-repeat scroll center center transparent;" is_onload="1" <!--{/if}--> >
+                            <a class="" href=""></a>
+                           	<div class="inputFileImg" for="Filedata">
+								<input type="file" class="fileUpload" name="Filedata" id="Filedata" accept="images/jpg,images/png,images/gif">
+							</div>
+							<ul class="EditEase">
+								<li class="editImg">
+									<a href='javascript:void(0)' alt=''>更换</a>
+								</li>
+								<li class="editImg relative">
+									<a href='javascript:void(0)' alt=''>删除</a>
+								</li>
+							</ul>
+                        </span>
+                    </form>
+					<div class="photoButton">
+						<form name="firstCover">
+							<label for="cover_id3">
+								<input type="radio" id="cover_id3" name="cover" <!--{if is_array($goods_info) && $goods_info['main_pics_key']==3}-->checked="checked"<!--{/if}--> />&nbsp设为封面
+							</label>
+						</form>
+					</div>
+
+                </div>
+                <div class="photoCover">
+                    <form class="formUpload" action="<!--{mk_url('/album/api/publicUploadCrossPhoto',['type'=>'4','flashUploadUid'=>$user['uid']])}-->" method="post" enctype="multipart/form-data"  lang="4">
+                        <span class="uploadWrap" <!--{if is_array($goods_info) && is_array($goods_info['pics_arr'][4])}--> style="background: url('<!--{$fastdfs_domain}--><!--{$goods_info['pics_arr'][4]['groupname']}-->/<!--{$goods_info['pics_arr'][4]['filename']}-->_ts.<!--{$goods_info['pics_arr'][4]['type']}-->') no-repeat scroll center center transparent;" is_onload="1" <!--{/if}--> >
+                            <a href=""></a>
+	
+								<div class="inputFileImg" for="Filedata">
+								<input type="file" class="fileUpload" name="Filedata" id="Filedata" accept="images/jpg,images/png,images/gif">
+							</div>
+
+							<ul class="EditEase">
+								<li class="editImg">
+									<a href='javascript:void(0)' alt=''>更换</a>
+								</li>
+								<li class="editImg relative">
+									<a href='javascript:void(0)' alt=''>删除</a>
+								</li>
+							</ul>
+                        </span>
+                    </form>
+					<div class="photoButton">
+						<form name="firstCover">
+							<label for="cover_id4">
+								<input type="radio" id="cover_id4" name="cover" <!--{if is_array($goods_info) && $goods_info['main_pics_key']==4}-->checked="checked"<!--{/if}--> />&nbsp设为封面
+							</label>
+						</form>
+					</div>
+
+                </div>
+            </div>
+            <div class="mediaItemBox inputField">
+                <label class="label Title" for="goodsTitle"><!--{if !is_array($goods_info)}-->请输入商品标题。<!--{/if}--></label>
+                <input id="goodsTitle" class="text" type="text" require-data="isEmpty" value="<!--{if is_array($goods_info)}--><!--{$goods_info.name}--><!--{/if}-->">
+            </div>
+            <div class="mediaItemBox inputField ie6Mt">
+                <label class="label Links" for="goodsLinks"><!--{if !is_array($goods_info)}-->请输入商品的连接地址。<!--{/if}--></label>
+                <input id="goodsLinks" class="text" type="text" require-data="isLinks" value="<!--{if is_array($goods_info)}--><!--{$goods_info.link}--><!--{/if}-->">
+            </div>
+            <div class="mediaItemBox goods_pinpai smt" id="goods_pinpai">
+                <span>品牌：</span>
+                <span value="" id="checkedPP" catid="<!--{if is_array($goods_info)}--><!--{$goods_info.catid}--><!--{/if}-->" brand="<!--{if is_array($goods_info)}--><!--{$goods_info.brand_id}--><!--{/if}-->"><!--{if !is_array($goods_info)}-->请点击选择<!--{else}--><!--{$goods_info.bname}--><!--{/if}--></span>
+            </div>
+            <div class="mediaItemBox inputField inputPrice smt">
+                <label class="label Price" for="goodsPrice"><!--{if !is_array($goods_info)}-->请输入售价<!--{/if}--></label>
+                <input id="goodsPrice" class="text" type="text" require-data="isPrice" value="<!--{if is_array($goods_info)}--><!--{$goods_info.price}--><!--{/if}-->">
+                <b class="unit">RMB</b>
+            </div>
+        </div>
+    </div>
+    <!-- 暂时不需要 --
+    <div class="mediaItemBox addGoods">
+        <a class="addGoodsButton" href="">我要增加商品</a>
+    </div>
+    -->
+</div>

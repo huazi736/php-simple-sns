@@ -1,0 +1,6 @@
+<!--{foreach from=$data['data'] item=val}-->
+<div class="wikiMatchItem">
+<p class="mb15"><span><span class="c3"><a href="<!--{$display_url}-->&citiaoid=<!--{$val.citiao_id}-->&mtmeas=<!--{$val.item_id}-->" class="mr20"><!--{$val.web_name}--> （<!--{$val.item_desc}-->）</a></span>端口百科词条</span><span class="fr"><a href="<!--{$display_url}-->&citiaoid=<!--{$val.citiao_id}-->&mtmeas=<!--{$val.item_id}-->" class="mr20">查看词条</a><a href="javascript:;" item_id="<!--{$val.item_id}-->" version="<!--{$val.version}-->" class="reference mr20">引用词条</a></span>	</p>
+<p class="wikiMatchText"><!--{$val.description}--></p>
+</div>
+<!--{/foreach}-->

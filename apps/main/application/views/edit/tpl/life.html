@@ -1,0 +1,257 @@
+<div id="LifeInfoFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<!--start:吸烟-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">吸烟：</th>
+				<td class="data">				
+					<select name="" class="">
+                        <option value="-1">--请选择--</option>
+                        <option value="1">不吸，很反感吸烟</option>
+                        <option value="2">不吸，但是不反感</option>
+                        <option value="3">社交时偶尔吸</option>
+                        <option value="4">每周吸几次</option>
+                        <option value="5">每天都吸</option>
+                        <option value="6">有烟瘾</option>
+                	</select>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:吸烟-->
+		<!--start:喝酒-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">喝酒：</th>
+				<td class="data">
+					<select name="" class="">
+	                    <option value="-1">--请选择--</option>
+	                    <option value="1">不喝</option>
+	                    <option value="2">社交需要时喝</option>
+	                    <option value="3">有兴致时喝</option>
+	                    <option value="4">每天都要喝</option>
+	                </select>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:喝酒-->
+		<!--start:作息习惯-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">作息习惯：</th>
+				<td class="data">
+					<select name="" class="">
+	                    <option value="-1">--请选择--</option>
+	                    <option value=1>正常的作息时间</option>
+						<option value=2>晚睡早起</option>
+						<option value=3>黑白颠倒</option>
+						<option value=4>偶尔熬夜</option>
+						<option value=5>经常熬夜</option>
+	                </select>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:作息习惯-->
+		<!--start:宗教信仰-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">宗教信仰：</th>
+				<td class="data">
+					<select name="" class="">
+                        <option value="-1">--请选择--</option>
+                        <option value="1">无宗教信仰</option>
+                        <option value="2">大乘佛教显宗</option>
+                        <option value="3">大乘佛教密宗</option>
+                        <option value="4">小成佛教</option>
+                        <option value="5">道教</option>
+                        <option value="6">儒教</option>
+                        <option value="7">基督教天主教派</option>
+                        <option value="8">基督教东正教派</option>
+                        <option value="9">基督教新教派</option>
+                        <option value="10">犹太教</option>
+                        <option value="11">伊斯兰教什叶派</option>
+                        <option value="12">伊斯兰教逊尼派</option>
+                        <option value="13">印度教</option>
+                        <option value="14">神道教</option>
+                        <option value="15">萨满教</option>
+                        <option value="16">其他宗教</option>
+                    </select>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:宗教信仰-->
+		<!--start:个性-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">个性：</th>
+				<td class="data">
+					<select name="" class="">
+                        <option value="-1">--请选择--</option>
+                        <option value="1">浪漫迷人</option>
+                        <option value="2">成熟稳重</option>
+                        <option value="3">风趣幽默</option>
+                        <option value="4">乐天达观</option>
+                        <option value="5">活泼可爱</option>
+                        <option value="6">忠厚老实</option>
+                        <option value="7">淳朴害羞</option>
+                        <option value="8">温柔体贴</option>
+                        <option value="9">多愁善感</option>
+                        <option value="10">新潮时尚</option>
+                        <option value="11">热辣动感</option>
+                        <option value="12">豪放不羁</option>
+                    </select>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:个性-->
+		<!--start:家中排行-->
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob">家中排行：</th>
+				<td class="data nob">
+					<select name="" class="">
+						<option value="-1">--请选择--</option>
+						<option value=1>独子</option>
+						<option value=2>大哥</option>
+						<option value=3>小弟</option>
+						<option value=4>大姐</option>
+						<option value=5>小妹</option>
+					</select>
+				</td>
+				<td class="rightCol"></td>
+			</tr>
+		</tbody>
+		<!--end:家中排行-->
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr tipmodel="dkUserwikiLifeInfo life 500">
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0)">取消</a></div><div class="btnBlue fr mrs"><a id="LifeInfoFormStore" href="javascript:void(0)">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<script language="javascript">
+	$(function(){
+		//取消关闭
+		$('a.closeTip').click(function(){
+			$(this).closest('.tip_win').attr('style','display:none');
+		});
+		//向LifeInfoFormEdit里的select填充生活习惯资料
+		var oldD=$('#LifeInfoForm').find('.data');
+		var $select=$('#LifeInfoFormEdit').find('select');
+		$select.each(function(index){
+			$(this).children().each(function(){
+				var t=$(this).text();
+				if(t==oldD.eq(index).text()){
+					$(this).attr('selected','selected');
+				}
+			});			
+		});
+		$('#LifeInfoFormEdit').find('input').val(oldD.eq(4).text());
+		
+		
+		$('#LifeInfoFormStore').click(function(){
+			var _this=$(this);
+			var a=[];//改变的生活习惯内容，如：["0:每周吸几次", "2:基督教天主教派"]，这里分号前数字代表：吸烟，宗教信仰
+			var _a=[];//改变的生活习惯内容id，如：["0:4", "2:7"]
+			
+			var b=[];//改变的擅长的技能
+			var _b=[];//改变的擅长的技能id
+			
+			//a中赋值
+			$select.each(function(index){
+				var i=index;
+				var s=$(this).children('option[selected=selected]');
+				if(s.text()!=oldD.eq(i).text()){
+					if(s.text()=='--请选择--'){
+						a.push(i+':'+'');
+					}else{
+						a.push(i+':'+s.text());
+					}
+					_a.push(i+':'+s.val());
+				}
+			});
+			
+			
+			var data={};//用于ajax传递的data
+			(function(a,d){
+				for(var i=0,l=a.length;i<l;i++){
+					var n=a[i].split(':');
+					switch (n[0]){
+						case "0":
+						d.smoking=n[1];
+						break;
+						case "1":
+						d.drink=n[1];
+						break;
+						case "2":
+						d.workrest=n[1];
+						break;
+						case "3":
+						d.religion=n[1];
+						break;
+						case "4":
+						d.personality=n[1];
+						break;
+						case "5":
+						d.children_order=n[1];
+						break;
+						default:
+						break;						
+					}
+				}
+			})(_a,data);//将_a中数据，例如["0:4", "2:7"]，存储到data对象中，分号前数字转为对象的属性值
+						
+			function upData(o,d,b) {//o:即<td class="data"></td>;d:重新选择的生活习惯，例如["0:每周吸几次", "2:基督教天主教派"]
+				var $T=o;
+				var data=d;
+				for(i=0,l=data.length;i<l;i++){
+					var e=data[i].split(':');
+					$T.eq(e[0]).text(e[1]);
+				}
+				$T.eq(4).text(b[0]);
+			}
+									
+			$.ajax({//提交数据
+				type:"POST",
+				url:otherpath+"LifeEdit",
+				dataType:'json',
+				data:data,
+				success:function(data){
+					if(data.status==1){			
+						upData(oldD,a,b);//更新原HTML表格(由select选出的值)
+					}else{
+						$(this).popUp({
+							width:350,
+				            title:'友情提示',
+				            content:'<div style="padding:16px">'+data.msg+'</div>',
+				            buttons:'<span class="popBtns blueBtn closeBtn">确定</span>',
+				            mask:true,
+				            maskMode:true
+						});
+					}
+					var IE6 = ($.browser.msie)&&($.browser.version==6.0);//是不是IE6
+			  		if (IE6) {
+			  			var attr = _this.closest('tr').attr('tipmodel');
+						var tipmodel = attr.split(' ');
+						_this.closest('.tip_win').remove();
+						wiki_Tip($('.'+tipmodel[0]),tipmodel[1],tipmodel[2],tipmodel[3]);			
+			  		}else{
+				  		_this.closest('.tip_win').attr('style','display:none');
+				  	};
+				},
+				error:function(){			
+				}				
+			});
+		});				
+	});
+</script>

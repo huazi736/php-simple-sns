@@ -1,0 +1,124 @@
+/**
+ * Created on 2012-02-07
+ * @author： yewang
+ * @version： 1.0
+ * @desc：日志样式
+ */
+
+/*
+*********************************
+  blog列表页样式定义
+*********************************
+*/
+
+/* Start blogList */
+.blogTitle { float:left; width:70%; }
+.blogModlueBody .blogBody { float:left; width:100%; }
+.blogList { width:100%; padding-top:10px; word-wrap:break-word; }
+.blogBody ul.comment_title { overflow:hidden; zoom:1; }
+.blogBody .comment_title li { float:left; }
+.blogListTitle { font-size:14px; }
+.authorInfo { color:#808080; margin-top:5px;}
+.paragraph { padding:10px 0; line-height:22px; padding:15px 0; }
+.paragraph ul{list-style-type:disc; margin-left:20px;}
+.paragraph ol{list-style-type:decimal; margin-left:25px;}
+.paragraph table{width:95%;}
+.loadmore { border:1px solid #D8DFEA; position:relative; height:30px; line-height:30px; }
+.loadmore a, .loadmore span { display:block; background:#E7EBF2; text-align:center; }
+.loadmore a:hover { background:#d8dfea; }
+.loadmore span { background:#E7EBF2 url(../../img/system/more_loading.gif) no-repeat center center; }
+.loadmore a.hide, .loadmore span.hide { display:none; }
+.loadmore i { background:url(../../img/system/ui0.gif) no-repeat -183px -317px; display:block; width:9px; height:5px; overflow:hidden; position:absolute; top:13px; left:430px }
+.deltext { padding:10px; }
+.blankWrap { padding:10px 0; text-align:center; background-color:#E7EBF2; margin-top:200px; font-size:14px;}
+.borderList { width:100%; overflow:hidden; }
+.borderList .blogList { border-top:1px solid #ccc; margin-top:-1px;}
+.blogList-Title{border-bottom:1px solid #ccc; position: relative; height: 30px;}
+.blogList-Title ul{position: absolute; top:1px;}
+.blogList-Title ul li{float: left; padding:5px 15px; background: #fff; border:1px solid #fff; border-bottom:1px solid #ccc; margin-left:5px; cursor: pointer; color:#666;}
+.blogList-Title ul li.hover{border:1px solid #ccc; border-bottom:1px solid #fff; color:#333;}
+/*.borderList{float:left; width:70%;}
+.blogAside{float:right; width:25%;}
+.blogClassAdmin{float:right; font-size:12px; position:relative; *top:-18px;}*/
+.draftLink{font-size:14px; margin-top:20px; display:inline-block;}
+.blogSearch{border:1px solid #999; width:180px; height:21px; position:relative;}
+.blogSearch i{background:url("../../img/system/ui0.png") no-repeat scroll -262px -233px; display:inline-block; width:22px; height:21px; border-right:1px solid #999; cursor:pointer;}
+#blogSear{padding:1px 5px; height:14px; position:absolute; top:1px; border:1px solid #fff;}
+.blogClassTitle{font-size:14px; margin-top:10px;}
+.blogClass{margin-top:5px; border-top:1px solid #ccc;}
+.blogClass li{height:25px; line-height:25px;}
+.draftNum { float:right; width:80px; padding-right:20px; text-align:right; }
+/* End blogList */
+
+
+/*
+*********************************
+  blog编辑页样式定义
+*********************************
+*/
+
+/* Start blogEdit */
+.btable { width:100%; border-collapse:collapse; table-layout:fixed; }
+.btable td.td { padding:15px 10px 15px 0; border-bottom:1px solid #d9d9d9; vertical-align:top; }
+.btable td.label { font-weight:bold; text-align:right; width:120px; color:#666; }
+.btable .buttons td.td { border:none; }
+.inputTxt { height:20px; line-height:20px; border:1px solid #bdc7d8; width:605px; padding:0 3px; overflow:hidden; }
+.textareaCont { width:610px; border: 1px solid #999; }
+.buttons span { font-size:12px; }
+.photosList { width:100%; overflow:hidden; }
+.photosList li { float:left; padding:0 20px 10px 0; }
+.photos h4 { font-size:12px; color:#808080; }
+.errorAlert{ border:1px solid #dd3c10; padding:10px; background-color:#ffebe8; margin:5px 0; display:none; }
+.errorAlert b { display:block; font-weight:bold; font-size:14px; line-height:20px; }
+.editPhoto{position:relative;width:75px;height:65px;overflow:hidden;}
+.editPhoto img{float:left;margin:-20px 0 0 -30px;}
+.editPhoto .c{display:block;width:15px;height:15px;background:url(../../img/system/icon_close.png) 0 -16px;position:absolute;right:0;top:0;z-index:5;}
+.editPhoto .c:hover{background-position:0 -48px!important;}
+.editWrap { float:left; padding-left:20px; }
+.editWrap label{display:block;color:#808080;line-height:16px;}
+.editWrap textarea{width:180px;height:40px;overflow-x:hidden;overflow-y:auto;word-wrap:break-word;resize:none;font-size:12px;line-height:14px;}
+.editWrap a{float:left;border:1px solid #ccc;width:31px;height:31px;margin:3px 10px 0 0;background-image:url(../../img/system/photo_layout.png);}
+.editWrap a.align1{background-position:-40px 0;}
+.editWrap a.align2{background-position:-80px 0;}
+.editWrap a.align3{background-position:-120px 0;}
+.editWrap a.icon_on{border-color:#3b5998;}
+#upload_iframe{height:24px;padding:0;overflow:hidden;margin:10px 0;}
+.pam{padding:10px;}
+.pam span{background-color:#fff;border:1px solid #ccc;display:block;padding:4px;width:109px;height:80px;cursor:pointer;}
+.pam p{color:#808080;padding:5px 5px 0;width:120px;}
+.pam p strong{display:block;color:#333;width:100%;height:18px;line-height:18px;overflow:hidden;}
+.photoThumb{position:relative;margin:0 4px 4px 0;}
+.photoThumbWrap{position:absolute;top:4px;left:4px;}
+.photoThumbWrap i{display:block;width:109px;height:80px;overflow:hidden;background:none;margin:0;}
+.albumDetail{display:none;}
+.albumDetail table{margin:10px 0;}
+.albumDetail td{padding:2px 3px;}
+.pam .photoFocus,.pam .photoFocus .photoThumbWrap{border-color:#3b5998;}
+.previewNotice {background-color:#fff9d7;border:1px solid #e2c822;padding:10px;margin:10px 0;}
+.previewNotice strong{font-size:14px;}
+/* End blogEdit */
+
+/* Start draftList */
+.draftListTitle {font-size:16px;color:#DD3C10;border-bottom:2px solid #666;padding:10px 15px;}
+.draftList { width:100%; height:300px; overflow-x:hidden; overflow-y:auto;}
+.draftList table {width:100%;}
+.draftList td { text-align:right; padding:5px; border-bottom:1px solid #666;}
+.draftList td.d_title {color:#3B5998;text-align:left;}
+.draftList td.d_time {width:120px;color:#999;}
+.draftList td.d_del {width:50px;text-align:right;}
+/* End draftList */
+
+/* Start blogClass*/
+.blogClassBody{padding:20px 1px;}
+.blogClassBody table{width:100%; border:1px solid #ccc;}
+.blogClassBody table tr{height:30px; line-height:30px;}
+.blogClassBody table tbody tr td{width:30%; text-align:center;}
+.blogClassBody table tbody tr td input{padding:2px 2px; width:75px;}
+.blogClassBody table tfoot tr{height:40px; vertical-align:middle;}
+.blogClassBody table tfoot tr td{border-top:1px solid #ccc; padding-left:98px;}
+.blogClassBody table thead tr th{width:30%; border-bottom:1px solid #ccc; background:#3B5998; color:#fff;}
+.blogClassBody table tfoot tr td span{position:relative; top:0px; *top:-4px;}
+.blogClassBody table tfoot tr td a{position:relative; top:0px; *top:-3px; _top:-2px; top:-1px\0;}
+#newBlogClass{padding:3px 3px;}
+.blogClassBody a.btnBlue{color:#fff; margin-left:10px;}
+/* End blogClass*/

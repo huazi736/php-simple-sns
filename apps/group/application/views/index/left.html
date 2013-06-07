@@ -1,0 +1,76 @@
+<!--群组首页左侧 开始-->
+<div class="group_index_l">
+	<!--用户头像 开始-->
+	<div class="group_user">
+		<div class="group_user_wrap clearfix">
+			<div class="group_user_name">
+				<a href="javascript:void(0)"><!--{$group.name}--></a>
+			</div>
+			<a href="javascript:void(0)" class="group_user_img">
+				<img src="<!--{$group.icon}-->" />
+			</a>
+			<div class="group_index_lr">
+				群主：<a href="<!--{mk_url('main/index/main', ['dkcode' => $group.author.dkcode])}-->"><!--{$group.author.username}--></a><br />
+				成员数：<a href="<!--{mk_url('group/index/member', ['gid' => $group.gid])}-->">(<!--{$group.member_counts}-->)</a>
+			</div>
+		</div>
+	</div>
+	<!--用户头像 结束-->
+	<!--用户功能应用列表 开始-->
+	<div class="group_app">
+		<!--应用列表 开始-->
+		<div class="group_app_list">
+			<h3 class="group_app_header">应用
+				<!--{if $group.creator eq $user.uid}-->
+				<a href="<!--{mk_url('group/app/groupApps', ['gid'=>$group.gid])}-->"><img src="<!--{$smarty.const.MISC_ROOT}-->img/group/group_tool_icon.png"></a>
+				<!--{/if}-->
+			</h3>
+			<div class="group_app_list_wrap">
+				<ul class="group_list_ul">
+					<!--{foreach from=$apps item=app}-->
+					<li class="group_list_ul_li group_forum" postUrl="<!--{mk_url($app.url)}-->">
+						<a href="javascript:void(0)">
+							<span class="img_wrap"><img src="<!--{$app.icon}-->" /></span>
+							<div class="link_wrap"><!--{$app.name}--></div>
+						</a>
+					</li>
+					<!--{/foreach}-->
+					<!--{if $group.creator eq $user.uid}-->
+					<li class="group_list_ul_li group_create">
+						<a href="<!--{mk_url('group/app/apps', ['gid'=>$group.gid])}-->">
+							<span class="img_wrap"><img src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon_group_create.png" /></span>
+							<div class="link_wrap link_wrap_new_app">新建</div>
+						</a>
+					</li>
+					<!--{/if}-->
+				</ul>
+			</div>
+		</div>
+		<!--应用列表 开始-->
+		<!--子群列表 开始-->
+		<div class="group_son">
+			<h3 class="group_app_header">子群</h3>
+			<div class="group_app_list_wrap">
+				<ul class="group_list_ul">
+                    <!--{foreach from=$subgroup item=group}-->
+					<li class="group_list_ul_li group_financial">
+						<a href="<!--{mk_url('group/subgroup/index', ['sid'=>$group.sid])}-->">
+							<span class="img_wrap"><img src="<!--{$group.icon}-->" /></span>
+							<div class="link_wrap"><!--{$group.name}--></div>
+						</a>
+					</li>
+                    <!--{/foreach}-->
+					<li class="group_list_ul_li group_create">
+						<a href="javascript:void(0)">
+							<span class="img_wrap"><img src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon_group_create.png" /></span>
+							<div class="link_wrap link_wrap_son_group">新建</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--子群列表 开始-->
+	</div>
+	<!--用户功能应用列表 结束-->
+</div>
+<!--群组首页左侧 结束-->

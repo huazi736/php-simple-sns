@@ -1,0 +1,90 @@
+/*
+ * @ name: picViewer.css
+ * @ author: lishijun
+ * @ desc:  图片查看器css
+ *
+ */
+ 
+@charset "utf-8";
+
+/*覆盖公共body背景样式*/
+.setbg { background:none !important; }
+
+/*reset Scroll for IE6*/
+* { _overflow-x:hidden; }
+#wrap #globalContainer{ _width:1000px; }
+/*白色背景*/
+.picViewer_BG { position:absolute; top:0px; width:100%; height:100%; background:#FFF; filter:alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity:0.8; opacity:0.8; z-index:400; }
+/*外部容器*/
+.picViewer_box { }
+/**图片容器**/
+.picViewer { position:relative; width:965px; height:auto; margin:auto; margin-top:13px; margin-bottom:42px; background:#FFF; }
+.picViewer { border:4px solid #666; _overflow-x:hidden; }
+.picViewer .picViewer_picBox { width:940px; height:auto; padding:12px; position:relative; z-index:403;_overflow:hidden; }
+.picViewer .picViewer_pic { position:relative; width:940px; min-height:100px; text-align:center; overflow:hidden; }
+
+.picViewer .pic_name { padding:10px 0; width:100%; }
+.picViewer .pic_name p, .picViewer .pic_name .staticDis { width:302px; margin:0 auto; }
+.picViewer .pic_name p span { float:left; display:block; width:280px; cursor:pointer; word-wrap:break-word; }
+.picViewer .pic_name p span textarea { width:300px; height:40px; border:1px solid #BDC7D8; color:#777777; }
+.picViewer .pic_name p em { float:left; display:block; background:url("../../img/system/ui4.png") no-repeat left -126px; cursor:pointer; width:16px; height:16px; }
+.picViewer .pic_name .optBtn{ padding-top:5px; width:302px; }
+.picViewer .pic_name .optBtn span{ float:right; margin-left:5px; width:30px; }
+
+.info_addInfo_addComment .pic_name p, .info_addInfo_addComment .pic_name .staticDis { margin:0; width:100%; }
+.info_addInfo_addComment .pic_name p span { width:424px; }
+.info_addInfo_addComment .pic_name p span textarea { width:438px; }
+.info_addInfo_addComment .pic_name p span .optBtn { width:440px;} 
+.picNameText{ text-align:center; }
+
+.picViewer_pic .prevArea{position:absolute; left:0; top:0; width:370px; height:100%; cursor:url(http://static.duankou.dev/misc/img/system/cur_left.cur),auto; background-color:#fff; opacity:0; -ms-filter:'alpha(opacity=0)'; filter:alpha(opacity=0); zoom:1;}
+.picViewer_pic .nextArea{position:absolute; right:0; top:0; width:370px; height:100%; cursor:url(http://static.duankou.dev/misc/img/system/cur_right.cur),auto; background-color:#fff; opacity:0; -ms-filter:'alpha(opacity=0)'; filter:alpha(opacity=0); zoom:1;}
+.picViewer_pic .picZoom{position:absolute; left:370px; top:0; width:200px; height:100%; cursor:url(http://static.duankou.dev/misc/img/system/zoom_in.cur),auto; background-color:#fff; opacity:0; -ms-filter:'alpha(opacity=0)'; filter:alpha(opacity=0); zoom:1;}
+
+/*reset 评论*/
+.picViewer .picViewer_info { background:#FFF; padding:12px; padding-top:0px; }
+.picViewer .picViewer_info .info_addInfo_addComment { float:left; width:440px; }
+.picViewer .picViewer_info .picViewerCommentEasy { width:440px; margin:0; }
+
+/*reset: 添加说明样式*/
+.picViewer_info .addInfoToPic { width:440px; margin-bottom:10px; }
+.picViewer_info .addInfoToPic .addInformation { margin-bottom:10px; }
+
+/*图片操作及信息*/
+.picViewer .picViewer_info .picViewer_control { width:300px; height:auto; float:right; }
+.picViewer .picViewer_info .picViewer_control ul { display:block; padding:10px 0px; margin:0px; list-style:none; }
+.picViewer .picViewer_info .picViewer_control ul.setarea {border-top:1px solid #e5e5e5; padding-bottom:30px;}
+.picViewer .picViewer_info .picViewer_control ul li { display:block; line-height:200%;}
+
+/*Start: 添加说明样式*/
+.addInfoToPic .addInformation, .addInfoToPic .submit .update_ico { background:url(../../img/system/ui4.png) no-repeat left -126px; background-position:left -128px\9; height:16px; margin-left:3px; padding-left:15px; }
+.addInfoToPic { width:437px; }
+.addInfoToPic .addInformation { /*color:#3B5998;*/ cursor:pointer; }
+.addInfoToPic .submit { width:437px; }
+.addInfoToPic .submit .submit_txt { float:left; width:405px; _width:400px; padding-right:10px; word-wrap:break-word; border:1px #fff solid; cursor:pointer; }
+.addInfoToPic .submit .update_ico { float:left; cursor:pointer; margin-top:2px; }
+.addInfoToPic .optionEnv { height:25px; }
+.addInfoToPic .optionEnv .setInformation { float:left; margin-bottom:3px; width:437px; }
+.addInfoToPic .optionEnv .setInformation .input_style { width:100%; _width:435px; height:25px; line-height:25px; border:1px #bdc7d8 solid; color:#777; resize:none; word-wrap:break-word; }
+.addInfoToPic .optionEnv .submitBtn { float:left; width:110px; }
+.addInfoToPic .optionEnv .submitBtn .uiButton{ margin-left:5px; *margin-top:1px; height:27px; line-height:27px; }
+.addInfoToPic .optionEnv .submitBtn .uiButtonConfirm { color:#fff; }
+.picViewer_info .staticData { width:460px; margin-bottom:15px; }
+/*End: 添加说明样式*/
+
+/*照片移动样式*/
+#movePhoto2{position:relative; z-index:101; height:25px; *margin-top:-12px;}
+#movePhoto2 a.downIcon{display:block; position:absolute; top:0; left:0; z-index:100; background:url(../../img/system/listdoen.gif) no-repeat 40px 10px; height:18px; width:50px; background-color:#fff; border:1px #fff solid; border-bottom:none; padding-right:10px;}
+#movePhoto2 .albumUl{display:none; position:absolute; left:0; top:18px; width:135px; z-index:90; background-color:#fff; border:1px #ccc solid; height:120px; padding:5px 0; overflow-x:hidden; overflow-y:auto;}
+#movePhoto2 .albumUl ul{padding-top:0; padding-bottom:0;}
+#movePhoto2 .albumUl ul li{float:none;}
+#movePhoto2 .albumUl ul li a{display:block; height:20px; line-height:20px; width:115px; overflow:hidden; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis; padding:0 10px;}
+#movePhoto2 .albumUl ul li a:hover{background-color:#3B5998; color:#fff;}
+
+/*图片旋转按钮样式*/
+#rotateToLeft{display:none; position:absolute; right:55px; top:0; background-color:#000; padding-left:10px; *padding-left:5px; *padding-right:7px; padding-top:7px; height:30px; width:40px;}
+#rotateToRight{display:none; position:absolute; right:0; top:0; background-color:#000; padding-left:14px;  *padding-left:9px; *padding-right:5px; padding-top:7px; height:30px; width:36px;}
+#rotateToLeft span{display:block; background:#000 url(../../img/system/photo_scan_layer.png) no-repeat left -48px; cursor:pointer; width:27px; height:22px;}
+#rotateToLeft:hover span{background-position:-28px -48px;}
+#rotateToRight span{display:block; background:#000 url(../../img/system/photo_scan_layer.png) no-repeat -56px -48px; cursor:pointer; width:27px; height:22px;}
+#rotateToRight:hover span{background-position:-113px top;}

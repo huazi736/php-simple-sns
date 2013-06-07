@@ -1,0 +1,111 @@
+<!--{include file="`$smarty.const.TEMPLATE_PATH`header.html"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/album/album.css" rel="stylesheet" type="text/css" />
+<!--以下为添加相片弹窗 CSS 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/JQuery-uploadify/JQuery_uploadify.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<!--以下为权限插件CSS文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/jQuery-uiCombox/jQuery-uiCombox.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<!--{include file="`$smarty.const.TEMPLATE_PATH`top_bar.html"}-->
+<div class="body clearfix">
+	<!-- start: mainArea-->
+	<div class="mainArea" id="content">
+		<!--start: modlueHeader-->
+		<div class="modlueHeader clearfix">
+			<!--{include file="./album_top_name.html"}-->
+			<!--{if $is_author}-->
+			<div class="userActions">
+				<span class="btnGray"><i class="a"></i><a href="#" class="updataPic_btn">上传照片</a></span>
+			</div>
+			<!--{/if}-->
+		</div>
+		<!--end: modlueHeader-->
+		
+		<!--{if $album_lists['list']}-->
+		
+		<!--Start: 存在相册时-->
+		<!-- start: contentCol-->
+		<div id="contentCol" class="clearfix">
+			<div class="contentTit">
+				<div class="uiHeader clearfix">
+					<h2><i class="uiIconP titleIcon bp_blog"></i><!--{$web_info['name']}-->的相册（<!--{$album_lists['total_num']}-->）</h2>
+				</div>
+			</div>
+			<div id="contentArea">
+			  <!--start: 涂鸦墙(相册) 相册列表-->
+			  <div class="album">
+				
+				<div class="album_list <!--{if $is_author}-->album_move <!--{/if}--> clearfix">
+				  <ul class="album_list_ul">
+					<!--{if $album_lists}-->
+						
+					<!--{/if}-->	
+				  </ul>
+
+				  <input type="hidden" id="fileName" value="album.html" />
+				  <!--{if $is_author}-->
+				  <input type="hidden" id="is_author" value="yes" />
+				  <!--{/if}-->
+					
+				</div>
+			  </div>
+			  <!--end: 涂鸦墙(相册) 相册列表-->
+			</div>
+		</div>
+		<!-- end contentCol -->
+		<!--End: 存在相册时-->
+		
+		<!--{else}-->
+		
+		<!--Start: 不存在相册时 by 李世君 2012-3-13-->
+		<div class="noAlbum">
+			<!--{if $is_author}-->
+			<p class="noPic">没有任何相册，请 <a href="#" class="updataPic_btn">上传照片</a></p>
+			<!--{else}-->
+			<p class="noPic">该用户没有任何相册</p>
+			<!--{/if}-->
+		</div>
+		<!--End: 不存在相册时 by 李世君 2012-3-13-->
+		
+		<!--{/if}-->
+	</div>
+	<!-- end: mainArea-->
+	<div class="sideArea">
+		
+	</div>
+</div>
+
+<!--Start 新建相册-->
+<!--{include file="./album_creating.html"}-->
+<!--End 新建相册-->
+
+<!--{include file="`$smarty.const.TEMPLATE_PATH`footer.html"}-->
+
+
+<!--start 初始化js-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/init.js"></script>
+<!--end 初始化js-->
+
+<!--start 拖动模块js-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-dragsort/jquery.dragsort.min.js"></script>
+<!--end 拖动模块js-->
+
+<!--start 相册列表js-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/album/album.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.uploader.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/embed-for-flash/swfobject.js"></script>
+<!--{if $is_author}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.UICombox.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-searcher/ViolenceSearch.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/friends_list/friends_list.js"></script>
+<!--{/if}-->
+<!--end 相册列表js-->
+
+<!--Start: 动态加载JS-->
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/scrollLoad.js"></script>
+<!--End: 动态加载JS-->
+
+</body>
+</html>

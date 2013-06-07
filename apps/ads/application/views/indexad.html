@@ -1,0 +1,151 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+自助广告商管理中心-首页-
+<!--{/block}-->
+
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/pro/pro.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- - - - - modlueHeader开始 - - - - -->
+		<div class="modlueHeader clearfix">
+			<a href="<!--{mk_url('ads/ad/index')}-->" class="fr btnGray color3 mt3">+ 创建广告</a>
+			<span class="userImg"><a href="<!--{$user_info['url']}-->"><img src="<!--{$user_info['avatar_img']}-->" alt="" /></a></span>
+			<div class="userName">
+			    <span class="nameTxt"><a href="<!--{$user_info['url']}-->"><!--{$user_info['username']}--></a></span>
+				<span class="nameTxt">广告</span>
+			</div>
+					</div>
+		<!-- - - - - modlueHeader结束 - - - - -->
+		<!-- - - - - modlueBody开始 - - - - -->
+		<div class="modlueBody plrn">
+			<div class="clearfix hasRightCol home" id="contentCol">
+	          <!-- start:广告列表 -->
+	          <div id="createAds">
+	            <div class="codeBlock clearfix">
+	            	<div class="manage-nav clearfix mb10">
+						<ul class="clearfix">
+							<li class="on"><a href="<!--{mk_url('ads/adadmin/index')}-->">首页</a></li>
+							<li><a href="<!--{mk_url('ads/adadmin/listad')}-->">广告列表</a></li>
+							<li><a href="<!--{mk_url('ads/adadmin/reportad')}-->">报告</a></li>
+							<li><a href="<!--{mk_url('ads/adadmin/setad')}-->">设置</a></li>
+							<li><a href="<!--{mk_url('ads/adadmin/billad')}-->">账单</a></li>
+						</ul>
+					</div>
+					<div class="p10 clearfix ptn">
+						<div class="w410 fl">
+							<div class="caList setad">
+								<h4>通知和提醒</h4>
+								<ul>
+								<!--{if $notice}-->
+								<!--{foreach from=$notice item=value key=key}-->
+									<li>
+										<p class="color6"><!--{$key}--></p>
+										<!--{foreach from=$value item=val}-->
+										<p><!--{$val['content']}--></p>
+										<!--{/foreach}-->
+									</li>
+									<!--{/foreach}-->
+									<!--{/if}-->
+								</ul>
+							</div>
+						</div>
+						<div class="w410 fr">
+							<div class="caList setad">
+								<h4>每日支出</h4>
+								<ul class="pay-per-day">
+								<!--{if $paylist}-->
+									<!--{foreach from=$paylist item=value key=key}-->
+									<li class="clearfix"><span class="color9"><!--{date('m-d',$value['dateline'])}--></span><strong>￥<!--{$value['sums']}-->元</strong></li>
+									<!--{/foreach}-->
+								<!--{/if}-->
+								</ul>
+							</div>
+						</div>	
+					</div>
+					<div class="caList">
+						<div>
+							<table class="adlist-mod tac">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>宣传活动</th>
+										<th>分类</th>										
+										<th>状态</th>
+										<th>审核</th>										
+										<th>开始时间</th>
+										<th>预算</th>
+										<th>结余</th>
+										<th>花费</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+								<!--{foreach from=$adList item=adl_item  key=key}-->
+										<tr>								
+										<td><!--{$key+1}--></td>
+										<td><!--{$adl_item.name}--></td>
+										<td><!--{$adl_item.str_classify}--></td>										
+										<td><!--{$adl_item.str_status}--></td>
+										<td><!--{$adl_item.str_checked}--></td>											
+										<td><!--{$adl_item.start_time}--></td>
+										<td>￥<!--{$adl_item.budget_format}-->(<!--{if $adl_item.budget_sort==1}-->总<!--{else}-->每日<!--{/if}-->)</td>
+										<td>￥<!--{$adl_item.surplus_format}--></td>
+										<td>￥<!--{$adl_item.cost_money_format}--></td>
+										<td>
+											<a target="_blank" href="<!--{mk_url('ads/adadmin/detailad')}-->?ad_id=<!--{$adl_item.ad_id}-->">查看</a>&nbsp;&nbsp;
+											<a href="javascript:;" class="stop-ad" data-ad-id="<!--{$adl_item.ad_id}-->" data-status="<!--{if $adl_item.sort==3}-->runing<!--{elseif $adl_item.sort==1}-->stopped<!--{/if}-->"><!--{if $adl_item.sort==3}-->暂停<!--{elseif $adl_item.sort==1}-->开启<!--{/if}--></a>&nbsp;&nbsp;
+											<a href="javascript:;" class="del-ad" data-ad-id="<!--{$adl_item.ad_id}-->">删除</a>
+										</td>
+									</tr>
+								<!--{/foreach}-->										
+																	
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="9"></td>
+										<td class="clearfix tar">
+											<a href="<!--{mk_url('ads/adadmin/listad')}-->" class="btnBlue color-fff">报告全文</a>&nbsp;&nbsp;
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+
+<!-- 					<div class="chart-box">
+						<p class="mb10">
+							<select name="" id="" class="sel">
+								<option value="">点击量</option>
+							</select>&nbsp;
+							<select name="" id="" class="sel">
+								<option value="">昨天</option>
+							</select>&nbsp;
+							<span id="get-chart" class="btnBlue">查询</span>
+						</p>
+						
+							<div class="caList setad">
+								<h4>响应</h4>
+								<div id="chart-show" class="">
+								</div>
+							</div>
+					</div> -->
+											
+				  </div>
+	          
+	          <!-- end:广告列表 --> 
+       		 </div>
+		</div>
+		<!-- - - - - modlueBody结束 - - - - -->
+	</div>
+</div>
+<div>
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pro/createPro.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

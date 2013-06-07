@@ -1,0 +1,66 @@
+<!--{extends file='default.html'}-->
+
+<!--{block name='header_css' append}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/jscrollpane/jscrollpane.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/group/groupall.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='group_title'}-->&gt;&gt; <!--{$name}--> (<b class="group_son_num"><!--{$num}--></b>人)<!--{/block}-->
+
+<!--{block name='right'}-->
+<div class="group_son_head">
+	<div class="group_nav_right">
+			<a href="javascript:void(0)" id="subgroup_add">邀请好友</a>
+		<!--{if $nowuser['position'] eq 1}-->
+			<a href="javascript:void(0)" id="dissolve_group_son" gid="<!--{$sid}-->">解散子群</a>
+		<!--{/if}-->
+		<!--{if $nowuser['position'] eq 0}-->
+			<a href="javascript:void(0)" id="group_son_quit">退出此群</a>
+		<!--{/if}-->
+	
+	</div>
+</div>
+<!--{include file='navigation.html'}-->
+<div id="mainContant">
+	<div class="group_son">
+		<div class="group_chat_wrap"><a href="javascript:void(0)" class="group_chat">实时聊天</a></div>
+		
+		<input type="hidden" id="group_id" name="group_id" value="<!--{$gid}-->"/>
+		<input type="hidden" id="subgroup_id" name="subgroup_id" value="<!--{$sid}-->"/>
+		<div class="group_set_contant">
+			<div class="group_member_manage group_tab_contant">
+				<ul class="clearfix">
+	                <!--{if ($members)}-->
+	                    <!--{foreach from = $members item = list}-->
+	                        <li>
+	                            <div class="group_member_list">
+	                                <a href="<!--{$list['href']}-->" class="group_member_list_l"><img src="<!--{$list['avatar']}-->"></a>
+	                                <div class="group_member_list_r group_kickout_son">
+	                                    <p><a href="<!--{$list['href']}-->" class="group_username"><!--{$list['name']}--></a></p>
+	                                    <!--{if $nowuser['position'] eq 1 and $list.uid neq $user.uid}-->
+	                                    <a uid="<!--{$list['uid']}-->" gid="<!--{$list['sid']}-->"  href="javascript:void(0)" class="group_kickout">踢出此群</a>
+	                                    <!--{/if}--> 
+	                                </div>
+	                            </div>
+	                        </li>
+	                    <!--{/foreach}-->
+	                <!--{/if}--> 
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--{/block}-->
+
+
+<!--{block name='footer_js' append}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jscroll/jquery.jscrollpane.min.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jscroll/jquery.mousewheel.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group_add_sub.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/detail.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/group/group_sub_memberlist.js" type="text/javascript"></script>
+<script type="text/javascript">
+list_memberlist.init({moreUrl:'group/subgroup/subgroupmember', searchUrl:'group/manage/search'});
+</script>
+<!--{/block}-->

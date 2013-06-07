@@ -1,0 +1,83 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+未互动的人-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/follow/follow.css" rel="stylesheet" type="text/css" />
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$userinfo['url']}-->"><img src="<!--{$userinfo['avatar']}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$userinfo['url']}-->"><!--{$userinfo['username']}--></a></span>
+				<span class="nameTxt">未互动的人</span>
+			</div>
+			<div class="otherList">
+				<a href="<!--{mk_url('main/following/followingList', ['dkcode'=>$action_dkcode])}-->">返回关注列表</a>
+			</div>
+		</div>
+		<!-- start: 关系列表修改 by卜海亮 2012-07-11 -->
+		<div class="followingClassNav">
+			<ul class="peopleAndWeb">
+				<li class="on" id="people">
+					<a href="<!--{mk_url('main/following/invalidFollowingList', ['dkcode'=>$action_dkcode])}-->"><i></i><span>个人</span></a>
+				</li>
+			</ul>
+		</div>
+		<!-- end: 关系列表修改 -->
+		<div class="modlueBody">
+			<!--{if $following['total']}-->
+			<div class="listSearch clearfix">
+				<h4>个人 (<!--{$following['total']}-->)</h4>
+			</div>
+			<!--{/if}-->
+			<!--{if $following['total']}-->
+			<ul class="listWrap clearfix" id="listWrap">
+				<!--{foreach $following['data'] as $v}-->
+				<li rid="<!--{$v['id']}-->" class="listli">
+					<div class="avatarBox <!--{if $v['hidden']}-->invisible<!--{/if}-->">
+						<a href="<!--{$v['href']}-->"><img src="<!--{$v['src']}-->" height="65" width="65" alt="" /></a>
+						<s class="setHid" id="<!--{$v['id']}-->"></s>
+					</div>
+					<div class="listInfo">
+						<span class="uName">
+							<a href="<!--{$v['href']}-->"><!--{$v['name']}--></a>
+							<span><!--{$v['now_addr']}--></span>
+						</span>
+						<div class="relationState">
+							<span>关注 <a href="<!--{$v['following_url']}-->"><!--{$v['following']}--></a></span><span>|</span><span>粉丝 <a href="<!--{$v['follower_url']}-->"><!--{$v['follower']}--></a></span><span>|</span><span>好友 <a href="<!--{$v['friend_url']}-->"><!--{$v['friend']}--></a></span>
+						</div>
+						<div class="relationSame"><!--{$v['display']}--></div>
+					</div>
+					<div class="statusBox" uname="<!--{$v['name']}-->" rel="<!--{$v['relation']}-->" uid="<!--{$v['id']}-->"></div>
+				</li>
+				<!--{/foreach}-->      
+			</ul>
+				<!--{if $following['total'] > 20}-->
+				<div class="loadmore hide" id="loadmore"><a></a></div>
+				<!--{/if}-->
+			<!--{else}-->
+			<div class="blankWrap" id="nodata"><span>您没有未互动的人</span></div>
+			<!--{/if}-->
+		</div>
+	</div>
+</div>
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+<script type="text/javascript">
+$(function() {
+	list.init({visibleUrl:'main/' + CONFIG['action_dkcode'] + '/following/visibleFollowing', moreUrl:'main/' + CONFIG['action_dkcode'] + '/following/getInvalidateFollowingsByPage'});
+});
+</script>
+<!--start: 关系按钮 by卜海亮 2012-07-10-->
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/relation/relation.js"></script>
+<!--end: 关系按钮-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/follow/followlist.js" type="text/javascript"></script>
+<!--{/block}-->

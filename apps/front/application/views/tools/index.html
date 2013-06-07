@@ -1,0 +1,97 @@
+<!--{extends file='nologin_base_layout.html'}-->
+<!--{block name='title' prepend}-->
+Create User-
+<!--{/block}-->
+<!--{block name='body'}-->
+<div style="margin-left:10px;">
+<span style="color:red;">批量生成邀请码</span>
+<hr />
+<form action="<!--{$smarty.const.WEB_ROOT}-->/front/index.php&c=tools&m=createUser" name="createUser" method="post">
+生成数量:<input type="text" id="num" name="num"/><span id="message" style="color:red;"></span>
+<br />
+<input type="button" id="create" value="生成邀请码" />
+</form>
+<div id="result"></div>
+
+
+<hr />
+<span style="color:red;">批量邀请</span>
+<hr />
+<form action="<!--{$smarty.const.WEB_ROOT}-->/front/index.php&c=tools&m=createUser" name="createUser" method="post">
+生成邀请数量:<input type="text" id="invitenum" name="invitenum"/><span id="vitemsg" style="color:red;"></span>
+邀请人的uid:<input type="text" id="invite_uid" name="invite_uid"/>
+<br />
+<input type="button" id="invite" value="批量邀请" />
+</form>
+<div id="invetemsg"></div>
+
+<hr />
+<span style="color:red;">邀请码记录查看</span>
+<hr />
+<a href="<!--{mk_url('front/tools/show_dkcode_record')}-->"  target="_blank">邀请码记录查看</a>
+<div id="uidms"></div>
+
+
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+
+<script type="text/javascript">
+$(function (){
+	$('#create').click(function (){
+		var str = 'num='+$('#num').val();
+		$.ajax({
+			url:mk_url('front/tools/createCode'),//webpath + 'front/index.php?c=tools&m=createCode',
+			type:'post',
+			data:str,
+			success:function(data){
+				if(data == '0'){
+					$('#message').text('生成失败');
+				}
+				else{
+					$('#result').text(data);
+				}
+			}
+		});
+	});
+	
+	$('#invite').click(function (){
+		var str = 'invitenum='+$('#invitenum').val()+'&invite_uid='+$('#invite_uid').val();
+		$.ajax({
+			url:mk_url('front/tools/createInvite'),//webpath + 'front/index.php?c=tools&m=createInvite',
+			type:'post',
+			data:str,
+			success:function(data){
+				if(data == '0'){
+					$('#vitemsg').text('邀请失败');
+				}
+				else if(data == '1'){
+					$('#invetemsg').text('插入数据失败');
+				}
+				else{
+					$('#invetemsg').text(data);
+				}
+			}
+		});
+	});
+	
+	$('#uid').click(function (){
+		var str = 'dk_start='+$('#dk_start').val()+'&dk_end='+$('#dk_end').val();
+		$.ajax({
+			url:webpath + 'front/index.php?c=tools&m=searchUid',
+			type:'post',
+			data:str,
+			success:function(data){
+				if(data == '0'){
+					$('#uidmsg').text('未查到相关结果');
+				}				
+				else{
+					$('#uidms').text(data);
+				}
+			}
+		});
+	});
+})
+
+</script>
+<!--{/block}-->

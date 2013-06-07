@@ -1,0 +1,92 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+系统设置-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/setting-userinfo/setting_userinfo.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!--start: 账户设置头部-->
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{mk_url('main/index/profile')}-->"><img src="<!--{get_avatar($user['uid'],'s')}-->" alt="" /></a></span>
+			<div class="userName" id="userName">
+				<span class="nameTxt"><a href="<!--{mk_url('main/index/profile')}-->"><!--{$login_name}--></a></span>
+				<span class="nameTxt">
+					<span class="fl"><a href="<!--{mk_url('main/setting/index')}-->">系统设置</a></span>
+				</span>
+			</div>
+		</div>
+		<!--end: 账户设置头部-->
+		<div class="modlueBody">
+			<div class="settingMenu">
+				<a class="selected" href="<!--{mk_url('main/setting/settingAccount')}-->"><i class="icon icon_account"></i>一般</a>
+				<a href="<!--{mk_url('main/setting/settingSecurity')}-->"><i class="icon icon_security"></i>安全</a>
+				<a href="<!--{mk_url('main/notice/settingnotice')}-->"><i class="icon icon_notification"></i>通知</a>
+				<a href="<!--{mk_url('main/setting/settingAds')}-->"><i class="icon icon_ad"></i>广告</a>
+			</div>
+			<div class="settingContent">
+				<!--star: headerArea 账户设置标题开始-->
+		        <h2 class="accountTitle">一般账户设置</h2>
+		  		<!--end: headerArea 账户设置标题结束--> 
+		  		<!--start: contentArea 账户设置具体内容开始-->
+		  		<ul class="accountContent" id="accountEdit">
+		  			<li class="accountEditList">
+						<div class="clearfix">
+							<span class="settingLabel"><strong>姓名</strong></span>
+			            	<span class="settingInfo"><strong><!--{$login_name}--></strong></span>
+			            	<span class="settingEdit  blue"></span>
+						</div>
+					</li>
+		            <li class="accountEditList">
+		            	<div class="clearfix" id="emailEdit">
+							<span class="settingLabel"><strong>电子邮件</strong></span>
+			            	<span class="settingInfo">有效电邮：<strong><!--{$login_email}--></strong></span>
+			            	<!-- <span class="settingEdit  blue"><i class="icon icon_edit"></i>编辑</span> -->
+						</div>
+						<!-- <div class="clearfix editContent hide">
+							<div class="settingLabel"><strong>电子邮箱</strong></div>
+							<div id="emailPanel" class="settingEditPanel emailPanel">
+		            			<div class="borderBottom">
+		            				<strong class="leftLabel">有效电子邮箱：</strong><!--{$login_email}-->
+		            			</div>
+		            			<div class="waitEmail hide">
+		            				<p>请检查你在 <strong id="confirEmail">111111@qq.com</strong> 信箱内的电邮以进行确认。</p>
+			            			<p><a id="resendEmail" href="javascript:void(0)">重发确认邮件</a>·<a id="cancelEmail" href="javascript:void(0)"> 取消</a></p>
+		            			</div>
+		            			<ul class="editEmail hide">
+			            			<li class="borderBottom">
+			            				<strong class="leftLabel">新邮箱：</strong><input class="inputText" type="text" maxlenght="64" name="newEmail"><span class="errors"></span>
+			            			</li>
+			            			<li>
+			            				<p><strong>要存储这些设置调整，请输入你的Duankou密码</strong></p>
+			            				<p class="confirmPsw">
+			            					<strong class="leftLabel">密码：</strong>
+			            					<input class="inputText" type="password" name="emailPsw">
+			            					<span class="errors"></span>
+			            				</p>
+			            			</li>
+		            			</ul>
+		            			<div class="but clearfix">
+		            				<span id="save_email" class="save">保存更改</span>
+		            				<span class="cancel">取消</span>
+		            			</div>
+		            		</div>
+		            	</div> -->
+		            </li>
+		        </ul>
+		     	<!--end: contentArea 账户设置具体内容结束--> 
+		     </div>
+		</div>
+	</div>
+	
+	<div class="sideArea">
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/md5/md5.js?v=<!--{$smarty.const.JS_VER}-->"></script>
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/setting_userinfo/setting_userinfo1.js?v=<!--{$smarty.const.JS_VER}-->"></script>
+<!--{/block}-->

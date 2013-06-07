@@ -1,0 +1,31 @@
+<div class="movies">
+  <div class="moviesContent">
+    <div class="photoCover"><span class="btn_upload">点击上传电影海报
+      <input type="file"  class="fileUpload"/>
+      </span> </div>
+    <div class="mediaSection" style="display:block">
+      <div class="mediaItemBox inputField">
+        <label class="label Title" for="goodsTitle">请输入电影标题。</label>
+        <input id="goodsTitle" class="text" type="text" require-data="isEmpty" value="">
+      </div>
+      <div class="mediaItemBox inputField">
+        <label class="label Links" for="goodsLinks">请输入电影的连接地址。</label>
+        <input id="goodsLinks" class="text" type="text" require-data="isLinks" value="">
+      </div>
+      <div class="clearfix">
+        <div class="mediaItemBox inputField  showTime">
+          <label for="showTime" class="label ShowTimeIco">请选择上映时间</label>
+          <input type="text" value="" require-data="ShowTimeIco" class="text" id="showTime">
+        </div>
+        <div class="mediaItemBox inputField streak ">
+          <label for="streak" class="label StreakIco">请选择场次</label>
+          <input type="text" value="" require-data="streak" class="text" id="streak">
+        </div>
+        <div class="mediaItemBox inputField inputPrice ">
+          <label for="inputPrice" class="label Price">请输入售价</label>
+          <input type="text" value="" require-data="isPrice" class="text" id="inputPrice">
+          <b class="unit">RMB</b> </div>
+      </div>
+    </div>
+  </div>
+</div>

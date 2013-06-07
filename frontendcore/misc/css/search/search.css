@@ -1,0 +1,175 @@
+/*
+ * Created on 2012-02-11
+ * @author： yewang
+ * @version： 1.0
+ * @desc：全站搜索结果页样式
+ */
+
+/* Start searchResult */
+.searchResult { margin-top:10px; line-height:1.8;}
+.categoryTitle { font-size:14px; padding:15px 0; border-bottom:1px solid #999; }
+.searchLi { width:100%; float:left; padding:10px 0; border-bottom:1px solid #e9e9e9; }
+.headerImg {overflow:hidden; margin-right:10px;}
+.searchCont { width:500px; word-wrap:break-word; font-size:14px;}
+.searchCont a { font-weight:bold; font-size:14px;}
+.bt { font-size:12px; }
+.bc { padding:5px 0; }
+.middleMark{float:left;height:50%;margin-bottom:-55px;}
+.noResult { margin-top:10px; padding-top:10px; text-align:center;}
+#activityResult .headerImg { height:auto; }
+#activityResult .headerImg img { width:100px; height:78px; }
+.dropMenu ul.dropListul li a.itemAnchor:hover{background-color:#EFF2F7;color:#333;}
+/* Start ask list */
+.askItem { padding:15px 0 10px;}
+.askItem li { width:100%; overflow:hidden; padding-bottom:5px; }
+.askItem input { float:left; width:13px; height:13px; margin:3px 5px 0; }
+.askItem div { float:left; width:200px; height:20px; border:1px solid #a4a4a4; position:relative; z-index:0; }
+.askItem span { display:block; width:100%; height:100%; background-color:#d8deea; position:absolute; top:0; left:0; z-index:-1; }
+.askItem p { color:#3B5998; padding-left:5px; }
+.askItem a { margin-left:24px; }
+/* End ask list */
+.statusBox .btnBlue, .statusBox .btnGray { font-size:12px; height:22px; }
+.gray { color:#999; }
+.moreResult { margin-bottom:20px;position:relative; text-align:center; width:100%; margin-top:-1px; }
+.moreResult a, .moreResult span { display:block; padding:10px 15px; background-color:#edeff4; border:1px solid #d8dfea; height:16px; }
+.moreResult a:hover { background-color:#d8dfea; }
+.moreResult a.hide, .moreResult span.hide { display:none; }
+.moreResult i { display:block; width:7px; height:5px; overflow:hidden; position:absolute; background:url(../../img/system/ui4.gif) no-repeat -209px -92px; top:18px; left:336px;}
+/* End searchResult */
+
+/* start: 网页关注时效 弹出层 设置关注时间 by卜海亮 2012-06-26 */
+.timeSetDiv{ padding: 10px; }
+.timeSetDiv li{ padding: 5px; }
+.timeSetDiv li .input{ border: 1px solid #96A6C5; padding: 3px; width: 30px; }
+.timeSetDiv li select{ border: 1px solid #96A6C5; padding: 2px; width: 50px; }
+.timeSetDiv li span.hide{ display: none; }
+.timeSetDiv li span.error{ color: #dd4b39; }
+/* end: 网页关注时效 弹出层 设置关注时间 */
+
+
+/* 左侧NAV栏样式 by 朱立琦 2012-6-29 */
+.modlueBodySearch{height:100%;border-radius: 3px;border-bottom-width: 2px;min-height: 500px;height: auto!important;_height: 500px;background-color: white;border: 1px solid #C4CCDF;margin-top:10px;}
+.modlueNav{width:195px;height:100%;_width:170px;}
+.modlueNav .dropListul{margin-top:25px;margin-left:15px;border-top:1px #eeeeee solid;padding-top:5px;}
+.dropListul .droplistulspan{padding:2px 0;margin-left:15px;color:#808080;font-weight:bold}
+.modlueBodySearch .dropListul li b{font-style:normal;color:#888888;line-height: 1.8;padding-left: 10px;font-weight:normal;}
+
+/* 右侧侧modlueContainer栏样式 by 朱立琦 2012-6-29 */
+.modlueContainer{padding-left:20px;padding-right:20px;float:left;width:613px;border-left:1px #cccccc solid;_display:inline;min-height:851px;height:auto !important;height:100px;overflow:visible;}
+.modlueNav .dropListul li{height:22px;}
+.modlueImgS{background:url(../../img/system/ui1.gif) -17px -184px no-repeat; height:16px;width:17px;display:block;float:left;}
+.modlueBodyTitle .page{background-position:-68px -134px;}
+.modlueBodyTitle .state{background-position:-102px -133px;}
+.modlueBodyTitle .photo{background-position:-87px -119px;}
+.modlueBodyTitle .album{background-position:-87px -119px;}
+.modlueBodyTitle .viode{background-position:-37px -119px;}
+.modlueBodyTitle .blog{background-position:2px -153px;}
+.modlueBodyTitle .ask{background-position:-68px -153px;}
+.modlueBodyTitle .act{background-position:-54px -119px;}
+.modlueContainer .selectResultButton{width:100%;height:auto;}
+.modlueContainer .selectResultButton span.bghr{background-color:#e9e9e9;display:block;height:7px;width:100%;line-height:4px;*+line-height:10px;}
+.modlueContainer .selectResultButton span.bghr p{background:white;width:78px;margin:0 auto;padding: 2px 0;color: gray;font-weight: bold;_line-height:80%;*+display:absolute;}
+.modlueContainer .selectResultButton form{margin-top:10px;}
+.modlueContainer .selectResultButton .selectButton{padding:5px 40px 15px 10px;margin:10px 0;background-color:#f2f2f2;}
+.modlueContainer .selectResultButton .selectButton b{float:left;margin-top:10px;}
+.modlueContainer .selectResultButton .selectButton ul li{float:left;margin-right:10px;margin-top:10px;_width:65px;}
+.modlueContainer .selectResultButton .selectButton ul li input{border:1px solid #BDC7D8;height:18px;line-height:20px;padding-right: 16px;}
+.modlueContainer .selectResultButton .selectButton ul li input .job{color:#999;}
+.modlueContainer .selectResultButton .selectButton ul li select{width:65px;height:20px;border:1px solid #bdc7d8;}
+.modlueContainer .selectResultButton .selectButton ul li button{width:54px;height:22px;margin-top:-1px;cursor:pointer;_margin-top:1px;}
+.modlueContainer .selectResultButton .selectButton .inputsex{margin-left:37px;}
+.searchResult .color666{color: #666;}
+.searchDetail .searchCont{width:340px;}
+.searchDetail #searchCont{width:500px;}
+.searchResult .searchDetail{float:left;width:345px; margin-top:-6px;}
+.searchResult .headerImg{float:left;display:block;}
+.searchResult .headerImg img{width:50px; height:50px;}
+.selectButton .inputmar{margin-left:38px;}
+.searchResult .searchDetail b{font-weight:normal;color:#999;}
+.searchResult .searchDetail i{font-style:normal;color:#456385;}
+.selectButton .clickMoreButton{cursor:pointer;}
+.selectButton .selecthometown{margin-left:37px !important;_display:inline;}
+.selectResultButton .clickmore{background:url(../../img/system/more-input.png) 0 -9px no-repeat;width:9px;height:9px;display:block;float:left;margin-right:5px;margin-top:5px;font-size:0;}
+
+
+/* 网页右侧栏补充 */
+.searchDetail .statusfont{width:470px;word-wrap: break-word;word-break: break-all;position: relative;}
+.searchDetail .setTime{color:#999;}
+.searchphoto{margin-right:-30px;margin-top:-10px;}
+.searchphoto .searchLi{width:170px;height:190px;padding:12px 10px 0px 10px;background:#efefef;float:left;margin-top:20px;margin-right:19px;border:1px solid #f7f7f7;position:relative; overflow:hidden;}
+.searchphoto .searchLi p{text-align:left;color:#999;padding:5px 0;}
+.searchphoto .searchLi b{font-weight:normal;color:#456385;}
+.searchDetail .viodeDetail{color:#999;}
+.searchDetail .viodeDetail span{color:#999;}
+.headerImgVideo{height:85px;width:113px;}
+.searchDetail .viodeContent{height:63px;word-wrap:break-word;word-break:break-all;width:460px;overflow:hidden;}
+.askDetail img{width:30px;height:30px}
+.askDetail .askFont,.askDetail a{float:left;}
+.askDetail .askFont{margin-left:12px;_display:inline;margin-top:-4px;}
+.askDetail .askFont span{color:#999;float:left;}
+.askDetail .askFont a{float:left;}
+.actFont{color:#999;}
+.searchResult .searchphotoimg img{boder:none;vertical-align:middle/9;}
+.searchResult .searchphotoimg{display:table-cell;vertical-align:middle;width:170px;height:130px;text-align:center;*display:block;*font-size:90px;*line-height:100px;_font-family:sans-serif;}
+.searchResult .testMiddle{clear:both;height:111px;position:relative;}
+.searchResult .searchphotoimg img{overflow:hidden;}
+.searchResult ul{padding-bottom:20px;}
+.searchResult .headerImgVideo img{width:100%;height:100%;}
+
+.searchLiPhoto .searchphotoimg .popSpan{line-height:32px;filter:alpha(opacity=50);position:absolute;top:110px;left:10px;width:170px;height:32px;overflow:hidden;display:block;background-color:rgb(59,89,152);opacity:0.5;color:#999;display:none;}
+.searchLiPhoto .searchphotoimg .popSpanFont{display:none;font-size:14px;line-height:45px;position:absolute;top:101px;left:10px;width:168px;height:32px;color:#ffffff;}
+.searchLiPhoto .photoDetail{margin-top:12px;}
+.searchLiPhoto {position:relative;}
+.photoDetail .photoDetailImg img{width:32px;height:32px;display:block;}
+.photoDetail .photoDetailImg {float:left;}
+.photoDetail .photoDetailFont{float:left;margin-left:5px;}
+.photoDetail .photoDetailFont b{height:16px;width:110px;font-weight:normal;display:block;}
+.photoDetail .photoDetailFont .photoTime{color:#999;}
+.hideBig{overflow:hidden;}
+#compImg{float:left;}
+.resetImg img{width:170px;height:130px;}
+
+.searchvideo .searchLi{width:305px;}
+.searchvideo .searchDetail {width: 150px;}
+
+.searchactivity .a-status-0,
+.searchactivity .a-status-1,
+.searchactivity .a-status-2{width: 65px; line-height: 19px; text-align: center; background:#edf7ff; border:1px solid #bfe0fa; color:#59a5de;}
+.searchactivity .a-status-1{background-color:#f3ffee; border-color:#c3e8c3; color:#6aaf26;}
+.searchactivity .a-status-2{background-color:#f8f8f8; border-color:#e1e1e1; color:#999;}
+.searchactivity .a-join-um{text-align:right;}
+
+/*返回按钮*/
+
+.backButton{margin-left:870px;width:50px;height:50px;background:url("../../img/system/toTop.gif") no-repeat;cursor:pointer;position:fixed;bottom:0px;_position:absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop));_right:auto;left:expression(eval(document.documentElement.scrollLeft));}
+/* start: 删除好友  弹出层提示 by卜海亮 2012-07-03 */
+.delFriendDiv{ padding: 10px; }
+.delFriendDiv li{ padding: 5px; }
+.delFriendDiv span.strong{ font-weight: bold; }
+.delFriendDiv li label span{ line-height: 14px; height: 14px; }
+.delFriendDiv li input.unFollowCheck{ float: left; margin-top: 4px; margin-top: 1px\9; *margin-top: -1px; *margin-right: -4px; _margin-right: -7px; }
+/* end: 删除好友  弹出层提示 */
+
+.richSelect{position:relative; float:left;}
+.richSelect .richSelect-clear{position:absolute; right:4px; top:5px; float:left; width:9px; height:9px; background:url(../../img/system/icon_X.png) no-repeat; cursor:pointer;}
+
+/*照片弹出层CSS write by 杨光远*/
+.photo_alert_black{position:absolute;width:100%;height:100%;top:0px;left:0px;z-index: 1980;background:url(../../img/system/photo_alert_black.png);position: fixed;}
+.photo_alert_close{position: fixed; z-index: 1990;top: 0px; right: 0px; height: 47px; width: 47px; background-image: url(../../img/system/photo_scan_layer.png); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; cursor: pointer; background-position: 0% 0%; background-repeat: no-repeat no-repeat; }
+.photo_alert_shows{overflow-y:auto;position:fixed; z-index: 1985;width:100%;height:100%;top:0px;left:0px;padding-bottom: 30px;}
+.photo_alert_show{position:relative; margin:0 auto;margin-top:30px; width: 650px;min-height: 10px;background-color: #fff;padding: 20px;}
+.photo_alert_arrow_left{cursor: pointer;display: block;position:absolute; width:100px;height:100px;top:200px;left:-150px; background: url(../../img/system/photo_left_arrow.png) 0 0 no-repeat;}
+.photo_alert_arrow_right{cursor: pointer;display: block;position:absolute;width:100px;height:100px;top:200px;left:750px;background: url(../../img/system/photo_right_arrow.png) 0 0 no-repeat;}
+.photo_img{display:block;margin: 0 auto;text-align: center;clear: both;}
+.photo_img img{max-width: 100%;}
+.photo_author{display: block;min-height: 50px;clear:both;margin-top:10px; }
+.photo_author img{float:left;border: 0;}
+.photo_author .photo_author_right{float:left;display: block;min-height: 50px;margin-left:10px; }
+.photo_author .photo_author_right a{display: block;height: 25px;line-height: 25px;}
+.photo_author .photo_author_right b{display: block;height: 25px;line-height: 25px;}
+.photo_oper{display: block;height: 20px;line-height: 20px;text-align: center;clear: }
+.photo_alert_comment{display: block;min-height: 50px;clear:both;margin-top:10px; }
+.searchLi .comment_easy{margin-bottom: 0px;padding-left: 30px}
+.statusfont .search_video_but{display:block; width:168px;height:110px;z-index:99;position: absolute;}
+.statusfont .search_video_but img{z-index: 0;}
+.statusfont .search_video_but:hover{display:block;position: absolute; width:168px;height:110px;background: url("../../img/system/feedvideoplay.gif") no-repeat center center;}

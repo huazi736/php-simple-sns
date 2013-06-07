@@ -1,0 +1,55 @@
+<!--{if $action eq 'edit'}-->
+<p>
+<span class="plugin_label"><!--{$label}-->:</span>&nbsp;
+<span id="n_<!--{$_id}-->"></span>
+<span id="p_<!--{$_id}-->"></span>
+<span id="c_<!--{$_id}-->"></span>
+<span id="r_<!--{$_id}-->"></span>
+<span id="address_<!--{$_id}-->"><input type="input" name="address_<!--{$_id}-->" value="<!--{$value.address}-->" style="width:250px;height:20px;line-height:20px" onmousedown="if(this.value=='请输入详细地址'){this.value='';}"/></span>
+</p>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/area-utils/area_utils.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" >
+var residence = new initAreaComponent('n_<!--{$_id}-->,p_<!--{$_id}-->,c_<!--{$_id}-->,r_<!--{$_id}-->','1-n_<!--{$_id}-->,1-p_<!--{$_id}-->,1-c_<!--{$_id}-->,1-r_<!--{$_id}-->', "<!--{$deal_value}-->");
+residence.initalize();
+//提交验证
+function validate_<!--{$_id}-->(){
+	return true;
+}
+//提交之前收集数据
+function ajax_submit_data_<!--{$_id}-->(){
+	var n_id = p_id = c_id = r_id = 0;
+	var n_name = p_name = c_name = r_name = address = "";
+	
+	var n_id = $("#n_<!--{$_id}--> select").val();
+	var p_id = $("#p_<!--{$_id}--> select").val();
+	var c_id = $("#c_<!--{$_id}--> select").val();
+	var r_id = $("#r_<!--{$_id}--> select").val();
+	
+    var n_name = $("#n_<!--{$_id}--> select option:selected").text();
+	var p_name = $("#p_<!--{$_id}--> select option:selected").text();
+	var c_name = $("#c_<!--{$_id}--> select option:selected").text();
+	var r_name = $("#r_<!--{$_id}--> select option:selected").text();
+	
+	if(n_name == "请选择") n_name = "";
+	if(p_name == "请选择") p_name = "";
+	if(c_name == "请选择") c_name = "";
+	if(r_name == "请选择") r_name = "";
+	
+	var address = $("#address_<!--{$_id}--> input").val();
+	
+	plugin_info['<!--{$_id}-->'] = {"n": {"name": n_name, "id": n_id}, "p": {"name": p_name, "id": p_id}, "c": {"name": c_name, "id": c_id}, "r": {"name": r_name, "id": r_id}, "address" : address};
+}
+</script>
+<!--{elseif $action eq 'edit_js'}-->
+<!--{elseif $action eq 'normal'}-->
+<p>
+<span class="plugin_label"><!--{$label}-->:</span>&nbsp;
+<!--{if $show_value}-->
+<span>
+<!--{$show_value}-->
+</span>
+<!--{else}-->
+未填写
+<!--{/if}-->
+</p>
+<!--{/if}-->

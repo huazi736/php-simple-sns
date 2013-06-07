@@ -1,0 +1,45 @@
+<!--{include file="<!--{$smarty.const.WEB_ROOT_SMARTY}-->main/application/views/header.html"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<!-- start: headerWrap 头部开始 -->
+<div class="headerWrap">
+	<div class="regHeader">
+		<h1><a href="<!--{$smarty.const.WEB_ROOT}-->" title="Duankou">Duankou</a></h1>
+	</div>
+</div>
+<!-- end: headerWrap 头部结束 -->
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- start: modlueBody 开始 -->
+            <div class="modlueBody stepwrap clearfix">
+               <div class="forgetPw">
+					<div class="forgetPwTitle clearfix">
+						<h3>重新设定密码</h3>
+						<a href="<!--{$smarty.const.WEB_ROOT}-->">返回注册页面</a>
+					</div>
+	                <p class="tip"></p>
+					<!-- start：找回密码 -->
+					<div class="clearfix getbackS">
+						<i class="i confir"></i>
+						<p class="text"><b>恭喜您</b>密码修改成功，请牢记您新的密码，并不要向任何人泄漏您的密码。</br>端口网不会以任何形式索要您的密码。</p>
+					</div>
+					<!-- end：找回密码 -->
+					<div class="backAction  center clearfix">
+					    <a class="saveBtn" href="<!--{$smarty.const.WEB_ROOT}-->main/">立即进入我的个人主页</a>
+					</div>
+
+    			</div>
+            </div>
+<!-- end:主体内容 -->
+
+	</div>
+	<!-- end: modlueBody 结束 -->
+	<div class="sideArea">
+	</div>
+</div>
+<!--{include file="<!--{$smarty.const.WEB_ROOT_SMARTY}-->front/application/views/footer.html"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/reg/findPsw.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+</body>
+</html>

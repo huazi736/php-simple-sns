@@ -1,0 +1,17 @@
+﻿.cr{display:block;float:none;font-size:0;height:0;line-height:0;overflow:hidden;clear:both;visibility: hidden;}
+
+.followList li.content{   border-bottom: 1px solid #E9E9E9;clear: both;overflow: hidden;position: relative; padding:10px 0px 10px 24px;}
+.followList li.content .goodsHeaderImg{width:50px;height:50px;float:left;}
+.followList li.content .goodsHeaderDetail{margin-left:8px;float:left;}
+.followList li.content .goodsHeaderDetailName{font-size:14px;font-weight:bold;}
+.followList li.content .goodsHeaderDetailFont{margin-top:15px; color:#999;}
+.goodsHeaderDetailFont .agoods{ color:#555;}
+.followList li.content .goodsContent{margin-top:10px; background-color:#f6f6f6; padding:10px; margin-left:58px;float:left; border:1px solid #eee; }
+.goodsContent .goods_name{ color:#333; font-size:14px; font-weight:bold; margin:2px 0px 10px 0px;}
+.goodsContent .goods_tag_name{ margin-top:10px;}
+.followList li.content .goodsFoot{margin:15px 0;}
+.followList li.content .goodsFootPrice{color:#405fab;font-weight:bold; float:left;}
+.followList li.content .goodsFootPrice .goods_price_name{ font-size:16px; font-weight:bold;}
+.followList li.content .goodsFootdeline{color:#9a9a9a;}
+.followList li.content .goodsFootdelineBlueFont{color:#535fa5}
+.followList li.content .goodsBuy{float:right;width:74px;height:23px;text-align:center;border:1px solid #7c7c7c;background: url("../../img/system/ui2.gif") no-repeat scroll 0 -50px transparent;line-height:23px;font-weight:bold;cursor:pointer;}

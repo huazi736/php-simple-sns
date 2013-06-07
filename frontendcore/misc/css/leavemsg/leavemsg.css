@@ -1,0 +1,76 @@
+@charset "utf-8";
+/*
+ *@author:    陈海云
+ *@created:   2012/06/29
+ *@desc:      留言板
+ *@version:   v1.0
+ */
+
+.distributeInfoBox{ border:1px sold;}
+.distributeInfoBox .footer{ padding: 3px 5px; border-top:1px solid #e6e6e6; background:#f2f2f2;}
+.distributeInfoBox .footer .uiButton{ float: right;}
+.txtArea #myStatusTextArea{ display: block; width:540px; height:75px; margin:0px;}
+
+/*start:留言操作菜单*/
+.editControl { position:absolute; top:0px; right:0px; border:1px solid #AAA; border-radius:3px; z-index:50;}
+.editControl .conWrap { position:relative; display:block; height:20px; padding:0; float: left;}
+.editControl .midLine { border-right:1px solid #AAA;}
+.editControl .answer { display:inline-block; margin:0 5px 0 5px; width:30px; height:20px; text-align:center; font-style: '宋体'; color:#333;}
+.editControl .moreOperate{ float: left;}
+.editControl .moreOperate a{ display: block; height:12px; width:15px; padding:8px 0px 0px 5px; float: left;}
+.editControl .conEdit { display:block; margin:0px 3px 0px 0px; font-size:0; background:url(../../img/system/timelineui.gif) -22px -5px no-repeat; width:9px; height:5px; overflow: hidden; line-height:0px; }
+.editControl .dropDown {background:#526ea6;}
+.editControl .dropDown .conEdit {background:url(../../img/system/timelineui.gif) -32px -5px no-repeat;width:9px; height:5px;}
+
+.editControl .clickDown{background-color:#6B82B2;}
+.editControl .clickDown .answer{ background:url(../../img/system/star_white.gif) no-repeat; margin:0 3px 0 7px;}
+.editControl .editMenu{ margin:0 -1px 0 0; _margin-right:-2px; padding:3px 0; position:absolute; top:16px; right:0; width:75px; background-color: #fff; border-color:#777 #777 #293E6A; border-style:solid; border-width:1px 1px 2px; z-index:5000;}
+.editControl .editMenu li{ cursor:pointer; padding-left:10px; line-height:22px;}
+.editControl .editMenu li:hover{background-color:#6B82B2; color:#fff;}
+.editControl .editMenu .delTopic{display:inline-block; font-size:0; background:url(../../img/system/icon_del.gif) no-repeat; height:9px; width:8px; margin:0 7px 0 12px;}
+.editControl .editMenu li:hover .delTopic{background:url(../../img/system/icon_del.gif) no-repeat -9px 0;}
+.editControl .editMenu .sepLine{ border-bottom:1px solid #DDD; margin:3px 0px;_margin-top:-12px;}
+/*end:留言操作菜单*/
+
+.boardSideLeft,
+.boardSideRight{ width:550px; height:auto !important; height:100px; min-height:100px; margin: 0px 20px 0px 0px; float: left;}
+.boardSideRight{ width:238px; margin:0px;}
+.boardLstPanel{ height:auto !important; height:10px; min-height:10px; padding: 10px 0px; margin: 0px;}
+.boardInfo{ height:14px; padding-right:40px; margin: 0px 0px -10px; z-index:1000; position: relative;}
+.boardInfo span{ display: block; height:14px; width:auto !important; width:10px; min-width:10px; padding: 0px 4px; word-spacing:nowrap; color: #767676; white-space: nowrap; background:#fff; font-weight:bold; float: right;}
+
+/*begin：留言列表*/
+.boardLst{ height:auto !important; height:10px; min-height:10px; padding: 5px 0px 0px;}
+.boardLst li.message{ padding: 10px 0px; height: auto !important; height:10px; min-height:10px; border-top:1px solid #e9e9e9;}
+.boardLst .msgUserAvatar{ height:50px; width:50px; float: left;}
+.boardLst .msgUserInfo{ height:15px; margin: 0px; padding: 0px 0px 10px;}
+.boardLst .msgUserInfo a{ font-weight:bold;}
+.boardLst .msgUserInfo span{ color: #999;}
+.boardLst .msgContent{ margin: 0px 0px 0px 65px; height:auto !important; height:10px; min-height:10px; position: relative;}
+.boardLst .msgContent p{ color: #343434; word-wrap:break-word; line-height:1.5;}
+/*end：留言列表*/
+
+/*begin:回复列表*/
+.msgAnswerLst{ height:auto !important; height:10px; min-height:10px; margin: 10px 0px 0px 65px;}
+.msgAnswerLst li{ height:auto !important; height:10px; min-height:10px; padding: 5px; margin: 0px 0px 10px; background-color: #eeeff4; position: relative; z-index:1;}
+.msgAnswerLst li span.pointer{ display: block; height:4px; width:7px; background:url(../../img/system/answer_pointer.png) left top no-repeat; position:absolute; top:-4px; left:18px; overflow:hidden;}
+.msgAnswerLst li .userAvatar{ height:32px; width:32px; float: left;}
+.msgAnswerLst li .msgContent{ margin-left:42px; font-size:12px;}
+.msgAnswerLst li .msgUserInfo{ padding-bottom:0px; line-height:1em;}
+/*end:回复列表*/
+
+/*begin：回复输入框*/
+.msgAnswerInput{ height:55px; margin: 20px 0px 0px; background:#fff; display: none; clear: both;}
+.msgAnswerInput input{ display: block; height:14px; width:530px; padding:9px 9px 7px; border:1px solid #b4bbcd; font-size:13px; color:#999;}
+.msgAnswerTip{ display: block; height:13px; padding:5px 0px; color: #666;}
+/*end：回复输入框*/
+
+.boardGetMore{ height:14px; padding:15px; text-align:center; font-size:13px; position: relative;}
+
+.boardTitle{ height:15px; padding:3px; line-height:1em; border-top:1px solid #e5e5e5; font-size:12px; font-weight:bold; background:#f7f7f7; color: #676767; position:relative;}
+.boardTitle a.more{ position: absolute; right:3px; top:3px; color: #6f84b3; font-weight:100;}
+.contactLst{ height:auto; margin: 0px;}
+.contactLst li{ height:50px; margin:0px; padding:5px 0px; border-top:#f7f7f7 solid 1px;}
+.contactAvatar{ height:50px; width:50px; float: left;}
+.contactInfo{ height:50px; width:175px; padding-left:10px; float: left;}
+.contactInfo span{ color: #818181;}

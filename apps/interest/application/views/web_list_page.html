@@ -1,0 +1,19 @@
+		<!--{foreach from=$result_list key=key item=item}-->
+            <div  class="letter-list clearfix" style="border-top:1px solid #CCC;">
+                <div class="clearfix">
+                	<a href="<!--{if $target=='group'}--><!--{mk_url('group/group/exist',['name'=>urlencode($item.name)])}--><!--{else}--><!--{mk_url('webmain/index/main',['web_id'=>$item.aid])}--><!--{/if}-->" <!--{if $target!='group'}-->target="_blank"<!--{/if}--> >
+                	<div style="padding:5px 10px; float:left;"><img src="<!--{get_webavatar($item.aid,'mm')}-->" /></div>
+                    <div style="float:left">
+                    	<div style=" font-weight:bold;padding-top:5px" >名称: <!--{$item.name}--></div>
+                        <div style="margin-top:15px" >粉丝: <!--{$item.fans_count}--></div>
+                        <div style="" >属类: <!--{$item.iname}--></div>
+                    </div>
+                    </a>
+                </div>
+                <div style="display:block;float:none; font-size:0px; height:0px; line-height:0px; overflow:hidden; clear:both; visibility:hidden;"></div>
+            </div>
+		<!--{/foreach}-->
+<!--{if  $continue_load && $result_list}-->
+	<em style="display:block;float:none;font-size:0;height:0;line-height:0;overflow:hidden;clear:both;visibility: hidden; "></em>
+	<div class="box_min_continue_load" request_url="<!--{mk_url('interest/index/get_web_list',[imid=>$imid,iid=>$iid,web_id=>$eid])}-->" participle_id='123' page='<!--{$page++}-->'>查看更多</div>
+<!--{/if}-->

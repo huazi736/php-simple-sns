@@ -1,0 +1,3 @@
+Dmimi.prototype.model = function(){
+
+};

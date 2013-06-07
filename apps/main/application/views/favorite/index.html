@@ -1,0 +1,177 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+收藏 -
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/favorite/favorite.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$author_url}-->"><img src="<!--{$my_avatar}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$author_url}-->"><!--{$myname}--></a></span>
+				<span class="nameTxt"><span class="fl"><a href="<!--{$fav_url}-->">收藏</a></span></span>
+			</div>
+		</div>
+		<div class="modlueBody clearfix">
+
+			<!--收藏主体 start-->
+			<div class="favoriteTitle clearfix">
+				<h4 class="fl">分类查看：</h4>
+				<ul>
+				<li <!--{if !$type}-->class="on"<!--{/if}-->><a href="<!--{$fav_url}-->">全部</a></li>
+				<!--{foreach $tabs as $key => $val}-->
+				<li <!--{if $type == $key}-->class="on"<!--{/if}-->><a href="<!--{$fav_url}-->?type=<!--{$key}-->"><!--{$val}--></a></li>
+				<!--{/foreach}-->
+				</ul>
+				<div class="favoriteSearch fr">
+				<form id="searchForm" action="<!--{$fav_url}-->" method="post">
+				<i></i>
+				<input class="favoriteText" name="keyword" id="keyword" type="text" value="<!--{$keyword}-->" /></form></div>
+			</div>
+			<!--{if $pageText}-->
+			<div class="favoritePage"><!--{$pageText}--></div>
+			<!--{/if}-->
+
+			<!--{if $data}-->
+			<ul class="favoriteList" id="favoriteList">
+			<!--{foreach $data as $key => $val}-->
+			<li>
+			<h3 class="<!--{$val['classType']}-->"><!--{$val['typeName']}--><strong><!--{$val['dateline']}--></strong></h3>
+			<div class="favoriteModel">
+				<div class="favoriteUser"><a href="<!--{$author_url}-->"><img src="<!--{$my_avatar}-->" width="50"></a></div>
+				<div class="favoriteMessage">
+				<h4><a href="javascript:;" onclick="delFavorite(this, <!--{$val['id']}-->);" class="fr"></a> <a href="<!--{$author_url}-->"><!--{$myname}-->：</a></h4>
+				<p class="favCorner"></p>
+				<div class="favoriteBody clearfix">
+					<!--{if $val['type'] == 1}-->
+					<div class="blog">
+					<h2><a href="<!--{$val['object_url']}-->" target="_blank"><!--{$val['title']}--></a></h2>
+					<p>来自：<a href="<!--{$val['author_url']}-->" target="_blank"><!--{$val['author_name']}--></a></p>
+					<div class="summary"><!--{$val['content']['resume']}--></div>
+					<a href="<!--{$val['object_url']}-->" target="_blank"> &gt;&gt; 继续阅读</a>
+					</div>
+					<!--{elseif $val['type'] == 2}-->
+					<dl class="vedio">
+					<dt><a href="<!--{$val['object_url']}-->" target="_blank"><img src="<!--{$val['content']['pic']}-->" width="168" /></a><span><!--{$val['content']['lentime']}--></span></dt>
+					<dd><h2><a href="<!--{$val['object_url']}-->" target="_blank"><!--{$val['title']}--></a></h2>
+					<p>来自：<a href="<!--{$val['author_url']}-->" target="_blank"><!--{$val['author_name']}--></a></p>
+					</dd>
+					</dl>
+					<!--{else}-->
+					<dl class="ablum">
+					<dt><a href="<!--{$val['object_url']}-->" target="_blank"><img src="<!--{$val['content']['pic']}-->" /></a></dt>
+					<dd><h2><a href="<!--{$val['object_url']}-->" target="_blank"><!--{$val['title']}--></a></h2>
+					<p>来自：<a href="<!--{$val['author_url']}-->" target="_blank"><!--{$val['author_name']}--></a><br />
+					<!--{if ($val['object_type'] == 'photo' || $val['object_type'] == 'web_photo')}-->
+					相册：<a target="_blank" href="<!--{if $val['object_type'] == 'photo'}-->
+					<!--{mk_url('album/index/photoLists', ['dkcode' => $val['dkcode'],'albumid' => $val['content']['aid']])}-->
+					<!--{else}-->
+					<!--{mk_url('walbum/photo/index', ['web_id' => $val['content']['web_id'], 'albumid' => $val['content']['aid']])}-->
+					<!--{/if}-->
+					"><!--{$val['content']['album_name']}--></a>
+					<!--{else}-->
+					共<!--{$val['content']['photo_count']}-->张照片
+					<!--{/if}-->
+					</p>
+					</dd>
+					</dl>
+					<!--{/if}-->
+				</div>
+				</div>
+			</div>
+			</li>
+			<!--{/foreach}-->
+			</ul>
+			<!--{if $nums > $limit}-->
+			<div class="favoriteGetMore">
+				<img src="<!--{$smarty.const.MISC_ROOT}-->img/plug-img/djax/loading2.gif" style="display:none;">
+				<a href="javascript:void(0);" id="j_getMore" pager='2'>点击查看更多收藏</a>
+			</div>
+			<!--{/if}-->
+			<!--{else}-->
+			<div class="noFav"><!--{if $keyword}-->你没有符合条件的收藏<!--{elseif $typeName}-->你目前没有收藏任何<!--{$typeName}--><!--{else}-->你目前没有任何收藏<!--{/if}--></div>
+			<!--{/if}-->
+			<!--收藏主体 end-->
+		</div>
+	</div>
+	<div class="sideArea">
+		<!--sideArea为广告区域-->
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script type="text/javascript">
+$(function() {
+	//查看更多点击获取
+	$('#j_getMore').click(function() {
+		var url = '<!--{$fav_url}-->';
+			num = parseInt($(this).attr('pager'));
+		$(this).prev('img').show();
+		$.djax({
+			url: url,
+			type: 'POST',
+			data: {pager: num,type:<!--{$type}-->,keyword:'<!--{$keyword}-->'},
+			dataType: 'json',
+			success: function(data) {
+				$(this).prev('img').hide();
+				if(data.status === 1) {
+					var result = data.data;
+					$('#favoriteList').append(result.list);
+					if(result.last == false) {
+						$('.favoriteGetMore').remove();
+					} else {
+						num ++;
+						$(this).attr('pager', num);
+					}
+				} else {
+					alert(data.info);
+				}
+			}
+		});
+		return false;
+	});
+
+	//搜索
+	$('#searchForm i').click(function(){
+		var keyword = $('#keyword').val();
+		keyword = keyword.replace(/</g,'&lt');
+		keyword = keyword.replace(/>/g,'&gt');
+		$('#keyword').val(keyword);
+		if (keyword != '') {
+			$('#searchForm').submit();
+		}
+	});
+});
+
+function delFavorite(obj, id){
+		$li = $(obj).parentsUntil('ul');
+		$(this).popUp({
+			width:400,
+			title:'确认删除',
+			content:'<p class="delText">确定要删除该收藏吗？此操作无法撤销。</p>',
+			mask:true,
+			maskMode:false,
+			buttons:'<span class="popBtns blueBtn callbackBtn">确认</span><span class="popBtns closeBtn">取消</span>',
+			callback:function(){
+				$.djax({
+					url: '<!--{mk_url('main/favorite/delFavorite')}-->',
+					type: 'POST',
+					data: {fid: id},
+					dataType: 'json',
+					success: function(data) {
+						$('.closeBtn').click();
+						if(data.status == '1') {
+							$li.fadeOut('fast').remove();
+						} else {
+							alert(data.info);
+						}
+					}
+				});
+			}
+		});
+}
+</script>
+<!--{/block}-->

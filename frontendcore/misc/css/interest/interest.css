@@ -1,0 +1,95 @@
+/**
+ * @author:    张波
+ * @created:   2012/3/22
+ * @version:   v1.0
+ * @desc:      发现兴趣
+ */
+
+/********** 一级分类图标 **********/
+.icon-public{display: inline-block; width: 16px; height: 16px; overflow: hidden;background: url("../../img/system/icon_gather.gif") no-repeat ; position:relative; top:3px;}
+.icon-people{ background-position:0px 0px;}/*艺术家乐队或公众人物*/
+.icon-locale{ background-position:-16px 0px;}/*地方商家或景点*/
+.icon-recreation { background-position:-32px 0px;}/*娱乐类*/
+.icon-company{ background-position:-48px 0px;}/*公司机构组织*/
+.icon-brand{ background-position:-64px 0px;}/*品牌*/
+.icon-product{ background-position:-80px 0px;}/*产品*/
+.icon-theme{ background-position:-96px 0px;}/*话题或社群*/
+.icon-net{ background-position:-112px 0px;}/*互联网、IT*/
+.icon-other{ background-position:-129px 0px;}/*第三方应用*/
+/********** 一级分类和二级分类  样式共用 三级分类**********/
+.sort-top,.sort-next,.main-list{border-bottom-width: 2px;border-radius: 3px 3px 3px 3px;height: auto !important;margin-top: 10px;padding: 10px;background-color: #FFFFFF;border: 1px solid #C4CCDF;}
+.main-list{padding:20px;}
+.sort-top .threeClassTitle{width:770px;}
+.sort-top span{float:left;display:block;height:22px;line-height:22px;margin:2px;}
+.sort-top ul{float:left;}
+.sort-top ul li{ float:left; margin:2px; padding-left:5px; padding-right:5px; height:22px; line-height:22px; border: 1px solid #FFF; white-space: nowrap;_position:relative;}
+.sort-top ul li.current{border-radius: 3px 3px 3px 3px; border: 1px solid #48629F; background-color:#EEEFF4;}
+
+/********** 热门网页 **********/
+.main-list{padding-top:0px;}
+.hot-web-hd{ height:26px; line-height:26px; color:#464646; font-weight:bold;padding:5px 0px;}
+.web-box{float:left; width:165px; overflow:hidden; padding:6px 0;}
+.web-box .photo{float:left; width:30px; height:30px;}
+.web-info{ float:left;  display:inline; padding-left:5px;}
+.web-info .name{ font-weight:bold;width:129px; overflow:hidden;white-space:nowrap;}
+.web-info .live{color:#676767;}
+/********** 26字母box **********/
+.sort-letter{margin-top:10px;background-color: #EEEFF4;border: 1px solid #CCCCCC; border-radius: 3px 3px 3px 3px;}
+.sort-letter ul li{float:left; margin:5px;12px;}
+/********** 单个字母 **********/
+.letter-top{ padding-bottom:8px;}
+.letter-top .name{ float:left; width:200px; padding-left:5px; border-bottom:1px solid #3B5999;}
+.letter-top .this-all{ float:left; width:619px; text-align:right;font-weight:bold; border-bottom:1px solid #666666;}
+.letter-list{padding-top:10px;}
+.top_continue_load,.box_min_continue_load{cursor:pointer; text-align:center;}
+
+
+
+
+
+/* 兴趣菜单栏应用 */
+.interestMenu{width:840px;height:auto;background:#ffffff;border:1px solid #C4CCDF;border-radius:3px;margin-top:10px;padding:10px 0 10px 10px;}
+.interestMenu ul{float:left;width:800px;}
+.interestMenu li{float:left;_display:inline;}
+.tab{display:block;height:100px;padding-left:6px;width:94px;text-align:center;}
+.tab span a{text-align:center;display:block;}
+.imgLink{height:60px;overflow:hidden;width:90px;cursor:pointer;text-align:center;background:url("../../img/system/ChannelClass.png") no-repeat 8px -452px;}
+.shopping{background-position:8px -64px;}
+.groupshop{background-position:8px -194px;}
+.traveling{background-position:8px -324px;}
+/* start: 添加游戏图标 by卜海亮 2012-07-27 */
+.games{background-position:8px -578px;}
+/* end: 添加游戏图标 */
+/* start: 添加房屋图标 by卜海亮 2012/8/13 */
+.house{background-position:8px -708px;}
+/* end: 添加房屋图标 */
+.rightMenu{float:right;width:4%;height:100px;margin-top:0px;}
+.linkButton{width:95%;height:60px;margin:0 auto;position:relative;}
+.linkButton a{display:block;width:100%;height:100%;border:1px solid #E5E7EB;background:#ffffff;border-right:none;border-radius:3px 0 0 3px;}
+.linkButtonspan{*height:14px;*line-height:14px;width:22px;float: left; text-align:center;border:1px solid #a6a6a6;position:absolute;top:50%;margin-left:-7px;margin-top:-9px;background-color:#ffffff;box-shadow:0 1px 2px rgb(0,0,0,0.15);border-radius:1px;}
+.linkButtonspan .text{line-height:14px;vertical-align:top;padding:0;font-weight:bold;color:#3b5998;padding-right:10px;}
+.linkButtonarrow{width:0px;height:0px;border:20px solid #516fa5;font-size:0px;border-top:0px;border-left:0px;border-right:0px;display:block;}
+.text{background: url("../../img/system/listdoen.gif") no-repeat;background-position: 100% 50%;}
+.linkButton .textAddImg{background: url("../../img/system/listup.gif") no-repeat;background-position:100% 50%; padding-right: 6px;}
+
+/* 兴趣文件夹跳转页主题内容 */
+.mainArea .modlueContent{width:850px;height:auto;margin-top:15px;}
+.mainArea .modlueContent .contentTempo{width:204px;height:auto;border:1px #bbc6db solid;background:#ffffff;}
+.mainArea .modlueContent .contentTempo .contentTempoTop{width:95%;padding:10px 6px 20px 6px;}
+.mainArea .modlueContent .contentTempo .contentTempoTop ul li{width:190px;height:143px;background:url("../../img/system/ui1.gif") no-repeat;}
+.mainArea .modlueContent .contentTempo .contentTempoTop p{display:block;margin-top:7px;margin-bottom:10px;}
+.mainArea .modlueContent .contentTempo .contentTempoTop p span{color:#999;font-weight:bold;}
+.mainArea .modlueContent .contentTempo .contentTempoBottom{padding:2px;border-top:1px #bbc6db solid;}
+.mainArea .modlueContent .contentTempo .contentTempoBottom .contentTempoBottomC{padding:5px 6px 5px 6px;background-color:#e7ecf2;}
+
+/*朱立奇7月21日改变新增内容*/
+.letter-Box .leftter-h5{font-weight:bold;line-height:35px;border-bottom:1px solid #c4ccdf;font-size:14px}
+.letter-Box .letterItem{width:;height:auto;border-bottom:1px solid #c4ccdf;padding:8px 0px 8px 0px;margin-right:-60px;width:810px;_display:inline;}
+.letter-Box .letterItem .letterContent{margin-right:35px;width:340px;float:left;margin-left:25px;_display:inline;}
+.letter-Box .letterContent h6{line-height:32px;font-size:14px}
+
+.letter-Box .letterContent .letterThreeContent a{line-height:20px;margin-right:15px;display:block;float:left;word-break:keep-all;word-wrap:break-word;white-space:nowrap	}
+.letter-Box .letterContent .letterThreeContent a:link{text-decoration:none;}
+.letter-Box .letterContent .letterThreeContent a:visited{text-decoration:none;}
+.letter-Box .letterContent .letterThreeContent a:hover{text-decoration:underline;}
+.letter-Box .letterContent .letterThreeContent a:active{text-decoration:none;}

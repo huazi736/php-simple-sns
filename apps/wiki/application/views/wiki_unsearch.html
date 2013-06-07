@@ -1,0 +1,22 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name="title" prepend}-->词条搜索结果-<!--{/block}-->
+<!--{block name="header_css"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wiki/wiki_view.css?v=<!--{$smarty.const.CSS_VER}-->" type="text/css" rel="stylesheet" />
+<!--{/block}-->
+<!--{block name="body"}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!--{include file="wiki_common_nav.html"}--><!--wiki公共面包屑-->
+		<div class="modlueBody">
+			<div class="wikiUnmatch">
+				
+				<div class="wikiContent">
+                    	未搜索到 <span class="c3"><!--{$keyword}--></span> 词条
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--{/block}-->

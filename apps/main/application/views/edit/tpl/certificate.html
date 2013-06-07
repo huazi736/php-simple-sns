@@ -1,0 +1,57 @@
+<div id="TrainExperFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>证书名称：</th>
+				<td class="data"><input type="text" name="name" class="vinput limL" maxlength="30"/></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>获得时间：</th>
+				<td class="data"><select class="set_year" name="time_y"><option value="-1">请选择</option></select><select class="set_month" name="time_m"><option value="-1">请选择</option></select></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">颁发机构：</th>
+				<td class="data"><input type="text" name="orgname" class="vinput limL" maxlength="30"/></td>				
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob">证书说明：</th>
+				<td class="data nob">
+					<div><textarea name="intr" maxlength="500"></textarea></div>
+					<div class="clearfix">
+						<div id="eg" class="fl"><a>使用范例一</a> <a>使用范例二</a></div>
+						<div class="fr tip"></div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr>
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0);">取消</a></div><div class="btnBlue fr mrs"><a href="javascript:void(0);"  class="bnt_add CertificateInfoAdd" id="CertificateInfoAdd">确定</a><a  href="javascript:void(0);" class="bnt_edit CertificateInfoEdit" >确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div id="eg0" class="hideEle">该证书由北京电子信息应用教育培训中心颁发。其间，我参与了2个月的网络工程师培训，培养了我对网络与软件技术的浓厚兴趣。熟悉网络管理方面的知识，熟练应用各种常见的网络程序开发软件，如Asp.net；熟练应用一般的web页面开发工具语言，如VBScriptJscript、PHP等；熟悉网络数据库的开发和管理技术，如Delphi和SQL Server。</div>
+<div id="eg1" class="hideEle">该证书由ACCA中国培训中心颁发。参与ACCA会计师培训课程期间，我对国际会计准则有了相当的了解，且具备了高级财务管理知识。</div>
+<script>
+	$(function(){
+		var $div=$("#eg");
+		$('a',$div).click(function(){
+			var index=$(this).index();
+			var textarea=$(this).closest('.clearfix').prev().children();
+			var content=$('#eg'+index+'').text();
+			textarea.val(content).trigger('keyup');
+		});
+	});
+</script>

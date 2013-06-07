@@ -1,0 +1,144 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/credits/credits.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix"> <span class="userImg"><a href="<!--{$userinfo['url']}-->"><img src="<!--{$userinfo['avatar']}-->" alt="" /></a></span>
+			<div class="userName"> <span class="nameTxt"><a href="<!--{$userinfo['url']}-->"><!--{$userinfo['action_username']}--></a></span> <span class="nameTxt"><a>端口积分</a></span> 
+				<!--<span class="nameTxt"><a class="selectClassBtn" id="selectClassBtn"></a></span>--> 
+			</div>
+		</div>
+		<div class="modlueBody p0 clearfix"> 
+			<div class="dk-siderBar">
+				<ul class="subNav">
+					<li><a class="nav_current" href="<!--{mk_url('credit/credit/index')}-->">我的积分</a></li>
+					<li><a href="<!--{mk_url('credit/product/index')}-->">积分兑换</a></li>
+					<li><a href="<!--{mk_url('credit/credit/intro')}-->">成长体系介绍</a></li>
+					<li><a href="<!--{mk_url('credit/credit/faq')}-->">常见问题</a></li>
+				</ul>
+			</div>
+			<div class="dk-main"> 
+				<div id="userCredits" class="clearfix">
+					<div class="myFace"><img src="<!--{$userinfo['avatar']}-->" alt="头像"></div>
+					<div class="myInfos">
+						<div class="clearfix">
+							<div class="user-name fl"><a class="n14b" href="#" target="_blank"><!--{$userinfo['username']}--></a></div>
+							<div class="dk-level fl lvm1"><span class="dk-level-icon dk-level-lv<!--{$creditDetail['lv']}-->"></span></div>
+						</div>
+						<div class="expBar clearfix">
+							<div class="expBar-total">
+								<div class="c-tip-box">
+									<div class="mycredits">
+										<p class="cur-lv">当前等级<!--{$creditDetail['lv']}-->级</p>
+										<p class="cur-credit">当前积分<!--{$creditDetail['c']}--></p>
+										<p class="wan-credit">所需积分<!--{$creditDetail['demanded']}--></p>
+										</ul>
+										<span class="refer"></span> </div>
+								</div>
+								<div class="expBar-cur"></div>
+								<div class="dk-lv_p clearfix"><span class="dk-lv-ico fl dk-lv<!--{$creditDetail['lv']}-->"></span><span class="dk-lv-ico fr dk-lv<!--{$creditDetail['lv'] + 1}-->"></span></div>
+							</div>
+							<div class="usble">
+								<div>可用积分<span id="usCredit" class="fcb"><!--{$creditDetail['c'] - $creditDetail['cc']}-->
+									<div class="tipsInfos"><span class="tipsArrow"></span><a href="<!--{mk_url('credit/credit/faq')}-->">可用积分可以做些什么?</a></div>
+									</span>分</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 				<div class="conBox">
+					<div class="conBox-tt">
+						<h3>我的特权</h3>
+					</div>
+					<div class="conBox-con">
+						<ul class="priv-list clearfix">
+							<li class="clearfix">
+								<div class="priv-icon"><img src="../../../../../../frontendcore/misc/img/credits/privp.png" /></div>
+								<div class="priv-info">
+									<h3 class="pb10"><a href="#">极速升级</a></h3>
+									<p class="fcb9">已获得该特权</p>
+									<p class="fc7">每天登录获得10分</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="priv-icon"><img src="../../../../../../frontendcore/misc/img/credits/privp.png" /></div>
+								<div class="priv-info">
+									<h3 class="pb10"><a href="#">首页装扮</a></h3>
+									<p class="fcb9">已获得该特权</p>
+									<p class="fc7">美化首页</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="priv-icon"><img src="../../../../../../frontendcore/misc/img/credits/privp.png" /></div>
+								<div class="priv-info">
+									<h3 class="pb10"><a href="#">极速升级</a></h3>
+									<p class="fcb9">已获得该特权</p>
+									<p class="fc7">每天登录获得10分</p>
+								</div>
+							</li>
+						</ul>
+						<p class="more_tc">更多特权敬请期待……</p>
+					</div>
+				</div> --> 
+				
+				<div class="mt35 clearfix"> 
+					<div class="userTop userTopFirst">
+						<div id="ft">
+							<div class="userTop-tt">
+								<h2 class="userTop-tt-con">好友排名</h2>
+							</div>
+							<div class="userTop-list">
+								<ul>
+									<li class="noTip">你目前还没有好友</li>
+								</ul>
+							</div>
+						</div>
+						<p class="updateTime fc9"></p>
+					</div>
+					
+					<div class="userTop">
+						<div id="at">
+							<div class="userTop-tt">
+								<h2 class="userTop-tt-con">相互关注排名</h2>
+							</div>
+							<div class="userTop-list">
+								<ul>
+									<li class="noTip">你目前还没有相互关注</li>
+								</ul>
+							</div>
+						</div>
+						<p class="updateTime fc9"></p>
+					</div>	
+					<div class="userTop">
+						<div id="ot">
+							<div class="userTop-tt">
+								<h2 class="userTop-tt-con">全站排名</h2>
+							</div>
+							<div class="userTop-list">
+								<ul>
+									<li class="noTip">加载中......</li>
+								</ul>
+							</div>
+						</div>
+						<p class="updateTime fc9"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sideArea"> sideArea </div>
+</div>
+
+<!--{/block}--> 
+
+<!--{block name='footer_js'}--> 
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/credits/credit.js"></script> 
+<script type="text/javascript">
+	creditAnimate(<!--{$creditDetail['c']}-->,<!--{$creditDetail['demanded']}-->);
+</script> 
+<!--{/block}-->

@@ -1,0 +1,76 @@
+/*
+ * Created on 2012-03-05
+ * @author： duxianwei
+ * @version： 1.0
+ * @desc：关注、粉丝、好友
+ */
+
+/*大框架布局*/
+#layout{ width:981px; overflow: hidden;}
+#left{width:179px; float: left; padding-left:2px; overflow: hidden;}
+#mainContant{ width:798px; float: left; border:1px solid #ccc; border-top:0;  min-height:520px;height:auto !important; height:520px;}
+/*群首页左侧*/
+.group_index_lr{ line-height:25px;}
+.group_user{ padding:10px 0 20px 0;}
+.group_user_img{ display: block; float: left; margin:0 8px 0 0; font-weight:600;}
+.group_user_img img{ width:50px; height:50px;}
+.group_user_name{ overflow: auto; word-wrap:break-word; padding:0 4px 10px 4px;}
+.group_user_name a{ font-weight:600;}
+.group_app_list_wrap{ margin:0 0 10px 0;}
+.group_app_header{ font-size:12px; font-weight:600; color:#3b5998; margin:0 0 3px 0;}
+.group_app_header a{float: right;font-weight: normal;padding:6px 10px 2px 0;display:block;width:130px;text-align:right;}
+.group_list_ul_li{ margin:0 0 3px 0;}
+.group_list_ul_li a{ color:#333; display: block; padding:0 8px 0 28px; height:20px; line-height:20px; overflow: hidden;}
+.group_list_ul_li a:hover{ background-color:#d8deea; color:#333; font-weight:600;}
+.group_list_ul_li .img_wrap{ display:inline-block; width:18px; float: left; margin:4px 0 0 -20px;}
+.group_create .img_wrap{ margin-top:6px;_margin-top:4px;}
+.group_chat_btn,.group_chat_btn:hover,.group_add_btn{background:url(../../img/system/btnbg.gif) repeat-x #7a8fba; border:1px solid #41588C; color: #fff; display:inline-block;height:24px; overflow: hidden}
+.group_chat_btn span{padding:5px; height:24px; line-height:14px;display:inline-block; overflow: hidden; font-weight:600;}
+
+/*群首页*/
+.group_default{border-right:1px solid #ccc; width:980px; overflow: hidden;}
+body{ background-color: #fff;}
+.group .showHeaderArea{ border:0;}
+/*导航隐藏*/
+#group_nav{display:none;}
+.group_index_c{ width:553px; float: left; padding-bottom:45px;}
+/*群首页右侧*/
+.group_index_r{ float: left; width:215px; padding:0 20px 0 10px; overflow: hidden;}
+.group_members_link{ margin:10px 0 10px 0;position:relative;}
+.group_members_link a{ float: left;}
+.group_add{ padding-bottom:20px;}
+#group_quit,#group_manage{ float: right;}
+.clr{ clear: both; height:0; line-height:0; overflow: hidden; zoom:1;}
+.line{ border-top:1px solid #ccc; height:1px; overflow: hidden; clear: both; width:800px; margin-left:181px;}
+.group_member .group_tool_ul{ position: absolute; right:20px; top:24px; display: none; border:1px solid #293e6a; padding:2px 0 5px 0; min-width:80px;width:auto !important; width:80px;}
+.group_member .group_tool_ul li{height:20px; text-align: center;}
+.group_member .group_tool_ul li a{ display: block; height:20px; line-height:20px; padding:1px 16px 1px 22px; color: #333; overflow: hidden;}
+.group_member .group_tool_ul li a:hover{ background-color: #6d84b4; color: #fff;}
+.group_right_ad{zoom:1;background-color: #F2F2F2;border-top: 1px solid #E2E2E2;padding: 4px 6px 5px;font-weight: 600;color:#666; margin-bottom:50px;}
+/*隐藏按钮*/
+.group_timeline{ width:553px; float: left; }
+#timelineContent .timelineBox .photoContent li.firstPhoto{ text-align: center;}
+.group_member ul{ display: none;}
+.members_account{ color:gray; float: left;}
+#timelineContent .timelineBox .photoContent li.otherPhoto {  width:133px; height:133px; overflow: hidden;}
+#timelineContent li.sendForward,#timelineContent li.showForward{ display: none;}
+/*已有的样式拷贝*/
+#layout #timelineContent .timelineBox{border:0;margin: 5px 0 0 0;border-bottom: 1px solid #E5E5E5; padding:0 0 15px 11px; border-radius:0;}
+#layout #timelineContent .timelineBox .headBlock{ margin-left:5px;border:0!important;}
+#layout .streamComposer{ margin:0 0 0 10px;}
+#layout .txtArea #myStatusTextArea{ width:520px; margin-bottom:15px;}
+#layout #attachPhotoIntroduce,#layout #attachVideoIntroduce,#layout .shareInfoCont{ width:500px;}
+#layout #uploadVideoFlash{ margin-bottom:5px;}
+#layout .timelineDate{ display: none;}
+#layout  #timelineContent .timelineBox .mediaContent{width:403px;}
+.group_chat{ border:1px solid #cdcbe3; padding:10px 0; background-color:#eeeff4; font-size:14px; margin:10px 0 5px 15px; text-align: center;}
+.group_chat a{ font-size:14px;}
+#loadmore{ text-align: center; margin-top:20px;}
+#layout #timelineContent .timelineBox .photoContent{ margin-bottom:15px;}
+.loading,.getmore{ display: block;border:1px solid #ccc; margin:15px 5px 10px 15px;padding: 5px 0; }
+.getmore{ background-color:#f0f5f8;border:1px solid #cee1ee;}
+.getmore:hover{ background-color:#e3eff8;}
+
+
+/*问答模块*/
+#askBox{border: 1px solid #B4BBCD;}

@@ -1,0 +1,32 @@
+<!--{if $action eq 'edit'}-->
+<p>
+<span class="plugin_label"><!--{$label}-->:</span>&nbsp;
+<input type="text"  id="<!--{$_id}-->" value="<!--{$value}-->" />&nbsp;形如:0571-88888888
+</p>
+<!--{elseif $action eq 'edit_js'}-->
+<script language="javascript" type="text/javascript">
+//提交验证
+function validate_<!--{$_id}-->(){
+	//验证是否座机
+	var phone = $("#<!--{$_id}-->").val();
+	if(phone && !phone.match(/^\d{3}-\d{8}|\d{4}-\d{7,8}$/)){
+	  $("#diy_error").text("座机格式不对");
+	  return false;
+	}
+	return true;
+}
+//提交之前收集数据
+function ajax_submit_data_<!--{$_id}-->(){
+	plugin_info['<!--{$_id}-->'] = $("#<!--{$_id}-->").val();
+}
+</script>
+<!--{elseif $action eq 'normal'}-->
+<p>
+<span class="plugin_label"><!--{$label}-->:</span>&nbsp;
+<!--{if $value}-->
+<span><!--{$value}--></span>
+<!--{else}-->
+未填写
+<!--{/if}-->
+</p>
+<!--{/if}-->

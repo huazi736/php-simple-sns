@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*Reset*/
+*{padding:0;margin:0;font-family:Arial,Helvetica,sans-serif, '宋体';font-size:12px;}
+body{ background:#e7ebf2;}
+ul,dl{ list-style:none;}
+p{line-height:22px; padding:10px 0;text-indent:2em;}
+/*****top****/
+.toper{ background:#3b5998; height:50px; border-bottom:1px #133783 solid;}
+.t_contain{ width:850px; margin:0 auto; height:50px;}
+p.top_logo{ float:left; display:block; padding-top:15px; margin:0 0 0 -22px;}
+p.top_link{ float:right; display:block; line-height:25px;}
+p.top_link a{ color:#fff; text-decoration:none; margin-right:10px;}
+p.top_link a:hover{ color:#fff; text-decoration:underline;}
+/******agreement******/
+.agreement_main{width:810px;margin:0 auto; background:#fff; border:1px #c4cde0 solid; padding:10px 30px 10px 10px;}
+.agreement_main .left_nav{width:120px;float:left;padding:0 10px;}
+.agreement_main .left_nav ul{ margin-top:20px;}
+.agreement_main .left_nav ul li{ line-height:25px; margin-bottom:10px; border-radius:4px;}
+.agreement_main .left_nav ul li a{color:#494949;font-size:14px; line-height:25px; text-decoration:none; display:block; text-indent:10px;border-radius:2px;}
+.agreement_main .left_nav ul li a:hover {color:#fff; text-decoration:none; background:#3b5998;}
+
+.agreement_main .right_contain{margin:0 0 0 180px;}
+.agreement_main .right_contain h1{font-size:20px;font-weight:bold;margin:20px 0; line-height:25px;}
+.agreement_main .right_contain h3{color:#494949;height:25px;line-height:25px;background:#f1f3f8; text-indent:10px; font-size:12px;border-radius:2px;}
+.clear{ clear:both;}
+.bold{ font-weight:bold;}
+
+/****bottom****/
+.bottom{ line-height:40px; text-align:right; height:40px; width:850px; margin:0 auto;}
+.bottom a{ color:#3b5998; text-decoration:none;}
+.bottom a:hover{ color:#3b5998; text-decoration:underline;}
+
+.mymodlueBody{ border-bottom-width: 2px;border-radius: 3px 3px 3px 3px;height: auto !important;margin-top: 10px;min-height: 500px;padding: 20px;}
+    

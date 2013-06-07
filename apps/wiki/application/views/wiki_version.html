@@ -1,0 +1,307 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name="title" prepend}-->版本比对-<!--{/block}-->
+<!--{block name="header_css"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wiki/wiki_view.css?v=<!--{$smarty.const.CSS_VER}-->" type="text/css" rel="stylesheet" />
+<!--{/block}-->
+<!--{block name="body"}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<!--{include file="wiki_common_nav.html"}--><!--wiki公共面包屑-->
+		<div class="modlueBody">
+			<!-- 百科头部 -->
+			<div class="wikiHeader mb20">
+				<div class="wikiInfo">
+					<div class="wikiLeft fl"><h1 class="fs32"><!--{$citiao_name}--></h1></div>
+					<div class="wikiRight fr">
+						<p class="tar">
+							<!--{if $is_match}--><!--<span class="btnGray"><a href="javascript:void(0);">引用版本</a></span>--><!--{/if}-->
+							<span class="ml5 btnGray"><a href="javascript:void(0);" id="btn_choose">比较选定版本</a></span>
+						</p>
+						<p class="tar">最近发布时间：<!--{$item_info['last_datetime']|default:0|date_format:"%Y年%m年%d日 %H:%M:%S"}--></p>
+						<p class="tar">该词条已编辑<span class="fwb"><!--{$item_info['edit_count']}--></span>次</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+           
+			<div class="wikiVersion">
+               <!--{if $version_list}-->
+				<table border="0" width="100%" id="version_list">
+					<tr>
+						<td class="fs14 fwb" width="100">版本号</td>
+						<td class="fs14 fwb" width="120">创建者</td>
+						<td class="fs14 fwb" width="180">创建时间</td>
+						<td class="fs14 fwb" width="360">修改原因</td>
+						<td></td>
+					</tr>
+                    <!--{foreach from=$version_list item=version key=key}-->
+					<tr>
+						<td><input type="checkbox" name="item_version" value="<!--{$version['version']}-->" >&nbsp;NO.<!--{$version['new_version']|default:0}--></td>
+						<td><a href="<!--{$version['author_url']}-->" ><img src="<!--{$version['avatar']}-->" width="32" height="32" title="<!--{$version['username']}-->"></a><span class="ml5"><a href="<!--{$version['author_url']}-->"><!--{$version['username']}--></a></span></td>
+						<td><!--{date('Y年m月d日 H:i:s', $version['edit_datetime'])}--></td>
+						<td><!--{if $version['reason']}--><span title="<!--{$version['reason']}-->"><!--{$version['reason']|msubstr:0:20}--></span><!--{/if}--></td>
+						<td><a href="<!--{$version['version_link']}-->">查看</a></td>
+					</tr>
+                    <!--{/foreach}-->
+				</table>
+                <!--{else}-->
+                暂无历史版本
+                <!--{/if}-->
+				<div class="bh"></div>
+			</div>
+
+		    <!--{if $more_display}--><div class="wikiVersionMore wikiContent"><a href="javascript:;" id="more_display">查看更多</a></div><!--{/if}-->
+
+			<div class="compareVersionWrap pd10 vb">
+				<h1 class="fs16 mb5">版本对比>><a href="<!--{$item_url}-->"><!--{$citiao_name}--></a></h1>
+				<div class="compareVersion mb20 clearfix">
+
+					<!-- 对比左栏 -->
+					<div class="compareLeft fl">
+						<div class="compareInfo clearfix">
+							<div class="fl">
+								<span class="cr">较新</span>NO:<span id="left_version_no"  match="1">0</span>版本
+								<span class="ml20">编辑者：<a href="javascript:void(0);" id="left_version_author"></a></span>
+							</div>
+							<div class="fr">
+								<!--{if $is_match}-->
+								<a href="javascript:void(0);" id="btn_match">引用版本</a>
+								<!--{/if}-->
+							</div>
+						</div>
+						<div class="compareContent pd10" id="left_content">
+								正在加载中...
+						</div>
+					</div>
+
+					<!-- 对比右栏 -->
+					<div class="compareRight fr">
+						<div class="compareInfo clearfix">
+							<div class="fl">
+								NO:<span id="right_version_no" match="1">0</span>版本
+								<span class="ml20">编辑者：<a href="javascript:void(0);" id="right_version_author"></a></span>
+							</div>
+							<div class="fr">
+								<!--{if $is_match}-->
+								<a href="javascript:void(0);" class="fr" id="btn_match">引用版本</a>
+								<!--{/if}-->
+							</div>
+						</div>
+						<div class="compareContent pd10" id="right_content">
+                        		正在加载中...
+						</div>
+					</div>
+				</div>
+				<div class="tac">
+					<span class="btnGray"><a href="javascript:$.closePopUp()"> 关 闭 </a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name="footer_js"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->web_js/wiki/wiki.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+$(function(){
+	 var t = <!--{$t|default:0}-->;//是否弹出比对
+	 var new_module_version = <!--{$new_module_version|default:0}-->;//最新版本
+	 var user_module_version = <!--{$use_module_version|default:0}-->;//当前版本
+	 var web_id = <!--{$web_id|default:0}-->;//web_id
+	 var item_id = "<!--{$smarty.get.iid|default:0}-->";//item_id
+	 var edit_count = <!--{$edit_count|default:0}-->; //总的版本数
+	 
+	 var click_lock = false; //防止多次点击" 更多 "  按钮
+	 
+	 var checkbox_object = [];
+	 $("input[type='checkbox'][name='item_version']").attr("checked", false);
+	 
+	 //添加数组 删除元素方法
+	 Array.prototype.indexof = function(element){
+		for(var i=0; i<this.length; i++){
+			if(this[i] == element) return i;	
+		}
+		return -1;
+	 }
+	 Array.prototype.remove = function(element){
+		 if((index = this.indexof(element)) == -1) return false;
+		 this.splice(index,1);
+	 }
+
+	 //绑定比对版本按钮
+	 $("#btn_choose").bind("click", function(e){
+		  
+		  var choose_num = $("input[type='checkbox'][name='item_version']:checked").size();
+		  if(t == 1 && new_module_version && user_module_version && (choose_num != 2)){
+				
+				$("input[type='checkbox'][value='"+ new_module_version+ "']").attr("checked", true);
+				$("input[type='checkbox'][value='"+ user_module_version+ "']").attr("checked", true); 
+				checkbox_object.push(new_module_version);
+				checkbox_object.push(user_module_version); 
+		  }
+		  
+	
+		  var choose_num = $("input[type='checkbox'][name='item_version']:checked").size();
+
+		  if(choose_num < 2) {
+				alert('请选择要比对的两个版本');
+				return false;
+		  }
+		  
+		  var left_version_no,left_version_author,right_version_no,right_version_author;
+		  $("input[type='checkbox'][name='item_version']:checked").each(function(i,n){
+			   if(0 == i){
+				  left_version_no = $(n).val();
+				  if(left_version_no < 10){
+					left_version_no = "0" + left_version_no;  
+				  }
+				  $("#left_version_no").text(left_version_no);
+				  $("#left_version_author").parent().html("编辑者：" + $(n).parent().next().find("span").eq(0).html()); 
+				  $.ajax({
+					 type: "POST",
+					 url: "<!--{$get_content_url}-->",
+					 data: {"item_id": item_id, "version": $(n).val()},
+					 cache:false,
+					 dataType: "json",
+					 success:function(msg){
+						 if(msg.status == 1){
+						  	$("#left_content").html(msg.data);
+						  	setTimeout(function(){
+						  		wiki.view('updateDir',[$('.wikiDirList').eq(0),$('.compareText').eq(0)]);
+						  	},0);
+							wiki.view('prossAnchor',[$('.wikiDirList').eq(0),$('.compareText').eq(0),'div_scroll',$('.popCont')]);
+						 }else if (msg.status == 2){
+							alert(msg.info);
+							return false;
+						 }
+					 }
+				  });
+			   }else if(1 == i){
+				  right_version_no = $(n).val();
+				  if(right_version_no < 10){
+					right_version_no = "0" + right_version_no;  
+				  }
+				  $("#right_version_no").text(right_version_no);
+				  $("#right_version_author").parent().html("编辑者：" + $(n).parent().next().find("span").eq(0).html()); 
+				  $.ajax({
+					 type: "POST",
+					 url: "<!--{$get_content_url}-->",
+					 data: {"item_id": item_id, "version": $(n).val()},
+					 cache:false,
+					 dataType: "json",
+					 success:function(msg){
+						 if(msg.status == 1){
+						  	$("#right_content").html(msg.data);
+						  	setTimeout(function(){
+						  		wiki.view('updateDir',[$('.wikiDirList').eq(1),$('.compareText').eq(1)]);
+						  	},0);
+							wiki.view('prossAnchor',[$('.wikiDirList').eq(1),$('.compareText').eq(1),'div_scroll',$('.popCont')]);
+						 }else if (msg.status == 2){
+							alert(msg.info);
+							return false;
+						 }
+					 }
+				  }); 
+			   }
+		  });
+		  
+		  //弹出层
+		  $('.compareVersionWrap').popUp({
+ 					width:800,
+					height:600,
+                    title:'',
+                    content:$('.compareVersionWrap'),
+                    buttons:'',
+                    mask:true,
+                    maskMode:true
+ 		 });
+		 //删除弹出层的title
+		 $('.popTitle,.popBtnsWrap').remove();
+	 });
+	 
+	 var bind_checkbox = function() {
+		  $("input[type='checkbox'][name='item_version']").unbind("click");
+	      $("input[type='checkbox'][name='item_version']").bind("click", function(e){
+			  var choose_num = $("input[type='checkbox'][name='item_version']:checked").size();
+			  if($(this).attr("checked")){
+				  if(choose_num > 2){
+				     //选择
+				     first_element = checkbox_object.shift();
+				     if(first_element != undefined){
+					   $("input[type='checkbox'][name='item_version'][value='"+first_element+"']").attr("checked", false);
+				     }
+				  }
+				  checkbox_object.push($(this).val());
+			  }else{
+				  //取消选择
+				  checkbox_object.remove($(this).val());
+			  }
+			  //console.log(checkbox_object.join(","));
+	      });
+	 }
+	 bind_checkbox();
+	 
+	 <!--{if $is_match}-->
+	 $("a[id='btn_match']").bind("click", function(e){
+		var version = $(this).parent().prev().eq(0).find("span[match]").eq(0).html();
+		$.ajax({
+			url: '<!--{$match_url}-->',
+			type: 'POST',
+			cache: false,
+			data: {"item_id": item_id, "version": version},
+			dataType:"json",
+			success: function(msg){
+				if(msg.status == 1){
+					alert('引用成功');
+					location.href=msg.data.url;
+					return true;
+				}else{
+				   alert('引用失败');
+				   return false;	
+				}
+			}
+		});
+	});
+	<!--{/if}-->
+	
+    if(t == 1){
+		$("#btn_choose").click(); 
+	}
+	
+    var page = 1;
+    if($("#more_display")){
+		   $("#more_display").bind("click", function(){
+		     if(click_lock) return true;
+			 click_lock = true; //防止多次点击
+			 
+			 page++;
+			 $.ajax({
+				url: "<!--{$get_version_list_url}-->",
+				cache: false,
+				data: {'item_id': item_id, 'edit_count': edit_count, 'new_module_version': new_module_version, 'use_module_version': user_module_version, 'page':page},
+				type: "POST",
+				dataType:"json",
+				success:function(msg){
+				   	if(msg.status == 2){
+						alert(msg.info);
+						return false;
+					}else if(msg.status ==1){
+						$("#version_list").append(msg.data.html);
+						if(!msg.data.more_display){
+						   $('.wikiVersionMore').remove();
+						}
+						bind_checkbox();
+						
+						click_lock = false;//解锁
+						
+						return true;
+					}
+				}
+			 });
+		   });
+	}
+	 
+	 
+});
+</script>
+<!--{/block}-->

@@ -1,0 +1,66 @@
+/*
+ * Created on 2012-3-07.
+ * @name: calendar
+ * @author: linchangyuan
+ * @modify: qiuminggang
+ * @desc: 
+/* 日期输入框
+------------------------------ */
+
+
+
+h5{ margin:0px;}
+ul,li{ margin:0px; padding:0px; list-style:none;}
+
+input.html_date{ width:130px;height:18px;padding:1px 5px;border:1px solid #b4bbcd;background:url(../../../img/plug-img/calendar/calendar_day.png) no-repeat right center #fff;font:12px/18px Arial;cursor:pointer;}
+.dk_calendar .calendarHead{ width:100%;}
+*html .dk_calendar .calendarHead{ width:196px;}
+
+/* 日期选择器
+------------------------------ */
+.dk_calendar{display:none;position:absolute;width:182px;font:12px Arial;border:1px solid #CDCDD7;border-top:none;box-shadow:2px 2px 5px #CDCDD7;z-index:2001;}
+.dk_calendar h5{position:relative;height:20px;padding:4px 0px;background:#000;color:#fff;font:normal 12px/20px "\5B8B\4F53";text-align:center;}
+.dk_calendar h5 select{vertical-align:baseline;font:12px/18px Tahoma;}
+
+.dk_calendar h5 div.select{ width:40px; float:left; position:relative;}
+.dk_calendar h5 div.select span{ background:#333; cursor:pointer; display:block; font-size:14px; font-weight:bold;}
+.dk_calendar h5 div.select ul{ display:none; position:absolute;  background:#333;  max-height:192px; _height:192px; overflow:auto; z-index:105; width:56px; color:#fff; left:0px;}
+.dk_calendar h5 div.select ul.month{ width:40px;}
+.dk_calendar h5 div.select ul.month{ text-align:center;}
+.dk_calendar h5 div.select ul li{ cursor:pointer; line-height:16px; text-align:left;}
+.dk_calendar h5 div.select ul li a{ display:block; padding:0px 4px; color: #fff; text-align: center;}
+.dk_calendar h5 div.select ul li.selected a{ background:red; color:#fff;}
+.dk_calendar h5 div.select ul li a:hover{ background:#336699; color:#fff;}
+
+.dk_calendar .content .msg{ position:absolute; z-index:102; width:100px; height:20px; background:#F93; color:#FFF; text-align:center; line-height:20px; display:none; top:40%; left:20%;}
+
+.dk_calendar .content table{border-collapse:collapse;table-layout:fixed;empty-cells:show;font-family:Arial;text-align:center;}
+.dk_calendar .content table .sat{color:#06f}
+
+.dk_calendar .content table td.now{background:#d9e9fa;}
+
+.dk_calendar .content  thead th{width:26px;height:24px;background:#fff;line-height:24px;text-align:center;}
+.dk_calendar .content  tfoot td{height:24px;border-top:1px solid #ccc;background:#eee;color:#999;font-family:"\5B8B\4F53";line-height:24px;}
+.dk_calendar .content  tfoot a.ok{cursor:pointer; padding:0px 5px; font-weight:bold; color:#666;}
+.dk_calendar .content  tfoot a.clear{cursor:pointer; padding:0px 5px; font-weight:bold; color:#666;}
+.dk_calendar  .pre{  cursor:pointer; display:block; width:20px; color: #fff;}
+.dk_calendar  .next{ cursor:pointer; display:block; width:20px;color: #fff;}
+.dk_calendar h5 a.pre:hover{ color:#fff; background:#000;}
+.dk_calendar h5 a.next:hover{ color:#fff; background:#000;}
+
+.dk_calendar .content  tfoot .clear{}
+.dk_calendar .content  tfoot a:hover{color:#333;text-decoration:none;}
+.dk_calendar .content  tbody td{position:static;width:26px;height:22px;padding:0;background:#fff;line-height:22px;}
+.dk_calendar .content  tbody td.pointer{cursor: pointer;}
+.dk_calendar .content  tbody .num{ background:#F2F2F0; border:1px solid #C9CCDD; color: #4B556E; font-weight:bold; padding: 1px;}
+.dk_calendar .content  tbody td.num:hover{background:#88b6d8;color:#fff;text-decoration:none;cursor:pointer;}
+.dk_calendar .content  tbody td.selected{background:#F90;color:#fff;}
+.dk_calendar .content  tfoot .time td{ text-align:left; padding-left:5px; padding-top:5px;}
+.dk_calendar .content  tfoot .time td a{   float:right; margin-right:10px; color:#000}
+.dk_calendar .content  tfoot .time input{width:24px;}
+.dk_calendar .content table td.sun{color:#e00;}
+#calendar_block{display:none;position:absolute;top:0;left:0;background:#fff;filter:alpha(opacity=0);opacity:0;z-index:2000;}
+.dk_calendar .inputDate{width:40px;height:20px;border:none;background-color:#fff;color:#333;text-align:center;font-weight:bold;}
+
+/*add by hcj on 2012.5.3*/
+.dk_calendar h5 div.select input{ width:40px; position: absolute; top:0; left: 0; display: none; text-align: center;}

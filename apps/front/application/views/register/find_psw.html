@@ -1,0 +1,108 @@
+<!--{extends file='nologin_base_layout.html'}-->
+<!--{block name='title' prepend}-->
+找回密码-
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+
+<!-- start: headerWrap 头部开始 -->
+<div class="headerWrap">
+	<div class="regHeader">
+		<h1><a href="<!--{$smarty.const.WEB_ROOT}-->" title="Duankou">Duankou</a></h1>
+	</div>
+</div>
+<!-- end: headerWrap 头部结束 -->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- start: modlueBody 开始 -->
+		<div class="modlueBody">
+			<!-- start: regBody 注册区域主体开始 -->
+			<div class="forgetPw">
+				<div class="forgetPwTitle clearfix">
+					<h3>找回密码</h3>
+					<a href="<!--{$smarty.const.WEB_ROOT}-->">返回注册页面</a>
+				</div>
+				<ul class="regWay clearfix" id="regWay">
+					<li class="selected">通过邮箱找回</li>
+					<li>按密保问题找回</li>
+				</ul>
+				<p class="tip">在重设密码之前，你需要输入以下信息来验证你的账户</p>
+				<div class="getbackWay clearfix" id="regWayContent">
+					<ul>
+						<li class="qList">
+							<div class="byEmail clearfix">
+								<i class="i"></i>
+								<span>请输入您的邮箱或端口号地址</span>
+								<div>[?]</div>
+							</div>
+							<ol class="wayContent">
+								<li>
+									<input type="text" id="email" name="email" maxlength="64" rel="请输入邮箱或端口号" value="请输入邮箱或端口号" class="inputTxt" />
+									<span class="error"></span>
+								</li>
+							</ol>
+						</li>
+						<li class="last hide qList">
+							<div class="byDk clearfix">
+								<i class="i questions"></i>
+								<span>请输入端口号后回答密保问题</span>
+								<div>[?]</div>
+							</div>
+							<ol class="wayContent">
+								<li class="clearfix">
+									<input blur="false" result="fail" type="text" id="duankou" name="duankou" maxlength="10" rel="请输入正确的端口号" value="请输入正确的端口号" class="inputTxt" />
+									<span class="error"></span>
+								</li>
+								<li class="confirQuestion">
+	            					<div>
+		            					<label>问题一：</label>
+		            					<span class="questionC">第一个问题</span>
+		            				</div>
+		            				<div>
+		            					<input type="text" class="inputTxt" maxlength="50" />
+		            					<span class="error">答案不能为空</span>
+		            				</div>
+	            				</li>
+	            				<li class="confirQuestion">
+	            					<div>
+		            					<label>问题二：</label>
+		            					<span class="questionC">第一个问题</span>
+		            				</div>
+		            				<div>
+		            					<input type="text" class="inputTxt"  maxlength="50" />
+		            					<span class="error">答案不能为空</span>
+		            				</div>
+	            				</li>
+	            				<li class="confirQuestion">
+	            					<div>
+		            					<label>问题三：</label>
+		            					<span class="questionC">第一个问题</span>
+		            				</div>
+		            				<div>
+		            					<input type="text" class="inputTxt"  maxlength="50" />
+		            					<span class="error">答案不能为空</span>
+		            				</div>
+	            				</li>
+							</ol>
+						</li>
+					</ul>
+				</div>
+				<div class="backAction clearfix">
+					<a id="findpsw" class="saveBtn"href="javascript:void(0);">提 交</a>
+				</div>
+			</div>
+			<!-- end: regBody 注册区域主体结束 -->
+		</div>
+		<!-- end: modlueBody 结束 -->
+	</div>
+	<div class="sideArea">
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/common/validator.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/reg/findPsw.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

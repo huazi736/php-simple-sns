@@ -1,0 +1,103 @@
+<!--{include file="<!--{$smarty.const.TEMPLATE_PATH}-->header.html"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/follow/follow.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/timeline/info.css" type="text/css" rel="stylesheet" />
+
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/tip/jquery.tip.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/JQuery-uploadify/JQuery_uploadify.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/calendar/dk_calendar.css" type="text/css" rel="stylesheet" />
+<!--{if ($login_info['is_self'] == ture)}-->
+<!--{include file="<!--{$smarty.const.TEMPLATE_PATH}-->top_bar.html"}-->
+<div class="body clearfix" id="friendFramwork">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$home_info['url']}-->"><img src="<!--{$home_info['src']}-->" alt="" /></a></span>
+			<div class="userName">
+
+				<span id="dk_code" dk="<!--{$home_info['dk_code']}-->" class="nameTxt"><a href="<!--{$home_info['url']}-->"><!--{$home_info['username']}--></a></span>
+				<span class="nameTxt"><span class="fl"><a href="<!--{$home_info['self_url']}-->">好友</a></span><s></s></span>
+			</div>
+		</div>
+            
+		<div class="modlueMainBody">
+			
+			<div id="headerWrapper" class="timeLineTopAvatar">
+			</div>
+            <div id="timelineContent">
+            	<div id="moredata" ctime="<!--{$smarty.const.SYS_TIME}-->" ltime="<!--{$smarty.const.SYS_TIME}-->"><a href="javascript:void(0)">有<span id="timecount">0</span>条新广播，点击查看</a></div>
+				<ol id="timelineTree" class="timelineTree clearfix">
+					<div class="timelinebody">
+						<li id="defaultTimeBox1" name="timeBox" class="sideLeft clearfix defaultTimeBox" timeArea=""> <i class="spinePointer"></i>
+							<div class="timelineBox"><!--{include file="<!--{$smarty.const.TEMPLATE_PATH}-->timeline/postBox.html"}--></div>
+						</li>
+					</div>
+					
+
+					<li id="defaultTimeBox2" name="timeBox" class="twoColumn clearfix defaultTimeBox" timeArea="">
+			            <i class="spinePointer"></i>
+						<div class="timelineBox" style="padding:20px;">
+			            	<div class="lifeContent"><div class="lifeHeader"><a id="scrollToTop"><i class="lifeIcon_4"></i><div class="toTopText">返回顶部</div></a></div></div>
+			            </div>
+					</li>
+				</ol>
+            </div>
+        </div>
+	</div>
+</div>
+<input type='hidden' id='hd_UID' value="<!--{$login_info['uid']}-->" />
+<input type='hidden' id='hd_userName' value="<!--{$login_info['username']}-->" />
+<input type='hidden' id='hd_avatar' value="<!--{$login_info['avatar_url']}-->" />
+<input type='hidden' id='hd_userPageUrl' value="<!--{$login_info['url']}-->" />
+<input type="hidden" id="action_uid" value="<!--{$action_uid}-->" />
+
+<script type="text/javascript">
+	var fdfsHost = "<!--{$login_info['host']}-->";
+	var fdfsGroup = "<!--{$login_info['group']}-->";
+</script>
+<!--{include file="<!--{$smarty.const.TEMPLATE_PATH}-->footer.html"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-textArea/jquery.textarea.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-uploadify/jquery.uploadify.v2.1.4.min.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/embed-for-flash/swfobject.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/calendar/dk_calendar.js"  type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-tip/dk.tip.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/scrollLoad.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/picViewer.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/flowLayout.js" type="text/javascript"></script>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/postBox.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-textarea-msgtip/jQuery-textarea-msgtip.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/friend/friend_headlist.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/embed-for-flash/swfobject.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/calendar/dk_calendar.js" type="text/javascript" ></script>
+<script src="http://web.duankou.com/misc/js/plug/player/AC_RunActiveContent.js"  type="text/javascript"></script>
+<script type="text/javascript">
+//视频,视频图片url地址 by wangying 2012.6.1
+function mk_videoUrl(vpath){
+	var host = "<!--{$video_src_domain}-->";
+	if (vpath.indexOf(":/")<0){
+		return host+vpath;
+	}else{
+		return vpath;
+	}
+}
+function mk_videoImgUrl(vpath){
+	var host = "<!--{$video_pic_domain}-->";
+	if (vpath.indexOf(":/")<0){
+		return host+vpath;
+	}else{
+		return vpath;
+	}
+}
+</script>
+<!--{else}-->
+<!--{include file="<!--{$smarty.const.TEMPLATE_PATH}-->footer.html"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	$(function(){
+
+		window.location.href = webpath+'main/index.php?c=friend&m=friendlist&action_dkcode='+action_dkcode;
+	});
+</script>
+<!--{/if}-->

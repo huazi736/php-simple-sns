@@ -1,0 +1,211 @@
+<!--{extends file='nologin_base_layout.html'}-->
+<!--{block name='title' prepend}-->
+设置密码保护-
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/reg/reg.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<!-- start: headerWrap 头部开始 -->
+<div class="headerWrap">
+	<div class="regHeader">
+		<h1 id="logo"><a href="<!--{$smarty.const.WEB_ROOT}-->" title="Duankou">Duankou</a></h1>
+	</div>
+</div>
+<!-- end: headerWrap 头部结束 -->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- start: modlueBody 开始 -->
+		<div class="modlueBody">
+
+			<!-- start: regBody 注册区域主体开始 -->
+			<div class="regBody">
+				<ul class="steps">
+					<li>
+						<span class="l"></span>
+						<span class="m"><strong>步骤 1</strong>设置头像</span>
+						<span class="r rBlue"></span>
+					</li>
+					<li class="current">
+						<span class="m"><strong>步骤 2</strong>设置密保</span>
+						<span class="r"></span>
+					</li>
+					<li class="ri">
+					</li>
+				</ul>
+				<div class="regCont">
+					<h3>密保问题设定</h3>
+					<div class="regSecurity">
+						<p>请选择问题并填写答案</p>
+						<ul class="clearfix" id="secruityContent">
+							<li class="question">
+	        					<div class="clearfix">
+	            					<label>问题一：</label>
+	            					<select>
+	            						<option value="-1">请选择问题</option>
+	            						<!--{$select}-->
+	            					</select>
+	            					<span class="error">请选择密保问题</span>
+	            				</div>
+	        					<div class="clearfix">
+	        						<label>答案：</label>
+	            					<input class="inputTxt" type="text" maxlength="40" />
+	            					<span class="error">不能少于两个字符</span>
+	        					</div>
+	        				</li>
+	        				<li class="question">
+	        					<div class="clearfix">
+	            					<label>问题二：</label>
+	            					<select>
+	            						<option value="-1">请选择问题</option>
+	            						<!--{$select}-->
+	            					</select>
+	            					<span class="error">请选择密保问题</span>
+	            				</div>
+	            				<div class="clearfix">
+	            					<label>答案：</label>
+	            					<input class="inputTxt" type="text" maxlength="40" />
+	            					<span class="error">不能少于两个字符</span>
+	            				</div>
+	        				</li>
+	        				<li class="question">
+	        					<div class="clearfix">
+	            					<label>问题三：</label>
+	            					<select>
+	            						<option value="-1">请选择问题</option>
+	            						<!--{$select}-->
+	            					</select>
+	            					<span class="error">请选择密保问题</span>
+	            				</div>
+	            				<div class="clearfix">
+	            					<label>答案：</label>
+	            					<input class="inputTxt" type="text" maxlength="40" />
+	            					<span class="error">不能少于两个字符</span>
+	            				</div>
+	        				</li>
+						</ul>
+						<p class="sear submit">
+							<input type="submit" id="secruitySave" value="保存设置" dkcode="<!--{$dkcode}-->" />
+						</p>
+					</div>
+					<div class="regAction clearfix">
+						<span class="return">
+								<a href="<!--{$return}-->">返回</a>
+							</span>
+						<span class="skip">
+							<a href="<!--{$next}-->">跳过此步</a>
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- end: regBody 注册区域主体结束 -->
+		</div>
+		<!-- end: modlueBody 结束 -->
+	</div>
+	<div class="sideArea">
+	</div>
+</div>
+
+
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/swfobject/AC_RunActiveContent.js?v=<!--{$js_css_v}-->" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		var secruitySave = $('#secruitySave'),			//保存按钮
+			questionItem = $('#secruityContent .question'),
+			questions = questionItem.find('select'),
+			answers = questionItem.find('input'),
+			options = questions.eq(0).find('option'),
+ 			optionsLen = options.length;
+
+		$('span.error').hide();
+		
+		questions.each(function(){
+			var _this = $(this),
+				len = questions.length;
+
+			_this.change(function(){
+				var val = [];
+
+				for(var i=0; i<len; i++){
+					if(questions[i].value !== -1){
+						val.push(questions[i].value);
+					}
+				}
+
+				for(var i=0; i<len; i++){
+					var vali = questions[i].value,
+						select = questions.eq(i),
+						thisOption = select.find('option'),
+						thisOptionLen = thisOption.length;
+
+					for(var k = 0; k<thisOptionLen; k++){
+						if(thisOption[k].value != vali && thisOption[k].value!= -1){
+							thisOption.eq(k).remove();
+						}
+					}
+
+					for(var k = 1; k<optionsLen; k++){
+						if(options[k].value == vali){continue;}
+						options.eq(k).clone(true).appendTo(select);
+					}
+
+					for(var j=0, vLen = val.length; j<vLen; j++){
+						if(vali !== val[j]){
+							select.find('option[value="' + val[j] + '"]').remove();
+						}
+					}
+				}
+			});
+		});
+		secruitySave.click(function(){
+			var data = {};
+			data.questions = [];
+			data.answers = [];
+
+			for(var i=0, len = questions.length; i<len; i++){
+				var aVal = $.trim(answers[i].value),
+					qVal = questions[i].value;
+				if(qVal<1){
+					questions.eq(i).next().show();
+					return false;
+				}
+				questions.eq(i).next().hide();
+
+				if(aVal.length<2){
+					answers.eq(i).next().show();
+					return false;
+				}
+				answers.eq(i).next().hide();
+				
+				data.questions.push(qVal);
+				data.answers.push(aVal);
+			}
+			data.dkcode = $(this).attr('dkcode');
+
+			for(var i= 0, len = data.answers.length; i<len; i++){
+				for(var j=i+1, jlen = data.answers.length; j<jlen; j++){
+					if(data.answers[i] == data.answers[j]){
+						$.alert('三个问题的答案不能一样，请您重新设置！');
+						return false;
+					}
+				}
+			}
+			$.djax({
+				url: mk_url('front/register/setmb'),
+				data: data,
+				success: function(data){
+					if(data.status === 1){
+						window.location.href = data.data;
+					}
+					if(data.status === 0){
+						$.alert(data.info);
+					}
+				}
+			});
+		});
+	});
+</script>
+<!--{/block}-->

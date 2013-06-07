@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户分享列表</title>
+<script type="text/javascript">
+
+var CONFIG = {};
+
+//路由用的域名
+CONFIG['domain'] = "<!--{$smarty.const.DOMAIN}-->";
+CONFIG['time'] = "<!--{$smarty.const.SYS_TIME}-->";
+
+//远程或本地运行
+CONFIG['local_run'] = <!--{intval($smarty.const.LOCAL_RUN)}-->;
+CONFIG['misc_path'] =  "<!--{$smarty.const.MISC_ROOT}-->";
+
+//网页ID
+CONFIG['web_id'] = "<!--{$js_config['web_id']}-->";
+
+//用户UID
+CONFIG['u_id'] = "<!--{$js_config['uid']}-->";
+
+//用户头像
+CONFIG['u_head'] = "<!--{$js_config['avatar']}-->";
+//用户端口号
+CONFIG['dkcode'] = "<!--{$js_config['dkcode']}-->";
+//用户姓名
+CONFIG['u_name'] = "<!--{$js_config['username']}-->";
+
+//被访问者的端口号
+CONFIG['action_dkcode'] = "<!--{$js_config['action_dkcode']}-->";
+CONFIG['fdfshost'] = '';
+CONFIG['fdfsGroup'] = '';
+</script>
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" media="screen,projection" />
+<!--以下为简洁评论样式 CSS 文件-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" media="screen,projection" />
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/init.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/jquery.min.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/common/utils.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--以下为发送好友请求JS-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/relation/relation.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/comment_easy_shareRequest.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+</head>
+
+<body style="background-color:#ffffff;height:400px;overflow-y:auto;">
+<input type="hidden" id="hd_pageCount" value="<!--{$pagecount}-->" />
+<input type="hidden" id="hd_commentID" value="<!--{$object_id}-->" />
+<input type="hidden" id="hd_pageType"  value="<!--{$object_type}-->"/>
+<input type="hidden" id="hd_actionUid"  value="<!--{$action_uid}-->"/>
+<div class="comment_likeList" id="comment_userList">
+  <ul>
+  </ul>
+  <!--{if $pagecount != 1}-->
+  <div class="more"><a href="#" id="loadMore">查看更多</a></div>
+  <!--{/if}-->
+</div>
+</body>
+</html>

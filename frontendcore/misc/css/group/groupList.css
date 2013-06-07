@@ -1,0 +1,30 @@
+/*
+ * Created on 2012-03-05
+ * @author： duxianwei
+ * @version： 1.0
+ * @desc：关注、粉丝、好友
+ */
+body{ background-color: #fff;}
+#group_nav{ display: none;}
+ /*群组列表*/
+ .group_search{padding:10px;height:25px;overflow:hidden;border-bottom:1px solid #ccc;background-color:#F2F2F2;text-align:right;}
+ .group_search_input{display:inline-block;height:24px; line-height:24px; border:1px solid #999; width:185px;padding-left:4px; background:#fff;}
+ .group_search_submit{display:inline-block;height:24px;line-height:20px;margin-left:10px;}
+ #modlueBody_group{ padding:28px;}
+ .group_mine{ background-color: #fff;width:792px;overflow: hidden;*margin-bottom:30px;}
+ .group_title{ font-size:14px;margin-bottom:30px;}
+ .group_title h4{font-size:14px;}
+ .group_mine_ul{ width:840px;}
+ .group_mine_ul li{ float:left;width:214px;height:63px;border:1px solid #bec7d8;padding:15px 8px;margin:0px 20px 30px 0px;overflow: hidden;}
+ .group_logo_a{width:62px;height:62px;display: block;float: left;padding:0px 8px 0px 0px;overflow: hidden;}
+ .group_mine_li_right{float: left;width:144px;}
+ .group_mine_li_right h5{ font-size:12px;color:#3a599a;margin-bottom:10px;width:144px;height:18px;;}
+ /*.group_mine_li_right h5 a{display:block;width:90px;float:left;height:18px;text-overflow:ellipsis;white-space: nowrap;overflow: hidden;}*/
+ .group_mine_li_right h5 span{color:#555;font-weight:400;}
+ .group_dl dd{float:left;width:45px;padding-left:20px;}
+ .group_dl .group_dl_dd_first{border-right:1px solid #d8dfea;padding:0px;}
+ .group_dl dd a{padding-left:5px;}
+ /*群首页*/
+.group{ background-color:#fff;}
+.group .showHeaderArea{ border:0;}
+.group_default{ padding:10px 0 0 0;}

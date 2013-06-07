@@ -1,0 +1,115 @@
+<!--群组右侧 开始-->
+<div class="group_index_r">
+	<div class="clearfix">
+		<div class="group_members_link clearfix">
+			<!--{if $group.invitation eq 1 and $group.creator eq $user.uid or $group.invitation neq 1}-->
+			<a href="javascript:void(0)" class="group_add"><img src="<!--{$smarty.const.MISC_ROOT}-->img/group/add_friends.png"></a>
+			
+			<!--{/if}-->
+			<a href="<!--{mk_url('group/index/member', ['gid' => $group.gid])}-->" class="members_account">
+				成员数 (<!--{$group.member_counts}-->)
+			</a>
+			
+			<!--{if $group.creator eq $user.uid}-->
+			<div class="group_manage_select">
+				<div class="group_manage_select_title"><a href="javascript:void(0)" ><span>群管理</span><i class="up"></i></a></div>
+				<ul class="group_manage_select_option hide">
+					<li><!--{if $group.chat_enable neq 1}-->
+						<a href="javascript:void(0)" class="group_chat_open" status="off">开启群聊</a>
+						<!--{else}-->
+						<a href="javascript:void(0)" class="group_chat_open">实时聊天</a>
+						<!--{/if}-->
+					</li>
+					<li><a href="<!--{mk_url('group/manage/index', ['gid' => $group.gid])}-->">资料设置</a></li>
+					<li><a href="<!--{mk_url('group/manage/members', ['gid' => $group.gid])}-->">成员管理</a></li>
+				</ul>
+			</div>
+			<!--{else}-->
+			<div class="group_manage_select">
+			<div class="group_manage_select_title"><a href="javascript:void(0)" ><span>群操作</span><i class="up"></i></a></div>
+				<ul class="group_manage_select_option hide">
+				<!--{if $group.chat_enable eq 1}-->
+					<li>
+						<a href="javascript:void(0)" class="group_chat_open">实时聊天</a>
+						
+					</li><!--{/if}-->
+					<li><a href="<!--{mk_url('group/index/quit', ['gid' => $group.gid])}-->">退出此群</a></li>
+				</ul>
+			</div>
+			<!--{/if}-->
+			
+			</div>	
+		<!--用户功能应用列表 开始-->
+		<div class="group_app">
+			<!--应用列表 开始-->
+			<div class="group_app_list">
+				<div class="group_right_ad" style="margin-bottom:0;"><h3 class="group_app_header clearfix"><span class="group_app_header-left">应用</span>
+					<!--{if $group.creator eq $user.uid}-->
+					<a href="<!--{mk_url('group/app/groupApps', ['gid'=>$group.gid])}-->"><img src="<!--{$smarty.const.MISC_ROOT}-->img/group/group_tool_icon.png"></a>
+					<!--{/if}-->
+				</h3>
+				</div>
+				<div class="group_app_list_wrap">
+					<ul class="group_list_ul">
+						<!--{foreach from=$apps item=app}-->
+						<li class="group_list_ul_li group_forum" postUrl="<!--{mk_url($app.url)}-->">
+							<a href="javascript:void(0)">
+								<span class="img_wrap"><img src="<!--{$app.icon}-->" /></span>
+								<div class="link_wrap"><!--{$app.name}--></div>
+							</a>
+						</li>
+						<!--{/foreach}-->
+						<!--{if $group.creator eq $user.uid}-->
+						<li class="group_list_ul_li group_create">
+							<a href="<!--{mk_url('group/app/apps', ['gid'=>$group.gid])}-->">
+								<span class="img_wrap"><img src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon_group_create.png" /></span>
+								<div class="link_wrap link_wrap_new_app">添加</div>
+							</a>
+						</li>
+						<!--{/if}-->
+					</ul>
+				</div>
+			</div>
+			<!--应用列表 开始-->
+			<!--{if $group.source_type neq FANS}-->
+			<!--子群列表 开始-->
+			<div class="group_son_list">
+				<div class="group_right_ad" style="margin-bottom:0;"><h3 class="group_app_header">子群</h3></div>
+				<div class="group_app_list_wrap">
+					<ul class="group_list_ul">
+	                    <!--{foreach from=$subgroup item=group}-->
+						<li class="group_list_ul_li group_financial">
+							<a href="<!--{mk_url('group/subgroup/index', ['sid'=>$group.sid])}-->">
+								<span class="img_wrap"><img src="<!--{$group.icon}-->" /></span>
+								<div class="link_wrap"><!--{$group.name}--></div>
+							</a>
+						</li>
+	                    <!--{/foreach}-->
+						<li class="group_list_ul_li group_create">
+							<a href="javascript:void(0)">
+								<span class="img_wrap"><img src="<!--{$smarty.const.MISC_ROOT}-->img/group/icon_group_create.png" /></span>
+								<div class="link_wrap link_wrap_son_group">新建</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--子群列表 结束-->
+			<!--{/if}-->
+		</div>
+		<!--用户功能应用列表 结束-->
+		
+		<div class="group_right_ad">
+		精选服务
+		</div>
+		
+		<div class="group_right_ad">
+		可能认识的人
+		</div>
+		
+		<div class="group_right_ad">
+		赞助链接
+		</div>
+	</div>
+</div>
+<!--群组右侧 结束-->

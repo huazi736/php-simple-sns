@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><!--{block name='title'}-->端口网<!--{/block}--></title>
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/common/base.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/popUp/popUp.css" rel="stylesheet" type="text/css" />
+<!--im用 css-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/im/im.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+var CONFIG = {};
+//CONFIG['uid'] = "";
+//CONFIG['dkcode'] = "";
+//CONFIG['username'] = "";
+//CONFIG['action_uid'] = "";
+//CONFIG['action_dkcode'] = "";
+//CONFIG['action_username'] = "";
+//路由用的域名
+CONFIG['domain'] = "<!--{$smarty.const.DOMAIN}-->";
+CONFIG['time'] = "<!--{$smarty.const.SYS_TIME}-->";
+//远程或本地运行
+CONFIG['local_run'] = <!--{intval($smarty.const.LOCAL_RUN)}-->;
+CONFIG['misc_path'] =  "<!--{$smarty.const.MISC_ROOT}-->";
+//网页ID
+CONFIG['web_id'] = "<!--{$js_config['web_id']}-->";
+//用户UID
+CONFIG['u_id'] = "<!--{$js_config['uid']}-->";
+//用户端口号
+CONFIG['dkcode'] = "<!--{$js_config['dkcode']}-->";
+//用户头像
+CONFIG['u_head'] = "<!--{$js_config['avatar']}-->";
+//用户姓名
+CONFIG['u_name'] = "<!--{$js_config['username']}-->";
+//被访问者的端口号
+CONFIG['action_dkcode'] = "<!--{$js_config['action_dkcode']}-->";
+//
+CONFIG['fdfshost'] = '';
+//
+CONFIG['fdfsGroup'] = '';
+//
+CONFIG['fdfsdomain'] = "<!--{$js_config['fastdfs_domain']}-->";
+//路由中的子域名
+CONFIG['subdomain'] = <!--{$js_config['subdomain']}-->;
+
+</script>
+<!--{block name='header_js'}--><!--{/block}-->
+<!--{block name='header_css'}--><!--{/block}-->
+</head>
+<body>
+<div id="header">
+	<div class="header">
+		<div class="topBar clearfix">
+			<!-- start LOGO 通知 、站内信、请求、导航、搜索  -->
+			<div class="nav_box clearfix">
+				<h1 id="logo"><a href="<!--{mk_url('main/index/main')}-->" title="首页">duankou</a></h1>
+				<!-- Start 通知 、站内信、请求 -->
+				<div id="jewelContainer" class="msg_box">
+					<div id="requestsJewel" class="jewel dropMenu" dataContent="requestsFlyout">
+						<a class="jewelButton triggerBtn" href="javascript:void(0)">
+							<span id="requestsCountWrapper" class="jewelCount"><span id="requestsCountValue">0</span></span>
+						</a>
+						<div id="requestsFlyout" class="jewelFlyout dropList">
+							<div class="clearfix uiHeaderBottomBorder jewelHeader">
+								<a style="display:none;" class="fr" href="javascript:void(0);">搜索朋友</a>
+								<div>
+									<h3 class="uiHeaderTitle">请求</h3>
+								</div>
+							</div>
+							<div class="invite">
+								 <ul class="invite_list">
+								 	
+								 </ul>
+							</div>
+							<div class="jewelFooter">
+								<a class="seeMore" href="javascript:void(0);"><span>查看所有朋友请求</span></a>
+							</div>
+						</div>
+					</div>
+					<div id="messagesJewel" class="jewel dropMenu" dataContent="messagesFlyout">
+						<a class="jewelButton triggerBtn" href="javascript:void(0)">
+							<span id="messagesCountWrapper" class="jewelCount" ><span id="messagesCountValue">0</span></span>
+						</a>
+						<div id="messagesFlyout" class="jewelFlyout dropList">
+							<div class="clearfix uiHeaderBottomBorder jewelHeader">
+								<a class="fr" id="jewelSendNewMessage" href="javascript:void(0);">发送新信息</a>
+								<div>
+									<h3 class="uiHeaderTitle">站内信</h3>
+								</div>
+							</div>
+							<ul class="jewelItemList">
+								
+							</ul>
+							<div class="jewelFooter">
+								<a class="seeMore" href="javascript:void(0);"><span>查看所有信息</span></a>
+							</div>
+						</div>
+					</div>
+					<div id="notificationsJewel" class="jewel dropMenu" dataContent="notificationsFlyout">
+						<a class="jewelButton triggerBtn" href="javascript:void(0)">
+							<span id="notificationsCountWrapper" class="jewelCount"><span id="notificationsCountValue">0</span></span>
+						</a>
+						<div id="notificationsFlyout" class="jewelFlyout dropList">
+							<div class="clearfix uiHeaderBottomBorder jewelHeader">
+								<div>
+									<h3 class="uiHeaderTitle">通知</h3>
+								</div>
+							</div>
+							<ul class="noticeItemList">
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- End 通知 、站内信、请求 -->
+				<!--{block name="navigation"}-->
+				<div id="headNav" class="unvisible">
+					<ul id="circleNav" class="circleNav"></ul>
+				</div>
+				<div class="fr">
+					
+					<!-- Start 右侧箭头下拉-->
+					<div id="pageNav" class="fl">
+						<ul>
+							<li>
+								<a id="topUserLink" class="topNavLink tinyman" href="<!--{mk_url('main/index/profile')}-->" title="个人主页" rel="uid_1234">
+									<img id="topUserAvatar" width="23" height="23" alt="头像" src="<!--{$js_config['avatar']}-->" >
+									<span id="topUserInfo" class="headerTinyName"><strong><!--{$js_config['username']}--></strong></span>
+								</a>
+							</li>
+							<li id="navAccount" class="dropMenu">
+								<a class="triggerBtn" id="navAccountTogger" href="javascript:void(0)"></a>
+								<ul id="subNavAccount" class="dropList">
+									
+									<li><a href="<!--{mk_url('main/invitecode/index')}-->">邀请码</a></li>
+									
+									<li><a href="<!--{mk_url('credit/credit/index')}-->">我的积分</a></li>
+			                        <!--{if $js_config['access'] eq 1}-->
+									<li><a href="<!--{mk_url('ads/adadmin/index')}-->">自助广告管理中心</a></li>
+			                        <!--{/if}-->
+									<li><a href="<!--{mk_url('main/setting/index')}-->">系统设置</a></li>
+									<li><a target="_blank" href="<!--{mk_url('main/help/index')}-->">帮助中心</a></li>
+									<li><a href="<!--{mk_url('feedback/main/index')}-->" id="user_feedback_a">用户反馈</a></li>
+									<li><a href="<!--{mk_url('front/index/dologout')}-->">退出</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!--end 右侧箭头下拉 -->
+				</div>
+				<!--{/block}-->
+			</div>
+			<!-- end LOGO、通知 、站内信、请求、导航、搜索  -->	
+			
+		</div>
+	</div>
+</div>
+
+<!--{block name='body'}--><!--{/block}-->
+<div id="footer" class="clearfix">
+	<!--{include file='block_footer.html'}-->
+</div>
+<!--{assign var=js_css_v value=time()}-->
+
+<!--------------------------------  IM 显示 html   start 【葛飞超 2012.07.09】-------------------------------->
+<div id="imContent">
+   <!--im 转至 js-->
+</div>
+<!--------------------------------  IM 显示 html   end 【葛飞超 2012.07.09】-------------------------------->
+
+
+
+<!--{$jsfiles[] = 'misc/js/jquery.min.js'}-->
+<!--{$jsfiles[] = 'misc/js/init.js'}-->
+<!--{$jsfiles[] = 'misc/js/common/utils.js'}-->
+<!--{$jsfiles[] = 'misc/js/plug/popUp/popUp.js'}-->
+<!--{$jsfiles[] = 'misc/js/plug/autocomplete/autocomplete.js'}-->
+<!--{$jsfiles[] = 'misc/js/message/messages.js'}-->
+<!--{$jsfiles[] = 'misc/js/plug/dk-ui/dk.uploader.js'}-->
+<!--{$jsfiles[] = 'misc/js/plug/jQuery-searcher/jQuery.searcher.js'}-->
+<!--{$jsfiles[] = 'misc/js/message/request_notice.js'}-->
+<!--{compile_js($jsfiles)}-->
+
+<!--{block name='footer_js'}--><!--{/block}-->
+<!--java 用户分析js-->
+<script type="text/javascript" src="http://192.168.12.30:8082/flow/js/json2.js"></script>
+<script type="text/javascript" src="http://192.168.12.30:8082/flow/js/statistics.js"></script>
+<!--im 调用js-->
+<script type="text/javascript"  src="/dksns-im-web/dwr/engine.js"></script>
+<script type="text/javascript"  src="/dksns-im-web/dwr/interface/DwrServlet.js"></script>
+<!--im 调用js-->
+<script type="text/javascript"  src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-cookie/jquery.cookie.js?v=<!--{$js_css_v}-->"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/im/im.js?v=<!--{$js_css_v}-->"  type="text/javascript"></script>
+<script type="text/javascript">
+	function logout() {
+		$.ajax({
+			url: mk_url('www/dksns-im-web/logout'),//webpath + 'dksns-im-web/logout',
+			timeout: 5000,
+			complete : function(){
+				window.location.href = mk_url('front/index/dologout');//"<!--{$smarty.const.WEB_ROOT}-->front/index.php?c=index&m=dologout";
+			}
+		})
+	}
+</script>
+
+</body>
+</html>

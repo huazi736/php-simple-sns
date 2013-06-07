@@ -1,0 +1,70 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/credits/credits.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix"> <span class="userImg"><a href="<!--{$userinfo['url']}-->"><img src="<!--{$userinfo['avatar']}-->" alt="" /></a></span>
+			<div class="userName"> <span class="nameTxt"><a href="<!--{$userinfo['url']}-->"><!--{$userinfo['action_username']}--></a></span> <span class="nameTxt"><a>端口积分</a></span> 
+				<!--<span class="nameTxt"><a class="selectClassBtn" id="selectClassBtn"></a></span>--> 
+			</div>
+		</div>
+		<div class="modlueBody p0 clearfix"> 
+			
+			<!-------------左侧栏-------------->
+			<div class="dk-siderBar">
+				<ul class="subNav">
+					<li><a href="<!--{mk_url('credit/credit/index')}-->">我的积分</a></li>
+					<li><a href="<!--{mk_url('credit/product/index')}-->">积分兑换</a></li>
+					<li><a href="<!--{mk_url('credit/credit/intro')}-->">成长体系介绍</a></li>
+					<li><a class="nav_current" href="<!--{mk_url('credit/credit/faq')}-->">常见问题</a></li>
+				</ul>
+			</div>
+			<!-------------主体-------------->
+			<div class="dk-main"> 
+				<!-------------用户特权-------------->
+				<div class="conBox">
+					<div class="conBox-tt">
+						<h3>常见问题</h3>
+					</div>
+					<div class="conBox-con">
+						<div class="pb15">
+							<p class="asks">1.什么是端口积分 ?</p>
+							<p class="answ">用户在端口网活跃度和贡献度的综合值，网友一旦登入注册为端口网的用户，其行为将于积分挂钩，同时积分也可以
+								用来提升等级，享受不同的特殊功能和服务。</p>
+						</div>
+						<div class="pb15">
+							<p class="asks">2.端口积分能享受特权吗 ?</p>
+							<p class="answ">目前端口网特权还在筹划中，即将推出，积分等级越高，享有的特权越多越丰富，敬请期待。</p>
+						</div>
+						<div class="pb15">
+							<p class="asks">3.关于邀请人于被邀请人注册的积分说明 ?</p>
+							<p class="answ">给出邀请码，邀请站外网友的用户获得邀请积分；获得邀请码注册端口网的用户则获得注册积分，并且系统默认双方
+								用户加关注。</p>
+						</div>
+						<div class="pb15">
+							<p class="asks">4.等级积分和可用积分的区别 ?</p>
+							<p class="answ">等级积分为用户在端口网的行为获得相应的积分，积分增长或减少只和用户行为相关，不能直接使用；可用积分为消耗积分，获得方式同等级积分，此积分用于积分兑换等活动，使用后相应的减少。</p>
+						</div>						
+					</div>
+				</div>
+				
+				<!-------------temp-------------->
+				
+
+				
+				<!---------------------------> 
+			</div>
+		</div>
+	</div>
+	<div class="sideArea"> sideArea </div>
+</div>
+
+<!--{/block}--> 
+
+<!--{block name='footer_js'}--> 
+
+<!--{/block}-->

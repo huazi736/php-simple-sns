@@ -1,0 +1,139 @@
+@charset "utf-8";
+/**
+ *@author: 李海棠
+ *@created: 2012/07/06
+ *@desc: 前端架构库
+ *@version: v1.0
+**/
+
+
+/*Start Reset*/
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0;
+}
+body {
+	font:12px/18px Tahoma, Verdana, Arial, sans-serif;
+	color:#333;
+	line-height:180%;
+}
+ul, ol { list-style:none; }
+input, select, textarea {
+	font-size:12px;
+	font-family:Tahoma, Verdana, Arial, sans-serif;
+	resize:none;
+	outline:none;
+	line-height:180%;
+}
+img {
+	border:none;
+	vertical-align:middle;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+a, a:hover {
+	text-decoration:none;
+	color:#3B5998;
+	cursor:pointer;
+	line-height:180%;
+}
+/*End Reset*/
+
+/*Start common*/
+.clearfix:after {
+	clear:both;
+	content:".";
+	display:block;
+	height:0;
+	line-height:0;
+	font-size:0;
+	visibility:hidden;
+}
+.clearfix { zoom:1; }
+.frameZoom {
+	-moz-transform:scale(0.2038735, 0.2038735);
+	-webkit-transform:scale(0.2038735, 0.2038735) translate(0, 0);
+	zoom:0.2038735;
+}
+/*End common*/
+
+/*Start frame*/
+.frame {
+	width:1151px;
+	height:auto;
+	margin:0 auto;
+	overflow-x:hidden;
+}
+.frame ul.frameThumb { white-space:nowrap; }
+.frame ul.frameThumb li {
+	display:inline-block;
+	_display:inline;
+	_zoom:1;
+	width:200px;
+	height:324px;
+	margin-right:20px;
+	position:relative;
+	border:4px solid #FFF;
+}
+.frame ul.frameThumb li iframe {
+	width:200px;
+	height:324px;
+	border:none;
+	overflow:hidden;
+}
+.frame ul.frameThumb li a {
+	display:block;
+	width:200px;
+	height:324px;
+	border:5px solid #f2f2f2;
+	border-radius:5px;
+	position:absolute;
+	top:-4px;
+	left:-4px;
+	box-shadow:1px 1px 1px #CCC;
+}
+.frame ul.frameThumb li a:hover {
+	border:5px solid #999;
+	box-shadow:3px 3px 5px #CCC;
+}
+.frame ul.frameThumb li span {
+	display:block;
+	text-align:center;
+	font-size:14px;
+	padding-top:10px;
+	font-weight:bold;
+	font-family:'微软雅黑';
+	text-shadow:1px 1px 1px #CCC;
+}
+/*End frame*/
+
+/*Start solid control*/
+.frameSolid {
+	display:block;
+	padding-top:50px;
+	text-align:center;
+}
+.frameSolid ul {
+	display:inline-block;
+	_display:inline;
+	_zoom:1;
+	width:auto;
+	padding:0 10px;
+	background:#666666;
+	border-radius:5px;
+}
+.frameSolid li {
+	display:inline;
+	line-height:20px;
+	font-size:20px;
+	cursor:pointer;
+	color:#FFF;
+}
+.frameSolid li.selected { color:#F60; }
+/*End solid control*/
+
+/*Start btnLib*/
+
+/*End btnLib*/

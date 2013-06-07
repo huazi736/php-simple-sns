@@ -1,0 +1,22 @@
+<ul class="DK_dish">
+<li class="groupPic dish_pic">
+	<span class="DKcan_img dishImg">点击添加图片</span>
+	<span class="DKcan_imgOK dishImgOk">图片添加成功<a href="javascript:;" class="reAddGroup">重新上传</a></span>
+	<form  class="DK_bite formUpload" action="" method="post" enctype="multipart/form-data">
+		<span class="uploadWrap">
+		<input type="file" class="fileUpload" name="Filedata" accept="images/jpg,images/png,images/gif">
+		</span>
+	</form>
+</li>
+<li class="dish_title DK_xform"><label>请输入菜品名称</label><input type="text" id="dish_title"  value="" /></li>
+<li class="dish_price DK_xform"><label>请输入价格</label><input type="text" id="dish_price" value="" /></li>
+<li class="dish_cais"><label iid="" id="dish_cais">请选择菜系</label></li>
+<li class="dish_decs DK_xform"><label>请输入描述信息</label><input type="text" id="dish_decs" name="name"  value="" /></li>
+</ul>
+<script>
+
+$(function(){	
+	Dmimi.dinnerInit();
+	$('.DK_xform').xform();
+});
+</script>

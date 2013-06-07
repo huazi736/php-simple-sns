@@ -1,0 +1,370 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+用户资料-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/userwiki/style_userwiki.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/tip/jquery.tip.css?v=<!--{$smarty.const.CSS_VER}-->" rel="stylesheet" type="text/css" media="screen,projection" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix">
+<div class="mainArea">
+			<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$link_url}-->"><img src="<!--{$datas['image']}-->" alt="" /></a></span>
+				<div class="userName">
+					<span class="nameTxt"><a href="<!--{$link_url}-->"><!--{$datas['user']['usr_name']}--></a></span>
+					<span class="nameTxt"><!--{if isset($datas['isSelf'])}-->编辑资料<!--{else}-->查看资料<!--{/if}--></span>					
+					<input type="hidden" id="timeArr" value="<!--{$timeModel}-->" />
+				</div>
+			</div>
+			<div class="modlueBody">
+				<div id="wikicontentWrap" class="clearfix timelinewiki wikicontentWrap">
+					<div id="timelinewikiL" class="fl">
+						<!--start:教育情况-->
+						<div class="dkUserwikiSection mtm" id="schoolInfo">
+							<div class="dkUserwikiSectionHeader">
+								<div class="shareSetting fr">
+									<!--{if isset($datas['isSelf']) && isset($datas['permission_value']['edu']['object_content'])}-->
+									<div type="edu" class="dropWrap dropMenu dataPermission" oid="<!--{$datas['user']['uid']}-->" s="<!--{$datas['permission_value']['edu']['object_type']}-->" uid="<!--{join(',',$datas['permission_value']['edu']['object_content'])}-->"></div>
+									<!--{/if}-->
+								</div>
+								<h4 block="education"><i class="uiHeaderImage sx_0"></i>教育情况</h4>
+							</div>
+                        	<!--{if $datas['permission']['edu'] == 1}-->
+							<!--{if isset($datas['edu']['university']) or isset($datas['edu']['primaryschool']) or isset($datas['edu']['highschool'])}-->
+							<ul class="uiList">
+								<li>
+									<div>
+									<!--{if isset($datas['isSelf'])}--><input type="text" class="custom " default="您在哪儿念的大学？" value="您在哪儿念的大学？" id="college"><!--{/if}-->
+									</div>
+									
+									<ul id="collegeList" block="university">
+										<!--{if isset($datas['edu']['university'])}-->
+										<!--{foreach from=$datas.edu.university item=s}-->
+										<li type="0" tid="<!--{$s.id}-->" id="<!--{$s.schoolid}-->" class="uiListItem" pid="<!--{$s.area_id}-->">
+											<div class="clearfix pds">
+												<a class="dkSchImageBlock"><img width="50" height="50" src="<!--{$smarty.const.MISC_ROOT}-->img/system/editPageIcon2.png"></a>
+												<div class="dkContentBlock">
+													<h5 class="itemHead"><span name="school_name"><!--{$s.schoolname}--></span><!--{if isset($datas['isSelf'])}--> <i class="dkUserwikiEditIcon mls"></i>   <span class="ui_closeBtn_box"><i class="ui_closeBtn png" style="display: none; background-position: 0px 0px;"></i></span><!--{/if}--></h5>
+													<div>
+														<span class="weak_txt"><span name="school_department"><!--{$s.department}--></span></span>
+														<span class="weak_txt"><span name="school_year" key="<!--{$s.department}-->"><!--{date('Y',$s.starttime)}--></span>年<span name="school_month" key="<!--{date('m',$s.starttime)}-->"><!--{date('m',$s.starttime)}--></span>月入学(<span key="<!--{$s.edulevel}-->" name="eduCation_c"><!--{returnInfomation('school','univeristy_level',$s.edulevel)}--></span>)</span>
+														<div class="weak_txt">同班同学：<div name="classmate" class="breakWord classmate" id="<!--{$s['ids']}-->"><!--{if isset($s.classmate)}--><!--{foreach from=$s.classmate item=j}--><!--{if $j}--><!--{$j}--><!--{/if}--><!--{/foreach}--><!--{/if}--></div></div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<!--{/foreach}-->
+										 <!--{/if}-->
+									</ul>
+                                  
+								</li>
+								<li>
+									<div>
+										<!--{if isset($datas['isSelf'])}-->	<input type="text" class="custom" default="您在哪儿念的中学？" value="您在哪儿念的中学？" id="highSchool"><!--{/if}-->
+									</div>
+									
+									<ul id="midSchoolList" block="highSchool">
+										<!--{if isset($datas['edu']['highschool'])}-->
+										<!--{foreach from=$datas.edu.highschool item=s}-->
+										<li type="1" class="uiListItem" tid="<!--{$s.id}-->" id="<!--{$s.schoolid}-->">
+											<div class="clearfix pds">
+												<a class="dkSchImageBlock"><img width="50" height="50" src="<!--{$smarty.const.MISC_ROOT}-->img/system/editPageIcon2.png"></a>
+												<div class="dkContentBlock">
+													<h5 class="itemHead"><span name="school_name"><!--{$s.schoolname}--></span><!--{if isset($datas['isSelf'])}--> <i class="dkUserwikiEditIcon mls"></i><span class="ui_closeBtn_box"><i class="ui_closeBtn png" style="display: none;"></i></span><!--{/if}--></h5>
+													<div>
+														<span class="weak_txt"><span name="school_year" key="<!--{$s.starttime}-->"><!--{date('Y',$s.starttime)}--></span>年<span name="school_month" key="<!--{date('m',$s.starttime)}-->"><!--{date('m',$s.starttime)}--></span>月入学(<span key="<!--{$s.edulevel}-->" name="eduCation_m"><!--{returnInfomation('school','heighschool_level',$s.edulevel)}--></span>)</span>
+														<div class="weak_txt">同班同学：<div name="classmate" class="breakWord name classmate" id="<!--{$s['ids']}-->"><!--{if isset($s.classmate)}--><!--{foreach from=$s.classmate item=j}--><!--{if $j}--><!--{$j}--><!--{/if}--><!--{/foreach}--><!--{/if}--></div></div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<!--{/foreach}-->
+										<!--{/if}--> 
+									</ul>
+								</li>
+								<li>
+									<div>
+								<!--{if isset($datas['isSelf'])}--><input type="text" class="custom" default="您在哪儿念的小学？" value="您在哪儿念的小学？" id="primarySchool"><!--{/if}-->
+									</div>
+									
+									<ul id="gradeSchoolList" block="primarySchool">
+										<!--{if isset($datas['edu']['primaryschool'])}-->
+										<!--{foreach from=$datas.edu.primaryschool item=s}-->
+										<li type="2" tid="<!--{$s.id}-->" class="uiListItem" id="<!--{$s.schoolid}-->">
+											<div class="clearfix pds">
+												<a class="dkSchImageBlock"><img width="50" height="50" src="<!--{$smarty.const.MISC_ROOT}-->img/system/editPageIcon2.png"></a>
+												<div class="dkContentBlock">
+													<h5 class="itemHead"><span name="school_name"><!--{$s.schoolname}--></span><!--{if isset($datas['isSelf'])}--> <i class="dkUserwikiEditIcon mls"></i><span class="ui_closeBtn_box"><i class="ui_closeBtn png" style="display: none;"></i></span><!--{/if}--></h5>
+													<div>
+														<span class="weak_txt"><span name="school_year" key="<!--{$s.starttime}-->"><!--{date('Y',$s.starttime)}--></span>年<span name="school_month" key="<!--{date('m',$s.starttime)}-->"><!--{date('m',$s.starttime)}--></span>月入学(<span key="<!--{$s.edulevel}-->" name="eduCation_m"><!--{returnInfomation('school','primaryschool',$s.edulevel)}--></span>)</span>
+														<div class="weak_txt">同班同学：<div name="classmate" class="breakWord name classmate" id="<!--{$s['ids']}-->"><!--{if isset($s.classmate)}--><!--{foreach from=$s.classmate item=j}--><!--{if $j}--><!--{$j}--><!--{/if}--><!--{/foreach}--><!--{/if}--></div></div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<!--{/foreach}-->
+										<!--{/if}-->
+									</ul>
+									
+								</li>
+							</ul>
+							<!--{else}-->
+								<!--{if isset($datas['isSelf'])}-->
+							<ul class="uiList">
+								<li>
+									<div>
+										<input type="text" class="custom " default="您在哪儿念的大学？" value="您在哪儿念的大学？" id="college" />
+									</div>
+									<ul id="collegeList" block="university"></ul>
+								</li>
+								<li>
+									<div>
+										<input type="text" class="custom" default="您在哪儿念的中学？" value="您在哪儿念的中学？" id="highSchool" />
+									</div>
+									<ul id="midSchoolList" block="highSchool"></ul>
+								</li>
+								<li>
+									<div>
+										<input type="text" class="custom" default="您在哪儿念的小学？" value="您在哪儿念的小学？" id="primarySchool" />
+									</div>
+									<ul id="gradeSchoolList" block="primarySchool"></ul>
+								</li>
+							</ul>
+								<!--{else}-->
+							<div class="nodata">该用户尚未填写资料</div>
+								<!--{/if}-->
+                            <!--{/if}-->
+							<!--{else}-->
+							<div class="nodata">该用户设置了查看权限</div>
+							<!--{/if}-->
+						</div>
+						<!--end:教育情况-->
+
+						<!--start:工作情况-->
+                        <div id="jobInfo" class="dkUserwikiSection mtm" today="<!--{$today}-->">
+							<div class="dkUserwikiSectionHeader">
+								<div class="shareSetting fr">
+									<!--{if isset($datas['isSelf']) && isset($datas['permission_value']['job']['object_content'])}-->
+									<div type="job" class="dropWrap dropMenu dataPermission" oid="<!--{$datas['user']['uid']}-->" s="<!--{$datas['permission_value']['job']['object_type']}-->" uid="<!--{join(',',$datas['permission_value']['job']['object_content'])}-->"></div>
+									<!--{/if}-->
+								</div>
+								<h4 block="education"><i class="uiHeaderImage sx_0"></i>工作情况</h4>
+							</div>
+                        	<!--{if $datas['permission']['job'] == 1}-->
+							<!--{if !empty($datas['work'])}-->
+							<ul class="uiList" block="job">
+								<li>
+									<div>
+									<!--{if isset($datas['isSelf'])}--><input type="text" class="custom " default="您曾经在哪儿就职？" value="您曾经在哪儿就职？" id="company"><!--{/if }-->
+									</div>
+									<ul id="jobList" block="job">
+                                        <!--{foreach from=$datas.work item=i}-->
+										<li id="44" tid="<!--{$i.id}-->" class="uiListItem" id="<!--{$i.companyid}-->">
+											<div class="clearfix pds">
+												<a class="dkSchImageBlock"><img width="50" height="50" src="<!--{$smarty.const.MISC_ROOT}-->img/system/editPageIcon1.png"></a>
+												<div class="dkContentBlock">
+													<h5 class="itemHead"><span name="company"><!--{$i.company}--></span><!--{if isset($datas['isSelf'])}--><i class="dkUserwikiEditIcon mls"></i><span class="ui_closeBtn_box"><i class="ui_closeBtn png" style="display: none;"></i></span><!--{/if}--></h5>
+													<div>
+														<span class="weak_txt"><span name="time_y_s" key="<!--{date('Y',$i.starttime)}-->"><!--{date('Y',$i.starttime)}--></span>年<span name="time_m_s" key="<!--{date('m',$i.starttime)}-->"><!--{date('m',$i.starttime)}--></span>月&mdash;&mdash;<!--{if $i.endtime neq 0 }--><span key="<!--{date('Y',$i.endtime)}-->" name="time_y_e"><!--{date('Y',$i.endtime)}--></span> 年<span key="<!--{date('m',$i.endtime)}-->" name="time_m_e"><!--{date('m',$i.endtime)}--></span>月<!--{else}--><span name="today">至今</span><!--{/if}--></span>
+														<span class="weak_txt"><span key="<!--{$i.trade}-->" name="industry"><!--{returnInfomation('info','company_trade',$i.trade)}--></span> <span name="position"><!--{$i.department}--></span></span>
+														<!--{if $i.endtime == 0}--><div class="weak_txt">目前同事：
+                                                        <div name="colleague" class="breakWord colleague" id="<!--{$i.ids}-->"><!--{if isset($i.workmate) }--><!--{foreach from=$i.workmate item=j }--><!--{if $j}--><!--{$j}--><!--{/if}--><!--{/foreach}--><!--{/if}--></div></div><!--{/if}-->
+													</div>
+												</div>
+											</div>
+										</li>
+                                    <!--{/foreach}-->                           
+									</ul>
+								</li>
+							</ul>
+							<!--{else}-->
+								<!--{if isset($datas['isSelf'])}-->
+							<ul class="uiList" block="job">
+								<li>
+									<div>
+										<input type="text" class="custom " default="您曾经在哪儿就职？" value="您曾经在哪儿就职？" id="company">
+									</div>
+									<ul id="jobList" block="job"></ul>
+								</li>
+							</ul>
+								<!--{else}-->
+							<div class="nodata">该用户尚未填写资料</div>
+								<!--{/if}-->
+                            <!--{/if}-->
+						   <!--{else}-->
+							<div class="nodata">该用户设置了查看权限</div>
+							<!--{/if}-->
+						</div>
+						<!--end:工作情况-->
+
+						<!--start:家庭关系-->
+						<div id="relationships" class="dkUserwikiSection mtm">
+							<div class="dkUserwikiSectionHeader">
+								<div class="shareSetting fr">
+									<!--{if isset($datas['isSelf']) && isset($datas['permission_value']['relative']['object_content'])}-->
+									<div type="relative" class="dropWrap dropMenu dataPermission" oid="<!--{$datas['user']['uid']}-->" s="<!--{$datas['permission_value']['relative']['object_type']}-->" uid="<!--{join(',',$datas['permission_value']['relative']['object_content'])}-->"></div>
+									<!--{/if}-->
+								</div>                              
+								<h4 block="relationships"><i class="uiHeaderImage sx_1"></i>家庭关系<!--{if isset($datas['isSelf'])}--><i id="addRelationships" class="dkUserwikiEditIcon ml5 dkUserwikiRelationships"></i><!--{/if}--></h4>
+							</div>
+                            <ul class="uiList" id="memerberList">                            
+							<!--{if $datas['permission']['relative'] == 1 && (!empty($datas['relative']) || !isset($datas['isSelf']))}-->	
+                            <!--{if $datas['relative']}-->						
+                           		<!--{foreach from=$datas['relative'] item=r}-->
+								<li class="familyMemeber clearfix" uid="<!--{$r['uid']}-->">                                 
+									<img src="<!--{if $r['face']}--><!--{$r['face']}--><!--{else}--><!--{$smarty.const.MISC_ROOT}-->img/default/nv_s.gif<!--{/if}-->" width="50" height="50" />
+									<div class="info">                                    
+                                        <a href="<!--{mk_url('main/index/profile',['dkcode'=>$r['dkcode']])}-->"><!--{$r['username']}--></a>										
+										<span value="<!--{$r['type']}-->"><!--{$r['typeMember']}--></span>
+									</div>                      
+								</li>
+                           		<!--{/foreach}-->
+                                <!--{else}-->
+                                <div class="nodata">该用户尚未填写资料</div>
+                                <!--{/if}-->
+                            <!--{/if}-->                            
+							</ul>                           
+							
+							<div id="nomemerber" 
+                            class="clearfix uiList <!--{if $datas['permission']['relative'] == 0 || (!empty($datas['relative']) || !isset($datas['isSelf']))}--> hideEle <!--{/if}-->">
+								<a class="dkSchImageBlock"><img width="50" height="50" src="<!--{$smarty.const.MISC_ROOT}-->img/system/editPageIcon7.png"></a>
+								<span class="addRelationships dkUserwikiRelationships">添加家庭成员</span>
+							</div>							
+                           <!--{if $datas['permission']['relative'] == 0}-->	
+							<div class="nodata">该用户设置了查看权限</div>
+                            <!--{/if}-->							
+						</div>
+						<!--end:家庭关系-->
+					</div>
+					<div id="timelinewikiR" class="fl">
+						<!--start:基本资料-->
+						<div class="dkUserwikiSection mtm">
+							<div class="dkUserwikiSectionHeader">
+								<div class="shareSetting fr">
+									<!--{if isset($datas['isSelf']) && isset($datas['permission_value']['base']['object_content'])}-->
+									<div type="base" class="dropWrap dropMenu dataPermission" oid="<!--{$datas['user']['uid']}-->" s="<!--{$datas['permission_value']['base']['object_type']}-->" uid="<!--{join(',',$datas['permission_value']['base']['object_content'])}-->"></div>
+									<!--{/if}-->
+								</div>
+								<h4>基本资料<!--{if isset($datas['isSelf'])}--><i class="dkUserwikiEditIcon ml5 dkUserwikiBacicInfo"><!--{/if}--></i></h4>
+							</div>
+							<!--{if $datas['permission']['base'] == 1}-->
+							<table class="mvl dkUserwikiSectionContentTable" id="basicInfoForm">
+								<tbody>
+									<tr>
+										<th class="label">姓名</th>
+										<td class="data" name="name"><!--{$datas['user']['usr_name']}--></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<th class="label">性别</th>
+										<td class="data" name="sex" val="<!--{$datas['user']['sex_val']}-->"><!--{$datas['user']['usr_sex']}--></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<th class="label">出生日期</th>
+										<td id="birthday" class="data" name="birth"><!--{if $datas['user']['usr_birthday'] neq 0}--><!--{date('Y-m-d',$datas['user']['usr_birthday'])}--><!--{/if}--></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<th class="label">婚恋状况</th>
+										<td class="data" name="love" val="<!--{if isset($datas['user']['ismarry']) and $datas['user']['ismarry'] eq 0}-->-1<!--{else}--><!--{$datas['user']['ismarry_val']}--><!--{/if}-->"><!--{$datas['user']['usr_ismarry']}--></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<th class="label">有无儿女</th>
+										<td class="data" name="children" val="<!--{if $datas['user']['haschildren_val'] eq 0}-->-1<!--{else}--><!--{$datas['user']['haschildren_val']}--><!--{/if}-->"><!--{$datas['user']['usr_haschildren']}--></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<th class="label">家乡</th>
+										<td class="data" name="hometown" val="<!--{$datas['user']['usr_home_nation']}-->"><!--{$datas['user']['usr_home_nation']}--></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<th class="label">现居住地</th>
+										<td class="data" name="residence" val="<!--{$datas['user']['usr_now_nation']}-->"><!--{$datas['user']['usr_now_nation']}--></td>
+									</tr>
+								</tbody>
+							</table>
+							<!--{else}-->
+							<div class="nodata">该用户设置了查看权限</div>
+							<!--{/if}-->
+						</div>
+						<!--end:基本资料-->
+						<!--start:自我介绍-->
+						<div class="dkUserwikiSection mtm">
+							<div class="dkUserwikiSectionHeader">
+								<div class="shareSetting fr">
+									<!--{if isset($datas['isSelf']) && isset($datas['permission_value']['private']['object_content'])}-->
+									<div type="private" class="dropWrap dropMenu dataPermission" oid="<!--{$datas['user']['uid']}-->" s="<!--{$datas['permission_value']['private']['object_type']}-->" uid="<!--{join(',',$datas['permission_value']['private']['object_content'])}-->"></div>
+									<!--{/if}-->
+								</div>
+								<h4 block="intro">自我介绍<!--{if isset($datas['isSelf'])}--><i class="dkUserwikiEditIcon ml5 dkUserwikiIntroInfo"></i><!--{/if}--></h4>
+							</div>
+							<!--{if $datas['permission']['private'] == 1}-->
+                                         <div class="dkUserwikiSectionBody">
+                                             <!--{if !empty($datas['introduction'])}-->
+                                                <div id="introYour" name="introduction" ><p class="breakWord"><!--{$datas['introduction']}--></p></div>					
+                                             <!--{else}-->
+							 					<div id="introYour" name="introduction"><p>说说自己吧</p></div>							 					
+                                             <!--{/if}-->
+                                          </div>   
+							<!--{else}-->
+							<div class="nodata">该用户设置了查看权限</div>
+							<!--{/if}-->
+						</div>
+						<!--end:私密资料-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sideArea">
+		<!--sideArea为广告区域-->
+	</div>
+</div>
+
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+	<!--start:资料编辑专用js-->
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-tip/dk.tip.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/userwiki/family_relationship.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/userwiki/userwiki.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/setyear/setyear.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/common/validator.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/area-utils/area_utils.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-textAreaHeight/jQuery.textAreaHeight.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+	<!--end:资料编辑专用js-->
+	<!--start:教育，工作数据-->
+	<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/school_company/school_company.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+	<!--end:教育，工作数据-->
+	<!--start:权限设置相关js-->
+	<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/autocomplete/autocomplete.js?v=<!--{$smarty.const.JS_VER}-->"></script>
+	<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-searcher/ViolenceSearch.js?v=<!--{$smarty.const.JS_VER}-->"></script>
+	<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/friends_list/friends_list.js?v=<!--{$smarty.const.JS_VER}-->"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			$('div.dataPermission').each(function(){
+				var _this = this;
+				$(_this).dropdown({
+					permission:{
+						type: $(_this).attr("type"),
+						url: mk_url('user/userwiki/setPermission'),
+						im: true,
+						dataType:'jsonp'
+					}
+				});
+			});
+		})
+		
+	</script>
+	<!--end:权限设置相关js-->
+<!--{/block}-->

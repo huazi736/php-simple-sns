@@ -1,0 +1,96 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/credits/credits.css?<!--{time()}-->" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix"> <span class="userImg"><a href="<!--{$userinfo['url']}-->"><img src="<!--{$userinfo['avatar']}-->" alt="" /></a></span>
+			<div class="userName"> <span class="nameTxt"><a href="<!--{$userinfo['url']}-->"><!--{$userinfo['action_username']}--></a></span> <span class="nameTxt"><a>端口积分</a></span> 
+				<!--<span class="nameTxt"><a class="selectClassBtn" id="selectClassBtn"></a></span>--> 
+			</div>
+		</div>
+		<div class="modlueBody p0 clearfix"> 
+			
+			<!-------------左侧栏-------------->
+			<div class="dk-siderBar">
+				<ul class="subNav">
+					<li><a href="<!--{mk_url('credit/credit/index')}-->">我的积分</a></li>
+					<li><a class="nav_current" href="<!--{mk_url('credit/product/index')}-->">积分兑换</a></li>
+					<li><a href="<!--{mk_url('credit/credit/intro')}-->">成长体系介绍</a></li>
+					<li><a href="<!--{mk_url('credit/credit/faq')}-->">常见问题</a></li>
+				</ul>
+			</div>
+			<!-------------主体-------------->
+			<div class="dk-main"> 
+				<div class="conBox">
+					<div class="conBox-tt clearfix">
+						<h3 class="fl">收货地址</h3>
+						<ul class="nav_s fr">
+							<li><a href="#">主题活动</a>
+								<div></div>
+							</li>
+							<li><a href="<!--{mk_url('credit/redeem/index')}-->">兑换记录</a></li>
+						<li><a class="last" href="<!--{mk_url('credit/address/index')}-->">收货地址</a></li>
+						</ul>
+					</div>
+					<div class="conBox-con">
+						<div class="intros">
+							<h4>个人资料</h4>
+							<p>请在这里填写常用地址，并选一个首选地址，当您兑换实物礼品，系统将礼品快递到您的首选地址，请务必填写正确。</p>
+						</div>
+						<div class="mt20">
+							<p class="fcb pb15">已保存的有效地址</p>
+							<table id="a-table">
+								<tbody>
+									<tr id="a-table-tt" class="bgc2">
+										<th width="12%" class="a-table-tt">姓名</th>
+										<th width="23%" class="a-table-tt">地址</th>
+										<th width="15%" class="a-table-tt">手机号码</th>
+										<th width="23%" class="a-table-tt">家庭电话</th>
+										<th width="" class="a-table-tt">操作</th>
+									</tr>
+									<!--{foreach $addresses as $address}-->
+									<tr class="addressItem">
+										<td><span class="uname"><!--{$address.uname|escape}--></span></td>
+										<td ><span class="province"><!--{$address.province|escape}--></span><span class="city"> <!--{$address.city|escape}--></span><span class="area"> <!--{$address.area|escape}--></span> <span class="street"><!--{$address.street|escape}--></span></td>
+										<td><span class="mob"><!--{$address.mob|escape}--></span></td>
+										<td><span class="area_code"><!--{$address.area_code|escape}--> </span>- <span class="tel"><!--{$address.tel|escape}--></span> - <span class="extension"><!--{$address.extension|escape}--></span></td>
+										<td>
+											<!--{if $address.priority eq 0}-->
+												<span class="setAddress handBtn set_w" time="<!--{$address.time}-->">设为首选地址</span>
+											<!--{else}-->
+												<span class="setAddress handBtn set_w" time="<!--{$address.time}-->">设为首选地址</span>
+											<!--{/if}-->
+												<span class="ediAddress handBtn" time="<!--{$address.time}-->" province="<!--{$address.province|escape}-->" uname="<!--{$address.uname|escape}-->" mob="<!--{$address.mob|escape}-->" pcode="<!--{$address.pcode|escape}-->" 
+													 city="<!--{$address.city|escape}-->" area="<!--{$address.area|escape}-->" street="<!--{$address.street|escape}-->" area_code="<!--{$address.area_code|escape}-->" tel="<!--{$address.tel|escape}-->" extension="<!--{$address.extension|escape}-->" priority="<!--{$address.priority}-->">修改</span>
+												<span class="delAddress handBtn" time="<!--{$address.time}-->">删除</span>
+											</td>
+									</tr>
+									<!--{foreachelse}-->
+										<tr id="nodata">
+											<td colspan="5">请添加相关的地址信息！</td>
+										</tr>
+									<!--{/foreach}-->
+								</tbody>
+							</table>
+						</div>
+						<div class="mt20"><div class="clearfix"><span id="addNewAddress" class="blueBtn">添加新地址</span></div></div>
+					</div>
+				</div>
+				<!---------------------------> 
+			</div>
+		</div>
+	</div>
+	<div class="sideArea"> sideArea </div>
+</div>
+
+<!--{/block}--> 
+
+<!--{block name='footer_js'}--> 
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/area-utils/area_utils.js"></script> 
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/plug/popUp/popUp.js"></script> 
+<script type="text/javascript" src="<!--{$smarty.const.MISC_ROOT}-->js/credits/credit_address.js"></script> 
+<!--{/block}-->

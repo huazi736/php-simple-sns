@@ -1,0 +1,212 @@
+/**
+ * @author:    wangwb(w.hoby@qq.com)
+ * @created:   2011/12/15
+ * @version:   v1.0
+ * @desc:      活动
+ */
+ 
+/*----------------------------------活动（public移入）----------------------------------*/ 
+input, select { vertical-align:middle; overflow-x:visible; }
+.hideEle { display:none; }
+.showEle { display:block; }
+#leftCol { word-wrap:break-word; width:179px; min-height:600px; float:left; padding:20px 0 0 2px; display:block; }
+#rightCol { float:right; width:244px; word-wrap:break-word; }
+.hasRightCol #rightCol { padding-right:0px; margin-top:0; }
+.hasRightCol .homeRightCol { padding-top:10px; }
+.hasRightCol #contentArea { width:495px; padding-right:0; float:left; margin-right:0; }
+
+/***********************************活动 （创建）****************************/
+.eventEditTable em{color:#f00; margin-right:4px;}
+.modlueBody{overflow:visible !important;}
+.compactPeople{height:175px; *height:170px; overflow:scroll; overflow-x:hidden;}
+.admin{background:#E2E6F0; border: 1px solid #9DACCC; border-radius: 2px 2px 2px 2px; display: inline-block; height: 14px; margin: 2px 2px 0 0; padding: 3px; *float:left;}
+.timeInfo{padding:20px 20px;}
+#endtimeInfo{color:#999;}
+.eventName{padding:0 8px;}
+#btnEventSave{*width:55px;}
+/**下拉时间列表**/
+.timeSelect{display:inline-block; width:60px; position:relative;}
+.ieInline{*display:inline; zoom:1;}
+.timeValue{border:1px solid #ccc; padding:4px 0; *padding:2px 0; position:absolute; top:-15px; *top:-17px; background:#fff; width:55px; cursor:default;}
+.timeValue i{background: url("../../img/system/timeList.png") no-repeat; position:absolute; left:40px; top:8px; display:inline-block; height:5px; width:9px;}
+.timeValue span{height:18px; line-height:14px; margin-left:4px;}
+.timeList{border:1px solid #ccc; position:absolute; top:19px; z-index:10; left:-1px; background:#fff; width:55px; height:300px; overflow-y:scroll;}
+.timeList ul li{padding-left:5px; cursor:default;}
+.timeList ul li.hov{background:#3B5998; color:#fff;}
+.hide{display:none;}
+.zindex{z-index:2;}
+/*----------------------------------活动（列表）----------------------------------*/
+#event{padding:0px 20px;}
+#event .eventHeader{ background-color:#FFF;}
+#event h2{float:left; color:#333; font:bold 16px/30px '';}
+#event h2 img{margin:0 6px 3px;}
+#event .eventIcon{background: url("../../img/system/icon_eventdate.gif") no-repeat; display:inline-block; float:left; height: 16px; margin: 6px 9px 0 0; width: 17px;}
+/***活动列表***/
+#event .eventBlock{}
+#event .noEventList{padding: 50px 0; text-align:center; font:14px/30px '';}
+#event .noEventList img{ vertical-align:middle; margin-right: 12px;}
+#event .eventBox{color:#666;}
+#event .eventHead .eventType{ float:left; _margin-top:2px; font-size:14px; line-height:28px;}
+#eventActive{float:right; margin-right:15px;}
+#event .eventstr{ float:left; _margin-top:2px;}
+#event .eventBox ul li{padding:8px 3px; border-top:1px solid #e9e9e9;}
+#event .eventBox h3{color:#333; font-size:12px; background:#f2f2f2; padding:4px 5px 5px; border-top: 1px solid #e2e2e2; margin-top:10px;}
+#event .eventPic{float:left; margin:5px 20px 5px 0;}
+#event .eventSite{float:right; margin-left:10px; margin-top:15px; text-align: center; width:100px;}
+#event .eventSite .joinNum{padding: 2px 5px 3px; line-height:22px; color:#3B5998; border-radius:5px; border: 1px solid #9c9c9c; background-color:#E7E7E7;}
+#event .eventSite p{ margin-top: 12px;}
+#event .eventInfo{display:table-cell; vertical-align:middle;}
+#event .eventInfo a{display:block; line-height:28px;}
+#event .eventInfo span{display:block; line-height:20px; padding:2px 0;}
+#event .eventname{font-size:14px; font-weight:bold;}
+#event .eventMore{width:100%; text-align:center; padding:5px 0; background:#f2f2f2; border:1px solid #e2e2e2;  color:#3B5998; display:block; margin:10px 0;}
+#event .eventFooter{margin-bottom:20px;}
+#event .eventFooter a{margin-left:0;}
+#event .hide{display:none;}
+#event .eventLoading,#groupEvent .eventLoading{text-align:center;}
+#event .eventmember a{display:inline-block;}
+#event .eventFooter{/* border-top:1px solid #EEE; */ padding-top:12px;}
+#event .eventFooter a{margin:0 5px;}
+h3.endlist{text-align:left; font-size:14px; display:inline-block; float:left; }
+
+/*----------------------------------活动（编辑）----------------------------------*/
+/***图片上传***/
+#leftCol{min-height: 350px; padding:0 0;}
+#leftCol #eventImg{}
+#leftCol .addEventImg{margin-top:5px; padding:5px 0 6px 8px; border:1px solid #C5CDE1; background: #ECEFF5; color: #3B5998; cursor: pointer;}
+#leftCol .addEventImg img{margin-right: 5px;}
+#leftCol .addEventTip{margin-top:8px; color:#A1A8B6; line-height:20px;}
+#uploadPhotoForm{ padding-bottom:20px; *padding-bottom:0px; padding-bottom:0px\9;}
+#uploadPhotoForm label{ color:#666; font-weight: bold;}
+.createPhoto{padding:15px 20px;}
+/***右侧布局***/
+#contentCol.fullRight{ position: relative; width: 798px; min-height: 350px; _height: 350px;}
+#contentCol.fullRight .eventHeader{ padding-left: 20px; padding-right: 20px;}
+/***表单主体***/
+.eventEdit {float:right; width:570px;}
+#eventEditTip{ width:94%; margin:0 0 0 20px; padding:6px; display:none; background-color: #FFEBE8; border: 1px solid #DD3C10;}
+#eventEditForm{margin-top:10px;}
+#eventEditForm .eventEditTable{ margin-top:-4px; border:0 none; border-collapse:collapse; border-spacing:0; width: 100%;}
+#eventEditForm .dataRow{ height: 32px;}
+#eventEditForm .dataRow .uiToolbarItem{ margin-left:0px; }
+#eventEditForm .label{color: #666; font-weight: bold; padding-right: 10px; text-align: right; width:130px;}
+#eventEditForm .Wdate{cursor: pointer; width:100px; }
+#eventEditForm .Wdate,#eventEditForm .inputText,.inputTextTitle,#eventEditForm select,#eventEditForm textarea{overflow-x:hidden; border:1px solid #BDC7D8; padding:1px; font-size:12px; font-family:'lucida grande',tahoma,verdana,arial,sans-serif;}
+#eventEditForm .inputText{padding:3px; width:465px;}
+#eventEditForm .inputTextTitle{padding:3px; width:350px;}
+#eventEditForm .btmTip{ margin:5px 0 8px; color:#666;}
+#eventEditForm .btmTip{ margin:5px 0 8px; color:#666;}
+#eventEditForm .btmTip .red{ color:red;}
+#eventEditForm select{margin-right:6px; padding:2px; line-height:1.28; text-align:left;}
+#eventEditForm textarea{ margin-top:5px; padding:3px; width:465px; height:90px;}
+#eventEditForm .uiList{line-height: 25px;}
+#eventEditForm .uiList label{margin-left: 6px; font-weight:bold; color:#666; cursor:pointer;}
+#eventEditForm .uiButtonConfirm{margin-top:12px; padding:5px;}
+#popUp .guestList,#popUpSub .guestList{padding:5px 5px 10px; height:250px; overflow-y: scroll;}
+#popUp .guestList li,#popUpSub .guestList li{border-bottom: 1px solid #E9E9E9; padding:5px;font:bold 12px/50px ''}
+#popUp .guestList li img,#popUpSub .guestList li img{float:left; margin-right:10px;}
+#popUp .guestList .iconDel,#popUpSub .guestList .iconDel{float:right; margin:8px 8px 0 0; display:none; width:9px; height:9px; cursor:pointer; background:url(../../img/system/icon_X.png) no-repeat;}
+#friends_detail .emailBox{display:none;}
+#friends_detail .emailBox{margin-top:15px; padding:5px; color:#666; background-color:#F2F2F2; border-top:1px solid #CCC;}
+#friends_detail .emailBox label{font-weight:bold;}
+#friends_detail #emailInvite{display:block; margin-top:6px; width: 99%; height:20px; overflow-x: hidden;}
+.uiButton{display:inline; padding:2px 2px;}
+/***添加管理员插件***/
+.receivePeopleWrap{ background-color:#fff; width:467px; margin: 7px 0 4px; border: 1px solid #BDC7D8; zoom:1;}
+.toPeopleInput{*margin-top:8px;}
+.uploadVideoTxt{display:inline; position:relative; top:-8px;}
+.info_media_disp{}
+#up_success {background-color: #FFFBE2;border: 1px solid #FFE222;height: 30px;margin: 5px 0;padding: 10px;}
+#up_success span {float: left;}
+#up_success a {float: right;}
+.flashContent{background-color: #EFEFEF;border: 1px solid #CCCCCC;margin: 5px auto;padding:10px 10px;vertical-align: middle;}
+#queueID{margin-bottom:10px;}
+#queueID .uploadifyQueueItem{width:492px;}	/*视频上传进度条长度*/
+#eventInfo{resize:none;}
+
+/*----------------------------------活动（显示）----------------------------------*/
+/***宾客列表***/
+#eventGuest{ overflow:hidden; width:179px; padding-left:38px; _padding-left:35px;}
+#eventDetail #eventImg{ float:left; margin-top:0px;}
+#eventDetail .eventSub{float:right; width:350px;}
+#eventDetail .eventItem{ line-height:25px; color:#777;}
+#eventDetail .eventItem span{ color:#333; padding-left: 5px;}
+#eventDetail .userActions{ float: left; margin-top: 18px; padding:0;}
+#eventDetail .userActions span{ margin-right:10px; padding:0;}
+#eventDetail .userActions span a{ padding:4px 8px 2px;}
+#eventDetail .eventDesc{ margin-top: 12px;}
+#eventDetail .eventDesc p{ margin-top: 5px; line-height: 22px; text-indent:2em; word-wrap:break-word;}
+#eventGuest h3{margin-top: 15px; *margin-top:0px; font-weight: bold; background:url(../../img/system/guest_midLine.gif) repeat-x center; font-size:14px;}
+#guest_going{margin-top:15px;}
+#eventGuest .adminList{margin-top: 15px; *margin-top:0px; font-weight: bold; background:none; font-size:14px;}
+#guest_going{margin-top:15px;}
+#guest_maybe,#guest_invited{*padding-top:10px;}
+#eventGuest h3 a{background: #fff;}
+#eventGuest .uiList li{padding:10px 4px 0; line-height:32px;}
+#eventGuest .uiList li img{clear:both; float:left;}
+#eventGuest .uiList li span{display:inline-block; *display:block; margin:0 0 0 5px; color:#666;}
+#eventGuest .oneLineList{zoom:1;}
+#eventGuest .oneLineList ul{margin-top:-10px;}
+#eventGuest .oneLineList ul li{float: left; padding:10px 1px 0px;}
+#eventGuest .guestFooter{border-top:1px solid #D9D9D9; margin-top:15px; padding-top:5px;}
+#eventGuest .guestFooter a{margin:0 5px;}
+#popUp .eventPopTop{ border-bottom: 1px solid #ccc; padding:6px 6px 30px; background-color:#F2F2F2; display:block;}
+#contentArea h3.eventname{width: 345px; _width:315px; font-size:18px; padding-top:2px; padding-bottom:10px; word-break:break-all; word-wrap:break-word; overflow:hidden;}
+#guestCombox{clear:both;}
+/***头部区域***/
+.iconEventTitle{float:left; display:inline-block; margin:3px 3px 0 0; width:4px; height:7px; background:url(../../img/system/icon_right.png) no-repeat;}
+.iconPublic{float:left; display:inline-block; margin:3px 5px 0; height:10px; width:10px; background:url(../../img/system/icon_global.gif) no-repeat;}
+.uiHeader{padding-top:5px;}
+.subHeader{ margin-top:4px; color: #888; border-bottom:1px solid #ccc; padding-bottom:11px;}
+.subHeader span{ padding: 0 5px;}
+.subHeader a{padding:0 1px;}
+.modlueName a{color:#333;}
+/*按扭*/
+.evBtn{position:relative; *left:9px;}
+.uiToolbarItem{color:#333; font-weight:bold;}
+.uiToolbarItem img{margin-right:5px;}
+#joinCombox{float:right; z-index:8; font-weight:bold; position:relative; top:3px; margin-left:3px;}
+#joinCombox .triggerBtn span{}
+#editCombox{float:right; z-index:8; font-weight:bold; margin-left:-2px; position:relative; top:3px;}
+#editCombox .triggerBtn{}
+#editCombox .triggerBtn span img{position:relative; top:2px; *top:0px;}
+#editCombox .triggerBtn s{margin-top:10px;}
+#editCombox .dropList{}
+.btnGray{*margin-left:3px; font-size:12px;}
+.btnBlue{*margin-left:3px; font-size:12px;}
+#event .dropWrap{border-radius:5px;}
+#returnList{background:url('../../img/system/icon_left.png') no-repeat; width:4px; height:8px;}
+
+/***活动图标***/
+.eventIcon{float:left; display:inline-block; margin:4px 8px 0 0; width: 10px; height: 10px; background-image:url(../../img/system/icon_event.png);}
+.iconDate{background-position: -40px -51px;}
+.iconTime{background-position: -25px -75px;}
+.iconPlace{background-position: -14px -81px;  margin:4px 8px 0 0; width: 10px; height: 10px;}
+.iconDesc{background-position: -38px -66px;  margin:8px 8px 0 0; width: 7px; height: 8px;}
+/***活动列表***/
+#eventDetail{ margin-bottom: 12px; float:left; width:69%; margin-left:20px; _margin-left:10px;}
+#eventDetail .uiListItem{border-bottom:1px solid #E9E9E9; padding: 12px; _padding:11px 12px;}
+#eventDetail .last{border-bottom:1px solid #ccc;}
+#eventDetail .uiListItem .dateStartRow{ border-right:1px solid #E9E9E9; padding-right:15px;}
+#eventDetail .uiListItem .dateEndRow i{margin-left:15px;}
+#eventDetail .uiListItem span{padding: 4px;}
+#eventDetail .uiListItem p{line-height: 22px; margin-bottom: 10px; word-break:break-all; word-wrap:break-word; overflow:hidden;}
+
+/**活动详细发表框**/
+#distributeInfoBody{border:1px solid #ccc; padding:5px 5px; margin-top:15px;}
+.info_pic img{max-width:403px; max-height:403px; cursor:default; overflow:hidden;}
+div.nextPage{background:#EDEFF4; padding:5px 0; text-align:center; margin-top:5px; *text-align:inherit;}
+a.nextPage{*margin-left:45%;}
+
+/***功能弹窗***/
+#errMsgTip{width:95%; margin:0 auto 8px auto; padding:5px; display:none; background-color: #FFEBE8; border: 1px solid #DD3C10;}
+#popUp .popConBox{padding:15px 10px; background-color: #FFF;}
+#popUp .inputText{margin-left:3px; padding:1px; width:250px; overflow-x: hidden;}
+#popUp .sendNoticeTable{border:0 none; border-collapse:collapse; border-spacing:0; width: 100%;}
+#popUp .sendNoticeTable .label{color: #666; font-weight: bold; padding:5px; text-align:right; width:70px;}
+#popUp .sendNoticeTable #noticeTextarea{margin-top:5px; height:35px; width:75%; font-size: 12px; color:#333;}
+#popUp .sendNoticeTable #noticeTextarea{margin-top:5px; height:35px; width:75%; font-size: 12px; color:#333;}
+
+/**其他 后期添加(改bug)**/
+.modlueBody #leftCol{position:static !important;}
+.compactPeople li{height:33px;}

@@ -1,0 +1,98 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+日志-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/blog/blog.css" rel="stylesheet" type="text/css" />
+<!--赞和评论CSS开始-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<!--赞和评论CSS结束-->
+<!--{/block}-->
+<!--{block name='body'}-->
+
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$author_url}-->"><img src="<!--{$blog_avatar}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$author_url}-->"><!--{$blogauthor}--></a></span>
+				<span class="nameTxt"><span class="fl"><a href="<!--{$blog_url}-->">日志</a></span></span>
+			</div>
+			<div class="userActions">
+				<!--{if $edit}-->
+				<span class="btnGray"><i></i><a href="<!--{mk_url('blog/blog/newDraft')}-->">发布新的日志</a></span>
+				<!--{/if}-->
+			</div>
+		</div>
+		<div class="modlueBody blogModlueBody clearfix">
+			<div class="blogList-Title clearfix">
+				<ul>
+				<!--{if $edit}-->
+					<li rel="1" class="hover">公开</li>
+					<li rel="4">好友</li>
+					<li rel="8">仅限自己</li>
+					<li rel="-1">自定义</li>
+				<!--{else}-->
+					<li rel="1" class="hover">日志列表</li>
+				<!--{/if}-->
+				</ul>
+				<!--{if $edit}-->
+				<a href="<!--{mk_url('blog/blog/draftList')}-->" class="draftBox fr">草稿箱</a>
+				<!--{/if}-->
+			</div>
+			<div class="blogBody">
+			
+				<input type='hidden' id='hd_UID' value="<!--{$my_uid}-->" />
+				<input type='hidden' id='hd_userName' value='<!--{$myname}-->' />
+				<input type='hidden' id='hd_avatar' value='<!--{$my_avatar}-->' />
+				<input type='hidden' id='hd_userPageUrl' value='<!--{$author_url}-->' />
+				<div class="listBody clearfix">
+					<ul id="blogList" class="borderList">
+						<!--{if $blog}-->
+						<!--{foreach $blog as $val}-->
+						<li class="blogList">
+							<h4 class="blogListTitle">
+								<a href="<!--{mk_url('blog/blog/main',['id'=>$val['id'],'dkcode'=>$action_dkcode])}-->"><!--{$val['title']}--></a>
+							</h4>
+							<div class="authorInfo"><!--{$val['time']}-->&nbsp;&nbsp;发布</div>
+							<div class="paragraph">
+								<!--{$val['resume']}-->
+							</div>
+							<div class="comment_easy" commentObjId="<!--{$val['id']}-->" 
+							pageType='blog' action_uid='<!--{$val['uid']}-->'
+							dkcode='<!--{$action_dkcode}-->' 
+							msgurl='<!--{mk_url('blog/blog/main')}-->?id=<!--{$val['id']}-->' 
+							msgname='<!--{$val['title']}-->'
+							></div>
+						</li>
+						<!--{/foreach}-->
+						<!--{/if}-->
+					</ul>
+				</div>
+				<!--{if $blog eq null}-->
+				<div class="blankWrap">您还未发布日志 <a href="<!--{mk_url('blog/blog/newDraft')}-->">发布新的文章？</a></div>
+				<!--{/if}-->	
+				
+				<!--{if $nums>20}-->
+				<div class="loadmore" type="1">
+					<a id="moreBlog"  pager="2"><i></i>查看更多</a>
+					<span class="hide"></span>
+				</div>
+				<!--{/if}-->
+			</div>
+		</div>
+	</div>
+	<div class="sideArea">
+		<!--sideArea广告区域-->
+	</div>
+</div>
+
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/blog/blog.js" type="text/javascript"></script>
+<!--赞和评论JS开始-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/blog/blog_commentEasy.js"></script>
+<!--赞和评论JS结束-->
+<!--{/block}-->

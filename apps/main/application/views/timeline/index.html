@@ -1,0 +1,259 @@
+<!--{extends file='profile_layout.html'}-->
+<!--{block name='title' prepend}-->
+首页-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<script type="text/javascript">
+//视频图片域名
+var video_pic_domain = "<!--{config_item('video_pic_domain')}-->";
+
+function mk_videoPicUrl(videoPicUrl) {
+	var videoPicDomain = video_pic_domain || "";
+
+	videoPicUrl = videoPicUrl ? (videoPicDomain + videoPicUrl) : (CONFIG.misc_path + "img/default/video_err1.jpg");
+
+	return videoPicUrl;
+};
+</script>
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/mainArea/mainArea_top.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/timeline/info.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/tip/jquery.tip.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/calendar/dk_calendar.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/ask/plug_ask.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/pro/pro.css" type="text/css" rel="stylesheet"/>
+
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/JQuery-uploadify/JQuery_uploadify_postBox.css" type="text/css" rel="stylesheet"/>
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/timeline/timeline.css" type="text/css" rel="stylesheet" />
+
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix" id="timelienIndex">
+	<input type="hidden" id="action_dkcode" value="<!--{$action_uid}-->" />
+	<input type="hidden" id="action_avatar" value="<!--{$action_avatar}-->" />
+	<input type="hidden" id="userid" value="<!--{if isset($login_info['uid'])}--><!--{$login_info['uid']}--><!--{/if}-->" />
+	<input type="hidden" id="ac_dkcode" value="<!--{if isset($action_dkcode)}--><!--{$action_dkcode}--><!--{/if}-->" />
+	
+	<div class="mainArea">
+		<div id="modlueHeader" class="modlueHeader clearfix">
+			<span class="userImg"><a href="#"><img alt="" src="<!--{get_avatar($user['uid'],'ss')}-->"></a></span>
+			<div class="userName" id="userName">
+				<span class="nameTxt"><a href="#"><!--{$user['username']}--></a></span>
+				
+				<div class="dropMenu" id="timelineSelect" style="display:none"></div>
+				<div class="dropMenu" id="hotMonth" style="display:none" complete="false"></div>
+			</div>
+            <!--{if $is_self}-->
+            <div id="TopPostArea" class="userActions">
+                <ul class="composerAttachments">
+                    <li ref="0" class="s_msg act"><span><i class="uiIconP icons3 bp_currentState"></i>状态</span></li>
+                    <li ref="1" class="s_photo"><span><i class="uiIconP icons1 bp_photo"></i>图片</span></li>
+                    <li ref="2" class="s_video"><span><i class="uiIconP icons1 bp_video"></i>视频</span></li>
+                    <!--<li ref="3" class="s_life hide"><span><i class="uiIconP icons1 bp_life"></i>人生记事</span></li>-->
+                </ul>
+                <div class="pointUp hide"></div>
+                <div class="TopPostBox hide">
+                </div>
+            </div>
+            <!--{/if}-->
+		</div>
+		<div class="modlueMainBody"><!--{include file="timeline/mainArea_top.html"}--><!--{include file="timeline/info.html"}--></div>
+		<div id="sideArea">
+		<ul class="timelineBar"></ul>
+	</div>
+	<!-- start personal ads by dongweiliang-->
+	<div id="adsArea"></div>
+	<!-- end personal ads by dongweiliang-->
+	</div>
+
+</div>
+<input type='hidden' id='hd_UID' value="<!--{$login_info['uid']}-->" />
+<input type='hidden' id='hd_userName' value="<!--{$login_info['username']}-->" />
+<input type='hidden' id='hd_avatar' value="<!--{$login_info['avatar_url']}-->" />
+<input type='hidden' id='hd_userPageUrl' value="<!--{$login_info['url']}-->" />
+
+
+<!--time line pop -->
+<div id="addNewAction" class="timeLinePlusPop mediaBox clearfix">
+    <i class="spinePointer"></i>
+    <div class="flyoutComposer" id="addPlusPost">
+        <div class="pointUp"></div>
+        <ul class="mediaNav">
+            <li class="mediaNavItem mediaNavStatus mediaCurrent"><a href=""><i class="uiIconP icons3 bp_currentState"></i>状态</a></li>
+            <li class="mediaNavItem mediaNavPhoto"><a href=""><i class="uiIconP icons1 bp_photo"></i>照片</a></li>
+            <li class="mediaNavItem mediaNavVideo"><a href=""><i class="uiIconP icons1 bp_video"></i>视频</a></li>
+        </ul>
+        <div class="mediaWrap">
+            <div class="mediaContent">
+                <div class="mediaSection mediaStatus">
+                    <div class="mediaItems">
+                        <div class="mediaItem">
+                            <div class="mediaItemBox textArea">
+                                <div class="textWrap">
+                                    <textarea class="shareInfoCont">写点什么吧</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mediaSection mediaPhoto js-tabs">
+                    <ul class="mediaItemNav clearfix">
+                        <li><a href=""><b>上传照片</b>从硬盘</a></li>
+                        <li><a href=""><b>拍照</b>用网络摄像头</a></li>
+                    </ul>
+                    <div class="mediaItems">
+                        <div class="mediaItem photo">
+                            <div class="mediaItemBox uploadBox">
+                                <div class="flashUpload">
+                                    <input type="file" id="photoUpload-1" data-upload-type="flashuploaduid" data-upload-uid="<!--{$login_info['uid']}-->">
+                                    从你的电脑中选择一个图像文件
+                                </div>
+                                <div class="fileQueue" id="filePhotoQueue-1"></div>
+                                <div class="msg">上传成功！</div>
+                                <div class="controls">
+                                    <a class="cancel" href="">重新上传</a>
+                                </div>
+                            </div>
+                            <div class="mediaItemBox textArea">
+                                <div class="textWrap">
+                                    <textarea class="shareInfoCont">给这张照片做些说明吧！</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mediaItem camera">
+                            <div class="mediaItemBox mediaFlash"></div>
+                            <div class="mediaItemBox textArea">
+                                <div class="textWrap">
+                                    <textarea class="shareInfoCont">给这张照片做些说明吧！</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mediaSection mediaVideo js-tabs">
+                    <ul class="mediaItemNav w3 clearfix">
+                        <li><a href=""><b>分享视频</b>从网络</a></li>
+                        <li><a href=""><b>上传视频</b>从硬盘</a></li>
+                        <li><a href=""><b>录制影片</b>用网络摄像头</a></li>
+                    </ul>
+                    <div class="mediaItems">
+                        <div class="mediaItem shareVideo">
+                            <div class="mediaItemBox">
+                                <div class="form-field clearfix">
+                                    <label class="label">粘贴视频播放页地址(腾讯视频、优酷网、土豆网、酷6)</label>
+                                    <input class="text" type="text" value="请将连接复制到此处">
+                                    <input class="submit" type="submit" value="确定">
+                                </div>
+                                <div class="shareData" style="display:none;">
+                                    <div class="media_prev"></div>
+                                    <div class=" textArea">
+                                        <div class="textWrap">
+                                            <textarea class="shareInfoCont"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mediaItem uploadVideo">
+                            <div class="mediaItemBox uploadBox" data-upload-appkeys="<!--{$authcode_url}-->" data-upload-url="<!--{$video_upload_url}-->"></div>
+                            <div class="mediaItemBox textArea">
+                                <div class="textWrap">
+                                    <textarea class="shareInfoCont">给这张照片做些说明吧！</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mediaItem makeVideo">
+                            <div class="mediaItemBox mediaFlash" data-record-name="<!--{$videoname}-->" data-record-url="<!--{$recordurl}-->"></div>
+                            <div class="mediaItemBox textArea">
+                                <div class="textWrap">
+                                    <textarea class="shareInfoCont">给这张照片做些说明吧！</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mediaFooter">
+                <div class="uiItems">
+                    <div class="timelineDate">
+                        <div class="selectDate">
+                            <input class="fieldText fieldDate" name="datetime" type="text" now="<!--{date('Y-n-j')}-->" value="<!--{date('Y-n-j')}-->" end_year="<!--{date('Y-n-j')}-->" begin_year="<!--{if (!empty($user.birthday))}--> <!--{date('Y-n-j', $user['birthday'])}--><!--{else}-->1912-1-1<!--{/if}-->"/>
+                        </div>
+                    </div>
+                    <div class="face">
+                        <a title="表情" href=""><i class="face-icon face0"></i>表情</a>
+                    </div>
+                </div>
+                <div class="mediaButtons">
+                    <div class="shareRights dropWrap dropMenu tip_up_right_black" oid="123" s="1" uid="" tip="公开">
+                        <input type="hidden" name="permission" value="1" />
+                    </div>
+                    <div class="sendPost">
+                        <label class="uiButton uiButtonConfirm uiMediaButton"><input type="button" id="distributeButton" value="发表" autocomplete="off"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script type="text/javascript">
+	var fdfsHost = "http://<!--{$fdfsinfo}-->";
+</script>
+
+<!--{$app_js_files[] = 'misc/js/plug/jQuery-uploadify/jquery.uploadify.v2.1.4.min.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/dk-tip/dk.tip.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/drag/drag.js'}-->
+<!--{$app_js_files[] = 'misc/js/timeline/timeline.js'}-->
+<!--{$app_js_files[] = 'misc/js/mainArea/mainArea_top.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/jQuery-dragsort/jquery.dragsort.min.js'}-->
+<!--{$app_js_files[] = 'misc/js/mainArea/mainArea_top_move.js'}-->
+<!--{$app_js_files[] = 'misc/js/album/picViewer.js'}-->
+<!--{$app_js_files[] = 'misc/js/timeline/inputHelper.js'}-->
+<!--{$app_js_files[] = 'misc/js/timeline/face.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/jQuery-textarea-msgtip/jQuery-textarea-msgtip.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/calendar/dk_calendar.js'}-->
+<!--{$app_js_files[] = 'misc/flash/photograph.js'}-->
+<!--{$app_js_files[] = 'misc/js/timeline/tabs.js'}-->
+<!--{$app_js_files[] = 'misc/js/timeline/post.js'}-->
+<!--{$app_js_files[] = 'misc/js/timeline/view.js'}-->
+<!--{$app_js_files[] = 'misc/js/timeline/viewPlug.js'}-->
+<!--{$app_js_files[] = 'misc/js/timeline/info.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/player/AC_RunActiveContent.js'}-->
+<!--{$app_js_files[] = 'misc/flash/videoUpload.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/embed-for-flash/swfobject.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/dk-ui/dk.UICombox.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/comment-easy/commentEasy.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/jQuery-searcher/ViolenceSearch.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/friends_list/friends_list.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/mousewheel/jquery.mousewheel.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/relation/relation.js'}-->
+<!--{$app_js_files[] = 'misc/js/ask/plug_ask.js'}-->
+<!--{$app_js_files[] = 'misc/js/plug/relation/peopleRelation.js'}-->
+
+
+<!--{compile_js($app_js_files)}-->
+
+
+<script type="text/javascript">
+$(function(){
+	//添加关注好友关系
+	var relationWrap = $('#relationWrap');
+	if(relationWrap[0]) {
+		relationWrap.find('div.statusBox').peopleRelation();
+	}
+});
+</script>
+<!--end: 人与人关系建立修改-->
+
+<!--Flash swf文件先是处理-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/swfobject/swfobject.js" type="text/javascript"></script>
+<!-- start adsArea javascript -->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pro/showPersonPro.js" type="text/javascript"></script>
+<!-- end adsArea javascript -->
+<!--{/block}-->
+</body>
+</html>

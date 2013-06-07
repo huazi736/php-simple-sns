@@ -1,0 +1,214 @@
+<div id="ContactInfoFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">手机：</th>
+				<td class="data">
+					<select name="country">
+						<option value="中国（+86）">中国（+86）</option>
+					</select>
+					<input type="text" class="vinput" name="mobile" />
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">QQ：</th>
+				<td class="data">
+					<input type="text" class="vinput" name="qq" />
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">MSN：</th>
+				<td class="data"><input type="text" class="vinput" name="msn"/></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label">通讯地址：</th>
+				<td class="data"><input type="text" class="vinputl" name="mail"/></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow ">
+				<th class="label nob">邮编：</th>
+				<td class="data nob"><input type="text" class="vinput" name="postcode"/></td>
+				<td class="rightCol nob"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr>
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0)">取消</a></div><div class="btnBlue fr mrs"><a id="ContactInfoStore" href="javascript:void(0)">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script>
+	$(function(){		
+		/*
+	     * 数据处理
+	     */
+	    var $fEdit=$("#ContactInfoFormEdit");
+	    var $dTable=$("#ContactInfoForm").children();
+	    var newData={};	    
+	    var $obj={
+	    		mobile:$dTable.eq(0).find('.data'),//手机
+	    		qq:$dTable.eq(1).find('.data'),//QQ
+	    		msn:$dTable.eq(2).find('.data'),//MSN
+	    		mail:$dTable.eq(3).find('.data'),//通讯地址
+	    		postcode:$dTable.eq(4).find('.data')//邮编
+	    	};//存储值的对象，即<td class="data"></td>;
+	    var oldData={
+	    		mobile:{
+	    			c:$obj.mobile.text().split(' ')[0],
+	    			n:$obj.mobile.text().split(' ')[1]
+	    		},
+	    		qq:$obj.qq.text(),
+	    		msn:$obj.msn.text(),
+	    		mail:$obj.mail.text(),
+	    		postcode:$obj.postcode.text()
+	    	};//页面里旧值	
+	    var $form={
+	    		mobile:{
+	    			c:$("select[name=country]",$fEdit),
+	    			n:$("input[name=mobile]",$fEdit)
+	    		},
+	    		qq:$("input[name=qq]",$fEdit),
+	    		msn:$("input[name=msn]",$fEdit),
+	    		mail:$("input[name=mail]",$fEdit),
+	    		postcode:$("input[name=postcode]",$fEdit)
+	    		
+	    	};//加载进来的表单模版对象
+	    
+		
+		function fillData($form,oldData){			
+			$form.mobile.c.children().each(function(){//填"手机号码归属国"
+				if($(this).text()==oldData.mobile.c){
+					$(this).attr('selected','selected');
+				}
+			});
+			$form.mobile.n.val(oldData.mobile.n);//填"手机号码"
+			$form.qq.val(oldData.qq);//填"QQ"
+			$form.msn.val(oldData.msn);//填"MSN"
+			$form.mail.val(oldData.mail);//填"通讯地址"
+			$form.postcode.val(oldData.postcode);//填"邮编"			
+		}
+		fillData($form,oldData);
+		
+		function errorMsg (msg,obj) {
+			obj.parentsUntil('tr').parent().find('.line_err_msg').text(msg);
+		}
+		
+	    function getNewData($form){//获取新值
+	    	newData={
+					mobile:{
+						c:$form.mobile.c.val(),//手机号码归属国
+						n:$form.mobile.n.val()//手机号码
+					},
+					qq:$form.qq.val(),//QQ
+					msn:$form.msn.val(),//MSN
+					mail:$form.mail.val(),//mail
+					postcode:$form.postcode.val()//邮编
+			}
+			
+	    }
+	    
+	    function compareData (oldD,newD) {
+	    	var flag=0;//用于标识值是否改变
+	    	var data={};
+	    	if(oldD.mobile.c!=newD.mobile.c||oldD.mobile.n!=newD.mobile.n){
+	    		data['nation']=newD.mobile.c;
+	    		data['usr_tel_nation']=newD.mobile.c.replace(/[^\d]*/g,'');
+	    		data['usr_tel']=newD.mobile.n;
+	    		flag=1;
+	    	}
+			if(oldD.qq!=newD.qq){//判断QQ是否改变
+				data['qq']=newD.qq;
+				flag=1;
+			}
+			if(oldD.msn!=newD.msn){//判断MSN是否改变
+				data['msn']=newD.msn;
+				flag=1;
+			}
+			if(oldD.mail!=newD.mail){//判断通讯地址是否改变
+				data['addr']=newD.mail;
+				flag=1;
+			}
+			if(oldD.postcode!=newD.postcode){//判断邮编是否改变
+				data['postcode']=newD.postcode;
+				flag=1;
+			}			
+		    return {data:data,falg:flag};   
+		}
+		
+		function upData(obj,data){//更新HTML,表格
+			if(data.usr_tel||data.nation){
+				obj.mobile.text(data.nation+' ' + data.usr_tel);
+			}
+			if('qq' in data){
+				obj.qq.text(data.qq);
+			}
+			if('msn' in data){
+				obj.msn.text(data.msn);	
+			}
+			if('addr' in data){
+				obj.mail.text(data.addr);	
+			}
+			if('postcode' in data){
+				obj.postcode.text(data.postcode);	
+			}		
+		}
+	    
+		$('#ContactInfoStore').click(function(){
+			var _this=$(this);	
+			getNewData($form);//获取最新表单数据
+			//验证
+			if(!validator.mobile.test(newData.mobile.n)){
+				errorMsg('请输入正确的手机号码',_this);
+				return;
+			}		
+			if(newData.qq&&!validator.qq.test(newData.qq)){
+				errorMsg('请输入正确的QQ号码',_this);
+				return;
+			}
+			if(newData.msn&&!validator.email.test(newData.msn)){
+				errorMsg('该Windows Live ID不存在，请重新输入',_this);
+				return;
+			}
+			if(newData.mail.length>135){
+				errorMsg('请将字数控制在135内',_this);
+				return;
+			}
+			if (($.trim(newData.postcode).length!=0)&&(!validator.number.test(newData.postcode)||newData.postcode.length!=6)) {
+				errorMsg('请输入正确的邮编',_this);
+				return;
+			};
+			
+		  var changedData =compareData(oldData,newData);//比较有无更新值，返回改变的值
+		  if(changedData.falg===1){
+		  	$.ajax({//提交数据
+				type:"POST",
+				url:webpath+wiki_user_dkcode+"/uc/usercontact/edit",
+				dataType:'json',
+				data:changedData.data,
+				success:function(data){
+					if(data.status==1){
+						upData($obj,changedData.data);//更新HTML,表格
+						_this.closest('.tip_win').attr('style','display:none');
+					}
+				},
+				error:function(){			
+				}				
+			});
+		  }else{
+		  }									
+		});
+	});
+</script>

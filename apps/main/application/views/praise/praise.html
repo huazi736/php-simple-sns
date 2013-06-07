@@ -1,0 +1,85 @@
+<!--{include file="`$smarty.const.WEB_ROOT_SMARTY`main/application/views/header.html"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/praise/praise.css" rel="stylesheet" type="text/css" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/timeline/info.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/tip/jquery.tip.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+<!--{include file="`$smarty.const.WEB_ROOT_SMARTY`main/application/views/top_bar.html"}-->
+<div class="body clearfix" id="praiseFramwork">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$action_index_url}-->"><img src="<!--{$avatar_url}-->" alt="<!--{$action_user_name}-->" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{$action_index_url}-->"><!--{$action_user_name}--></a></span>
+				<span class="nameTxt"><span class="fl"><a class="black" href="<!--{$praise_index_url}-->">赞</a></span></span>
+			</div>
+		</div>
+		<div class="modlueMainBody">
+			<div id="yearList" class="praiseList clearfix">
+				
+			</div>
+			<ul id="praiseList" class="praiseList mt10 clearfix">
+				<li type="1" class="on">别人赞了<!--{$isself}-->的</li>
+				<li type="2"><!--{$isself}-->赞了个人的</li>
+				<li type="3"><!--{$isself}-->赞了网页的</li>
+			</ul>
+			<div id="timelineContent">
+				<ol id="timelineTree" class="timelineTree clearfix">
+					<div class="timelinebody">
+						
+					</div>
+					<li id="defaultTimeBox2" name="timeBox" class="twoColumn clearfix defaultTimeBox" timeArea="">
+			            <i class="spinePointer"></i>
+						<div class="timelineBox" style="padding:20px;">
+			            	<div class="lifeContent"><div class="lifeHeader"><a id="scrollToTop"><i class="lifeIcon_4"></i><div class="toTopText">返回顶部</div></a></div></div>
+			            </div>
+					</li>
+				</ol>
+			</div>
+
+		</div>
+		
+	</div>
+</div>
+<!—隐藏域：-->
+<input type='hidden' id='hd_UID' value="<!--{$login_info['uid']}-->" />
+<input type='hidden' id='hd_userName' value="<!--{$login_info['username']}-->" />
+<input type='hidden' id='hd_avatar' value="<!--{$login_info['avatar_url']}-->" />
+<input type='hidden' id='hd_userPageUrl' value="<!--{$login_info['url']}-->" />
+<!--{include file="`$smarty.const.WEB_ROOT_SMARTY`main/application/views/footer.html"}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/comment-easy/commentEasy.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-tip/dk.tip.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/embed-for-flash/swfobject.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/album/picViewer.js"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/flowLayout.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/timeline/scrollLoad.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/praise/praise.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/player/AC_RunActiveContent.js" type="text/javascript" ></script>
+<script type="text/javascript">
+//视频,视频图片url地址 by wangying 2012.6.1
+function mk_videoUrl(vpath){
+	var host = "<!--{$video_src_domain}-->";
+	if (vpath.indexOf(":/")<0){
+		return host+vpath;
+	}else{
+		return vpath;
+	}
+}
+function mk_videoImgUrl(vpath){
+	var host = "<!--{$video_pic_domain}-->";
+	if (vpath.indexOf(":/")<0){
+		return host+vpath;
+	}else{
+		return vpath;
+	}
+}
+</script>
+<script type="text/javascript">
+	var fdfsHost = "<!--{$fdfsinfo['host']}-->";
+	var fdfsGroup = "<!--{$fdfsinfo['group']}-->";
+</script>
+
+</body>
+</html>

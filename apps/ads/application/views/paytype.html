@@ -1,0 +1,66 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+支付方式-
+<!--{/block}-->
+
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/pro/pro.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='body'}-->
+<div class="body clearfix">
+	<div class="mainArea">
+		<!-- - - - - modlueHeader开始 - - - - -->
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{$user_info['url']}-->"><img src="<!--{$user_info['avatar_img']}-->" alt="" /></a></span>
+			<div class="userName">
+			    <span class="nameTxt"><a href="<!--{$user_info['url']}-->"><!--{$user_info['username']}--></a></span>
+				<span class="nameTxt">支付方式</span>
+			</div>
+					</div>
+		<!-- - - - - modlueHeader结束 - - - - -->
+		<!-- - - - - modlueBody开始 - - - - -->
+		<div class="modlueBody">
+			<div class="clearfix hasRightCol home" id="contentCol">
+	          <!-- start:广告申请 -->
+	          <div id="createAds">
+	            <div class="codeBlock clearfix">
+	              	<div class="caList pbn">
+						<h4>广告支付方式</h4>
+						<ul class="caList-ul">
+							<li class="clearfix">
+								<label class="th">&nbsp;</label>
+								<div class="fl">
+									<ul class="f14">
+										<li class="clearfix mb8"><input type="radio" name="paytype" data-url="'+_pay_url+'" id="net-pay" class="cb" checked="checked"/>&nbsp;<label for="net-pay">网银支付</label></li>
+										<li class="clearfix mb8"><input type="radio" name="paytype" data-url="'+_home_url+'" id="down-pay" class="cb"/>&nbsp;<label for="down-pay">线下支付</label></li>
+										<li class="clearfix mb8"><input type="radio" name="paytype" data-url="'+_home_url+'" id="balance-pay" class="cb"/>&nbsp;<label for="balance-pay">余额支付</label>&nbsp;（您的可用余额为<strong>￥600</strong>元，本次交易应付<strong>￥300</strong>.）</li>
+									</ul>
+								</div>
+							</li>														
+						</ul>
+
+					</div>
+						
+						
+					<div class="caList clearfix">
+						<h4></h4>
+						<label class="th">&nbsp;</label>
+						<p class="fl"><span id="ads_pay_type" class="btnBlue">确认提交</span></p>
+					</div>
+											
+				  </div>
+	          
+	          <!-- end:广告申请 --> 
+       		 </div>
+		</div>
+		<!-- - - - - modlueBody结束 - - - - -->
+	</div>
+</div>
+
+<!-- end: content -->
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pro/createPro.js?v=<!--{$smarty.const.JS_VER}-->" type="text/javascript"></script>
+<!--{/block}-->

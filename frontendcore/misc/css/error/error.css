@@ -1,0 +1,11 @@
+/*
+ * Created on 2012-4-1
+ * @author： tingting
+ * @version： 1.0
+ * @desc：错误页面
+ */
+.modlueBody{min-height:0; padding:80px 20px;}
+.sorry,.success{margin:0 auto; padding-top:35px; width:420px; background:url("../../img/system/sorry.gif") no-repeat scroll 0 0 transparent;}
+.success{background:url("../../img/system/success.gif") no-repeat scroll 0 0 transparent;}
+.sorry p,.success p{color:#f00; padding:5px 0 0 50px;}
+.sorry ul,.success ul{padding:10px 0 0 50px;}

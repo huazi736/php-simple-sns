@@ -1,0 +1,49 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+端口网-支付宝
+<!--{/block}-->
+<!--{block name='header_js'}-->
+<!--这里是本页面需要的头部js-->
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<!--这里是本页面需要的CSS-->
+<link rel="stylesheet" type="text/css" href="<!--{$smarty.const.MISC_ROOT}-->css/pay/pay.css" />
+<!--{/block}-->
+<!--{block name='body'}-->
+<div class="body clearfix PAYTO">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">
+			<span class="userImg"><a href="<!--{mk_url('main/index/main')}-->"><img src="<!--{$js_config.avatar}-->" alt="" /></a></span>
+			<div class="userName">
+				<span class="nameTxt"><a href="<!--{mk_url('main/index/main')}-->"><!--{$js_config.username}--></a></span>
+				<span class="nameTxt"><span class="fl"><a href="#">广告支付</a></span></span>
+			</div>
+		</div>
+		<div class="modlueBody">
+				<div class="form_item  form_item-identity">
+					<label class="label label-identity">支付帐号:</label><div class="content identity"><span class="uname"><!--{$js_config.username}--></span></div>
+				</div>
+				<div class="form_item  form_item-fee">
+					<label class="label label-how-much">支付金额:</label><div class="content content-how-much"><span class="number"><!--{$fee}--></span>&nbsp;元</div>
+				</div>
+				<div class="form_item  form_item-way">
+					<label class="label label-way">支付方式:</label><div class="content content-way"><span class="logo-bank logo-cur logo-TENPAY" ></span></div>
+				</div>
+				<div class="form_item  form_item-action">
+					<label class="label label-submit"></label><div class="content content-submit"><!--{$html_form}--></div>
+				</div>
+				<div class="form_item  form_item-links">
+					<label class="label label-links"></label><div class="content content-links"><a class="link" href="<!--{$back_url}-->">|&nbsp;返回选择充值方式</a><br /><a class="link" href="<!--{$smarty.const.WEB_ROOT}-->">|&nbsp;返回首页</a></div>
+				</div>
+		</div>
+	</div>
+	<div class="sideBar">
+	</div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<!--这里是本页面的JS-->
+
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/popUp/popUp.js" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/pay/pay.js" ></script>
+<!--{/block}-->

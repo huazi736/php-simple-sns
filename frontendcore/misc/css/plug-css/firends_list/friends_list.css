@@ -1,0 +1,36 @@
+﻿/*好友窗口*/
+#friends_detail .friends_operation { padding:10px; border-bottom:1px solid #ccc; background:#f2f2f2; }
+#friends_detail .friends_list { padding: 10px; height:350px; overflow:auto; position:relative; }
+#friends_detail .friends_list li { float: left; height: 40px; position: relative; width: 154px; margin:3px 2px; padding:0px 3px; border:1px solid #fff; }
+#friends_detail .friends_list li label { display: block; height: 40px; padding: 0 5px; position: relative; width: 152px; cursor:pointer; z-index:2 }
+#friends_detail .friends_list li span { left: 60px; position: absolute; top: 10px; }
+#friends_detail .friends_list li.checked { background:#d8dfea; border:1px solid #c3cce1 }
+#friends_detail .friends_list li.disabled { background:#ccc; opacity:0.3;filter:Alpha(Opacity=30)}
+#friends_detail .friends_list li img { left: 25px; top:5px; position: absolute; z-index:1 }
+#friends_detail .friends_list li input { position: absolute; top: 12px; }
+#friends_detail .search_bar { height:24px; overflow:hidden; line-height:24px; border:1px solid #999; width:385px; position:relative; padding-right:20px; background:#fff;}
+#friends_detail .search_bar input { border:none; *border:white; width:380px; height:23px; line-height:23px; color:#333; padding-left:5px; }
+#friends_detail .errorMsg { padding:10px; color:#666666; display:none; }
+#friends_detail #del-filter { position:absolute; background:url("../../../img/system/icon_close.gif"); height:15px; width:15px; right:2px; top:5px; cursor:pointer; display:block;}
+#friends_detail .noData{width:100%; padding:30px 0; text-align:center; vertical-align:middle;}
+
+
+
+
+
+
+/*
+*********************************
+  朋友页面添加删除按钮
+*********************************
+*/
+
+.friendBtns {float:right; position:relative;}
+.friendBtns a.btn {float:left; padding:0 6px; margin-left:4px; line-height:20px; font-weight:bold; color:#333; border:1px solid; border-color:#999 #999 #888; box-shadow:0 1px 0 rgba(0,0,0,.1);background:#eee url(../../img/system/ui2.png) 0 -49px no-repeat;}
+.friendBtns a.btn:hover {text-decoration:none; background-position:0 -60px;}
+.friendBtns i {float:left; width:9px; height:8px; overflow:hidden; margin:6px 3px 0 0; background:url(../../img/system/ui7.png) no-repeat -8px -459px; _background-image:url(../../img/system/ui7.gif);}
+.friendBtns i.followed {background-position:-10px -306px; margin-top:8px;}
+.friendBtns .tipCont {position:absolute; left:6px; top:32px; border:1px solid #666; width:100px; padding:5px 0 8px; background-color:#fff;}
+.tipCont s {float:left; _position:relative; margin:-16px 0 0 10px; width:16px; height:11px; overflow:hidden; background:url(../../img/plug-img/tip/layer_arrow.png) 0 -1px no-repeat;}
+.tipCont a {display:block; line-height:20px; padding:0 10px; font-weight:bold;}
+.tipCont a:hover {background-color:#6D84B4; color:#fff; text-decoration:none;}

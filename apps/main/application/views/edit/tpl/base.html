@@ -1,0 +1,258 @@
+<div id="basicInfoFormEdit" class="uiContextualDialogDefaultPadding wikicontentWrap">
+	<table class="uiInfoTableForm">
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>姓名：</th>
+				<td class="data"><input type="text" name="fname" class="vinput"/></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label"><em>*</em>性别：</th>
+				<td class="data"><select name="sex"><option value="-1">请选择</option><option value="1">男</option><option value="2">女</option><option value="3">保密</option></select></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr class="dataRow">
+				<th class="label nob">生日：</th>
+				<td class="data nob"><select name="birthY" id="sltYear"><option value="-1">请选择</option></select><select name="birthM" id="sltMonth"><option value="-1">请选择</option></select><select name="birthD" id="sltDay"><option value="-1">请选择</option></select></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="uiOverlayFooter uiContextuaDialogFooter topborder uiBoxGray">
+	<table>
+		<tbody>
+			<tr tipmodel="dkUserwikiBacicInfo base 450">
+				<td class="uiOverlayFooterMessage"><span class="line_err_msg"></span></td>
+				<td><div class="btnGray fr"><a class="closeTip" href="javascript:void(0)">取消</a></div><div class="btnBlue fr mrs"><a href="javascript:void(0)" id="basicInfoStore">确定</a></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<!--TIME-->
+<!--ABLE-->
+
+<script>
+	$(function(){
+		/***初始化出生年月日,依赖setyear.js***/
+		var setyear= new SetYear ("sltYear","sltMonth","sltDay");
+	    setyear.init();
+	    /*
+	     * 数据处理
+	     */
+	    var $fEdit=$("#basicInfoFormEdit");
+	    var $dTable=$("#basicInfoForm").children();
+	    var newData={};	    
+	    var $obj={
+	    		name:{
+	    			f:$dTable.eq(0).find('.data')//姓名
+	    		},
+	    		sex:$dTable.eq(1).find('.data'),//性别
+	    		birth:$dTable.eq(2).find('.data')//生日，格式：1988-09-19
+	    	};//存储值的对象，即<td class="data"></td>;
+	    var oldData={};//页面里旧值
+	    function getOldDate($obj){
+	    	oldData={
+	    		name:{
+	    			f:$obj.name.f.text()
+	    		},
+	    		sex:{
+	    			t:$obj.sex.text(),
+	    			v:$obj.sex.attr('val')
+	    		},
+	    		birth:{
+	    			y:$obj.birth.text().split('-')[0],
+	    			m:$obj.birth.text().split('-')[1],
+	    			d:$obj.birth.text().split('-')[2]
+	    		}
+	    	};
+	    }		
+	    var $form={
+	    		name:{
+	    			f:$("input[name=fname]",$fEdit)
+	    		},
+	    		sex:$("select[name=sex]",$fEdit),
+	    		birth:{
+	    			y:$("select[name=birthY]",$fEdit),
+	    			m:$("select[name=birthM]",$fEdit),
+	    			d:$("select[name=birthD]",$fEdit)
+	    		}
+	    		
+	    	};//加载进来的表单模版对象
+	    
+		getOldDate($obj);
+		function fillData($form,oldData){
+			$form.name.f.val(oldData.name.f);//填"姓名"
+			$form.sex.children().each(function(){//填"性别"
+				if($(this).text()==oldData.sex.t){
+					$(this).attr('selected','selected');
+				}
+			});
+			$form.birth.y.children().each(function(){//填"年"
+				if($.trim($(this).text())==$.trim(oldData.birth.y)){
+					$(this).attr('selected','selected');
+				}				
+			});
+			$form.birth.y.change();
+			$form.birth.m.children().each(function(){//填"月"
+				if($.trim($(this).text())==$.trim(oldData.birth.m)){
+					$(this).attr('selected','selected');
+				}				
+			});
+			$form.birth.m.change();
+			$form.birth.d.children().each(function(){//填"日"
+				if($.trim($(this).text())==$.trim(oldData.birth.d)){
+					$(this).attr('selected','selected');
+				}				
+			});
+		}
+		fillData($form,oldData);
+		
+		function errorMsg (msg,obj) {
+			obj.parentsUntil('tr').parent().find('.line_err_msg').text(msg);
+		}
+		
+	    function getNewData($form){//获取新值
+	    	newData={
+					name:{
+						f:$form.name.f.val()//姓名
+					},
+					sex:$form.sex.val(),//性别
+					birth:{//生日 
+						y:$form.birth.y.val(),//年
+						m:$form.birth.m.val(),//月
+						d:$form.birth.d.val()//日
+					}
+			};
+	    }
+	    
+	    function compareData (oldD,newD) {
+	    	var flag=0;//用于标识值是否改变
+	    	var data={};
+	    	var updata={}
+			if(oldD.name.f!=newD.name.f){//判断姓是否改变
+				data['lastname']=newD.name.f;
+				updata['name_f']=newD.name.f;
+				flag=1;
+			}
+			
+			if(oldD.sex.v!=newD.sex){//判断性别是否改变
+				data['sex']=newD.sex;
+				updata['sex']=newD.sex;
+				flag=1;
+			}
+			if(oldD.birth.y!=newD.birth.y||oldD.birth.m!=newD.birth.m||oldD.birth.d!=newD.birth.d){//判断出生日期是否改变
+				data['year']=newD.birth.y;
+				data['month']=newD.birth.m;
+				data['day']=newD.birth.d;
+				updata['birth']=newD.birth.y+'-'+newD.birth.m+'-'+newD.birth.d;
+				flag=1;
+			}
+
+		    return {data:data,falg:flag,updata:updata};   
+		}
+		
+		function upData(obj,data){//更新HTML,表格
+			if(data.name_f){
+				obj.name.f.text(data.name_f);
+			}
+			if(data.sex){				
+				switch (data.sex){
+					case '1':
+					obj.sex.attr('val',1);
+					obj.sex.text('男');
+					break;
+					case '2':
+					obj.sex.attr('val',2);
+					obj.sex.text('女');
+					break;
+					case '3':
+					obj.sex.attr('val',3);
+					obj.sex.text('保密');
+					break;
+					default:
+					break;					
+				}				
+			}
+			if(data.birth=='-1--1--1'){
+				obj.birth.text('');	
+			}else{
+				obj.birth.text(data.birth);
+			}		
+		}
+	    if ($('#able').text()==0){
+	    	$('#basicInfoFormEdit').find('input,select').attr('disabled','disabled');
+	    	errorMsg('基本资料30天内仅可修改一次',$('#basicInfoStore'));
+	    }
+		$('#basicInfoStore').click(function(){
+				var _this=$(this);
+				var time = $('#time').text();
+				var _t = time.split('-');
+				var time_y = Number(_t[0]);
+				var time_m = Number(_t[1]);
+				var time_d = Number(_t[2]);
+
+				getOldDate($obj);	
+				getNewData($form);//获取最新表单数据
+				//验证		
+				if(!validator.codeName.test(newData.name.f) || newData.name.f.length<2||newData.name.f.length>10){
+					errorMsg('姓名仅限输入中文、英文(长度2-10)',_this);
+					return;
+				}
+				if(newData.sex==-1){
+					errorMsg('请选择性别情况',_this);
+					return;
+				}
+				if (newData.birth.y==-1&&newData.birth.m==-1&&newData.birth.d==-1) {
+					
+				}else if(newData.birth.y==-1||newData.birth.m==-1||newData.birth.d==-1){
+					errorMsg('请选择完整出生日期',_this);
+					return;	
+				}else if((time!='1912-01-01')&&
+					((Number(newData.birth.y)*10000+Number(newData.birth.m)*100+Number(newData.birth.d))
+						>(time_y*10000+time_m*100+time_d))){
+					errorMsg('出生日期需早于其他社会活动时间（教育、工作等）',_this);
+					return;	
+				}
+
+			  var changedData=	compareData(oldData,newData);//比较有无更新值，返回改变的值
+			  if(changedData.falg==1){
+			  	$.ajax({//提交数据
+					type:"POST",
+					url:jobandschoolpath+"baseEdit",
+					dataType:'json',
+					data:changedData.data,
+					success:function(data){
+						if(data.status==1){
+							upData($obj,changedData.updata);		
+						}else{
+							$(this).popUp({
+								width:350,
+					            title:'友情提示',
+					            content:'<div style="padding:16px">'+data.msg+'</div>',
+					            buttons:'<span class="popBtns blueBtn closeBtn">确定</span>',
+					            mask:true,
+					            maskMode:true
+							});
+						}
+					},
+					error:function(){			
+					}				
+				});
+			  }
+			  
+			  var IE6 = ($.browser.msie)&&($.browser.version==6.0);//是不是IE6
+			  
+			  if (IE6) {
+			  	var attr = _this.closest('tr').attr('tipmodel');
+				var tipmodel = attr.split(' ');
+				_this.closest('.tip_win').remove();
+				wiki_Tip($('.'+tipmodel[0]),tipmodel[1],tipmodel[2],tipmodel[3]);			
+			  }else{
+			  	_this.closest('.tip_win').attr('style','display:none');
+			  }
+
+			});
+	});
+</script>

@@ -1,0 +1,11 @@
+<!--{foreach from=$item_data item=pitem2}-->
+<div class="web-box clearfix" style="width:auto;padding:6px;"  ajax="<!--{if isset($ajax) && $ajax=='ajax'}-->ajax<!--{/if}-->" >
+    <div class="web-info">
+        <p title="<!--{$pitem2.name}-->"><!--{sm_substrs($pitem2.name,8)}--></p>
+    </div>
+</div>
+<!--{/foreach}-->
+<!--{if  $continue_load && $item_data}-->
+	<em style="display:block;float:none;font-size:0;height:0;line-height:0;overflow:hidden;clear:both;visibility: hidden; "></em>
+	<div class="top_continue_load" request_url="index.php?c=group&m=get_category_top&imid=<!--{$imid}-->&iid=<!--{$iid}-->&participle_id=<!--{$participle_id}-->" participle_id='<!--{$participle_id}-->' page='<!--{$page}-->' >查看更多</div>
+<!--{/if}-->

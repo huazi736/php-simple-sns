@@ -1,0 +1,11 @@
+<div class="modlueHeader clearfix">
+	<span class="userImg"><a href="<!--{$avatar_link}-->"><img src="<!--{$avatar}-->" alt="<!--{$name}-->" /></a></span>
+	<div class="userName"> <span id="web_id" web_id="" class="nameTxt"><a href="<!--{$avatar_link}-->"><!--{$name}--></a></span> 
+    <span class="nameTxt"><a href="<!--{$wiki_index_url}-->">端口百科</a><s></s></span>
+    <!--{if $otherlink}-->
+    <!--{foreach from=$otherlink item=link key=key}-->
+    <span class="nameTxt"><span class="fl"><!--{$link}--></span><s></s></span> 
+    <!--{/foreach}-->
+    <!--{/if}-->
+    </div>
+</div>

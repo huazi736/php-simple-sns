@@ -1,0 +1,340 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name='header_js'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/credits/credits.css" rel="stylesheet" type="text/css" />
+<!--{/block}-->
+
+<!--{block name='body'}-->
+
+<div class="body clearfix">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix"> <span class="userImg"><a href="<!--{$userinfo['url']}-->"><img src="<!--{$userinfo['avatar']}-->" alt="" /></a></span>
+			<div class="userName"> <span class="nameTxt"><a href="<!--{$userinfo['url']}-->"><!--{$userinfo['action_username']}--></a></span> <span class="nameTxt"><a>端口积分</a></span> 
+				<!--<span class="nameTxt"><a class="selectClassBtn" id="selectClassBtn"></a></span>--> 
+			</div>
+		</div>
+		<div class="modlueBody p0 clearfix"> 
+			<!-------------左侧栏-------------->
+			<div class="dk-siderBar">
+				<ul class="subNav">
+					<li><a href="<!--{mk_url('credit/credit/index')}-->">我的积分</a></li>
+					<li><a href="<!--{mk_url('credit/product/index')}-->">积分兑换</a></li>
+					<li><a class="nav_current" href="<!--{mk_url('credit/credit/intro')}-->">成长体系介绍</a></li>
+					<li><a href="<!--{mk_url('credit/credit/faq')}-->">常见问题</a></li>
+				</ul>
+			</div>
+			<!-------------主体-------------->
+			<div class="dk-main"> 
+				
+				<!-------------介绍-------------->
+				<div class="conBox">
+					<div class="conBox-tt">
+						<h3>积分成长体系介绍</h3>
+					</div>
+					<div class="conBox-con">
+						<p>端口网从2012年8月15日开始推出用户成长体系，只要每天登录端口网，或者写写状态，传下照片即可轻松获取积分，积分增加，等级会不断提升，随着等级的提升将有机会得到端口网提供的各种奖励，以及使用相关特权。</p>
+					</div>
+				</div>
+				<!-------------获得积分-------------->
+				<div class="conBox">
+					<div class="conBox-tt">
+						<h3>获得积分</h3>
+					</div>
+					<div class="conBox-con">
+						<table class="c-table">
+							<tbody>
+								<tr class="bgc2">
+									<th width="30" class="c-table-tt"></th>
+									<th width="380" class="c-table-tt">用户行为</th>
+									<th width="222" class="c-table-tt">产生积分及上限</th>
+								</tr>
+								<tr class="h53">
+									<th>1</th>
+									<td>邀请码注册成功
+										</p></td>
+									<td>+2分<span class="fc9">（每天上限10分）</span></td>
+								</tr>
+								<tr class="h53">
+									<th>2</th>
+									<td>登录天数 </td>
+									<td><p>连续登录天数小于7天，每天+2分</p>
+										<p>连续登录7天或7天以上，每天+5分</p></td>
+								</tr>
+								<tr class="h53">
+									<th>3</th>
+									<td>设置头像 </td>
+									<td>+5分<span class="fc9">（仅限首次）</span></td>
+								</tr>
+								<tr class="h53">
+									<th>4</th>
+									<td>设置封面 </td>
+									<td>+5分<span class="fc9">（仅限首次）</span></td>
+								</tr>
+								<tr class="h53">
+									<th>5</th>
+									<td>资料完善：按照资料模块中的小模块累计积分</td>
+									<td>+3分<span class="fc9">（每块）</span></td>
+								</tr>
+								<tr class="h53">
+									<th>6</th>
+									<td>创建网页 </td>
+									<td>+5分/个<span class="fc9">（前3个）</span></td>
+								</tr>
+								<tr class="h53 bgc1">
+									<th>7</th>
+									<th colspan="2">发布<span class="fc9">（每天上限10分）</span></th>
+								</tr>
+								<tr>
+									<th rowspan="5">&nbsp;
+										</td>
+									<td>1.发状态</td>
+									<td>+2分</td>
+								</tr>
+								<tr>
+									<td>2.上传照片/拍摄照片</td>
+									<td>+2分</td>
+								</tr>
+								<tr>
+									<td>3.上传视频/录制视频</td>
+									<td>+2分</td>
+								</tr>
+								<tr>
+									<td>4.问答（提问）</td>
+									<td>+2分</td>
+								</tr>
+								<tr>
+									<td>5.发表日志</td>
+									<td>+2分</td>
+								</tr>
+								<tr class="h53 bgc1">
+									<th>8</th>
+									<th colspan="2">分享<span class="fc9">（每天上限3分）</span></th>
+								</tr>
+								<tr>
+									<th rowspan="4">&nbsp;
+										</td>
+									<td>1.他人的状态</td>
+									<td>+1分</td>
+								</tr>
+								<tr>
+									<td>2.他人的照片</td>
+									<td>+1分</td>
+								</tr>
+								<tr>
+									<td>3.他人的视频</td>
+									<td>+1分</td>
+								</tr>
+								<tr>
+									<td>4.他人的日志</td>
+									<td>+1分</td>
+								</tr>
+								<tr class="h53 bgc1">
+									<th>9</th>
+									<th colspan="2">评论<span class="fc9">（每天上限3分）</span></th>
+								</tr>
+								<tr>
+									<th rowspan="4">&nbsp;
+										</td>
+									<td>1.他人的状态</td>
+									<td>+1分</td>
+								</tr>
+								<tr>
+									<td>2.他人的照片</td>
+									<td>+1分</td>
+								</tr>
+								<tr>
+									<td>3.他人的视频</td>
+									<td>+1分</td>
+								</tr>
+								<tr>
+									<td>4.他人的日志</td>
+									<td>+1分</td>
+								</tr>
+								<tr class="h53 bgc1">
+									<th class="c-table-number">10</th>
+									<th colspan="2">赞<span class="fc9">（每5个得1分，每天上限3分）</span></th>
+								</tr>
+								<tr>
+									<th rowspan="4">&nbsp;
+										</td>
+									<td>1.他人的状态</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td>2.他人的照片</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td>3.他人的视频</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td>4.他人的日志</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr class="h53 bgc1">
+									<th class="c-table-number">11</th>
+									<th colspan="2">关注</th>
+								</tr>
+								<tr>
+									<th rowspan="3">&nbsp;
+										</td>
+									<td>1.关注他人</td>
+									<td>+1分<span class="fc9">（每天上限3分）</span></td>
+								</tr>
+								<tr>
+									<td>2.加好友</td>
+									<td>+2分<span class="fc9">（每天上限6分）</span></td>
+								</tr>
+								<tr>
+									<td>3.关注网页</td>
+									<td>+3分<span class="fc9">（每天上限9分）</span></td>
+								</tr>
+								<tr class="h53 bgc1">
+									<th class="c-table-number">12</th>
+									<th colspan="2">活动</th>
+								</tr>
+								<tr>
+									<th rowspan="2">&nbsp;
+										</td>
+									<td>1.创建活动</td>
+									<td>+2分<span class="fc9">（每天上限6分）</span></td>
+								</tr>
+								<tr>
+									<td>2.参加他人活动 <span class="fc9">（参加后获积分）</span></td>
+									<td>+1分<span class="fc9">（每天上限3分）</span></td>
+								</tr>
+								<tr>
+									<th>13</th>
+									<td>建议<span class="fc9">（采纳后获积分）</span></td>
+									<td>+10分<span class="fc9">（无上限）</span></td>
+								</tr>
+								<tr>
+									<th>14</th>
+									<td>投诉<span class="fc9">（成功后获积分）</span></td>
+									<td>+10分<span class="fc9">（无上限）</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-------------消耗积分-------------->
+				
+				<div class="conBox">
+					<div class="conBox-tt">
+						<h3>消耗积分</h3>
+					</div>
+					<div class="conBox-con">
+						<table class="c-table">
+							<tbody>
+								<tr class="bgc2">
+									<th width="30" class="c-table-tt"></th>
+									<th width="380" class="c-table-tt">用户行为</th>
+									<th width="222" class="c-table-tt">扣除积分</th>
+								</tr>
+								<tr class="h53">
+									<th>1</th>
+									<td>删除网页 </td>
+									<td>-5分</td>
+								</tr>
+								<tr class="h53 bgc1">
+									<th class="c-table-number">2</th>
+									<th colspan="2">发布</th>
+								</tr>
+								<tr>
+									<th rowspan="7">&nbsp;
+										</td>
+									<td>1.删除状态信息</td>
+									<td>-2分</td>
+								</tr>
+								<tr>
+									<td>2.删除照片信息</td>
+									<td>-2分</td>
+								</tr>
+								<tr>
+									<td>3.删除视频</td>
+									<td>-2分</td>
+								</tr>
+								<tr>
+									<td>4.删除问答</td>
+									<td>-2分</td>
+								</tr>
+								<tr>
+									<td>5.删除日志</td>
+									<td>-2分</td>
+								</tr>
+								<tr>
+									<td>6.删除活动</td>
+									<td>-2分</td>
+								</tr>
+								<tr>
+									<td>7.退出活动</td>
+									<td>-1分</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<!-------------等级-------------->
+				<div class="conBox">
+					<div class="conBox-tt">
+						<h3>积分等级对应表</h3>
+					</div>
+					<div class="conBox-con">
+						<table id="c-lv" class="c-table">
+							<tbody>
+								<tr class="bgc2">
+									<th class="c-table-tt">用户等级</th>
+									<th class="c-table-tt">所需积分</th>
+									<th class="c-table-tt">用户等级</th>
+									<th class="c-table-tt">所需积分</th>
+									<th class="c-table-tt">用户等级</th>
+									<th class="c-table-tt">所需积分</th>
+								</tr>
+								<tr>
+									<th class="c-table-number">1</th>
+									<td>0分</td>
+									<th class="c-table-number">5</th>
+									<td>880分</td>
+									<th class="c-table-number">9</th>
+									<td>2840分</td>
+								</tr>
+								<tr>
+									<th class="c-table-number">2</th>
+									<td>145分</td>
+									<th class="c-table-number">6</th>
+									<td>1265分</td>
+									<th class="c-table-number">10</th>
+									<td>3505分</td>
+								</tr>
+								<tr>
+									<th class="c-table-number">3</th>
+									<td>320分</td>
+									<th class="c-table-number">7</th>
+									<td>1720分</td>
+									<th class="c-table-number">11</th>
+									<td>4240分</td>
+								</tr>
+								<tr>
+									<th class="c-table-number">4</th>
+									<td>565分</td>
+									<th class="c-table-number">8</th>
+									<td>2245分</td>
+									<th class="c-table-number">12</th>
+									<td>5045分</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sideArea"> sideArea </div>
+</div>
+
+<!--{/block}--> 
+
+<!--{block name='footer_js'}--> 
+
+<!--{/block}-->

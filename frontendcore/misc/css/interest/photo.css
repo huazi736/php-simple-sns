@@ -1,0 +1,36 @@
+/*
+* 作者：姚智译
+* 时间：20120803
+* 频道：摄影
+*/
+.PHOTOIDX{width:811px;border-bottom:1px solid #c4ccdf;}
+.PHOTOIDX .idxs{border:1px solid #cccccc;height:28px;line-height:28px;border-radius:3px;margin-top:15px;}
+.PHOTOIDX .idxs_label{float:left;display:block;padding:0 2px 0 34px;font-weight:bold;color:#df4b3d;}
+.PHOTOIDX .idxs_idx{float:left;display:block;margin-left:9px;font-weight:bold;}
+.PHOTOIDX .idxs_idx-cur{color:#92a0c3;}
+
+.PHOTOIDX .pack-first{margin-top:15px;}
+.PHOTOIDX .pack_info{border-top:1px solid #c4ccdf;height:28px;width:100%;position:relative;}
+.PHOTOIDX .pack_info_idx{float:left;margin-top:8px;font-weight:bold;}
+.PHOTOIDX .pack_info_expand{height:100%;width:40px;text-align:center;position:absolute;top:0;right:0;}
+.PHOTOIDX .pack_info_expand_triangle{font-size:0;margin-bottom:0;height:5px;line-height:5px;width:9px;background:url(../../img/photo/photo.jpg) no-repeat -11px 0;margin-left:auto;margin-right:auto;}
+.PHOTOIDX .pack_info_expand_tip{display:block;}
+
+.PHOTOIDX .pack_names{position:relative;border-top:1px solid #c4ccdf;width:100%;height:304px;}
+.PHOTOIDX .pack_names-hover{background-color: #e7ebf2;}
+.PHOTOIDX .pack_names_list{padding-left:36px;}
+.PHOTOIDX .pack_names_list_item{float:left;position:relative;margin-top:11px;width:136px;padding-left:8px;height:18px;overflow:hidden;}
+.PHOTOIDX .pack_names_list_item_triangle{position:absolute;top:50%;left:0;margin-top:-3px;width:4px;height:7px;background:url(../../img/photo/photo.jpg) no-repeat -28px 0;font-size:0;}
+
+.PHOTOIDX .pack_names_char{position:absolute;width:17px;height:20px;line-height:20px;text-align:center;border:1px solid #c4cbde;font-weight: bold;color:#959fc2;z-index:2;left:9px;top:-2px;background: #FFFFFF;}
+
+.PHOTOIDX .pack_names_collapse{position:absolute;right:0;bottom:0;width:40px;height:23px;text-align:center;}
+.PHOTOIDX .pack_names_collapse_triangle{width:9px;height:5px;margin:0 auto;background:url(../../img/photo/photo.jpg) no-repeat 0 0;font-size:0;}
+
+.PHOTOIDX .pack_names-show,
+.PHOTOIDX .pack_info-show{display:block;}
+.PHOTOIDX .pack_names-hide,
+.PHOTOIDX .pack_info-hide{display:none;}
+
+
+

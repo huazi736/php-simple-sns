@@ -1,0 +1,1 @@
+<script>parent.updataCover({'status':1,'data':'http://localhost/new_duankou/misc/temp/493912c8a.jpg','msg':''});</script>

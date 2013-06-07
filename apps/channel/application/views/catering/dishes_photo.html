@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+var CONFIG = {};
+//CONFIG['uid'] = "";
+//CONFIG['dkcode'] = "";
+//CONFIG['username'] = "";
+//CONFIG['action_uid'] = "";
+//CONFIG['action_dkcode'] = "";
+//CONFIG['action_username'] = "";
+//路由用的域名
+CONFIG['domain'] = "<!--{$smarty.const.DOMAIN}-->";
+CONFIG['time'] = "<!--{$smarty.const.SYS_TIME}-->";
+//远程或本地运行
+CONFIG['local_run'] = <!--{intval($smarty.const.LOCAL_RUN)}-->;
+CONFIG['misc_path'] =  "<!--{$smarty.const.MISC_ROOT}-->";
+//网页ID
+CONFIG['web_id'] = "<!--{$js_config['web_id']}-->";
+//用户UID
+CONFIG['u_id'] = "<!--{$js_config['uid']}-->";
+//用户头像
+CONFIG['u_head'] = "<!--{$js_config['avatar']}-->";
+//用户姓名
+CONFIG['u_name'] = "<!--{$js_config['username']}-->";
+//被访问者的端口号
+CONFIG['dkcode'] = "<!--{$js_config['action_dkcode']}-->";
+//
+CONFIG['fdfshost'] = '';
+//
+CONFIG['fdfsGroup'] = '';
+//路由中的子域名
+CONFIG['subdomain'] = <!--{$js_config['subdomain']}-->;
+</script>
+
+</head>
+
+<body>
+
+<img src="<!--{$dish['pics'][0]['b']['url']}-->" alt="<!--{$dish['name']}-->" id="pic" />
+<div>
+	<!--{$prev_next_lists['prev_id']}-->
+	<!--{$prev_next_lists['next_id']}-->
+</div>
+
+</body>
+</html>

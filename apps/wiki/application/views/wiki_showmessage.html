@@ -1,0 +1,33 @@
+<!--{extends file="base_layout.html"}-->
+<!--{block name="title" prepend}-->操作结果-<!--{/block}-->
+<!--{block name="header_css"}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->web_css/wiki/wiki_showmessage.css?v=<!--{$smarty.const.CSS_VER}-->" type="text/css" rel="stylesheet" />
+<!--{/block}-->
+<!--{block name="body"}-->
+
+<div class="error">
+	<dl>
+    	<!--{if $type == 1}-->
+    	<dt class="success_icon"></dt>
+        <!--{elseif $type == 2}-->
+        <dt class="erro_icon"></dt>
+        <!--{/if}-->
+        <dd class="title"><!--{$msg}--></dd>
+        <dd class="desc"><span class="red" id="seconds"><!--{$time}--></span>秒钟后自动跳回相关页面，<a href="<!--{$url}-->" class="a-blue">如未跳转，请点击这里。</a></dd>
+    </dl>
+    <input type="hidden" id="url" name="url" value="<!--{$url}-->" />
+    <input type="hidden" id="time" name="id" value="<!--{$time}-->" />
+</div>
+<script>
+var i = parseInt(document.getElementById('time').value);
+var reTime = setInterval(function() {
+	i = i -1;
+	if (i<1) {
+		window.location.href = document.getElementById('url').value;
+		window.clearInterval(reTime);
+		return;
+	}
+	document.getElementById('seconds').innerHTML = i;
+}, 1000);
+</script>
+<!--{/block}-->

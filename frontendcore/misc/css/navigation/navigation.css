@@ -1,0 +1,198 @@
+.min-loading{
+	background:url("../../img/plug-img/djax/loading2.gif") no-repeat scroll 150px center #D8DEEA;
+}
+
+
+.group_list_ul .on a{
+    color: #333333;
+    font-weight: 600;
+}
+.group_list_ul .on{
+	background-color:#D8DEEA;
+}
+.followList{
+
+}
+.followList li.box {
+	border-bottom:1px solid #e9e9e9;
+	position: relative;
+	clear: both;
+	overflow: hidden;
+}
+.followList li.box .user_face{
+	margin-top:18px;
+	margin-bottom:16px;
+	margin-left:20px;
+	float: left;
+}
+
+.followList li.box .wrap{
+	margin-left:80px;
+}
+.followList li.box .wrap .content{
+	padding-top:18px;
+}
+.followList li.box .wrap .info{
+	margin-bottom:5px;
+}
+.followList li.box .wrap .head strong{
+	font-size:14px;
+}
+.followList li.box .info{
+}
+
+#followList div.item_box div.content{
+	padding-top:0px;
+}
+
+
+/*
+	右侧列表
+*/
+.panl{
+	margin-bottom:20px;
+}
+.panl h3{
+	color:#666;
+	font-size:12px;
+	padding:3px 6px;
+	background:#f2f2f2;
+	border-top:1px solid #e2e2e2;
+}
+.panl h3 span{
+	float: right;
+}
+.panl h3 span a{
+	font-weight:normal;
+}
+/* start: fix ie6下变型 by卜海亮 2012/7/27 */
+.panl div.top{
+	color:#666;
+	font-size:12px;
+	padding:3px 6px;
+	background:#f2f2f2;
+	border-top:1px solid #e2e2e2;
+	font-weight: bold;
+	height: 20px;
+}
+.panl div.title{ float: left; }
+.panl div.top div.more{
+	float: right;
+}
+.panl div.top div.more a{
+	font-weight:normal;
+}
+/* start: fix ie6下变型 */
+.panl .button{
+	float:right;
+	position: absolute;
+	right:10px;
+	top:20px;
+}
+.panl .box{
+	border-bottom:1px solid #e9e9e9;
+	padding-bottom:10px;
+	overflow: hidden;
+	position: relative;
+}
+.panl .user_face{
+	margin-bottom:5px;
+	margin-left:5px;
+	float: left;
+}
+.panl .one{
+	padding-top:10px;
+	padding-left:6px;
+}
+.panl .user_face_one{
+	margin-right:1px;
+	float: left;
+}
+.panl .wrap{
+	margin-left:80px;
+}
+.panl .content{
+	padding-top:8px;
+}
+.panl .info{
+	color: #666;
+}
+
+/*
+	评论样式自定义
+*/
+.followList .commentBox {
+    margin: 2px 3px;
+}
+.followList .commentBox .comment_easy .comment_content {
+    border-top: 1px solid #FFFFFF;
+    margin: 0;
+}
+.followList .commentBox .comment_easy {
+    margin: 0;
+}
+.followList .commentBox .comment_easy .comment_title {
+    
+    color: #999999;
+    padding-left: 10px;
+}
+.followList .commentBox .comment_easy .comment_title li {
+}
+.followList .commentBox .comment_easy .comment_corner {
+
+}
+.followList .commentBox .comment_easy li.comment_list li {
+    border-bottom: 1px solid #FFFFFF;
+    margin-top: 0;
+    padding: 5px 10px 4px;
+}
+#timelineContent .comment_easy .comment_praise_father {
+    border-bottom: 1px solid #FFFFFF;
+    margin-top: 0;
+}
+.followList .commentBox .comment_easy .comment_form {
+    border-bottom: 1px solid #FFFFFF;
+    margin-top: 0;
+    padding: 5px 10px 4px;
+}
+.followList .commentBox .comment_easy .comment_form .fieldWithText {
+    padding-left: 2px;
+    width: 99%;
+}
+.followList .commentBox .showForward {
+    float: right;
+    margin-right: 6px;
+}
+/*
+	评论样式自定义
+*/
+
+
+
+/*
+	视频样式
+*/
+.followList .mediaContent { text-align:left;}
+.followList .mediaContent .media_prev{position:relative; cursor:pointer;}
+.followList .mediaContent .media_prev img{}
+.followList .mediaContent .media_prev .showFlash img{position:absolute; width:33px; height:33px; left:192px; top:125px; filter:alpha(opacity=50); opacity:0.5;}
+.followList .mediaContent .media_prev .showFlash:hover img{filter:alpha(opacity=80); opacity:0.8;}
+.followList .mediaContent .media_disp {margin:1px;}
+.followList .mediaContent .media_disp p{margin:2px 0; padding:6px 0 3px; width:100%; background-color:#f5f9fd;}
+.followList .mediaContent .media_disp p a{margin:0 10px;}
+.followList .mediaContent .media_disp .hideFlash{background:url(../../img/system/icon_media_up.gif) no-repeat left center; padding-left:15px;}
+/*
+	视频样式
+*/
+
+
+#contentArea .nextPage{ clear:both; text-align:center; display:block; margin-top:10px; margin-bottom:10px;margin-left:10px; float: left;}
+#contentArea .nextPage a{     background: none repeat scroll 0 0 #EDEFF4;border: 1px solid #D8DFEA;color: #3B5998;display: block;margin-top: 10px;padding: 10px;text-align: center;text-decoration: none;width: 460px;}
+#contentArea .nextPage a:hover { background:#d8dfea; text-decoration:none; }
+
+
+.followList .photoContent { margin:0 2px;}
+.followList .photoContent li{ float:left; padding:1px; height:133px; width:133px;text-align:center; vertical-align: middle}
+.followList .photoContent li a{display: table-cell; vertical-align:middle; height:133px; width:133px;*display:block; *font-size:100px;}
+.followList .photoContent li.firstPhoto{width:auto; height:auto;}
+.followList .photoContent li.firstPhoto a{ width:403px; height:100%; font-size:12px;}

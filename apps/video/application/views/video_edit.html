@@ -1,0 +1,93 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+视频编辑
+<!--{/block}-->
+<!--{block name='header_js'}-->
+
+<!--{/block}-->
+<!--{block name='header_css'}-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/message/request_notice.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/message/messages.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/video/videos.css" type="text/css" rel="stylesheet" />
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/plug-css/comment-easy/comment_easy.css" type="text/css" rel="stylesheet"/>
+<!--{/block}-->
+
+<!--{block name='body'}-->
+<div class="body clearfix videoEdit">
+	<div class="mainArea">
+		<div class="modlueHeader clearfix">                                 
+                    <span class="userImg"><a href="<!--{$main_url}-->"><img src="<!--{$avatar_url}-->" alt="头像" /></a></span>
+                    <div class="userName">
+                        <span class="nameTxt"><a href="<!--{$main_url}-->"><!--{$username}--></a></span>
+                        <span class="modlueName nameTxt"><span class="fl"><a href="<!--{$video_url}-->">视频</a></span><s></s></span>
+                    </div> 
+					<div class="userActions">
+					<span class="btnGray"><i class="uiButtonIcon rightArrow"></i><a  href="<!--{$video_url}-->">返回列表 </a> </span>
+					</div> 
+        </div>
+		<div class="modlueBody">
+    		<!-- start: contentCol-->
+            <div id="contentCol" class="clearfix home video">             
+					<div class="contentTit noBottomBorder">
+						<div class="uiHeader">
+							<h2 class="edit_title"><i></i>编辑视频</h2>
+						</div>
+					</div>
+					<div id="contentArea">
+						<!-- start: videoModuleContent 视频上传内容开始 -->
+						<div class="videoModuleContent">
+							<div class="uploadVideoPanel" id="uploadVideoPanel">
+								<div class="uploadPanelInner">
+									<div id="videoDescriptions" class="videoDescriptions">
+										<form class="videoDescriptionForm" action="<!--{$save_url}-->" method="post">
+                                        	<input id="videoId" type="hidden" value="<!--{$videoinfo.id}-->" name="vid" />
+                                        	<input id="hd_info" type="hidden" value="" name="hd_info" />
+                                        	<input id="hd_permission" type="hidden" value="<!--{$videoinfo['object_type']}-->" name="hd_permission" />
+											<div class="metadataRow clearfix">
+												<label class="metadataLabel">标题：</label>
+												<div class="metadataInput"><input class="inputtext" type="text" value="<!--{$videoinfo.title}-->" name="title" maxlength="50" /></div>
+											</div>
+											<div class="metadataRow clearfix">
+												<label class="metadataLabel">说明：</label>
+												<div class="metadataInput"><textarea id="desc" name="txtdesc" isnull="0"><!--{$videoinfo.discription}--></textarea></div>
+											</div>
+											<div class="metadataRow clearfix">
+												<label class="metadataLabel" for="desc">隐私设置：</label>
+												<div class="metadataInput">
+													<div class="dropWrap dropMenu" id="privacySettingEdit" oid="<!--{$videoinfo.id}-->" s="<!--{$videoinfo['object_type']}-->" uid="<!--{$videoinfo['object_uid']}-->" r="<!--{$sys_purview}-->">
+														<input type="hidden" name="permission" value="<!--{$videoinfo['object_permission']}-->" />
+													</div>
+												</div>
+											</div>
+											<div class="metadataRow clearfix editAction">
+												<label class="metadataLabel">&nbsp;</label>
+												<div class="metadataInput">
+													<input id="editVideoInfomation" type="submit" class="inputButton textareaTip" value="保存视频" /><i class="whiteSpaceHalfWord"></i><input type="hidden" id="video_pic"  value="<!--{$videoinfo['video_pic']}-->" /><!--隐藏域存储图片--><input id="deleteVideo" type="button" class="inputButton" value="删除" rel="<!--{$videoinfo.id}-->" /><i class="whiteSpaceHalfWord"></i><input id="cancelEditVideo" type="button" onclick="location.replace('<!--{$video_url}-->')" class="inputButton disabled cancel" value="取消" />
+												</div>
+											</div>
+										</form>
+									</div>
+									<div id="friends_detail"></div>
+								</div>
+							</div>
+						</div>
+						<!-- end: videoModuleContent 视频上传内容结束 -->
+					</div>
+            </div>
+            <!-- end: contentCol --> 
+        </div>
+	</div>
+</div>
+<!--{/block}-->
+
+<!--{block name='footer_js'}-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.UICombox.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/embed-for-flash/swfobject.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/message/request_notice.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/dk-ui/dk.uploader.js" type="text/javascript" ></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-searcher/ViolenceSearch.js" type="text/javascript"></script> 
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/friends_list/friends_list.js" type="text/javascript"></script>
+<!--video js-->
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-textarea-msgtip/jQuery-textarea-msgtip.js" type="text/javascript"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/video/videoModules.js" type="text/javascript"></script>
+<!--{/block}-->

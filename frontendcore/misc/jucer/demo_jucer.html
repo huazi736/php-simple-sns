@@ -1,0 +1,57 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="../js/jquery.min.js/" type="text/javascript"></script>
+<script src="../js/leavemsg/juicer-min.js/" type="text/javascript"></script>
+
+
+<script id="temp" type="text/template">
+
+	{@each data as item}
+      
+        <div>${item}</div>
+
+	{@/each}
+
+</script>
+
+<div id="juicer"></div>
+
+<div id="join"></div>
+<div id="string"></div>
+<script>
+
+var data = [];
+for(var i=0;i<10000;i++){
+	data.push(i);
+}
+console.log("当前数量集"+data.length);
+console.log("这个是采用juicer渲染view")
+console.time(1);
+
+var temp = $("#temp").html();
+
+var html = juicer(temp,{data:data});
+$("#juicer").html(html);
+console.timeEnd(1);
+
+
+
+console.log("这个是采用数组join的方式渲染view")
+console.time(2);
+var arr = [];
+for(var i=0;i<data.length;i++){
+	arr[i]="<div>"+i+"</div>";
+}
+$("#join").html(arr.join(""));
+console.timeEnd(2);
+
+
+console.log("这个是采用字符串拼接“+”方式渲染view")
+console.time(3);
+var str = "";
+for(var i=0;i<data.length;i++){
+	str+="<div>"+i+"</div>";
+}
+$("#string").html(str);
+console.timeEnd(3);
+</script>

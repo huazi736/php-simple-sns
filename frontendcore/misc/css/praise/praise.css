@@ -1,0 +1,71 @@
+.mt10{
+	margin-top:10px;
+}
+.modlueMainBody {
+    margin-top: 10px;
+}
+.praiseList{
+	background-color: #FFFFFF;
+    border: 1px solid #C5CDE0;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 0 #D8DEEA;
+    overflow: hidden;
+    padding:0 10px 10px;
+    position: relative;
+    zoom:1;
+}
+.praiseList .yearNum{
+	border: 1px solid #A5A59C;
+    border-radius: 2px 2px 2px 2px;
+    color: #3B5998;
+    float: right;
+    font-weight: 900;
+    height: 14px;
+    padding: 0 0 0 3px;
+    position: absolute;
+    right: -10px;
+    top: 3px;
+    width: 32px;
+}
+.praiseList .yearNum i{
+	background: url("../../img/system/icon_timeline_bar.png") no-repeat scroll -32px 0 transparent;
+    float: right;
+    font-size: 0;
+    height: 10px;
+    margin: 4px 0 0;
+    width: 14px;
+}
+.praiseList .yearNum span{
+	float: right;
+    line-height: 14px;
+    margin-right: 2px;
+}
+.praiseList a,.praiseList li{
+	border: 1px solid #FFFFFF;
+    border-radius: 2px 2px 2px 2px;
+    color: #3B5998;
+    cursor: pointer;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    margin: 10px 8px 0 0;
+    padding: 0 5px;
+    float: left;
+}
+.praiseList .on{
+	background-color: #EEEFF4;
+    border-color: #C5CDE0;
+}
+.black{ color: #000000;}
+#praiseFramwork #timelineTree {min-height:0px;}
+/*commentEasy样式重置*/
+
+#timelineTree .noInfo{
+    margin-top:10px;background:#fff; border:1px solid #cbd2e3; text-align:center; padding-top:98px; padding-bottom:92px;
+
+
+
+}
+#timelineTree .noInfo div{
+    line-height:30px; height:30px; font-size:14px; background:#eeeff4; border-top:1px solid #cbd2e3; border-bottom:1px solid #cbd2e3;
+}

@@ -1,0 +1,26 @@
+<!--公共引用词条js-->
+<!--{if $is_match}-->
+<script language="javascript">
+$(function(){
+	$("#btn_match").bind("click", function(e){
+		$.ajax({
+			url: '<!--{$match_url}-->',
+			type: 'POST',
+			cache: false,
+			data: {"item_id": "<!--{$smarty.get.iid}-->", "version":"<!--{$vid}-->"},
+			dataType:"json",
+			success: function(msg){
+				if(msg.status == 1){
+					alert('引用成功');
+					location.href=msg.data.url;
+					return true;
+				}else{
+				   alert('引用失败');
+				   return false;	
+				}
+			}
+		});
+	});
+});
+</script>
+<!--{/if}-->

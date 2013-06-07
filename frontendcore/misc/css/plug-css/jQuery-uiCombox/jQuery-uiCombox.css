@@ -1,0 +1,22 @@
+﻿@charset "utf-8";
+
+/**
+ * uiCombox 下拉菜单使用样式示例
+ * <div class="uiCombox" style="display: block;">
+		<ul>
+			<li ref="0" class=""><a href="javascript:void(0)">添加到左侧菜单</a></li>
+			<li class="selected" ref="1"><a href="javascript:void(0)">总是隐藏</a></li>
+		</ul>
+	</div>
+ */
+
+.uiCombox{position:relative; z-index:10;}
+.uiCombox .uiComboxTit{}
+.uiCombox .uiComboxMenu{width:112px; border:1px solid #999; border-bottom:2px solid #999; position:absolute; top:22px; left:0; background:#FFF; z-index:10; zoom:1; }
+.uiCombox ul a {cursor:pointer; color:#111; border-bottom:1px solid #fff; border-top:1px solid #fff; height:1.8em; line-height:1.8em; padding-left:16px; display:block; font-family:tahoma; vertical-align:top;}
+.uiCombox ul a .uiIcon{*margin:4px 0;}/*ie6垂直居中bug*/
+.uiCombox ul li{ vertical-align:top;}
+.uiCombox li.hightLight a{cursor:pointer; background-color:#6D84B4; border-bottom:1px solid #3B5998; border-top:1px solid #3B5998; color:#fff; text-decoration:none; }
+.uiCombox .uiMenuTit {color: #666; padding-left: 16px; }
+.uiCombox li.selected a {background-image:url(../../img/system/icon_selected_right.png); background-position:-2px 6px; background-repeat:no-repeat; }
+.uiCombox li.selected a:hover {background-position:-2px -55px; }

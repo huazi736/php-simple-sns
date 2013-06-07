@@ -1,0 +1,136 @@
+<!--{extends file='base_layout.html'}-->
+<!--{block name='title' prepend}-->
+im-
+<!--{/block}-->
+<!--{block name='header_js'}-->
+
+<!-- start:imChat-->
+<link href="<!--{$smarty.const.MISC_ROOT}-->css/im/im.css?v=<!--{$js_css_v}-->" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript"  src="/dksns-im-web/dwr/engine.js"></script>
+<script type="text/javascript"  src="/dksns-im-web/dwr/interface/DwrServlet.js"></script>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<!--{/block}-->
+<!--{block name='body'}-->
+<div id="imContent">
+    <div class="imContainer">
+        <div class="imTabList" style="display:none;">
+        	<div class="TreeTitle" rel="'+_thisRel+'">
+                <a href="javascript:void(0);" class="imTitle">
+                    <span class="imIconChat png"></span> <span id="imCurrentTips">正与 <em></em> 聊天</span>
+                </a>
+			</div>
+        	<div class="imFriendList" id="imDialog">
+                <div class="imListHead">
+                	<a class="imListClose imListIcon" href="javascript:void(0);"></a><a class="imListMini imListIcon" href="javascript:void(0);"></a><h3>实时聊天</h3>
+                </div>
+                <div class="imChatList">
+                    <div class="imChatContent">
+                    	<div class="imChatContentTips"><span><i></i>对方当前不在线，可能无法立即回复。</span><img height="9px" width="8px" src="/misc/img/system/icon-canncel.png"></div>
+                        <div id="imChatContent" class="wordBreak">
+                        </div>
+                    </div>
+                    <div class="imChatSplit">
+                    	<a id="imFaceSelect" href="javascript:;"></a>
+                        <div id="imFace">
+                    		<span class="imSplitSmallIcon"></span>
+                            <div class="imFaceTitle">普通表情<i><img height="9px" width="9px" src="misc/img/system/icon-canncel.png" id="imCloseFace"></i></div>
+                        	<ul></ul>
+                        </div>
+                        <a href="javascript:;" class="imChatRecord">聊天记录</a>
+                    </div>
+                    <div class="imChatInput">
+                    	<textarea id="imInputMsg"></textarea>
+                    </div>
+                    <div class="imChatInfo">
+                        <span>您还可以输入：<em id="imWordCount">200</em> 字</span>
+                        <div class="imSend">
+                        	<a class="imSendBtn" href="javascript:;">发送</a>
+                            <div class="imChoose">
+                            	<a class="imChooseBtn" id="imChooseBtn" href="javascript:;">选择</a>
+                                <ul class="imChooseEnter">
+                                    <li><span class="selected"></span><a href="javascript:;">按Enter键发送</a></li>
+                                    <li><span></span><a href="javascript:;">按Ctrl+Enter键发送</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="imListBody">
+                <a class="imListUp" href="javascript:;"></a>
+                <div class="imListLeftBar">
+                    <ul>
+                    </ul>
+                </div>
+                <a class="imListDown" href="javascript:;"></a>
+                </div>
+            </div>
+        </div>
+		<div class="imHistory" style="">
+			<div class="imListHead">
+				<a class="imListClose imListIcon" href="javascript:void(0);"></a><h3>聊天记录</h3>
+			</div>
+			<div class="imHistoryContent">
+			正在加载中。。。
+			</div>
+			<div class="imChatInfo">
+				<div class="pager">
+					<a href="javascript:void(0);">首页</a>
+					<a href="javascript:void(0);">上一页</a>
+					<span>第<input type="text" value="" class="txt_curIndex" name="txt_curIndex"/>页/<i>3</i>页</span>
+					<a href="javascript:void(0);">下一页</a>
+					<a href="javascript:void(0);">末页</a>
+				</div>
+			</div>
+		</div>
+        <div class="friendTree">
+            <div id="TreeTitle" class="TreeTitle">
+                <a href="javascript:void(0);" class="imTitle">
+				  <span class="im_bar">
+                    <span class="friend"></span>
+					 聊天<span class="count"><strong>0</strong></span>
+				  </span>
+                </a>
+            </div>
+            <div class="imFriendList">
+                <div class="imListHead">
+                	<a class="imListMini imListIcon" href="javascript:void(0);"></a><a class="imListSet imListIcon" href="javascript:void(0);"></a><h3>实时聊天</h3>
+                </div>
+                <div class="imListBody">
+                    <div class="imFriendGroup">
+
+								<div class="imGroup">
+									<h4 class="extend" groupId="2">最近联系人<span class="count">[<em>0</em>]</span></h4>
+									<ul style="display: none;" class="imGroup" groupId="2">
+									</ul>
+								</div>
+								<div class="imGroup">
+									<h4 class="extend" groupId="1">相互关注<span class="count">[<em>0</em>]</span></h4>
+									<ul style="display: none;" class="imGroup" groupId="1">
+									</ul>
+								</div>
+								<div class="imGroup">
+									<h4 class="extend" groupId="0">好友<span class="count">[<em>0</em>]</span></h4>
+									<ul style="display: none;" class="imGroup" groupId="0">
+									</ul>
+								</div>
+
+                    </div>
+                    <div class="imSearchInfo" name="imSearchInfo">
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+				<div class="imListFoot">
+					<span class="imSearchIcon"></span><input type="text" name="txt_imSearch" class="imSearch" value="搜索好友" tip="搜索好友"/><i class="imListClose imListIcon imhide"></i>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--{/block}-->
+<!--{block name='footer_js'}-->
+<script type="text/javascript"  src="<!--{$smarty.const.MISC_ROOT}-->js/plug/jQuery-cookie/jquery.cookie.js?v=<!--{$js_css_v}-->"></script>
+<script src="<!--{$smarty.const.MISC_ROOT}-->js/im/im.js?v=<!--{$js_css_v}-->"  type="text/javascript"></script>
+<!-- end:imChat-->
+<!--{/block}-->

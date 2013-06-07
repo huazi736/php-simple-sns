@@ -1,0 +1,14 @@
+<!--{foreach from = $invites item = item}-->
+<li class="group_info_li clearfix">
+	<div class="group_info_li_left">
+		<a href="<!--{$item.from.href}-->" class="head"><img src="<!--{$item.from.avatar}-->" /></a>
+		<div class="group_info_intro">
+			<p class="intro"><a href="<!--{$item.from.href}-->"><!--{$item.from.name}--></a> 邀请你加入群 <a ><!--{$item.group.name}--></a></p>
+			<p class="time"><!--{friendlyDate($item.invite_time)}--></p>
+		</div>
+	</div>
+	<div class="group_info_li_right" gid="<!--{$item.gid}-->" id="<!--{$item.id}-->">
+		<span class="btnBlue"><a  href="javascript:void(0);" class="accept">接受</a></span><span class="btnGray"><a href="javascript:void(0);" class="refuse">拒绝</a></span>
+	</div>
+</li>
+<!--{/foreach}-->

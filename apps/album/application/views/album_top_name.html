@@ -1,0 +1,8 @@
+<span class="userImg"><a href="<!--{$author_url}-->"><img src="<!--{get_avatar($action_uid)}-->" alt="" /></a></span>
+<div class="userName">
+	<span class="nameTxt"><a href="<!--{$author_url}-->"><!--{$action_userinfo['username']}--></a></span>
+	<span class="modlueName nameTxt"><i></i><span class="fl"><a href='<!--{$album_baseurl}-->'>照片</a></span><s></s></span>
+	<input type="hidden" id= 'upload_url' value = "<!--{$upload_url}-->" />
+	<input type="hidden" id= 'upload_key' value = "<!--{sysAuthCode($upload_key)}-->" />
+	<input type="hidden" id="flashuploaduid" value="<!--{sysAuthCode($uid)}-->" />
+</div>

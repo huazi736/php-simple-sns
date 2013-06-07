@@ -1,0 +1,148 @@
+
+<div id="contentArea" class="contentArea">
+<ul id="followList" class="followList">
+
+
+</ul>
+</div>
+<div id="rightCol"  class="rightCol">
+	<div class="panl" id="followContain">
+		<div class="top"><div class="title">关注列表</div><div class="more"><a href="<!--{mk_url('main/following/followingList')}-->">显示全部</a></div></div>
+		<div class="box one">
+			<!--{if $following}-->
+			<!--{foreach $following as $v}-->
+			<!-- 
+			<a class="user_face_one" href="<!--{mk_url('main/index/profile', ['dkcode'=>$v['dkcode']])}-->">
+				<img width="32" height="32" src="<!--{$v['avatar']}-->" alt="<!--{$v['name']}-->" title="<!--{$v['name']}-->" />
+			</a> -->
+			<!--{/foreach}-->
+			<!--{/if}-->
+		</div>
+	</div>
+</div>
+
+<script id="temp_follow" type="text/template">
+
+	{@each data as item,index}
+		
+		<li class="box" type="${item.type}">
+			<a class="user_face">
+				<img width="50" height="50" src="${item.headpic}" alt="加载失败" />
+			</a>
+			<div class="wrap">
+			
+				{@if item.type == "info"}
+					<div class="content">
+						<div class="info head"><strong><a title="${item.uname}" href="${www}${item.dkcode}">${item.uname}</a></strong></div>
+						<div class="info">$${item.content}</div>
+					
+						<div class="commentBox pd" time="${item.friendly_time}" action_uid="${item.uid}" ctime="${item.ctime}" pagetype="topic" msgname="${item.title}" commentobjid="${item.tid}" complete="true"></div>
+					</div>
+				{@/if}
+
+				{@if item.type=="video"}
+					<div class="content">
+						<div class="info head"><strong><a title="${item.uname}" href="${www}${item.dkcode}">${item.uname}</a></strong></div>
+						<div class="info">$${item.content}</div>
+						<div class="mediaContent info center">
+							<div class="media_prev" fid="${item.fid}">
+								<img width="403" height="300" alt="" src="${host}${item.imgurl}">
+								<a href="javascript:void(0);" class="showFlash">
+									<img style="top:125px;left:184px;" src="http://static.duankou.dev/misc/img/system/feedvideoplay.gif" alt="">
+								</a>
+							</div>
+							<div class="media_disp hide">
+								<div id="${item.fid}"></div>
+							</div>
+						</div>
+
+					
+						<div class="commentBox pd" time="${item.friendly_time}" action_uid="${item.uid}" ctime="${item.ctime}" pagetype="topic" msgname="${item.title}" commentobjid="${item.fid}" complete="true"></div>
+					</div>
+				{@/if}
+
+				{@if item.type=="ask"}
+					<div class="content">
+						<div class="info head"><strong><a title="${item.uname}" href="${www}${item.dkcode}">${item.uname}</a></strong></div>
+						<div class="info center showAsk" data="${index}">
+						</div>
+						
+						<div class="commentBox pd" time="${item.friendly_time}" action_uid="${item.uid}" ctime="${item.ctime}" pagetype="topic" msgname="${item.title}" commentobjid="${item.fid}" complete="true"></div>
+					</div>
+				{@/if}
+
+				{@if item.type=="blog"}
+				<div class="content">
+					<div class="info head"><strong><a title="${item.uname}" href="${www}${item.dkcode}">${item.uname}</a></strong></div>
+					<div class="info">$${item.content}</div>
+				
+					<div class="commentBox pd" time="${item.friendly_time}" action_uid="${item.uid}" ctime="${item.ctime}" pagetype="topic" msgname="${item.title}" commentobjid="${item.fid}" complete="true"></div>
+				</div>
+				{@/if}
+
+				{@if item.type=="album"}
+					<div class="content">
+						<div class="info head"><strong><a title="${item.uname}" href="${www}${item.dkcode}">${item.uname}</a></strong></div>
+						<div class="info">
+							<div>$${item.content}</div>
+
+							<div>
+								<ul>
+									{@if item.picurl.length!=0}
+										{@each item.picurl as pic}
+											<li><a class="photoLink" href="javascript:void(0);" action_dkcode="${item.dkcode}" pid="${pic.pid}" ><img src="${host}${pic.groupname}/${pic.filename}.${pic.type}" /></a></li>
+										{@/each}
+									{@/if}
+								</ul>
+							</div>
+						</div>
+					
+						<div class="commentBox pd" time="${item.friendly_time}" action_uid="${item.uid}" ctime="${item.ctime}" pagetype="topic" msgname="${item.title}" commentobjid="${item.fid}" complete="true"></div>
+					</div>
+				{@/if}
+				{@if item.type=="social"}
+					<div class="content">
+						<div class="info head"><strong><a title="${item.uname}" href="http://www.duankou.dev/100127">${item.uname}</a></strong></div>
+						<div class="info">
+							<div>$${item.content}</div>
+						</div>
+					
+						<div class="commentBox pd" time="${item.friendly_time}" action_uid="${item.uid}" ctime="${item.ctime}" pagetype="topic" msgname="${item.title}" commentobjid="${item.fid}" complete="true"></div>
+					</div>
+				{@/if}
+				{@if item.type=="event"}
+					<div class="content">
+						<div class="info head"><strong><a title="${item.uname}" href="http://www.duankou.dev/100127">${item.uname}</a></strong></div>
+						<div class="info">
+							<div>$${item.content}</div>
+
+						</div>
+					
+						<div class="commentBox pd" time="${item.friendly_time}" action_uid="${item.uid}" ctime="${item.ctime}" pagetype="topic" msgname="${item.title}" commentobjid="${item.fid}" complete="true"></div>
+					</div>
+				{@/if}
+				{@if item.type=="sharevideo"}
+					<div class="content">
+						<div class="info head"><strong><a title="${item.uname}" href="http://www.duankou.dev/100127">${item.uname}</a></strong></div>
+						<div class="info">
+							<div>$${item.content}</div>
+
+						</div>
+					
+						<div class="commentBox pd" time="${item.friendly_time}" action_uid="${item.uid}" ctime="${item.ctime}" pagetype="topic" msgname="${item.title}" commentobjid="${item.fid}" complete="true"></div>
+					</div>
+				{@/if}
+				{@if item.type=="join"}
+					<div class="content">
+						<div class="info head"><strong><a title="${item.uname}" href="http://www.duankou.dev/100127">${item.uname}</a></strong></div>
+						<div class="info">
+							<div>$${item.content}  type join</div>
+
+						</div>
+					
+					</div>
+				{@/if}
+			</div>
+		</li>
+	{@/each}
+</script>
